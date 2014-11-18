@@ -1,0 +1,2 @@
+PODS_ZENDRIVESDKDEMO_ZENDRIVESDK_FRAMEWORK_SEARCH_PATHS = "$(PODS_ROOT)/ZendriveSDK"
+PODS_ZENDRIVESDKDEMO_ZENDRIVESDK_OTHER_LDFLAGS = -l"sqlite3" -l"z.1.1.3" -framework "CoreLocation" -framework "CoreMotion" -framework "SystemConfiguration" -framework "ZendriveSDK"

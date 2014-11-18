@@ -1,0 +1,439 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		56720C9019EC13FD004103F2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 56720C7819EC13FD004103F2 /* AppDelegate.m */; };
+		56720C9119EC13FD004103F2 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56720C7919EC13FD004103F2 /* LaunchScreen.xib */; };
+		56720C9319EC13FD004103F2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56720C7D19EC13FD004103F2 /* Images.xcassets */; };
+		56720C9519EC13FD004103F2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 56720C7F19EC13FD004103F2 /* main.m */; };
+		56720C9619EC13FD004103F2 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56720C8119EC13FD004103F2 /* ViewController.m */; };
+		56720C9719EC13FD004103F2 /* AWSiOSSDKv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56720C8319EC13FD004103F2 /* AWSiOSSDKv2.framework */; };
+		56720C9819EC13FD004103F2 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56720C8419EC13FD004103F2 /* Bolts.framework */; };
+		56720C9919EC13FD004103F2 /* GZIP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56720C8519EC13FD004103F2 /* GZIP.framework */; };
+		56720C9A19EC13FD004103F2 /* Mantle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56720C8619EC13FD004103F2 /* Mantle.framework */; };
+		56720C9B19EC13FD004103F2 /* Reachability.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56720C8719EC13FD004103F2 /* Reachability.framework */; };
+		56720C9C19EC13FD004103F2 /* TMCache.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56720C8819EC13FD004103F2 /* TMCache.framework */; };
+		56720C9D19EC13FD004103F2 /* UICKeyChainStore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56720C8919EC13FD004103F2 /* UICKeyChainStore.framework */; };
+		56720C9E19EC13FD004103F2 /* XMLDictionary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56720C8A19EC13FD004103F2 /* XMLDictionary.framework */; };
+		56720C9F19EC13FD004103F2 /* ZendriveSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56720C8B19EC13FD004103F2 /* ZendriveSDK.framework */; };
+		56720CA119EC13FD004103F2 /* s3-2006-03-01.json in Resources */ = {isa = PBXBuildFile; fileRef = 56720C8E19EC13FD004103F2 /* s3-2006-03-01.json */; };
+		56720CA219EC13FD004103F2 /* sqs-2012-11-05.json in Resources */ = {isa = PBXBuildFile; fileRef = 56720C8F19EC13FD004103F2 /* sqs-2012-11-05.json */; };
+		56720CA419EC140C004103F2 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 56720CA319EC140C004103F2 /* Default-568h@2x.png */; };
+		56720CA819EC154C004103F2 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56720CA719EC154C004103F2 /* CoreLocation.framework */; };
+		56720CAA19EC1552004103F2 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56720CA919EC1552004103F2 /* CoreMotion.framework */; };
+		56720CAC19EC1558004103F2 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56720CAB19EC1558004103F2 /* SystemConfiguration.framework */; };
+		56720CAE19EC155D004103F2 /* libz.1.1.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 56720CAD19EC155D004103F2 /* libz.1.1.3.dylib */; };
+		56720CB019EC1561004103F2 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 56720CAF19EC1561004103F2 /* libsqlite3.0.dylib */; };
+		56BEF3BC1A00C8A100632B91 /* FMDB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 568056E319F54C900078371A /* FMDB.framework */; };
+		A06100FB67C1CEC2D23D5AFC /* libPods-ZendriveSDKDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FAC32D97E41757C0A8EDD382 /* libPods-ZendriveSDKDemo.a */; };
+		C94A88941A19FD2900500479 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C94A88931A19FD2900500479 /* ViewController.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		5657021819EBFAA9005EEA77 /* ZendriveSDKDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZendriveSDKDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		56720C7719EC13FD004103F2 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		56720C7819EC13FD004103F2 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		56720C7A19EC13FD004103F2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		56720C7D19EC13FD004103F2 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		56720C7F19EC13FD004103F2 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		56720C8019EC13FD004103F2 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		56720C8119EC13FD004103F2 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		56720C8319EC13FD004103F2 /* AWSiOSSDKv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AWSiOSSDKv2.framework; sourceTree = "<group>"; };
+		56720C8419EC13FD004103F2 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
+		56720C8519EC13FD004103F2 /* GZIP.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GZIP.framework; sourceTree = "<group>"; };
+		56720C8619EC13FD004103F2 /* Mantle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Mantle.framework; sourceTree = "<group>"; };
+		56720C8719EC13FD004103F2 /* Reachability.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Reachability.framework; sourceTree = "<group>"; };
+		56720C8819EC13FD004103F2 /* TMCache.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TMCache.framework; sourceTree = "<group>"; };
+		56720C8919EC13FD004103F2 /* UICKeyChainStore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = UICKeyChainStore.framework; sourceTree = "<group>"; };
+		56720C8A19EC13FD004103F2 /* XMLDictionary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = XMLDictionary.framework; sourceTree = "<group>"; };
+		56720C8B19EC13FD004103F2 /* ZendriveSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ZendriveSDK.framework; sourceTree = "<group>"; };
+		56720C8D19EC13FD004103F2 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		56720C8E19EC13FD004103F2 /* s3-2006-03-01.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "s3-2006-03-01.json"; sourceTree = "<group>"; };
+		56720C8F19EC13FD004103F2 /* sqs-2012-11-05.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "sqs-2012-11-05.json"; sourceTree = "<group>"; };
+		56720CA319EC140C004103F2 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		56720CA719EC154C004103F2 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		56720CA919EC1552004103F2 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		56720CAB19EC1558004103F2 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		56720CAD19EC155D004103F2 /* libz.1.1.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.1.3.dylib; path = usr/lib/libz.1.1.3.dylib; sourceTree = SDKROOT; };
+		56720CAF19EC1561004103F2 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
+		568056E319F54C900078371A /* FMDB.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FMDB.framework; sourceTree = "<group>"; };
+		94841418598CDA74389CDFC2 /* Pods-ZendriveSDKDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZendriveSDKDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-ZendriveSDKDemo/Pods-ZendriveSDKDemo.release.xcconfig"; sourceTree = "<group>"; };
+		A9A2CC5A7F039F15185AA8A8 /* Pods-ZendriveSDKDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZendriveSDKDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ZendriveSDKDemo/Pods-ZendriveSDKDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		C94A88931A19FD2900500479 /* ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
+		FAC32D97E41757C0A8EDD382 /* libPods-ZendriveSDKDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ZendriveSDKDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5657021519EBFAA9005EEA77 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				56BEF3BC1A00C8A100632B91 /* FMDB.framework in Frameworks */,
+				56720C9F19EC13FD004103F2 /* ZendriveSDK.framework in Frameworks */,
+				56720CB019EC1561004103F2 /* libsqlite3.0.dylib in Frameworks */,
+				56720CAE19EC155D004103F2 /* libz.1.1.3.dylib in Frameworks */,
+				56720CAC19EC1558004103F2 /* SystemConfiguration.framework in Frameworks */,
+				56720CAA19EC1552004103F2 /* CoreMotion.framework in Frameworks */,
+				56720CA819EC154C004103F2 /* CoreLocation.framework in Frameworks */,
+				56720C9719EC13FD004103F2 /* AWSiOSSDKv2.framework in Frameworks */,
+				56720C9A19EC13FD004103F2 /* Mantle.framework in Frameworks */,
+				56720C9E19EC13FD004103F2 /* XMLDictionary.framework in Frameworks */,
+				56720C9C19EC13FD004103F2 /* TMCache.framework in Frameworks */,
+				56720C9D19EC13FD004103F2 /* UICKeyChainStore.framework in Frameworks */,
+				56720C9B19EC13FD004103F2 /* Reachability.framework in Frameworks */,
+				56720C9919EC13FD004103F2 /* GZIP.framework in Frameworks */,
+				56720C9819EC13FD004103F2 /* Bolts.framework in Frameworks */,
+				A06100FB67C1CEC2D23D5AFC /* libPods-ZendriveSDKDemo.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5657020F19EBFAA9005EEA77 = {
+			isa = PBXGroup;
+			children = (
+				56720CA319EC140C004103F2 /* Default-568h@2x.png */,
+				56720C7619EC13FD004103F2 /* Classes */,
+				56720C8219EC13FD004103F2 /* Frameworks */,
+				56720C8C19EC13FD004103F2 /* Resources */,
+				5657021919EBFAA9005EEA77 /* Products */,
+				6FEA0A3553468E797337F108 /* Pods */,
+			);
+			sourceTree = "<group>";
+		};
+		5657021919EBFAA9005EEA77 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5657021819EBFAA9005EEA77 /* ZendriveSDKDemo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		56720C7619EC13FD004103F2 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				56720C7719EC13FD004103F2 /* AppDelegate.h */,
+				56720C7819EC13FD004103F2 /* AppDelegate.m */,
+				56720C7919EC13FD004103F2 /* LaunchScreen.xib */,
+				56720C7D19EC13FD004103F2 /* Images.xcassets */,
+				56720C7F19EC13FD004103F2 /* main.m */,
+				56720C8019EC13FD004103F2 /* ViewController.h */,
+				56720C8119EC13FD004103F2 /* ViewController.m */,
+				C94A88931A19FD2900500479 /* ViewController.xib */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		56720C8219EC13FD004103F2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				568056E319F54C900078371A /* FMDB.framework */,
+				56720CAF19EC1561004103F2 /* libsqlite3.0.dylib */,
+				56720CAD19EC155D004103F2 /* libz.1.1.3.dylib */,
+				56720CAB19EC1558004103F2 /* SystemConfiguration.framework */,
+				56720CA919EC1552004103F2 /* CoreMotion.framework */,
+				56720CA719EC154C004103F2 /* CoreLocation.framework */,
+				56720C8319EC13FD004103F2 /* AWSiOSSDKv2.framework */,
+				56720C8419EC13FD004103F2 /* Bolts.framework */,
+				56720C8519EC13FD004103F2 /* GZIP.framework */,
+				56720C8619EC13FD004103F2 /* Mantle.framework */,
+				56720C8719EC13FD004103F2 /* Reachability.framework */,
+				56720C8819EC13FD004103F2 /* TMCache.framework */,
+				56720C8919EC13FD004103F2 /* UICKeyChainStore.framework */,
+				56720C8A19EC13FD004103F2 /* XMLDictionary.framework */,
+				56720C8B19EC13FD004103F2 /* ZendriveSDK.framework */,
+				FAC32D97E41757C0A8EDD382 /* libPods-ZendriveSDKDemo.a */,
+			);
+			path = Frameworks;
+			sourceTree = "<group>";
+		};
+		56720C8C19EC13FD004103F2 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				56720C8D19EC13FD004103F2 /* Info.plist */,
+				56720C8E19EC13FD004103F2 /* s3-2006-03-01.json */,
+				56720C8F19EC13FD004103F2 /* sqs-2012-11-05.json */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		6FEA0A3553468E797337F108 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A9A2CC5A7F039F15185AA8A8 /* Pods-ZendriveSDKDemo.debug.xcconfig */,
+				94841418598CDA74389CDFC2 /* Pods-ZendriveSDKDemo.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5657021719EBFAA9005EEA77 /* ZendriveSDKDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5657023B19EBFAA9005EEA77 /* Build configuration list for PBXNativeTarget "ZendriveSDKDemo" */;
+			buildPhases = (
+				6BF1D6ABCC5F3E90865EFEEF /* Check Pods Manifest.lock */,
+				5657021419EBFAA9005EEA77 /* Sources */,
+				5657021519EBFAA9005EEA77 /* Frameworks */,
+				5657021619EBFAA9005EEA77 /* Resources */,
+				0C9337765ADD9F96D3FA42D8 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ZendriveSDKDemo;
+			productName = ZendriveSDKDemo;
+			productReference = 5657021819EBFAA9005EEA77 /* ZendriveSDKDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5657021019EBFAA9005EEA77 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0600;
+				ORGANIZATIONNAME = Zendrive;
+				TargetAttributes = {
+					5657021719EBFAA9005EEA77 = {
+						CreatedOnToolsVersion = 6.0;
+					};
+				};
+			};
+			buildConfigurationList = 5657021319EBFAA9005EEA77 /* Build configuration list for PBXProject "ZendriveSDKDemo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 5657020F19EBFAA9005EEA77;
+			productRefGroup = 5657021919EBFAA9005EEA77 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5657021719EBFAA9005EEA77 /* ZendriveSDKDemo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5657021619EBFAA9005EEA77 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				56720C9319EC13FD004103F2 /* Images.xcassets in Resources */,
+				56720C9119EC13FD004103F2 /* LaunchScreen.xib in Resources */,
+				56720CA119EC13FD004103F2 /* s3-2006-03-01.json in Resources */,
+				56720CA419EC140C004103F2 /* Default-568h@2x.png in Resources */,
+				C94A88941A19FD2900500479 /* ViewController.xib in Resources */,
+				56720CA219EC13FD004103F2 /* sqs-2012-11-05.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0C9337765ADD9F96D3FA42D8 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ZendriveSDKDemo/Pods-ZendriveSDKDemo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6BF1D6ABCC5F3E90865EFEEF /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5657021419EBFAA9005EEA77 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				56720C9619EC13FD004103F2 /* ViewController.m in Sources */,
+				56720C9519EC13FD004103F2 /* main.m in Sources */,
+				56720C9019EC13FD004103F2 /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		56720C7919EC13FD004103F2 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				56720C7A19EC13FD004103F2 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		5657023919EBFAA9005EEA77 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		5657023A19EBFAA9005EEA77 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		5657023C19EBFAA9005EEA77 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A9A2CC5A7F039F15185AA8A8 /* Pods-ZendriveSDKDemo.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks",
+				);
+				INFOPLIST_FILE = Resources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		5657023D19EBFAA9005EEA77 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 94841418598CDA74389CDFC2 /* Pods-ZendriveSDKDemo.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks",
+				);
+				INFOPLIST_FILE = Resources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5657021319EBFAA9005EEA77 /* Build configuration list for PBXProject "ZendriveSDKDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5657023919EBFAA9005EEA77 /* Debug */,
+				5657023A19EBFAA9005EEA77 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5657023B19EBFAA9005EEA77 /* Build configuration list for PBXNativeTarget "ZendriveSDKDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5657023C19EBFAA9005EEA77 /* Debug */,
+				5657023D19EBFAA9005EEA77 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 5657021019EBFAA9005EEA77 /* Project object */;
+}

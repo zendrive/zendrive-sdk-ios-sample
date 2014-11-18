@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6245" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment defaultVersion="1792" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ViewController">
+            <connections>
+                <outlet property="driveStatsLabel" destination="K12-FY-TUx" id="o3z-id-3RX"/>
+                <outlet property="driveStatusLabel" destination="sKb-gd-45f" id="Hyt-zl-4iv"/>
+                <outlet property="endDriveButton" destination="fF9-Zf-qfC" id="Zxo-ix-nIH"/>
+                <outlet property="sdkFailedLabel" destination="jno-ga-QfS" id="q65-MT-e4Z"/>
+                <outlet property="startDriveButton" destination="yk9-Vc-mnQ" id="NKA-dk-obA"/>
+                <outlet property="view" destination="iN0-l3-epB" id="7sa-vJ-uWr"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fF9-Zf-qfC">
+                    <rect key="frame" x="193" y="474" width="82" height="35"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                    <state key="normal" title="End Drive">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="endDriveTapped:" destination="-1" eventType="touchUpInside" id="M4E-QT-aoK"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="42" translatesAutoresizingMaskIntoConstraints="NO" id="sKb-gd-45f">
+                    <rect key="frame" x="69" y="61" width="183" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="NzN-ws-jOV"/>
+                        <constraint firstAttribute="width" constant="183" id="v1U-rP-G0G"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="42" translatesAutoresizingMaskIntoConstraints="NO" id="K12-FY-TUx">
+                    <rect key="frame" x="68" y="182" width="183" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="183" id="Dcm-iX-7I9"/>
+                        <constraint firstAttribute="height" constant="30" id="cos-MS-30y"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yk9-Vc-mnQ">
+                    <rect key="frame" x="45" y="474" width="89" height="35"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                    <state key="normal" title="Start Drive">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="startDriveTapped:" destination="-1" eventType="touchUpInside" id="dDQ-qG-2eW"/>
+                    </connections>
+                </button>
+                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SDK failed to initialize" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jno-ga-QfS">
+                    <rect key="frame" x="36" y="90" width="248" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="0Gp-RR-zp7"/>
+                        <constraint firstAttribute="width" constant="248" id="Wex-qk-ltT"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="yk9-Vc-mnQ" secondAttribute="bottom" constant="59" id="0eC-cg-WfE"/>
+                <constraint firstItem="jno-ga-QfS" firstAttribute="top" secondItem="sKb-gd-45f" secondAttribute="bottom" constant="8" id="5Og-jV-k6g"/>
+                <constraint firstAttribute="centerX" secondItem="jno-ga-QfS" secondAttribute="centerX" id="ANi-Yl-Tux"/>
+                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="yk9-Vc-mnQ" secondAttribute="bottom" constant="59" id="GH5-RT-qW7"/>
+                <constraint firstItem="sKb-gd-45f" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="61" id="VGi-47-z5m"/>
+                <constraint firstAttribute="centerX" secondItem="K12-FY-TUx" secondAttribute="centerX" id="WOJ-k4-hHz"/>
+                <constraint firstAttribute="bottom" relation="lessThanOrEqual" secondItem="yk9-Vc-mnQ" secondAttribute="bottom" constant="59" id="XWM-Zy-kgT"/>
+                <constraint firstItem="K12-FY-TUx" firstAttribute="top" secondItem="jno-ga-QfS" secondAttribute="bottom" constant="71" id="aLH-oT-uwq"/>
+                <constraint firstItem="yk9-Vc-mnQ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="45" id="b88-SV-f9G"/>
+                <constraint firstAttribute="centerX" secondItem="sKb-gd-45f" secondAttribute="centerX" id="eDD-yL-8Og"/>
+                <constraint firstAttribute="bottom" relation="lessThanOrEqual" secondItem="yk9-Vc-mnQ" secondAttribute="bottom" constant="59" id="nyj-5y-qoJ"/>
+                <constraint firstAttribute="trailing" secondItem="fF9-Zf-qfC" secondAttribute="trailing" constant="45" id="y8d-2V-nCv"/>
+                <constraint firstAttribute="bottom" secondItem="fF9-Zf-qfC" secondAttribute="bottom" constant="59" id="zAd-QP-KZS"/>
+            </constraints>
+            <point key="canvasLocation" x="536" y="407"/>
+        </view>
+    </objects>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>
