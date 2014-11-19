@@ -85,14 +85,13 @@ static NSString * kZendriveKeyString = @"<your-key-string>";
         configuration.driverId = @"your-driver-id";
         configuration.operationMode = ZendriveOperationModeDriverAnalytics;
 
-            [Zendrive setupWithConfiguration:configuration
-                                    delegate:self error:&error];
-            if(error) {
-                NSLog(@"%@", error);
-                failureBlock(error);
-            } else {
-                successBlock();
-            }
+        BOOL success = [Zendrive setupWithConfiguration:configuration
+                                               delegate:self error:&error];
+        if(success) {
+            successBlock();
+        } else {
+            failureBlock(error);
+        }
     });
 }
 
