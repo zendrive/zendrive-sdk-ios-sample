@@ -24,15 +24,24 @@
  * data. Client code should call this method before anything else in the Zendrive API.
  *
  * The enclosing applications are advised to call this method in a background task since
- * this method authenticates @param applicationKeyString with the server synchronously
+ * this method authenticates @param zendriveConfiguration with the server synchronously
  * before returning status.
  *
- * Calling this method multiple times with the same 'applicationKeyString',
- * 'userId' pair is a no-op. Changing either will be the same as calling
+ * Calling this method multiple times with the same values for
+ * ZendriveConfiguration.sdkApplicationKey and ZendriveConfiguration.driverId pair
+ * is a no-op. Changing either will be the same as calling
  * @method teardown followed by calling setup with the new parameters.
+ * Please note that even if other configuration parameters like
+ * ZendriveConfiguration.driverAttributes or
+ * ZendriveConfiguration.operationMode are changed, but the driverId and
+ * sdkApplicationKey remain the same, calling this method would still be a no-op. If you
+ * want to change these configuration parameters, invoke @method teardown:
+ * explicitly and call this method again with the new configuration.
  *
- * Requires network connection for every time the setup is called with different
- * applicationKeyString, userId to validate the applicationKey from the server.
+ * This method requires network connection for every time the setup is called with a
+ * different value for
+ * ZendriveConfiguration.sdkApplicationKey, ZendriveConfiguration.driverId pair
+ * to validate the sdkApplicationKey from the server.
  * Setup fails and returns NO if network is not available in such cases.
  *
  * This method returns NO whenever setup fails and sets up @param error with the
