@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "07F08F3873A40705D4DD7091"
+               BlueprintIdentifier = "051A7569C5DC28189DCDAD8C"
                BuildableName = "libPods-ZendriveSDKDemo.a"
                BlueprintName = "Pods-ZendriveSDKDemo"
                ReferencedContainer = "container:Pods.xcodeproj">

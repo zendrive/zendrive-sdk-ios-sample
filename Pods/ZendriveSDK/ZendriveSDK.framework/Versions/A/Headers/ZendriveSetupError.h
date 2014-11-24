@@ -49,7 +49,12 @@ enum {
     /**
      * Invalid operation mode sent to setup
      */
-    kZendriveSetupErrorOperationModeInvalid
+    kZendriveSetupErrorOperationModeInvalid,
+
+    /**
+     * Cannot verify the API key.
+     */
+    kZendriveSetupErrorCannotVerifyAPIKey
 };
 
 #endif

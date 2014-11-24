@@ -27,7 +27,7 @@ typedef NS_ENUM(int, ZendriveOperationMode) {
      * Note that this mode has a slightly higher power consumption than the ones
      * below.
      */
-     ZendriveOperationModeDriverAnalytics,
+    ZendriveOperationModeDriverAnalytics,
 
     /**
      * This operation mode should be used by applications which only require
@@ -47,22 +47,24 @@ typedef NS_ENUM(int, ZendriveOperationMode) {
 @interface ZendriveConfiguration : NSObject
 
 /**
- * Pass in the Zendrive provided applicationKeyString for your app. If you don't
- * have one, please contact Zendrive.
+ * @abstract Your application key.
+ *
+ * @discussion Pass in the application key for your app. If you don't
+ * have one, please create one at http://developer.zendrive.com/developer-portal/signup
  *
  * This field is REQUIRED and should be a valid string.
  * Check [Zendrive isValidInputParameter:] to validate this field. Nil strings are not
  * allowed.
  * Passing invalid string would cause SDK setup to fail.
  */
-@property (nonatomic) NSString *sdkApplicationKey;
+@property (nonatomic) NSString *applicationKey;
 
 /**
- * Unique ID for the current user. This can be any ID used by your app to identify
- * its users. This is the ID which will be used in Zendrive reports.
- * Use @method [Zendrive isValidInputParameter:] to verify that userId is valid.
+ * @abstract Unique ID for the current user. This can be any ID used by your app to
+ * identify its users. This is the ID which will be used in Zendrive reports.
+ * Use [Zendrive isValidInputParameter:] to verify that userId is valid.
  *
- * This field is REQUIRED and should be a valid string.
+ * @discussion This field is REQUIRED and should be a valid string.
  * Check [Zendrive isValidInputParameter:] to validate this field. Nil strings are not
  * allowed.
  * Passing invalid string would cause SDK setup to fail.
@@ -70,21 +72,23 @@ typedef NS_ENUM(int, ZendriveOperationMode) {
 @property (nonatomic) NSString *driverId;
 
 /**
- * Attributes for the current user. These attributes are stored on the server
+ * @abstract Attributes for the current user. These attributes are stored on the server
  * and are provided in Zendrive's APIs. Any existing attributes would be overwritten
- * on the server when a value for this param is passed. Passing nil is a no-op.
- * Use this param to provide meta-information about the user like name, email, groupId
- * or any custom attributes you wish to provide.
+ * on the server when a non-nil value for this param is passed. Passing nil is a no-op.
+ *
+ * @discussion Use this param to provide meta-information about the user like name,
+ * email, groupId or any custom attributes you wish to provide.
  * Default value is nil.
  */
 @property (nonatomic) ZendriveDriverAttributes *driverAttributes;
 
 /**
- * You should assign a value to this property that is appropriate for your usage
+ * @abstract You should assign a value to this property that is appropriate for your usage
  * scenario. For example, if you need only drive start/end detection with coarse
  * distance and waypoints, use ZendriveOperationModeDriveTracking.
- * Refer to ZendriveOperationMode documentation for choosing a mode which suits your
- * application requirements.
+ *
+ * @discussion Refer to ZendriveOperationMode documentation for choosing a mode which
+ * suits your application requirements.
  * Once setup, all drives detected by the SDK would be in the specified operationMode. If
  * you wish to change the operation mode at any point, you need to call
  * @method [Zendrive teardown] and setup the SDK again.

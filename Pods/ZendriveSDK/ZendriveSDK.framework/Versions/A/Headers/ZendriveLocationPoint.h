@@ -8,24 +8,22 @@
 
 #import <Foundation/Foundation.h>
 /**
- * ZendriveLocationPoint
- *
  * Represents a geographical coordinate along with accuracy and timestamp information.
  */
 @interface ZendriveLocationPoint : NSObject
 
 /**
- * Latitude in degrees
+ * @abstract Latitude in degrees
  */
 @property (nonatomic, readonly) double latitude;
 
 /**
- * Longitude in degrees
+ * @abstract Longitude in degrees
  */
 @property (nonatomic, readonly) double longitude;
 
 /**
- *  Init
+ *  @abstract Init
  *
  *  @param latitude  Latitude in degrees
  *  @param longitude Longitude in degrees

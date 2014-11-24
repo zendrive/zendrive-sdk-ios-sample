@@ -15,14 +15,15 @@
 @interface ZendriveDriveStartInfo : NSObject
 
 /**
- * The start timestamp of trip in milliseconds since epoch
+ * @abstract The start timestamp of trip in milliseconds since epoch
  */
 @property (nonatomic) long long startTimestamp;
 
 /**
- * The start location of the drive.
- * If the drive is automatically detected by Zendrive SDK, then this location is
- * approximate and close to the start location but not exactly the start location.
+ * @abstract The start location of the drive.
+ *
+ * @discussion If the drive is automatically detected by Zendrive SDK, then this location
+ * is approximate and close to the start location but not exactly the start location.
  */
 @property (nonatomic) ZendriveLocationPoint *startLocation;
 

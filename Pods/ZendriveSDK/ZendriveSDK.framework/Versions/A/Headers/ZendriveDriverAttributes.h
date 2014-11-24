@@ -32,42 +32,43 @@ extern NSString * const kDriverAttributesKeyGroup;
  * Additional attributes of a Zendrive driver.
  *
  * The application can specify both predefined and custom attributes for a driver.
- * These attributes are associated with a SDK userId at SDK initialization time.
+ * These attributes are associated with a SDK driverId at SDK initialization time.
  * In addition to predefined special attributes, up to 4 custom key value attributes
- * can be associated with a user of the Zendrive SDK.
+ * can be associated with a driver using the Zendrive SDK.
  *
- * All attribute keys and values can be atmost 64 characters in length.
+ * @warning All attribute keys and values can be atmost 64 characters in length.
  */
 @interface ZendriveDriverAttributes : NSObject
 
 /**
- *  First name of the user.
+ *  @abstract First name of the user.
  *
  *  @param firstName First name. Max length is 64 characters.
  */
 - (void)setFirstName:(NSString *)firstName;
 
 /**
- *  Last name of the user.
+ *  @abstract Last name of the user.
  *
  *  @param lastName Last name. Max length is 64 characters.
  */
 - (void)setLastName:(NSString *)lastName;
 
 /**
- *  Email of the user.
+ *  @abstract Email of the user.
  *
  *  @param email Email Id. Max length is 64 characters.
  */
 - (void)setEmail:(NSString *)email;
 
 /**
- * A unique id that associates the current user to a group. This groupId will be made
- * available as a query parameter to filter users in the reports and API that Zendrive
- * provides.
- * For example, 'EastCoast' and 'WestCoast' can be groupIds to distinguish users from
- * these regions. Another example would be using city names as groupIds. Check
- * @see [Zendrive isValidInputParameter:] method to validate group id. Setting an invalid
+ * @abstract A unique id that associates the current user to a group. This groupId will
+ * be made available as a query parameter to filter users in the reports and API that
+ * Zendrive provides.
+ *
+ * @discussion For example, 'EastCoast' and 'WestCoast' can be groupIds to distinguish
+ * users from these regions. Another example would be using city names as groupIds. Check
+ * [Zendrive isValidInputParameter:] method to validate group id. Setting an invalid
  * groupId is a no-op and would log an error.
  *
  * @param groupId A string representing the group of a user. Max length is 64 characters.
@@ -76,8 +77,9 @@ extern NSString * const kDriverAttributesKeyGroup;
 - (void)setGroup:(NSString *)groupId;
 
 /**
- * Set the custom attribute of the user.
- * Up to 4 custom attributes can be set for a user.
+ * @abstract Set the custom attribute of the user.
+ *
+ * @discussion Up to 4 custom attributes can be set for a user.
  * A new value for an existing key would be overwritten only if the value length
  * is within 64 characters, otherwise the original value would be retained.
  *
@@ -88,15 +90,17 @@ extern NSString * const kDriverAttributesKeyGroup;
 - (void)setCustomAttribute:(NSString *)value forKey:(NSString *)key;
 
 /**
- *  Returns the attributes as a json string.
+ * @abstract Returns the attributes as a json string.
  *
- *  @return Driver attributes as a json string. nil if json serialization
- *          fails.
+ * @return Driver attributes as a json string. nil if json serialization
+ *         fails.
  */
 - (NSString *)asJson;
 
 /**
- *  @return Attributes as a dictionary
+ * @abstract Returns the driver attributes as a dictionary.
+ *
+ * @return Driver attributes as a dictionary.
  */
 - (NSDictionary *)asDictionary;
 

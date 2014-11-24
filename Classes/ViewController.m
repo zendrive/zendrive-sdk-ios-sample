@@ -9,7 +9,7 @@
 #import "ViewController.h"
 #import <ZendriveSDK/Zendrive.h>
 
-static NSString * kZendriveKeyString = @"<your-key-string>";
+static NSString * kZendriveApplicationKey = @"<your-application-key>";
 
 @interface ViewController () <ZendriveDelegateProtocol>
 
@@ -81,7 +81,7 @@ static NSString * kZendriveKeyString = @"<your-key-string>";
     __block NSError *error;
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         ZendriveConfiguration *configuration = [[ZendriveConfiguration alloc] init];
-        configuration.sdkApplicationKey = kZendriveKeyString;
+        configuration.applicationKey = kZendriveApplicationKey;
         configuration.driverId = @"your-driver-id";
         configuration.operationMode = ZendriveOperationModeDriverAnalytics;
 
