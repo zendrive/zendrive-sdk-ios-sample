@@ -54,7 +54,12 @@ enum {
     /**
      * Cannot verify the API key.
      */
-    kZendriveSetupErrorCannotVerifyAPIKey
+    kZendriveSetupErrorCannotVerifyAPIKey,
+
+    /**
+     * Zendrive SDK does not support the OS version of the device
+     */
+    kZendriveSetupErrorUnsupportedOSVersion
 };
 
 #endif
