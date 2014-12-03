@@ -12,6 +12,10 @@ You can integrate <a href="http://developers.zendrive.com/docs/ios/">Zendrive iO
 <li> Uploads the data back to Zendrive servers for analysis. </li>
 </ul>
 
+<p class="center">
+<img src="http://developers.zendrive.com/static/img/dev_intro_1.png" /> 
+
+
 <h4>How to run the sample app</h4>
 <ul style="list-style-position: inside">
 <li> Sign up <a href="http://developers.zendrive.com/signup">here.</a></li>
@@ -19,9 +23,6 @@ You can integrate <a href="http://developers.zendrive.com/docs/ios/">Zendrive iO
 <li> Assign your driver id in ViewController.m while generating configuration.</li>
 <li> Run!</li>
 </ul>
-
-<p class="center">
-<img src="http://developers.zendrive.com/static/img/dev_intro_1.png" /> 
 
 <h5>Please go to <a href="http://developers.zendrive.com/docs/ios/">Zendrive iOS SDK</a> documentation for further details.</h5>
 <br/>
