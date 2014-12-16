@@ -1,5 +1,9 @@
 #import "TMDiskCache.h"
 
+#if __IPHONE_OS_VERSION_MIN_REQUIRED >= __IPHONE_4_0
+#import <UIKit/UIKit.h>
+#endif
+
 #define TMDiskCacheError(error) if (error) { NSLog(@"%@ (%d) ERROR: %@", \
                                     [[NSString stringWithUTF8String:__FILE__] lastPathComponent], \
                                     __LINE__, [error localizedDescription]); }
@@ -178,16 +182,14 @@ NSString * const TMDiskCacheSharedName = @"TMDiskCacheShared";
     dispatch_once(&predicate, ^{
         sharedTrashURL = [[[NSURL alloc] initFileURLWithPath:NSTemporaryDirectory()] URLByAppendingPathComponent:TMDiskCachePrefix isDirectory:YES];
         
-        dispatch_async([self sharedTrashQueue], ^{
-            if (![[NSFileManager defaultManager] fileExistsAtPath:[sharedTrashURL path]]) {
-                NSError *error = nil;
-                [[NSFileManager defaultManager] createDirectoryAtURL:sharedTrashURL
-                                         withIntermediateDirectories:YES
-                                                          attributes:nil
-                                                               error:&error];
-                TMDiskCacheError(error);
-            }
-        });
+        if (![[NSFileManager defaultManager] fileExistsAtPath:[sharedTrashURL path]]) {
+            NSError *error = nil;
+            [[NSFileManager defaultManager] createDirectoryAtURL:sharedTrashURL
+                                     withIntermediateDirectories:YES
+                                                      attributes:nil
+                                                           error:&error];
+            TMDiskCacheError(error);
+        }
     });
     
     return sharedTrashURL;
@@ -413,7 +415,15 @@ NSString * const TMDiskCacheSharedName = @"TMDiskCacheShared";
         id <NSCoding> object = nil;
 
         if ([[NSFileManager defaultManager] fileExistsAtPath:[fileURL path]]) {
-            object = [NSKeyedUnarchiver unarchiveObjectWithFile:[fileURL path]];
+            @try {
+                object = [NSKeyedUnarchiver unarchiveObjectWithFile:[fileURL path]];
+            }
+            @catch (NSException *exception) {
+                NSError *error = nil;
+                [[NSFileManager defaultManager] removeItemAtPath:[fileURL path] error:&error];
+                TMDiskCacheError(error);
+            }
+
             [strongSelf setFileModificationDate:now forURL:fileURL];
         }
 
