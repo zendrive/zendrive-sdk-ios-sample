@@ -9,7 +9,7 @@
 #import "ViewController.h"
 #import <ZendriveSDK/Zendrive.h>
 
-static NSString * kZendriveApplicationKey = @"ZT4IgZvSAfnZn1TVAaIaRTooLs5VLAN9";
+static NSString * kZendriveKeyString = @"<your-key-string>";
 
 @interface ViewController () <ZendriveDelegateProtocol>
 
