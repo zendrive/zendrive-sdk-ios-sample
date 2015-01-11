@@ -8,4 +8,3 @@ target 'ZendriveSDKDemo' do
 pod 'ZendriveSDK', :git => 'https://bitbucket.org/zendrive-root/zendrive_cocoapod.git', :tag => '3.0.2'
 
 end
-

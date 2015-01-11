@@ -5,15 +5,13 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>77B8BCEC-E6F2-424F-AE48-00881B246844</string>
+	<string>A3F77ED8-03DC-40D9-906B-D00CFD7E57B6</string>
 	<key>IDESourceControlProjectName</key>
 	<string>ZendriveSDKDemo</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>C471C3414966A0B75A853BC7FC6070AEF0C73E85</key>
-		<string>https://github.com/zendrive/zendrive-sdk-ios-sample</string>
-		<key>DF2BA4FF5EF679482FB3EA552CE7188F7AB1185F</key>
-		<string>http://gerrit.zendrive.com/zendrive</string>
+		<string>https://github.com/zendrive/zendrive-sdk-ios-sample.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>ZendriveSDKDemo.xcworkspace</string>
@@ -21,11 +19,9 @@
 	<dict>
 		<key>C471C3414966A0B75A853BC7FC6070AEF0C73E85</key>
 		<string>..</string>
-		<key>DF2BA4FF5EF679482FB3EA552CE7188F7AB1185F</key>
-		<string>../../zendrive</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/zendrive/zendrive-sdk-ios-sample</string>
+	<string>https://github.com/zendrive/zendrive-sdk-ios-sample.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
@@ -36,17 +32,9 @@
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>DF2BA4FF5EF679482FB3EA552CE7188F7AB1185F</string>
-			<key>IDESourceControlWCCName</key>
-			<string>zendrive</string>
-		</dict>
-		<dict>
-			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
-			<string>public.vcs.git</string>
-			<key>IDESourceControlWCCIdentifierKey</key>
 			<string>C471C3414966A0B75A853BC7FC6070AEF0C73E85</string>
 			<key>IDESourceControlWCCName</key>
-			<string>zendrive-sdk-ios-sample</string>
+			<string>ios-sample</string>
 		</dict>
 	</array>
 </dict>
