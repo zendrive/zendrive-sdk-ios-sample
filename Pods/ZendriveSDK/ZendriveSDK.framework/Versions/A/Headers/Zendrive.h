@@ -93,7 +93,8 @@
  *
  * @discussion Invoking this method forces the start of a drive. If this API is
  * used then it is application's responsibility to terminate the drive by
- * invoking stopDrive method.
+ * invoking stopDrive method. If an auto-detected drive is in progress, that drive
+ * is stopped and a new drive is started.
  *
  * These methods should be used only by applications which have explicit
  * knowledge of start and end of drives and want to attribute drive data to
@@ -102,8 +103,9 @@
  * Calling it without having initialized the Zendrive framework
  * (setupWithApplicationId) is a no-op.
  *
- * Calling startDrive: multiple times without calling stopDrive in between
- * is a no-op.
+ * Calling startDrive: with the same trackingId without calling stopDrive: in between
+ * is a no-op. Calling startDrive: with a different trackingId: with implicitly call
+ * stopDrive: before starting a new drive.
  *
  * @param trackingId Pass a tracking Id to correlate apps internal
  *                   data with the drive data. Cannot be nil or empty string.
@@ -126,8 +128,27 @@
  *
  * Calling it without having initialized the Zendrive SDK is a no-op.
  *
+ * This method is deprecated. Use stopDrive: method instead.
+ *
  */
-+ (void)stopDrive;
++ (void)stopDrive __attribute__((deprecated));
+
+/**
+ * @abstract This should be called to indicate the end of a drive started by invoking
+ * startDrive:
+ *
+ * @param trackingId This trackingId should match the trackingId sent to startDrive:
+ *                   while starting the current drive. If the trackingIds do not match,
+ *                   this function is a no-op. Cannot be nil or empty string.
+ *
+ * @see startDrive:
+ *
+ * This call has no effect on an automatically detected drive that may be in progress.
+ *
+ * Calling it without having initialized the Zendrive SDK is a no-op.
+ *
+ */
++ (void)stopDrive:(NSString *)trackingId;
 
 /**
  * Start a session in the SDK.
@@ -146,7 +167,8 @@
  * The application must call stopSession when it wants to end the session.
  *
  * Only one session may be active at a time. Calling startSession when a session is
- * already active will be a no-op.
+ * already active with a new sessionId will stop the ongoing session and start a new
+ * one.
  *
  * Calling it without having initialized the Zendrive SDK is a no-op.
  *

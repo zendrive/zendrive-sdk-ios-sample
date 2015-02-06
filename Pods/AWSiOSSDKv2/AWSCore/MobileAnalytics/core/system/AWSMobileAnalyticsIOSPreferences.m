@@ -15,8 +15,6 @@
 
 #import "AWSMobileAnalyticsIOSPreferences.h"
 #import "AWSLogging.h"
-#import "GZIP.h"
-#import "AWSMobileAnalyticsEncryptedBufferedReader.h"
 
 NSString * const AWSPreferencesFilename = @"preferences";
 
@@ -27,44 +25,43 @@ NSString * const AWSIOSPreferencesErrorDomain = @"com.amazon.insights-framework.
 @property (nonatomic, readwrite) AWSMobileAnalyticsFile* file;
 @property (nonatomic, readwrite) id<AWSMobileAnalyticsFileManager> fileManager;
 @property (nonatomic, readwrite) NSMutableDictionary* preferences;
-@property (nonatomic, strong) NSString *insightsPrivateKey;
 
 @end
 
 @implementation AWSMobileAnalyticsIOSPreferences
 
-+ (AWSMobileAnalyticsIOSPreferences *)preferencesWithFileManager:(id<AWSMobileAnalyticsFileManager>)theFileManager {
-    return [[AWSMobileAnalyticsIOSPreferences alloc] initWithFileManager:theFileManager
-                                                      insightsPrivateKey:nil];
-}
-
-+ (AWSMobileAnalyticsIOSPreferences *)preferencesWithFileManager:(id<AWSMobileAnalyticsFileManager>)theFileManager
-                                              insightsPrivateKey:(NSString *)insightsPrivateKey {
-    return [[AWSMobileAnalyticsIOSPreferences alloc] initWithFileManager:theFileManager
-                                                      insightsPrivateKey:insightsPrivateKey];
++ (AWSMobileAnalyticsIOSPreferences *) preferencesWithFileManager:(id<AWSMobileAnalyticsFileManager>) theFileManager
+{
+    return [[AWSMobileAnalyticsIOSPreferences alloc] initWithFileManager:theFileManager];
 }
 
 - (id) initWithFileManager:(id<AWSMobileAnalyticsFileManager>) theFileManager
-        insightsPrivateKey:(NSString *)insightsPrivateKey {
-    if(self = [super init]) {
-        _insightsPrivateKey = insightsPrivateKey;
-
+{
+    if(self = [super init])
+    {
         NSAssert(theFileManager != nil, @"The file manager should not have been nil");
-        if(theFileManager == nil) {
+        if(theFileManager == nil)
+        {
             AWSLogError( @"The file manager should not have been nil");
             return nil;
         }
-
+        
         self.fileManager = theFileManager;
-
+        
         NSError *createError;
         self.file = [self.fileManager createFileWithPath:AWSPreferencesFilename error:&createError];
-        if(self.file != nil && createError == nil) {
+        if(self.file != nil && createError == nil)
+        {
             [self loadPreferences];
-        } else {
-            if(createError != nil) {
+        }
+        else
+        {
+            if(createError != nil)
+            {
                 AWSLogError( @"Error creating preferences file. %@", [createError localizedDescription]);
-            } else {
+            }
+            else
+            {
                 AWSLogError( @"The preferences file could not be created");
             }
             return nil;
@@ -90,38 +87,10 @@ NSString * const AWSIOSPreferencesErrorDomain = @"com.amazon.insights-framework.
     }
 }
 
-- (void) loadPreferences {
+- (void) loadPreferences
+{
     NSError *error = nil;
     NSDictionary *prefs = [self.fileManager readDataFromFile:self.file withFormat:JSON withError:&error];
-
-    if (!prefs[@"UniqueId"]) {
-        NSString *legacyParentDirectory = [self legacyParentDirectory];
-        NSURL *filePath = [NSURL fileURLWithPath:self.file.absolutePath];
-        NSArray *pathComponents = [filePath pathComponents];
-        if ([pathComponents count] >= 2) {
-            NSString *legacyPath = [[[legacyParentDirectory stringByAppendingPathComponent:@"insights"] stringByAppendingPathComponent:pathComponents[[pathComponents count] - 2]] stringByAppendingPathComponent:pathComponents[[pathComponents count] - 1]];
-            AWSMobileAnalyticsFile *legacyFile = [[AWSMobileAnalyticsFile alloc] initWithFileMananager:[NSFileManager defaultManager]
-                                                                                      withAbsolutePath:legacyPath];
-            NSData *legacyFileData = [NSData dataWithContentsOfFile:legacyFile.absolutePath];
-            if (legacyFileData) {
-                NSInputStream *inputStream = [NSInputStream inputStreamWithData:legacyFileData];
-                [inputStream open];
-                AWSMobileAnalyticsBufferedReader *bufferedReader = [AWSMobileAnalyticsBufferedReader readerWithInputStream:inputStream];
-                AWSMobileAnalyticsEncryptedBufferedReader *reader = [AWSMobileAnalyticsEncryptedBufferedReader readerWithReader:bufferedReader
-                                                                                                                      secretKey:self.insightsPrivateKey];
-                NSDictionary *legacyPrefs = [self.fileManager readDataFromFile:legacyFile
-                                                                    withReader:reader
-                                                             withDataProcessor:nil
-                                                                    withFormat:JSON
-                                                                     withError:&error];
-                if (legacyPrefs[@"UniqueId"]) {
-                    NSMutableDictionary *mutablePrefs = [prefs mutableCopy];
-                    mutablePrefs[@"UniqueId"] = legacyPrefs[@"UniqueId"];
-                    prefs = mutablePrefs;
-                }
-            }
-        }
-    }
 
     if(error != nil || prefs == nil)
     {
@@ -133,7 +102,7 @@ NSString * const AWSIOSPreferencesErrorDomain = @"com.amazon.insights-framework.
         {
             AWSLogError( @"There was an error while attempting to load the preferences from the file.");
         }
-
+        
     }
 
     if(prefs == nil)
@@ -144,13 +113,6 @@ NSString * const AWSIOSPreferencesErrorDomain = @"com.amazon.insights-framework.
     {
         self.preferences = [NSMutableDictionary dictionaryWithDictionary:prefs];
     }
-}
-
-- (NSString *)legacyParentDirectory {
-    NSArray *URLsForDirectory = [[NSFileManager defaultManager] URLsForDirectory:NSApplicationSupportDirectory
-                                                                       inDomains:NSUserDomainMask];
-    NSURL *URL = [URLsForDirectory objectAtIndex:0];
-    return [URL path];
 }
 
 - (BOOL) boolForKey:(NSString*) theKey withOptValue:(BOOL) defaultValue
@@ -171,7 +133,7 @@ NSString * const AWSIOSPreferencesErrorDomain = @"com.amazon.insights-framework.
     {
         prefValue = [self.preferences objectForKey:theKey];
     }
-
+    
     BOOL value = defaultValue;
     if([AWSMobileAnalyticsStringUtils stringToBool:prefValue withBool:&value])
     {
@@ -192,13 +154,13 @@ NSString * const AWSIOSPreferencesErrorDomain = @"com.amazon.insights-framework.
         AWSLogWarn( @"The key was blank");
         return defaultValue;
     }
-
+    
     id prefValue = nil;
     @synchronized(self)
     {
         prefValue = [self.preferences objectForKey:theKey];
     }
-
+    
     int value = defaultValue;
     if([AWSMobileAnalyticsStringUtils stringToInt:prefValue withInt:&value])
     {
@@ -219,13 +181,13 @@ NSString * const AWSIOSPreferencesErrorDomain = @"com.amazon.insights-framework.
         AWSLogWarn( @"The key was blank");
         return defaultValue;
     }
-
+    
     id prefValue = nil;
     @synchronized(self)
     {
         prefValue = [self.preferences objectForKey:theKey];
     }
-
+    
     long long value = defaultValue;
     if([AWSMobileAnalyticsStringUtils stringToLongLong:prefValue withLongLong:&value])
     {
@@ -252,7 +214,7 @@ NSString * const AWSIOSPreferencesErrorDomain = @"com.amazon.insights-framework.
     {
         prefValue = [self.preferences objectForKey:theKey];
     }
-
+    
     double value = defaultValue;
     if([AWSMobileAnalyticsStringUtils stringToDouble:prefValue withDouble:&value])
     {
@@ -273,13 +235,13 @@ NSString * const AWSIOSPreferencesErrorDomain = @"com.amazon.insights-framework.
         AWSLogWarn( @"The key was blank");
         return defaultValue;
     }
-
+    
     NSString *string = nil;
     @synchronized(self)
     {
         string = [self.preferences objectForKey:theKey];
     }
-
+    
     if(string != nil)
     {
         return string;
@@ -331,7 +293,7 @@ NSString * const AWSIOSPreferencesErrorDomain = @"com.amazon.insights-framework.
         AWSLogWarn( @"The key was nil");
         return;
     }
-
+    
     @synchronized(self)
     {
         [self.preferences setObject:theValue forKey:theKey];

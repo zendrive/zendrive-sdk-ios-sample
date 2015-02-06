@@ -1,1 +1,1 @@
-PODS_ZENDRIVESDKDEMO_AWSIOSSDKV__OTHER_LDFLAGS = -framework "Foundation" -framework "SystemConfiguration" -framework "UIKit"
+PODS_ZENDRIVESDKDEMO_AWSIOSSDKV__OTHER_LDFLAGS = -l"sqlite3" -l"z" -framework "Foundation" -framework "SystemConfiguration" -framework "UIKit"

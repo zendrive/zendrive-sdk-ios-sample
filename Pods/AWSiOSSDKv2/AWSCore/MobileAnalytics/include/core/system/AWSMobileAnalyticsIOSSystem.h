@@ -23,10 +23,9 @@ static NSString *const AWSMobileAnalyticsRoot = @"mobile-analytics";
 
 @interface AWSMobileAnalyticsIOSSystem : NSObject<AWSMobileAnalyticsSystem>
 
--(id) initWithIdentifier:(NSString*)theIdentifier;
+-(id) initWithIdentifier: (NSString *) theIdentifier;
 
--(id) initWithIdentifier:(NSString*)theIdentifier
-      insightsPrivateKey:(NSString *)insightsPrivateKey;
+-(id) initWithIdentifier: (NSString *) theIdentifier withRootPath:(NSString*) theRootPath;
 
 @property (nonatomic, readwrite) id<AWSMobileAnalyticsFileManager> fileManager;
 

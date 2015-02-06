@@ -54,8 +54,6 @@ typedef NS_ENUM(NSInteger, AWSS3BucketLocationConstraint) {
     AWSS3BucketLocationConstraintAPNortheast1,
     AWSS3BucketLocationConstraintSAEast1,
     AWSS3BucketLocationConstraintBlank,
-    AWSS3BucketLocationConstraintCNNorth1,
-    AWSS3BucketLocationConstraintEUCentral1,
 };
 
 typedef NS_ENUM(NSInteger, AWSS3BucketLogsPermission) {
@@ -79,10 +77,6 @@ typedef NS_ENUM(NSInteger, AWSS3EncodingType) {
 typedef NS_ENUM(NSInteger, AWSS3Event) {
     AWSS3EventUnknown,
     AWSS3EventS3ReducedRedundancyLostObject,
-    AWSS3EventS3ObjectCreatedPut,
-    AWSS3EventS3ObjectCreatedPost,
-    AWSS3EventS3ObjectCreatedCopy,
-    AWSS3EventS3ObjectCreatedCompleteMultipartUpload,
 };
 
 typedef NS_ENUM(NSInteger, AWSS3ExpirationStatus) {
@@ -181,7 +175,6 @@ typedef NS_ENUM(NSInteger, AWSS3Type) {
 @class AWSS3BucketLoggingStatus;
 @class AWSS3CORSConfiguration;
 @class AWSS3CORSRule;
-@class AWSS3CloudFunctionConfiguration;
 @class AWSS3CommonPrefix;
 @class AWSS3CompleteMultipartUploadOutput;
 @class AWSS3CompleteMultipartUploadRequest;
@@ -276,7 +269,6 @@ typedef NS_ENUM(NSInteger, AWSS3Type) {
 @class AWSS3PutObjectAclRequest;
 @class AWSS3PutObjectOutput;
 @class AWSS3PutObjectRequest;
-@class AWSS3QueueConfiguration;
 @class AWSS3Redirect;
 @class AWSS3RedirectAllRequestsTo;
 @class AWSS3Remove;
@@ -377,16 +369,6 @@ typedef NS_ENUM(NSInteger, AWSS3Type) {
 
 @end
 
-@interface AWSS3CloudFunctionConfiguration : AWSModel
-
-@property (nonatomic, strong) NSString *cloudFunction;
-@property (nonatomic, assign) AWSS3Event event;
-@property (nonatomic, strong) NSArray *events;
-@property (nonatomic, strong) NSString *id;
-@property (nonatomic, strong) NSString *invocationRole;
-
-@end
-
 @interface AWSS3CommonPrefix : AWSModel
 
 @property (nonatomic, strong) NSString *prefix;
@@ -410,12 +392,7 @@ typedef NS_ENUM(NSInteger, AWSS3Type) {
 @property (nonatomic, strong) NSString *location;
 
 /**
- * If present, specifies the AWS KMS key used to encrypt the object.
- */
-@property (nonatomic, strong) NSString *SSEKMSKeyId;
-
-/**
- * The Server-side encryption algorithm used when storing this object in S3 (e.g., AES256, aws:kms).
+ * The Server-side encryption algorithm used when storing this object in S3.
  */
 @property (nonatomic, assign) AWSS3ServerSideEncryption serverSideEncryption;
 
@@ -548,12 +525,7 @@ typedef NS_ENUM(NSInteger, AWSS3Type) {
 @property (nonatomic, strong) NSString *SSECustomerKeyMD5;
 
 /**
- * If present, specifies the AWS KMS key used to encrypt the object.
- */
-@property (nonatomic, strong) NSString *SSEKMSKeyId;
-
-/**
- * The Server-side encryption algorithm used when storing this object in S3 (e.g., AES256, aws:kms).
+ * The Server-side encryption algorithm used when storing this object in S3.
  */
 @property (nonatomic, assign) AWSS3ServerSideEncryption serverSideEncryption;
 
@@ -630,7 +602,7 @@ typedef NS_ENUM(NSInteger, AWSS3Type) {
 @property (nonatomic, strong) NSDictionary *metadata;
 
 /**
- * Specifies the algorithm to use to when encrypting the object (e.g., AES256, aws:kms).
+ * Specifies the algorithm to use to when encrypting the object (e.g., AES256).
  */
 @property (nonatomic, strong) NSString *SSECustomerAlgorithm;
 
@@ -645,12 +617,7 @@ typedef NS_ENUM(NSInteger, AWSS3Type) {
 @property (nonatomic, strong) NSString *SSECustomerKeyMD5;
 
 /**
- * Specifies the AWS KMS key ID to use for object encryption.
- */
-@property (nonatomic, strong) NSString *SSEKMSKeyId;
-
-/**
- * The Server-side encryption algorithm used when storing this object in S3 (e.g., AES256, aws:kms).
+ * The Server-side encryption algorithm used when storing this object in S3.
  */
 @property (nonatomic, assign) AWSS3ServerSideEncryption serverSideEncryption;
 
@@ -874,8 +841,6 @@ typedef NS_ENUM(NSInteger, AWSS3Type) {
 
 @interface AWSS3GetBucketNotificationOutput : AWSModel
 
-@property (nonatomic, strong) AWSS3CloudFunctionConfiguration *cloudFunctionConfiguration;
-@property (nonatomic, strong) AWSS3QueueConfiguration *queueConfiguration;
 @property (nonatomic, strong) AWSS3TopicConfiguration *topicConfiguration;
 
 @end
@@ -1079,12 +1044,7 @@ typedef NS_ENUM(NSInteger, AWSS3Type) {
 @property (nonatomic, strong) NSString *SSECustomerKeyMD5;
 
 /**
- * If present, specifies the AWS KMS key used to encrypt the object.
- */
-@property (nonatomic, strong) NSString *SSEKMSKeyId;
-
-/**
- * The Server-side encryption algorithm used when storing this object in S3 (e.g., AES256, aws:kms).
+ * The Server-side encryption algorithm used when storing this object in S3.
  */
 @property (nonatomic, assign) AWSS3ServerSideEncryption serverSideEncryption;
 
@@ -1161,7 +1121,7 @@ typedef NS_ENUM(NSInteger, AWSS3Type) {
 @property (nonatomic, strong) NSDate *responseExpires;
 
 /**
- * Specifies the algorithm to use to when encrypting the object (e.g., AES256, aws:kms).
+ * Specifies the algorithm to use to when encrypting the object (e.g., AES256).
  */
 @property (nonatomic, strong) NSString *SSECustomerAlgorithm;
 
@@ -1174,11 +1134,6 @@ typedef NS_ENUM(NSInteger, AWSS3Type) {
  * Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure the encryption key was transmitted without error.
  */
 @property (nonatomic, strong) NSString *SSECustomerKeyMD5;
-
-/**
- * Specifies the AWS KMS key ID to use for object encryption.
- */
-@property (nonatomic, strong) NSString *SSEKMSKeyId;
 
 /**
  * VersionId used to reference a specific version of the object.
@@ -1332,12 +1287,7 @@ typedef NS_ENUM(NSInteger, AWSS3Type) {
 @property (nonatomic, strong) NSString *SSECustomerKeyMD5;
 
 /**
- * If present, specifies the AWS KMS key used to encrypt the object.
- */
-@property (nonatomic, strong) NSString *SSEKMSKeyId;
-
-/**
- * The Server-side encryption algorithm used when storing this object in S3 (e.g., AES256, aws:kms).
+ * The Server-side encryption algorithm used when storing this object in S3.
  */
 @property (nonatomic, assign) AWSS3ServerSideEncryption serverSideEncryption;
 
@@ -1384,7 +1334,7 @@ typedef NS_ENUM(NSInteger, AWSS3Type) {
 @property (nonatomic, strong) NSString *range;
 
 /**
- * Specifies the algorithm to use to when encrypting the object (e.g., AES256, aws:kms).
+ * Specifies the algorithm to use to when encrypting the object (e.g., AES256).
  */
 @property (nonatomic, strong) NSString *SSECustomerAlgorithm;
 
@@ -1397,11 +1347,6 @@ typedef NS_ENUM(NSInteger, AWSS3Type) {
  * Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure the encryption key was transmitted without error.
  */
 @property (nonatomic, strong) NSString *SSECustomerKeyMD5;
-
-/**
- * Specifies the AWS KMS key ID to use for object encryption.
- */
-@property (nonatomic, strong) NSString *SSEKMSKeyId;
 
 /**
  * VersionId used to reference a specific version of the object.
@@ -1471,7 +1416,6 @@ typedef NS_ENUM(NSInteger, AWSS3Type) {
  */
 @property (nonatomic, strong) NSString *bucket;
 @property (nonatomic, strong) NSArray *commonPrefixes;
-@property (nonatomic, strong) NSString *delimiter;
 
 /**
  * Encoding type used by Amazon S3 to encode object keys in the response.
@@ -1556,7 +1500,6 @@ typedef NS_ENUM(NSInteger, AWSS3Type) {
 
 @property (nonatomic, strong) NSArray *commonPrefixes;
 @property (nonatomic, strong) NSArray *deleteMarkers;
-@property (nonatomic, strong) NSString *delimiter;
 
 /**
  * Encoding type used by Amazon S3 to encode object keys in the response.
@@ -1630,7 +1573,6 @@ typedef NS_ENUM(NSInteger, AWSS3Type) {
 
 @property (nonatomic, strong) NSArray *commonPrefixes;
 @property (nonatomic, strong) NSArray *contents;
-@property (nonatomic, strong) NSString *delimiter;
 
 /**
  * Encoding type used by Amazon S3 to encode object keys in the response.
@@ -1838,8 +1780,6 @@ typedef NS_ENUM(NSInteger, AWSS3Type) {
 
 @interface AWSS3NotificationConfiguration : AWSModel
 
-@property (nonatomic, strong) AWSS3CloudFunctionConfiguration *cloudFunctionConfiguration;
-@property (nonatomic, strong) AWSS3QueueConfiguration *queueConfiguration;
 @property (nonatomic, strong) AWSS3TopicConfiguration *topicConfiguration;
 
 @end
@@ -2125,12 +2065,7 @@ typedef NS_ENUM(NSInteger, AWSS3Type) {
 @property (nonatomic, strong) NSString *SSECustomerKeyMD5;
 
 /**
- * If present, specifies the AWS KMS key used to encrypt the object.
- */
-@property (nonatomic, strong) NSString *SSEKMSKeyId;
-
-/**
- * The Server-side encryption algorithm used when storing this object in S3 (e.g., AES256, aws:kms).
+ * The Server-side encryption algorithm used when storing this object in S3.
  */
 @property (nonatomic, assign) AWSS3ServerSideEncryption serverSideEncryption;
 
@@ -2148,10 +2083,6 @@ typedef NS_ENUM(NSInteger, AWSS3Type) {
  * The canned ACL to apply to the object.
  */
 @property (nonatomic, assign) AWSS3ObjectCannedACL ACL;
-
-/**
- * Object data.
- */
 @property (nonatomic, strong) id body;
 @property (nonatomic, strong) NSString *bucket;
 
@@ -2218,7 +2149,7 @@ typedef NS_ENUM(NSInteger, AWSS3Type) {
 @property (nonatomic, strong) NSDictionary *metadata;
 
 /**
- * Specifies the algorithm to use to when encrypting the object (e.g., AES256, aws:kms).
+ * Specifies the algorithm to use to when encrypting the object (e.g., AES256).
  */
 @property (nonatomic, strong) NSString *SSECustomerAlgorithm;
 
@@ -2233,12 +2164,7 @@ typedef NS_ENUM(NSInteger, AWSS3Type) {
 @property (nonatomic, strong) NSString *SSECustomerKeyMD5;
 
 /**
- * Specifies the AWS KMS key ID to use for object encryption.
- */
-@property (nonatomic, strong) NSString *SSEKMSKeyId;
-
-/**
- * The Server-side encryption algorithm used when storing this object in S3 (e.g., AES256, aws:kms).
+ * The Server-side encryption algorithm used when storing this object in S3.
  */
 @property (nonatomic, assign) AWSS3ServerSideEncryption serverSideEncryption;
 
@@ -2251,15 +2177,6 @@ typedef NS_ENUM(NSInteger, AWSS3Type) {
  * If the bucket is configured as a website, redirects requests for this object to another object in the same bucket or to an external URL. Amazon S3 stores the value of this header in the object metadata.
  */
 @property (nonatomic, strong) NSString *websiteRedirectLocation;
-
-@end
-
-@interface AWSS3QueueConfiguration : AWSModel
-
-@property (nonatomic, assign) AWSS3Event event;
-@property (nonatomic, strong) NSArray *events;
-@property (nonatomic, strong) NSString *id;
-@property (nonatomic, strong) NSString *queue;
 
 @end
 
@@ -2340,12 +2257,7 @@ typedef NS_ENUM(NSInteger, AWSS3Type) {
 @property (nonatomic, strong) NSString *SSECustomerKeyMD5;
 
 /**
- * If present, specifies the AWS KMS key used to encrypt the object.
- */
-@property (nonatomic, strong) NSString *SSEKMSKeyId;
-
-/**
- * The Server-side encryption algorithm used when storing this object in S3 (e.g., AES256, aws:kms).
+ * The Server-side encryption algorithm used when storing this object in S3.
  */
 @property (nonatomic, assign) AWSS3ServerSideEncryption serverSideEncryption;
 
@@ -2428,10 +2340,9 @@ typedef NS_ENUM(NSInteger, AWSS3Type) {
 @property (nonatomic, strong) NSString *replicateSourceSSECustomerAlgorithm;
 @property (nonatomic, strong) NSString *replicateSourceSSECustomerKey;
 @property (nonatomic, strong) NSString *replicateSourceSSECustomerKeyMD5;
-@property (nonatomic, strong) NSString *replicateSourceSSEKMSKeyId;
 
 /**
- * Specifies the algorithm to use to when encrypting the object (e.g., AES256, aws:kms).
+ * Specifies the algorithm to use to when encrypting the object (e.g., AES256).
  */
 @property (nonatomic, strong) NSString *SSECustomerAlgorithm;
 
@@ -2446,7 +2357,7 @@ typedef NS_ENUM(NSInteger, AWSS3Type) {
 @property (nonatomic, strong) NSString *SSECustomerKeyMD5;
 
 /**
- * The Server-side encryption algorithm used when storing this object in S3 (e.g., AES256, aws:kms).
+ * The Server-side encryption algorithm used when storing this object in S3.
  */
 @property (nonatomic, assign) AWSS3ServerSideEncryption serverSideEncryption;
 
@@ -2599,8 +2510,6 @@ typedef NS_ENUM(NSInteger, AWSS3Type) {
  * Bucket event for which to send notifications.
  */
 @property (nonatomic, assign) AWSS3Event event;
-@property (nonatomic, strong) NSArray *events;
-@property (nonatomic, strong) NSString *id;
 
 /**
  * Amazon SNS topic to which Amazon S3 will publish a message to report the specified events for the bucket.
@@ -2645,12 +2554,7 @@ typedef NS_ENUM(NSInteger, AWSS3Type) {
 @property (nonatomic, strong) NSString *SSECustomerKeyMD5;
 
 /**
- * If present, specifies the AWS KMS key used to encrypt the object.
- */
-@property (nonatomic, strong) NSString *SSEKMSKeyId;
-
-/**
- * The Server-side encryption algorithm used when storing this object in S3 (e.g., AES256, aws:kms).
+ * The Server-side encryption algorithm used when storing this object in S3.
  */
 @property (nonatomic, assign) AWSS3ServerSideEncryption serverSideEncryption;
 
@@ -2674,10 +2578,9 @@ typedef NS_ENUM(NSInteger, AWSS3Type) {
 @property (nonatomic, strong) NSString *replicateSourceSSECustomerAlgorithm;
 @property (nonatomic, strong) NSString *replicateSourceSSECustomerKey;
 @property (nonatomic, strong) NSString *replicateSourceSSECustomerKeyMD5;
-@property (nonatomic, strong) NSString *replicateSourceSSEKMSKeyId;
 
 /**
- * Specifies the algorithm to use to when encrypting the object (e.g., AES256, aws:kms).
+ * Specifies the algorithm to use to when encrypting the object (e.g., AES256).
  */
 @property (nonatomic, strong) NSString *SSECustomerAlgorithm;
 
@@ -2717,12 +2620,7 @@ typedef NS_ENUM(NSInteger, AWSS3Type) {
 @property (nonatomic, strong) NSString *SSECustomerKeyMD5;
 
 /**
- * If present, specifies the AWS KMS key used to encrypt the object.
- */
-@property (nonatomic, strong) NSString *SSEKMSKeyId;
-
-/**
- * The Server-side encryption algorithm used when storing this object in S3 (e.g., AES256, aws:kms).
+ * The Server-side encryption algorithm used when storing this object in S3.
  */
 @property (nonatomic, assign) AWSS3ServerSideEncryption serverSideEncryption;
 
@@ -2746,7 +2644,7 @@ typedef NS_ENUM(NSInteger, AWSS3Type) {
 @property (nonatomic, strong) NSNumber *partNumber;
 
 /**
- * Specifies the algorithm to use to when encrypting the object (e.g., AES256, aws:kms).
+ * Specifies the algorithm to use to when encrypting the object (e.g., AES256).
  */
 @property (nonatomic, strong) NSString *SSECustomerAlgorithm;
 
@@ -2759,11 +2657,6 @@ typedef NS_ENUM(NSInteger, AWSS3Type) {
  * Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure the encryption key was transmitted without error.
  */
 @property (nonatomic, strong) NSString *SSECustomerKeyMD5;
-
-/**
- * Specifies the AWS KMS key ID to use for object encryption.
- */
-@property (nonatomic, strong) NSString *SSEKMSKeyId;
 
 /**
  * Upload ID identifying the multipart upload whose part is being uploaded.

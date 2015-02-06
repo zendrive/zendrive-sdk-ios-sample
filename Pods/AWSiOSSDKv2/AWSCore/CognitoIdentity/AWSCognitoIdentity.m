@@ -14,7 +14,7 @@
 #import "AWSURLResponseSerialization.h"
 #import "AWSURLRequestRetryHandler.h"
 
-NSString *const AWSCIBDefinitionFileName = @"cognito-identity-2014-06-30";
+NSString *const AWSCIBDefinitionFileName = @"cib-2014-06-30";
 
 @interface AWSCognitoIdentityResponseSerializer : AWSJSONResponseSerializer
 
@@ -229,7 +229,6 @@ static NSDictionary *errorCodeDictionary = nil;
 }
 
 #pragma mark - Service method
-
 - (BFTask *)createIdentityPool:(AWSCognitoIdentityCreateIdentityPoolInput *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST

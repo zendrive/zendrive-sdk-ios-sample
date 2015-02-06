@@ -50,7 +50,8 @@ NSString *const AWSSigV4Terminator = @"aws4_request";
 }
 
 + (NSData *)hash:(NSData *)dataToHash {
-    if ([dataToHash length] > UINT32_MAX) {
+    if ([dataToHash length] > UINT32_MAX)
+    {
         return nil;
     }
 

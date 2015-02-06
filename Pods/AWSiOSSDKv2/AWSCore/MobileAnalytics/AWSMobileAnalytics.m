@@ -36,7 +36,6 @@
 @property (nonatomic, readonly) id<AWSMobileAnalyticsSessionClient> sessionClient;
 @property (nonatomic, readonly) id<AWSMobileAnalyticsDeliveryClient> deliveryClient;
 @property (nonatomic, strong) AWSMobileAnalyticsConfiguration *configuration;
-@property (nonatomic, strong) NSString *insightsPrivateKey;
 
 @end
 
@@ -66,45 +65,6 @@ static AWSSynchronizedMutableDictionary *_mobileAnalyticsForAppNamespace = nil;
     @synchronized(_mobileAnalyticsForAppNamespace) {
         if (![_mobileAnalyticsForAppNamespace objectForKey:appId]) {
             AWSMobileAnalytics *mobileAnalytics = [[AWSMobileAnalytics alloc] initWithAppId:appId
-                                                                         insightsPrivateKey:nil
-                                                                              configuration:configuration
-                                                                                   settings:nil
-                                                                            completionBlock:completionBlock];
-            if (mobileAnalytics) {
-                [_mobileAnalyticsForAppNamespace setObject:mobileAnalytics
-                                                    forKey:appId];
-            }
-        }
-
-        return [_mobileAnalyticsForAppNamespace objectForKey:appId];
-    }
-}
-
-+ (instancetype)mobileAnalyticsForAppId:(NSString *)appId
-                     insightsPrivateKey:(NSString *)insightsPrivateKey {
-    return [self mobileAnalyticsForAppId:appId
-                      insightsPrivateKey:insightsPrivateKey
-                           configuration:[AWSMobileAnalyticsConfiguration new]
-                         completionBlock:nil];
-}
-
-+ (instancetype)mobileAnalyticsForAppId:(NSString *)appId
-                     insightsPrivateKey:(NSString *)insightsPrivateKey
-                          configuration:(AWSMobileAnalyticsConfiguration *)configuration
-                        completionBlock:(AWSInitializationCompletionBlock)completionBlock {
-    if (![AWSServiceManager defaultServiceManager].defaultServiceConfiguration || !appId) {
-        return nil;
-    }
-
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        _mobileAnalyticsForAppNamespace = [AWSSynchronizedMutableDictionary new];
-    });
-
-    @synchronized(_mobileAnalyticsForAppNamespace) {
-        if (![_mobileAnalyticsForAppNamespace objectForKey:appId]) {
-            AWSMobileAnalytics *mobileAnalytics = [[AWSMobileAnalytics alloc] initWithAppId:appId
-                                                                         insightsPrivateKey:insightsPrivateKey
                                                                               configuration:configuration
                                                                                    settings:nil
                                                                             completionBlock:completionBlock];
@@ -119,7 +79,6 @@ static AWSSynchronizedMutableDictionary *_mobileAnalyticsForAppNamespace = nil;
 }
 
 - (AWSMobileAnalytics *)initWithAppId:(NSString *)appId
-                   insightsPrivateKey:(NSString *)insightsPrivateKey
                         configuration:(AWSMobileAnalyticsConfiguration *)configuration
                              settings:(NSDictionary *)settings
                       completionBlock:(AWSInitializationCompletionBlock)completionBlock {
@@ -135,7 +94,6 @@ static AWSSynchronizedMutableDictionary *_mobileAnalyticsForAppNamespace = nil;
 
         // Build a DefaultContext and call the internal constructor
         _mobileAnalyticsContext = [AWSMobileAnalyticsDefaultContext contextWithIdentifier:appId
-                                                                       insightsPrivateKey:insightsPrivateKey
                                                                   withClientConfiguration:configuration
                                                                               withSdkInfo:[AWSMobileAnalyticsSDKInfo sdkInfoFromBrazil]
                                                                 withConfigurationSettings:settings];
