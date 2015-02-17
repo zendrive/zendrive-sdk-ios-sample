@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2014 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -67,6 +67,13 @@ NSTimeInterval const AWSS3TransferManagerAgeLimitDefault = 0.0; // Keeps the dat
     });
     
     return _defaultS3TransferManager;
+}
+
+- (instancetype)init {
+    @throw [NSException exceptionWithName:NSInternalInconsistencyException
+                                   reason:@"`- init` is not a valid initializer. Use `+ defaultS3TransferManager` or `- initWithConfiguration:identifier:` instead."
+                                 userInfo:nil];
+    return nil;
 }
 
 - (instancetype)initWithConfiguration:(AWSServiceConfiguration *)configuration

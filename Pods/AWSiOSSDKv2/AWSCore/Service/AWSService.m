@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2014 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -84,15 +84,14 @@
 @implementation AWSServiceConfiguration
 
 - (instancetype)init {
-    if(self = [super init]) {
-        _regionType = AWSRegionUnknown;
-        _maxRetryCount = 3;
-    }
-
-    return self;
+    @throw [NSException exceptionWithName:NSInternalInconsistencyException
+                                   reason:@"`- init` is not a valid initializer. Use `+ configurationWithRegion:credentialsProvider:` instead."
+                                 userInfo:nil];
+    return nil;
 }
 
-- (instancetype)initWithRegion:(AWSRegionType)regionType credentialsProvider:(id<AWSCredentialsProvider>)credentialsProvider {
+- (instancetype)initWithRegion:(AWSRegionType)regionType
+           credentialsProvider:(id<AWSCredentialsProvider>)credentialsProvider {
     if (self = [super init]) {
         _regionType = regionType;
         _credentialsProvider = credentialsProvider;
@@ -102,7 +101,8 @@
     return self;
 }
 
-+ (instancetype)configurationWithRegion:(AWSRegionType)regionType credentialsProvider:(id<AWSCredentialsProvider>)credentialsProvider {
++ (instancetype)configurationWithRegion:(AWSRegionType)regionType
+                    credentialsProvider:(id<AWSCredentialsProvider>)credentialsProvider {
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:regionType
                                                                          credentialsProvider:credentialsProvider];
     return configuration;
@@ -115,60 +115,13 @@
     return configuration;
 }
 
-@end
-
-#pragma mark - AWSRegion
-
-@interface AWSRegion()
-
-@property (nonatomic, assign) AWSRegionType regionType;
-@property (nonatomic, strong) NSSet *availableServices;
-
-@end
-
-@implementation AWSRegion
-
-- (instancetype)init {
-    if(self = [super init]) {
-        _regionType = AWSRegionUnknown;
+- (void)setMaxRetryCount:(uint32_t)maxRetryCount {
+    // the max maxRetryCount is 10. If set to higher than that, it becomes 10.
+    if (maxRetryCount > 10) {
+        _maxRetryCount = 10;
+    } else {
+        _maxRetryCount = maxRetryCount;
     }
-
-    return self;
-}
-
-- (instancetype)initWithType:(AWSRegionType)regionType {
-    if(self = [super init]) {
-        _regionType = regionType;
-
-        switch (_regionType) {
-            case AWSRegionUSEast1:
-                _availableServices = [NSSet setWithObjects:@(AWSServiceDynamoDB), nil];
-                break;
-
-            default:
-                break;
-        }
-    }
-
-    return self;
-}
-
-+ (instancetype)regionWithType:(AWSRegionType)regionType {
-    AWSRegion *region = [[AWSRegion alloc] initWithType:regionType];
-    return region;
-}
-
-- (BOOL)isServiceAvailable:(AWSServiceType)serviceType {
-    __block BOOL isServiceAvailable = NO;
-
-    [self.availableServices enumerateObjectsUsingBlock:^(id obj, BOOL *stop) {
-        if([@(serviceType) isEqualToNumber:obj]) {
-            isServiceAvailable = YES;
-            *stop = YES;
-        }
-    }];
-
-    return isServiceAvailable;
 }
 
 @end
@@ -186,7 +139,6 @@ NSString *const AWSRegionNameAPSoutheast2 = @"ap-southeast-2";
 NSString *const AWSRegionNameSAEast1 = @"sa-east-1";
 NSString *const AWSRegionNameCNNorth1 = @"cn-north-1";
 
-NSString *const AWSServiceNameAppStream = @"appstream";
 NSString *const AWSServiceNameAutoScaling = @"autoscaling";
 NSString *const AWSServiceNameCloudWatch = @"monitoring";
 NSString *const AWSServiceNameCognitoIdentityBroker = @"cognito-identity";
@@ -203,18 +155,6 @@ NSString *const AWSServiceNameSQS = @"sqs";
 NSString *const AWSServiceNameSTS = @"sts";
 
 NSString *const AWSServiceNameMobileAnalytics = @"mobileanalytics";
-
-@interface AWSEndpoint()
-
-@property (nonatomic, assign) AWSRegionType regionType;
-@property (nonatomic, strong) NSString *regionName;
-@property (nonatomic, assign) AWSServiceType serviceType;
-@property (nonatomic, strong) NSString *serviceName;
-@property (nonatomic, strong) NSURL *URL;
-@property (nonatomic, strong) NSString *hostName;
-@property (nonatomic, assign) BOOL useUnsafeURL;
-
-@end
 
 @implementation AWSEndpoint
 
@@ -233,7 +173,6 @@ NSString *const AWSServiceNameMobileAnalytics = @"mobileanalytics";
     if (self = [super init]) {
         _regionType = regionType;
         _serviceType = serviceType;
-        _useUnsafeURL = useUnsafeURL;
 
         switch (_regionType) {
             case AWSRegionUSEast1:
@@ -270,9 +209,6 @@ NSString *const AWSServiceNameMobileAnalytics = @"mobileanalytics";
         }
 
         switch (_serviceType) {
-            case AWSServiceAppStream:
-                _serviceName = AWSServiceNameAppStream;
-                break;
             case AWSServiceAutoScaling:
                 _serviceName = AWSServiceNameAutoScaling;
                 break;
@@ -347,7 +283,6 @@ NSString *const AWSServiceNameMobileAnalytics = @"mobileanalytics";
             } else {
                 _URL = [NSURL URLWithString:@"https://sts.amazonaws.com"];
             }
-
         } else if (_serviceType == AWSServiceSimpleDB && _regionType == AWSRegionUSEast1) {
             _URL = [NSURL URLWithString:[NSString stringWithFormat:@"%@://sdb.amazonaws.com", HTTP_Type]];
         } else {
@@ -363,27 +298,6 @@ NSString *const AWSServiceNameMobileAnalytics = @"mobileanalytics";
     }
 
     return self;
-}
-
-+ (instancetype)endpointWithRegion:(AWSRegionType)regionType
-                           service:(AWSServiceType)serviceType {
-    AWSEndpoint *endpoint = [[AWSEndpoint alloc] initWithRegion:regionType service:serviceType useUnsafeURL:NO];
-    return endpoint;
-}
-
-+ (instancetype)endpointWithRegion:(AWSRegionType)regionType
-                           service:(AWSServiceType)serviceType
-                      useUnsafeURL:(BOOL)useUnsafeURL {
-    AWSEndpoint *endpoint = [[AWSEndpoint alloc] initWithRegion:regionType service:serviceType useUnsafeURL:useUnsafeURL];
-    return endpoint;
-}
-
-+ (instancetype)endpointWithURL:(NSURL *)url {
-    AWSEndpoint *endpoint = [AWSEndpoint new];
-    endpoint.URL = url;
-    endpoint.hostName = [endpoint.URL host];
-    
-    return endpoint;
 }
 
 @end

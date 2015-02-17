@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2014 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -119,13 +119,13 @@ static NSDictionary *errorCodeDictionary = nil;
 @implementation AWSS3RequestRetryHandler
 
 - (AWSNetworkingRetryType)shouldRetry:(uint32_t)currentRetryCount
-                            response:(NSHTTPURLResponse *)response
-                                data:(NSData *)data
-                               error:(NSError *)error {
+                             response:(NSHTTPURLResponse *)response
+                                 data:(NSData *)data
+                                error:(NSError *)error {
     AWSNetworkingRetryType retryType = [super shouldRetry:currentRetryCount
-                                                response:response
-                                                    data:data
-                                                   error:error];
+                                                 response:response
+                                                     data:data
+                                                    error:error];
     if(retryType == AWSNetworkingRetryTypeShouldNotRetry
        && [error.domain isEqualToString:AWSS3ErrorDomain]
        && currentRetryCount < self.maxRetryCount) {
@@ -135,6 +135,10 @@ static NSDictionary *errorCodeDictionary = nil;
             case AWSS3ErrorInvalidToken:
             case AWSS3ErrorTokenRefreshRequired:
                 retryType = AWSNetworkingRetryTypeShouldRefreshCredentialsAndRetry;
+                break;
+
+            case AWSS3ErrorSignatureDoesNotMatch:
+                retryType = AWSNetworkingRetryTypeShouldRetry;
                 break;
 
             default:
@@ -182,12 +186,20 @@ static NSDictionary *errorCodeDictionary = nil;
     return _defaultS3;
 }
 
+- (instancetype)init {
+    @throw [NSException exceptionWithName:NSInternalInconsistencyException
+                                   reason:@"`- init` is not a valid initializer. Use `+ defaultS3` or `- initWithConfiguration:` instead."
+                                 userInfo:nil];
+    return nil;
+}
+
 - (instancetype)initWithConfiguration:(AWSServiceConfiguration *)configuration {
     if (self = [super init]) {
         _configuration = [configuration copy];
 
-        _configuration.endpoint = [AWSEndpoint endpointWithRegion:_configuration.regionType
-                                                          service:AWSServiceS3];
+        _configuration.endpoint = [[AWSEndpoint alloc] initWithRegion:_configuration.regionType
+                                                              service:AWSServiceS3
+                                                         useUnsafeURL:NO];
 
         AWSSignatureV4Signer *signer = [AWSSignatureV4Signer signerWithCredentialsProvider:_configuration.credentialsProvider
                                                                                   endpoint:_configuration.endpoint];
@@ -657,7 +669,7 @@ static NSDictionary *errorCodeDictionary = nil;
                     HTTPMethod:AWSHTTPMethodPUT
                      URLString:@"/{Bucket}/{Key+}"
                   targetPrefix:@""
-                 operationName:@"ReplicateObject"
+                 operationName:@"CopyObject"
                    outputClass:[AWSS3ReplicateObjectOutput class]];
 }
 

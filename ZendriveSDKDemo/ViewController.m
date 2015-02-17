@@ -71,7 +71,7 @@ static NSString * kDriverId = @"<your-driver-id>";
 }
 
 - (IBAction)endDriveTapped:(id)sender {
-    [Zendrive stopDrive];
+    [Zendrive stopDrive:@"your-tracking-id-here"];
 }
 
 #pragma mark - Zendrive setup helper

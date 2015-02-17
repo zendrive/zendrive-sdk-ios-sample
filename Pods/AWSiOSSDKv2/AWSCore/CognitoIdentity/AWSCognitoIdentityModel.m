@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2014 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -25,8 +25,30 @@ NSString *const AWSCognitoIdentityErrorDomain = @"com.amazonaws.AWSCognitoIdenti
              @"allowUnauthenticatedIdentities" : @"AllowUnauthenticatedIdentities",
              @"developerProviderName" : @"DeveloperProviderName",
              @"identityPoolName" : @"IdentityPoolName",
+             @"openIdConnectProviderARNs" : @"OpenIdConnectProviderARNs",
              @"supportedLoginProviders" : @"SupportedLoginProviders",
              };
+}
+
+@end
+
+@implementation AWSCognitoIdentityCredentials
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"accessKeyId" : @"AccessKeyId",
+             @"expiration" : @"Expiration",
+             @"secretKey" : @"SecretKey",
+             @"sessionToken" : @"SessionToken",
+             };
+}
+
++ (NSValueTransformer *)expirationJSONTransformer {
+	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
 }
 
 @end
@@ -41,12 +63,48 @@ NSString *const AWSCognitoIdentityErrorDomain = @"com.amazonaws.AWSCognitoIdenti
 
 @end
 
+@implementation AWSCognitoIdentityDescribeIdentityInput
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"identityId" : @"IdentityId",
+             };
+}
+
+@end
+
 @implementation AWSCognitoIdentityDescribeIdentityPoolInput
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"identityPoolId" : @"IdentityPoolId",
              };
+}
+
+@end
+
+@implementation AWSCognitoIdentityGetCredentialsForIdentityInput
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"identityId" : @"IdentityId",
+             @"logins" : @"Logins",
+             };
+}
+
+@end
+
+@implementation AWSCognitoIdentityGetCredentialsForIdentityResponse
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"credentials" : @"Credentials",
+             @"identityId" : @"IdentityId",
+             };
+}
+
++ (NSValueTransformer *)credentialsJSONTransformer {
+	return [NSValueTransformer mtl_JSONDictionaryTransformerWithModelClass:[AWSCognitoIdentityCredentials class]];
 }
 
 @end
@@ -68,6 +126,27 @@ NSString *const AWSCognitoIdentityErrorDomain = @"com.amazonaws.AWSCognitoIdenti
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"identityId" : @"IdentityId",
+             };
+}
+
+@end
+
+@implementation AWSCognitoIdentityGetIdentityPoolRolesInput
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"identityPoolId" : @"IdentityPoolId",
+             };
+}
+
+@end
+
+@implementation AWSCognitoIdentityGetIdentityPoolRolesResponse
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"identityPoolId" : @"IdentityPoolId",
+             @"roles" : @"Roles",
              };
 }
 
@@ -123,9 +202,27 @@ NSString *const AWSCognitoIdentityErrorDomain = @"com.amazonaws.AWSCognitoIdenti
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"creationDate" : @"CreationDate",
              @"identityId" : @"IdentityId",
+             @"lastModifiedDate" : @"LastModifiedDate",
              @"logins" : @"Logins",
              };
+}
+
++ (NSValueTransformer *)creationDateJSONTransformer {
+	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
++ (NSValueTransformer *)lastModifiedDateJSONTransformer {
+	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
 }
 
 @end
@@ -138,6 +235,7 @@ NSString *const AWSCognitoIdentityErrorDomain = @"com.amazonaws.AWSCognitoIdenti
              @"developerProviderName" : @"DeveloperProviderName",
              @"identityPoolId" : @"IdentityPoolId",
              @"identityPoolName" : @"IdentityPoolName",
+             @"openIdConnectProviderARNs" : @"OpenIdConnectProviderARNs",
              @"supportedLoginProviders" : @"SupportedLoginProviders",
              };
 }
@@ -253,6 +351,17 @@ NSString *const AWSCognitoIdentityErrorDomain = @"com.amazonaws.AWSCognitoIdenti
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"identityId" : @"IdentityId",
+             };
+}
+
+@end
+
+@implementation AWSCognitoIdentitySetIdentityPoolRolesInput
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"identityPoolId" : @"IdentityPoolId",
+             @"roles" : @"Roles",
              };
 }
 

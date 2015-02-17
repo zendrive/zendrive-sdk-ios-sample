@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2014 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -23,9 +23,10 @@ static NSString *const AWSMobileAnalyticsRoot = @"mobile-analytics";
 
 @interface AWSMobileAnalyticsIOSSystem : NSObject<AWSMobileAnalyticsSystem>
 
--(id) initWithIdentifier: (NSString *) theIdentifier;
+-(id) initWithIdentifier:(NSString*)theIdentifier;
 
--(id) initWithIdentifier: (NSString *) theIdentifier withRootPath:(NSString*) theRootPath;
+-(id) initWithIdentifier:(NSString*)theIdentifier
+      insightsPrivateKey:(NSString *)insightsPrivateKey;
 
 @property (nonatomic, readwrite) id<AWSMobileAnalyticsFileManager> fileManager;
 

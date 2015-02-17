@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2014 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -110,6 +110,57 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
 
 @end
 
+@implementation AWSS3CloudFunctionConfiguration
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"cloudFunction" : @"CloudFunction",
+             @"event" : @"Event",
+             @"events" : @"Events",
+             @"identifier" : @"Id",
+             @"invocationRole" : @"InvocationRole",
+             };
+}
+
++ (NSValueTransformer *)eventJSONTransformer {
+    return [MTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value isEqualToString:@"s3:ReducedRedundancyLostObject"]) {
+            return @(AWSS3EventS3ReducedRedundancyLostObject);
+        }
+        if ([value isEqualToString:@"s3:ObjectCreated:Put"]) {
+            return @(AWSS3EventS3ObjectCreatedPut);
+        }
+        if ([value isEqualToString:@"s3:ObjectCreated:Post"]) {
+            return @(AWSS3EventS3ObjectCreatedPost);
+        }
+        if ([value isEqualToString:@"s3:ObjectCreated:Copy"]) {
+            return @(AWSS3EventS3ObjectCreatedCopy);
+        }
+        if ([value isEqualToString:@"s3:ObjectCreated:CompleteMultipartUpload"]) {
+            return @(AWSS3EventS3ObjectCreatedCompleteMultipartUpload);
+        }
+        return @(AWSS3EventUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSS3EventS3ReducedRedundancyLostObject:
+                return @"s3:ReducedRedundancyLostObject";
+            case AWSS3EventS3ObjectCreatedPut:
+                return @"s3:ObjectCreated:Put";
+            case AWSS3EventS3ObjectCreatedPost:
+                return @"s3:ObjectCreated:Post";
+            case AWSS3EventS3ObjectCreatedCopy:
+                return @"s3:ObjectCreated:Copy";
+            case AWSS3EventS3ObjectCreatedCompleteMultipartUpload:
+                return @"s3:ObjectCreated:CompleteMultipartUpload";
+            case AWSS3EventUnknown:
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
 @implementation AWSS3CommonPrefix
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -129,17 +180,10 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
              @"expiration" : @"Expiration",
              @"key" : @"Key",
              @"location" : @"Location",
+             @"SSEKMSKeyId" : @"SSEKMSKeyId",
              @"serverSideEncryption" : @"ServerSideEncryption",
              @"versionId" : @"VersionId",
              };
-}
-
-+ (NSValueTransformer *)expirationJSONTransformer {
-	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSString *str) {
-        return [NSDate aws_dateFromString:str];
-    } reverseBlock:^id(NSDate *date) {
-        return [date aws_stringValue:AWSDateISO8601DateFormat1];
-    }];
 }
 
 + (NSValueTransformer *)serverSideEncryptionJSONTransformer {
@@ -251,6 +295,12 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
         if ([value isEqualToString:@""]) {
             return @(AWSS3BucketLocationConstraintBlank);
         }
+        if ([value isEqualToString:@"cn-north-1"]) {
+            return @(AWSS3BucketLocationConstraintCNNorth1);
+        }
+        if ([value isEqualToString:@"eu-central-1"]) {
+            return @(AWSS3BucketLocationConstraintEUCentral1);
+        }
         return @(AWSS3BucketLocationConstraintUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -272,6 +322,10 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
                 return @"sa-east-1";
             case AWSS3BucketLocationConstraintBlank:
                 return @"";
+            case AWSS3BucketLocationConstraintCNNorth1:
+                return @"cn-north-1";
+            case AWSS3BucketLocationConstraintEUCentral1:
+                return @"eu-central-1";
             case AWSS3BucketLocationConstraintUnknown:
             default:
                 return nil;
@@ -352,6 +406,7 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
              @"key" : @"Key",
              @"SSECustomerAlgorithm" : @"SSECustomerAlgorithm",
              @"SSECustomerKeyMD5" : @"SSECustomerKeyMD5",
+             @"SSEKMSKeyId" : @"SSEKMSKeyId",
              @"serverSideEncryption" : @"ServerSideEncryption",
              @"uploadId" : @"UploadId",
              };
@@ -397,6 +452,7 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
              @"SSECustomerAlgorithm" : @"SSECustomerAlgorithm",
              @"SSECustomerKey" : @"SSECustomerKey",
              @"SSECustomerKeyMD5" : @"SSECustomerKeyMD5",
+             @"SSEKMSKeyId" : @"SSEKMSKeyId",
              @"serverSideEncryption" : @"ServerSideEncryption",
              @"storageClass" : @"StorageClass",
              @"websiteRedirectLocation" : @"WebsiteRedirectLocation",
@@ -789,6 +845,12 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
         if ([value isEqualToString:@""]) {
             return @(AWSS3BucketLocationConstraintBlank);
         }
+        if ([value isEqualToString:@"cn-north-1"]) {
+            return @(AWSS3BucketLocationConstraintCNNorth1);
+        }
+        if ([value isEqualToString:@"eu-central-1"]) {
+            return @(AWSS3BucketLocationConstraintEUCentral1);
+        }
         return @(AWSS3BucketLocationConstraintUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -810,6 +872,10 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
                 return @"sa-east-1";
             case AWSS3BucketLocationConstraintBlank:
                 return @"";
+            case AWSS3BucketLocationConstraintCNNorth1:
+                return @"cn-north-1";
+            case AWSS3BucketLocationConstraintEUCentral1:
+                return @"eu-central-1";
             case AWSS3BucketLocationConstraintUnknown:
             default:
                 return nil;
@@ -857,8 +923,18 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"cloudFunctionConfiguration" : @"CloudFunctionConfiguration",
+             @"queueConfiguration" : @"QueueConfiguration",
              @"topicConfiguration" : @"TopicConfiguration",
              };
+}
+
++ (NSValueTransformer *)cloudFunctionConfigurationJSONTransformer {
+	return [NSValueTransformer mtl_JSONDictionaryTransformerWithModelClass:[AWSS3CloudFunctionConfiguration class]];
+}
+
++ (NSValueTransformer *)queueConfigurationJSONTransformer {
+	return [NSValueTransformer mtl_JSONDictionaryTransformerWithModelClass:[AWSS3QueueConfiguration class]];
 }
 
 + (NSValueTransformer *)topicConfigurationJSONTransformer {
@@ -1120,18 +1196,11 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
              @"restore" : @"Restore",
              @"SSECustomerAlgorithm" : @"SSECustomerAlgorithm",
              @"SSECustomerKeyMD5" : @"SSECustomerKeyMD5",
+             @"SSEKMSKeyId" : @"SSEKMSKeyId",
              @"serverSideEncryption" : @"ServerSideEncryption",
              @"versionId" : @"VersionId",
              @"websiteRedirectLocation" : @"WebsiteRedirectLocation",
              };
-}
-
-+ (NSValueTransformer *)expirationJSONTransformer {
-	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSString *str) {
-        return [NSDate aws_dateFromString:str];
-    } reverseBlock:^id(NSDate *date) {
-        return [date aws_stringValue:AWSDateISO8601DateFormat1];
-    }];
 }
 
 + (NSValueTransformer *)expiresJSONTransformer {
@@ -1197,7 +1266,7 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
 	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSString *str) {
         return [NSDate aws_dateFromString:str];
     } reverseBlock:^id(NSDate *date) {
-        return [date aws_stringValue:AWSDateISO8601DateFormat1];
+        return [date aws_stringValue:AWSDateRFC822DateFormat1];
     }];
 }
 
@@ -1205,7 +1274,7 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
 	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSString *str) {
         return [NSDate aws_dateFromString:str];
     } reverseBlock:^id(NSDate *date) {
-        return [date aws_stringValue:AWSDateISO8601DateFormat1];
+        return [date aws_stringValue:AWSDateRFC822DateFormat1];
     }];
 }
 
@@ -1298,33 +1367,33 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
 	return @{
              @"displayName" : @"DisplayName",
              @"emailAddress" : @"EmailAddress",
-             @"ID" : @"ID",
-             @"type" : @"Type",
+             @"identifier" : @"ID",
+             @"types" : @"Type",
              @"URI" : @"URI",
              };
 }
 
-+ (NSValueTransformer *)typeJSONTransformer {
++ (NSValueTransformer *)typesJSONTransformer {
     return [MTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
         if ([value isEqualToString:@"CanonicalUser"]) {
-            return @(AWSS3TypeCanonicalUser);
+            return @(AWSS3TypesCanonicalUser);
         }
         if ([value isEqualToString:@"AmazonCustomerByEmail"]) {
-            return @(AWSS3TypeAmazonCustomerByEmail);
+            return @(AWSS3TypesAmazonCustomerByEmail);
         }
         if ([value isEqualToString:@"Group"]) {
-            return @(AWSS3TypeGroup);
+            return @(AWSS3TypesGroup);
         }
-        return @(AWSS3TypeUnknown);
+        return @(AWSS3TypesUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
-            case AWSS3TypeCanonicalUser:
+            case AWSS3TypesCanonicalUser:
                 return @"CanonicalUser";
-            case AWSS3TypeAmazonCustomerByEmail:
+            case AWSS3TypesAmazonCustomerByEmail:
                 return @"AmazonCustomerByEmail";
-            case AWSS3TypeGroup:
+            case AWSS3TypesGroup:
                 return @"Group";
-            case AWSS3TypeUnknown:
+            case AWSS3TypesUnknown:
             default:
                 return nil;
         }
@@ -1364,18 +1433,11 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
              @"restore" : @"Restore",
              @"SSECustomerAlgorithm" : @"SSECustomerAlgorithm",
              @"SSECustomerKeyMD5" : @"SSECustomerKeyMD5",
+             @"SSEKMSKeyId" : @"SSEKMSKeyId",
              @"serverSideEncryption" : @"ServerSideEncryption",
              @"versionId" : @"VersionId",
              @"websiteRedirectLocation" : @"WebsiteRedirectLocation",
              };
-}
-
-+ (NSValueTransformer *)expirationJSONTransformer {
-	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSString *str) {
-        return [NSDate aws_dateFromString:str];
-    } reverseBlock:^id(NSDate *date) {
-        return [date aws_stringValue:AWSDateISO8601DateFormat1];
-    }];
 }
 
 + (NSValueTransformer *)expiresJSONTransformer {
@@ -1435,7 +1497,7 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
 	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSString *str) {
         return [NSDate aws_dateFromString:str];
     } reverseBlock:^id(NSDate *date) {
-        return [date aws_stringValue:AWSDateISO8601DateFormat1];
+        return [date aws_stringValue:AWSDateRFC822DateFormat1];
     }];
 }
 
@@ -1443,7 +1505,7 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
 	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSString *str) {
         return [NSDate aws_dateFromString:str];
     } reverseBlock:^id(NSDate *date) {
-        return [date aws_stringValue:AWSDateISO8601DateFormat1];
+        return [date aws_stringValue:AWSDateRFC822DateFormat1];
     }];
 }
 
@@ -1464,7 +1526,7 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"displayName" : @"DisplayName",
-             @"ID" : @"ID",
+             @"identifier" : @"ID",
              };
 }
 
@@ -1528,6 +1590,7 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
 	return @{
              @"bucket" : @"Bucket",
              @"commonPrefixes" : @"CommonPrefixes",
+             @"delimiter" : @"Delimiter",
              @"encodingType" : @"EncodingType",
              @"isTruncated" : @"IsTruncated",
              @"keyMarker" : @"KeyMarker",
@@ -1606,6 +1669,7 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
 	return @{
              @"commonPrefixes" : @"CommonPrefixes",
              @"deleteMarkers" : @"DeleteMarkers",
+             @"delimiter" : @"Delimiter",
              @"encodingType" : @"EncodingType",
              @"isTruncated" : @"IsTruncated",
              @"keyMarker" : @"KeyMarker",
@@ -1689,6 +1753,7 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
 	return @{
              @"commonPrefixes" : @"CommonPrefixes",
              @"contents" : @"Contents",
+             @"delimiter" : @"Delimiter",
              @"encodingType" : @"EncodingType",
              @"isTruncated" : @"IsTruncated",
              @"marker" : @"Marker",
@@ -1937,8 +2002,18 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"cloudFunctionConfiguration" : @"CloudFunctionConfiguration",
+             @"queueConfiguration" : @"QueueConfiguration",
              @"topicConfiguration" : @"TopicConfiguration",
              };
+}
+
++ (NSValueTransformer *)cloudFunctionConfigurationJSONTransformer {
+	return [NSValueTransformer mtl_JSONDictionaryTransformerWithModelClass:[AWSS3CloudFunctionConfiguration class]];
+}
+
++ (NSValueTransformer *)queueConfigurationJSONTransformer {
+	return [NSValueTransformer mtl_JSONDictionaryTransformerWithModelClass:[AWSS3QueueConfiguration class]];
 }
 
 + (NSValueTransformer *)topicConfigurationJSONTransformer {
@@ -2063,7 +2138,7 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"displayName" : @"DisplayName",
-             @"ID" : @"ID",
+             @"identifier" : @"ID",
              };
 }
 
@@ -2358,17 +2433,10 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
              @"expiration" : @"Expiration",
              @"SSECustomerAlgorithm" : @"SSECustomerAlgorithm",
              @"SSECustomerKeyMD5" : @"SSECustomerKeyMD5",
+             @"SSEKMSKeyId" : @"SSEKMSKeyId",
              @"serverSideEncryption" : @"ServerSideEncryption",
              @"versionId" : @"VersionId",
              };
-}
-
-+ (NSValueTransformer *)expirationJSONTransformer {
-	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSString *str) {
-        return [NSDate aws_dateFromString:str];
-    } reverseBlock:^id(NSDate *date) {
-        return [date aws_stringValue:AWSDateISO8601DateFormat1];
-    }];
 }
 
 + (NSValueTransformer *)serverSideEncryptionJSONTransformer {
@@ -2414,6 +2482,7 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
              @"SSECustomerAlgorithm" : @"SSECustomerAlgorithm",
              @"SSECustomerKey" : @"SSECustomerKey",
              @"SSECustomerKeyMD5" : @"SSECustomerKeyMD5",
+             @"SSEKMSKeyId" : @"SSEKMSKeyId",
              @"serverSideEncryption" : @"ServerSideEncryption",
              @"storageClass" : @"StorageClass",
              @"websiteRedirectLocation" : @"WebsiteRedirectLocation",
@@ -2511,34 +2580,84 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
 
 @end
 
+@implementation AWSS3QueueConfiguration
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"event" : @"Event",
+             @"events" : @"Events",
+             @"identifier" : @"Id",
+             @"queue" : @"Queue",
+             };
+}
+
++ (NSValueTransformer *)eventJSONTransformer {
+    return [MTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value isEqualToString:@"s3:ReducedRedundancyLostObject"]) {
+            return @(AWSS3EventS3ReducedRedundancyLostObject);
+        }
+        if ([value isEqualToString:@"s3:ObjectCreated:Put"]) {
+            return @(AWSS3EventS3ObjectCreatedPut);
+        }
+        if ([value isEqualToString:@"s3:ObjectCreated:Post"]) {
+            return @(AWSS3EventS3ObjectCreatedPost);
+        }
+        if ([value isEqualToString:@"s3:ObjectCreated:Copy"]) {
+            return @(AWSS3EventS3ObjectCreatedCopy);
+        }
+        if ([value isEqualToString:@"s3:ObjectCreated:CompleteMultipartUpload"]) {
+            return @(AWSS3EventS3ObjectCreatedCompleteMultipartUpload);
+        }
+        return @(AWSS3EventUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSS3EventS3ReducedRedundancyLostObject:
+                return @"s3:ReducedRedundancyLostObject";
+            case AWSS3EventS3ObjectCreatedPut:
+                return @"s3:ObjectCreated:Put";
+            case AWSS3EventS3ObjectCreatedPost:
+                return @"s3:ObjectCreated:Post";
+            case AWSS3EventS3ObjectCreatedCopy:
+                return @"s3:ObjectCreated:Copy";
+            case AWSS3EventS3ObjectCreatedCompleteMultipartUpload:
+                return @"s3:ObjectCreated:CompleteMultipartUpload";
+            case AWSS3EventUnknown:
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
 @implementation AWSS3Redirect
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"hostName" : @"HostName",
              @"httpRedirectCode" : @"HttpRedirectCode",
-             @"protocol" : @"Protocol",
+             @"protocols" : @"Protocol",
              @"replaceKeyPrefixWith" : @"ReplaceKeyPrefixWith",
              @"replaceKeyWith" : @"ReplaceKeyWith",
              };
 }
 
-+ (NSValueTransformer *)protocolJSONTransformer {
++ (NSValueTransformer *)protocolsJSONTransformer {
     return [MTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
         if ([value isEqualToString:@"http"]) {
-            return @(AWSS3ProtocolHTTP);
+            return @(AWSS3ProtocolsHTTP);
         }
         if ([value isEqualToString:@"https"]) {
-            return @(AWSS3ProtocolHTTPS);
+            return @(AWSS3ProtocolsHTTPS);
         }
-        return @(AWSS3ProtocolUnknown);
+        return @(AWSS3ProtocolsUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
-            case AWSS3ProtocolHTTP:
+            case AWSS3ProtocolsHTTP:
                 return @"http";
-            case AWSS3ProtocolHTTPS:
+            case AWSS3ProtocolsHTTPS:
                 return @"https";
-            case AWSS3ProtocolUnknown:
+            case AWSS3ProtocolsUnknown:
             default:
                 return nil;
         }
@@ -2552,26 +2671,26 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"hostName" : @"HostName",
-             @"protocol" : @"Protocol",
+             @"protocols" : @"Protocol",
              };
 }
 
-+ (NSValueTransformer *)protocolJSONTransformer {
++ (NSValueTransformer *)protocolsJSONTransformer {
     return [MTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
         if ([value isEqualToString:@"http"]) {
-            return @(AWSS3ProtocolHTTP);
+            return @(AWSS3ProtocolsHTTP);
         }
         if ([value isEqualToString:@"https"]) {
-            return @(AWSS3ProtocolHTTPS);
+            return @(AWSS3ProtocolsHTTPS);
         }
-        return @(AWSS3ProtocolUnknown);
+        return @(AWSS3ProtocolsUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
-            case AWSS3ProtocolHTTP:
+            case AWSS3ProtocolsHTTP:
                 return @"http";
-            case AWSS3ProtocolHTTPS:
+            case AWSS3ProtocolsHTTPS:
                 return @"https";
-            case AWSS3ProtocolUnknown:
+            case AWSS3ProtocolsUnknown:
             default:
                 return nil;
         }
@@ -2604,16 +2723,9 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
              @"replicateSourceVersionId" : @"CopySourceVersionId",
              @"SSECustomerAlgorithm" : @"SSECustomerAlgorithm",
              @"SSECustomerKeyMD5" : @"SSECustomerKeyMD5",
+             @"SSEKMSKeyId" : @"SSEKMSKeyId",
              @"serverSideEncryption" : @"ServerSideEncryption",
              };
-}
-
-+ (NSValueTransformer *)expirationJSONTransformer {
-	return [MTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSString *str) {
-        return [NSDate aws_dateFromString:str];
-    } reverseBlock:^id(NSDate *date) {
-        return [date aws_stringValue:AWSDateISO8601DateFormat1];
-    }];
 }
 
 + (NSValueTransformer *)replicateObjectResultJSONTransformer {
@@ -2669,6 +2781,7 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
              @"SSECustomerAlgorithm" : @"SSECustomerAlgorithm",
              @"SSECustomerKey" : @"SSECustomerKey",
              @"SSECustomerKeyMD5" : @"SSECustomerKeyMD5",
+             @"SSEKMSKeyId" : @"SSEKMSKeyId",
              @"serverSideEncryption" : @"ServerSideEncryption",
              @"storageClass" : @"StorageClass",
              @"websiteRedirectLocation" : @"WebsiteRedirectLocation",
@@ -2925,7 +3038,7 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"expiration" : @"Expiration",
-             @"ID" : @"ID",
+             @"identifier" : @"ID",
              @"noncurrentVersionExpiration" : @"NoncurrentVersionExpiration",
              @"noncurrentVersionTransition" : @"NoncurrentVersionTransition",
              @"prefix" : @"Prefix",
@@ -3046,6 +3159,8 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"event" : @"Event",
+             @"events" : @"Events",
+             @"identifier" : @"Id",
              @"topic" : @"Topic",
              };
 }
@@ -3055,11 +3170,31 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
         if ([value isEqualToString:@"s3:ReducedRedundancyLostObject"]) {
             return @(AWSS3EventS3ReducedRedundancyLostObject);
         }
+        if ([value isEqualToString:@"s3:ObjectCreated:Put"]) {
+            return @(AWSS3EventS3ObjectCreatedPut);
+        }
+        if ([value isEqualToString:@"s3:ObjectCreated:Post"]) {
+            return @(AWSS3EventS3ObjectCreatedPost);
+        }
+        if ([value isEqualToString:@"s3:ObjectCreated:Copy"]) {
+            return @(AWSS3EventS3ObjectCreatedCopy);
+        }
+        if ([value isEqualToString:@"s3:ObjectCreated:CompleteMultipartUpload"]) {
+            return @(AWSS3EventS3ObjectCreatedCompleteMultipartUpload);
+        }
         return @(AWSS3EventUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
             case AWSS3EventS3ReducedRedundancyLostObject:
                 return @"s3:ReducedRedundancyLostObject";
+            case AWSS3EventS3ObjectCreatedPut:
+                return @"s3:ObjectCreated:Put";
+            case AWSS3EventS3ObjectCreatedPost:
+                return @"s3:ObjectCreated:Post";
+            case AWSS3EventS3ObjectCreatedCopy:
+                return @"s3:ObjectCreated:Copy";
+            case AWSS3EventS3ObjectCreatedCompleteMultipartUpload:
+                return @"s3:ObjectCreated:CompleteMultipartUpload";
             case AWSS3EventUnknown:
             default:
                 return nil;
@@ -3114,6 +3249,7 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
              @"replicateSourceVersionId" : @"CopySourceVersionId",
              @"SSECustomerAlgorithm" : @"SSECustomerAlgorithm",
              @"SSECustomerKeyMD5" : @"SSECustomerKeyMD5",
+             @"SSEKMSKeyId" : @"SSEKMSKeyId",
              @"serverSideEncryption" : @"ServerSideEncryption",
              };
 }
@@ -3189,6 +3325,7 @@ NSString *const AWSS3ErrorDomain = @"com.amazonaws.AWSS3ErrorDomain";
              @"ETag" : @"ETag",
              @"SSECustomerAlgorithm" : @"SSECustomerAlgorithm",
              @"SSECustomerKeyMD5" : @"SSECustomerKeyMD5",
+             @"SSEKMSKeyId" : @"SSEKMSKeyId",
              @"serverSideEncryption" : @"ServerSideEncryption",
              };
 }

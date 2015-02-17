@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2014 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -47,6 +47,7 @@ NSString *const AWSCognitoNotificationNewId = @"NEWID";
 - (void)clear {
     self.token = nil;
     self.identityId = nil;
+    self.logins = nil;
 }
 
 - (BOOL)isAuthenticated {
@@ -117,15 +118,16 @@ NSString *const AWSCognitoNotificationNewId = @"NEWID";
 
 @end
 
-@interface AWSBasicCognitoIdentityProvider()
+@interface AWSAbstractCognitoIdentityProvider()
 @property (nonatomic, strong) NSString *accountId;
+@property (nonatomic, strong) NSString *providerName;
 @property (nonatomic, strong) AWSCognitoIdentity *cib;
 @property (nonatomic, strong) BFExecutor *executor;
 @property (atomic, assign) int32_t count;
 @property (nonatomic, strong) dispatch_semaphore_t semaphore;
 @end
 
-@implementation AWSBasicCognitoIdentityProvider
+@implementation AWSAbstractCognitoIdentityProvider
 @synthesize accountId=_accountId;
 
 - (instancetype)initWithRegionType:(AWSRegionType)regionType
@@ -169,7 +171,7 @@ NSString *const AWSCognitoNotificationNewId = @"NEWID";
             }
             else {
                 dispatch_semaphore_wait(self.semaphore, dispatch_time(DISPATCH_TIME_NOW, 5 * NSEC_PER_SEC));
-                return nil;
+                return [BFTask taskWithResult:nil];
             }
         }] continueWithBlock:^id(BFTask *task) {
             self.count--;
@@ -211,8 +213,10 @@ NSString *const AWSCognitoNotificationNewId = @"NEWID";
             if (task.error) {
                 AWSLogError(@"GetOpenIdToken failed. Error is [%@]", task.error);
 
-                // if it's unauth, just fail out
-                if (![self isAuthenticated]) {
+                // If it's auth or we caught a not found or validation error
+                // we want to reset the identity id, otherwise, just return
+                // the error to our caller
+                if (!([self isAuthenticated] || [AWSCognitoCredentialsProvider shouldResetIdentityId:task.error])) {
                     return task;
                 }
 
@@ -263,8 +267,46 @@ NSString *const AWSCognitoNotificationNewId = @"NEWID";
             self.identityId = identityIdFromToken;
         }
 
-        return nil;
+        return [BFTask taskWithResult:nil];
     }];
+}
+
+@end
+
+@implementation AWSBasicCognitoIdentityProvider
+
+- (instancetype)initWithRegionType:(AWSRegionType)regionType
+                        identityId:(NSString *)identityId
+                         accountId:(NSString *)accountId
+                    identityPoolId:(NSString *)identityPoolId
+                            logins:(NSDictionary *)logins {
+    
+    
+    if (self = [super initWithRegionType:regionType identityId:identityId accountId:accountId identityPoolId:identityPoolId logins:logins]) {
+        self.providerName = @"Cognito";
+    }
+    return self;
+}
+
+@end
+
+@implementation AWSEnhancedCognitoIdentityProvider
+
+- (instancetype)initWithRegionType:(AWSRegionType)regionType
+                        identityId:(NSString *)identityId
+                    identityPoolId:(NSString *)identityPoolId
+                            logins:(NSDictionary *)logins {
+    
+    
+    if (self = [super initWithRegionType:regionType identityId:identityId accountId:nil identityPoolId:identityPoolId logins:logins]) {
+        self.providerName = @"Cognito";
+    }
+    return self;
+}
+
+// In the new flow, this provider only handles identity id
+- (BFTask *)refresh {
+    return [self getIdentityId];
 }
 
 @end

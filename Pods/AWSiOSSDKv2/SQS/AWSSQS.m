@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2014 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -197,12 +197,20 @@ static NSDictionary *errorCodeDictionary = nil;
     return _defaultSQS;
 }
 
+- (instancetype)init {
+    @throw [NSException exceptionWithName:NSInternalInconsistencyException
+                                   reason:@"`- init` is not a valid initializer. Use `+ defaultSQS` or `- initWithConfiguration:` instead."
+                                 userInfo:nil];
+    return nil;
+}
+
 - (instancetype)initWithConfiguration:(AWSServiceConfiguration *)configuration {
     if (self = [super init]) {
         _configuration = [configuration copy];
 
-        _configuration.endpoint = [AWSEndpoint endpointWithRegion:_configuration.regionType
-                                                          service:AWSServiceSQS];
+        _configuration.endpoint = [[AWSEndpoint alloc] initWithRegion:_configuration.regionType
+                                                              service:AWSServiceSQS
+                                                         useUnsafeURL:NO];
 
         AWSSignatureV4Signer *signer = [AWSSignatureV4Signer signerWithCredentialsProvider:_configuration.credentialsProvider
                                                                                   endpoint:_configuration.endpoint];

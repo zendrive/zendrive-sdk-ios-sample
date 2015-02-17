@@ -37,6 +37,7 @@ The [sample apps](https://github.com/awslabs/aws-sdk-ios-samples) are standalone
 1. The AWS Mobile SDK for iOS is available through [CocoaPods](http://cocoapods.org). If you have not installed CocoaPods, install CocoaPods by running the command:
 
 		$ sudo gem install cocoapods
+		$ pod setup
 
 1. In your project directory (the directory where your `*.xcodeproj` file is), create a plain text file named **Podfile** (without any file extension) and add the following lines. If you want to use [Amazon Cognito Sync](http://aws.amazon.com/cognito/), make sure to include `pod 'AWSCognitoSync'` as well.
 
@@ -89,6 +90,7 @@ The [sample apps](https://github.com/awslabs/aws-sdk-ios-samples) are standalone
 1. Following the same procedure, add the following frameworks, located in the **third-party** directory, into your project.
 
     * `Bolts.framework` (If your application uses the Facebook SDK, you may not need this framework, as it's already included with the Facebook SDK.)
+    * `FMDB.framework`
     * `GZIP.framework`
     * `Mantle.framework`
     * `Reachability.framework`
@@ -99,7 +101,7 @@ The [sample apps](https://github.com/awslabs/aws-sdk-ios-samples) are standalone
 1. Drag and drop the following JSON files, located in the **service-definitions** directory, into your project.
 
     * `autoscaling-2011-01-01.json`
-    * `cib-2014-06-30.json`
+    * `cognito-identity-2014-06-30.json`
     * `css-2014-06-30.json`
     * `dynamodb-2012-08-10.json`
     * `ec2-2014-06-15.json`
@@ -114,7 +116,7 @@ The [sample apps](https://github.com/awslabs/aws-sdk-ios-samples) are standalone
     * `sqs-2012-11-05.json`
     * `sts-2011-06-15.json`
 
-1. Open a target for your project, select **Build Phases**, expand **Link Binary With Libraries**, click the **+** button, and add `libsqlite3.dylib` and `libz.dylib`.
+1. Open a target for your project, select **Build Phases**, expand **Link Binary With Libraries**, click the **+** button, and add `libsqlite3.dylib`, `libz.dylib`, and `SystemConfiguration.framework`.
 
 ##Update the SDK to a Newer Version
 
@@ -137,6 +139,7 @@ When we release a new version of the SDK, you can pick up the changes as describ
     * `AWSiOSSDKv2.framework`
     * `AWSCognitoSync.framework`
     * `Bolts.framework`
+    * `FMDB.framework`
     * `GZIP.framework`
     * `Mantle.framework`
     * `Reachability.framework`
@@ -147,7 +150,7 @@ When we release a new version of the SDK, you can pick up the changes as describ
 1. Also, delete the JSON files:
 
     * `autoscaling-2011-01-01.json`
-    * `cib-2014-06-30.json`
+    * `cognito-identity-2014-06-30.json`
     * `css-2014-06-30.json`
     * `dynamodb-2012-08-10.json`
     * `ec2-2014-06-15.json`
@@ -203,7 +206,7 @@ When we release a new version of the SDK, you can pick up the changes as describ
     
         #import <AWSiOSSDKv2/AWSCore.h>
 
-1. Create a default service configuration by adding the following code snippet in the `@optional func application(_ application: UIApplication!, didFinishLaunchingWithOptions launchOptions: NSDictionary!) -> Bool` application delegate method.
+1. Create a default service configuration by adding the following code snippet in the `application:didFinishLaunchingWithOptions:` application delegate method.
 
         let credentialsProvider = AWSCognitoCredentialsProvider.credentialsWithRegionType(
             AWSRegionType.USEast1,
@@ -244,7 +247,7 @@ When we release a new version of the SDK, you can pick up the changes as describ
     
         #import <AWSiOSSDKv2/AWSCore.h>
 
-1. Create a default service configuration by adding the following code snippet in the `- application:didFinishLaunchingWithOptions:` application delegate method.
+1. Create a default service configuration by adding the following code snippet in the `application:didFinishLaunchingWithOptions:` application delegate method.
 
         AWSCognitoCredentialsProvider *credentialsProvider = [AWSCognitoCredentialsProvider credentialsWithRegionType:AWSRegionUSEast1
                                                                                                             accountId:AWSAccountID
@@ -329,16 +332,16 @@ The AWS SDK for iOS includes sample apps that demonstrate common use cases.
 
 This sample demonstrates how to securely manage and sync your mobile app data and create unique identities via login providers including Facebook, Google, and Login with Amazon.
 
-**AWS Services Demonstrated**:
+####AWS Services Demonstrated:
 
 * [Amazon Cognito Sync](http://aws.amazon.com/cognito/)
 * [Amazon Cognito Identity](http://aws.amazon.com/cognito/)
 
-###DynamoDB Object Mapper Sample ([Objective-C](https://github.com/awslabs/aws-sdk-ios-samples/tree/master/DynamoDBObjectMapper-Sample/Objective-C/))
+###DynamoDB Object Mapper Sample ([Swift](https://github.com/awslabs/aws-sdk-ios-samples/tree/master/DynamoDBObjectMapper-Sample/Swift/), [Objective-C](https://github.com/awslabs/aws-sdk-ios-samples/tree/master/DynamoDBObjectMapper-Sample/Objective-C/))
 
 This sample demonstrates how to insert / update / delete / query items using DynamoDB Object Mapper.
 
-**AWS Services Demonstrated**:
+####AWS Services Demonstrated:
 
 * [Amazon DynamoDB](http://aws.amazon.com/dynamodb/)
 * [Amazon Cognito Identity](http://aws.amazon.com/cognito/)
@@ -347,16 +350,26 @@ This sample demonstrates how to insert / update / delete / query items using Dyn
 
 This sample demonstrates how to upload / download multiple files simultaneously using S3 Transfer Manager. It also shows how to pause, resume, and cancel file upload / download.
 
-**AWS Services Demonstrated**:
+####AWS Services Demonstrated:
 
 * [Amazon S3](http://aws.amazon.com/s3/)
 * [Amazon Cognito Identity](http://aws.amazon.com/cognito/)
 
-###SNS Mobile Push and Mobile Analytics Sample ([Swift](https://github.com/awslabs/aws-sdk-ios-samples/tree/master/SNS-MobileAnalytics-Sample/Swift/))
+###S3 Background Transfer Sample ([Swift](https://github.com/awslabs/aws-sdk-ios-samples/tree/master/S3BackgroundTransfer-Sample/Swift/), [Objective-C](https://github.com/awslabs/aws-sdk-ios-samples/tree/master/S3BackgroundTransfer-Sample/Objective-C/))
+
+This sample demonstrates how to use the Amazon S3 PreSigned URL Builder to download / upload files in background.
+
+####AWS Services Demonstrated:
+
+* [Amazon S3](http://aws.amazon.com/s3/)
+* [Amazon Cognito Identity](http://aws.amazon.com/cognito/)
+
+
+###SNS Mobile Push and Mobile Analytics Sample ([Swift](https://github.com/awslabs/aws-sdk-ios-samples/tree/master/SNS-MobileAnalytics-Sample/Swift/), [Objective-C](https://github.com/awslabs/aws-sdk-ios-samples/tree/master/SNS-MobileAnalytics-Sample/Objective-C/))
 
 This sample demonstrates how to set up Amazon SNS Mobile Push and record events using Amazon Mobile Analytics.
 
-**AWS Services Demonstrated**:
+####AWS Services Demonstrated:
 
 * [Amazon SNS Mobile Push](http://aws.amazon.com/sns/)
 * [Amazon Mobile Analytics](http://aws.amazon.com/mobileanalytics/)

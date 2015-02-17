@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2014 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -15,6 +15,8 @@
 
 #import "AWSCategory.h"
 #import <objc/runtime.h>
+#import <CommonCrypto/CommonCryptor.h>
+#import <CommonCrypto/CommonDigest.h>
 #import "AWSLogging.h"
 
 NSString *const AWSDateRFC822DateFormat1 = @"EEE, dd MMM yyyy HH:mm:ss z";
@@ -129,6 +131,15 @@ static NSTimeInterval _clockskew = 0.0;
     return mutableDictionary;
 }
 
+-(id) aws_objectForCaseInsensitiveKey:(id)aKey {
+    for (NSString *key in self.allKeys) {
+        if ([key compare:aKey options:NSCaseInsensitiveSearch] == NSOrderedSame) {
+            return [self objectForKey:key];
+        }
+    }
+    return  nil;
+}
+
 @end
 
 @implementation NSObject (AWS)
@@ -231,16 +242,6 @@ static NSTimeInterval _clockskew = 0.0;
 
 @implementation NSString (AWS)
 
-+ (NSString *)aws_randomStringWithLength:(NSUInteger)length {
-    NSMutableString *randomString = [NSMutableString new];
-    for (int32_t i = 0; i < length; i++) {
-        @autoreleasepool {
-            [randomString appendString:[NSString stringWithFormat:@"%c", arc4random_uniform(26) + 'a']];
-        }
-    }
-    return randomString;
-}
-
 - (BOOL)aws_isBase64Data {
     if ([self length] % 4 == 0) {
         static NSCharacterSet *invertedBase64CharacterSet = nil;
@@ -272,6 +273,18 @@ static NSTimeInterval _clockskew = 0.0;
 - (NSString *)aws_decodeURLEncoding {
     NSString *result = [self stringByRemovingPercentEncoding];
     return result?result:self;
+}
+
+- (NSString *)aws_md5String {
+    NSData *dataString = [self dataUsingEncoding:NSUTF16LittleEndianStringEncoding];
+    unsigned char digestArray[CC_MD5_DIGEST_LENGTH];
+    CC_MD5([dataString bytes], (CC_LONG)[dataString length], digestArray);
+
+    NSMutableString *md5String = [NSMutableString stringWithCapacity:CC_MD5_DIGEST_LENGTH * 2];
+    for (int i = 0; i < CC_MD5_DIGEST_LENGTH; i++) {
+        [md5String appendFormat:@"%02x", digestArray[i]];
+    }
+    return md5String;
 }
 
 @end
@@ -314,16 +327,4 @@ static NSTimeInterval _clockskew = 0.0;
                                  queryString]];
 }
 
-@end
-
-@implementation NSDictionary (caseInsensitive)
-
--(id) aws_objectForCaseInsensitiveKey:(id)aKey {
-    for (NSString *key in self.allKeys) {
-        if ([key compare:aKey options:NSCaseInsensitiveSearch] == NSOrderedSame) {
-            return [self objectForKey:key];
-        }
-    }
-    return  nil;
-}
 @end

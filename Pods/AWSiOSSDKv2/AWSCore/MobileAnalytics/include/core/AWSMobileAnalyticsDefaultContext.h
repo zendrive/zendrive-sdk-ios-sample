@@ -1,5 +1,5 @@
 /*
- * Copyright 2010-2014 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2010-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -26,10 +26,12 @@
 @interface AWSMobileAnalyticsDefaultContext : NSObject<AWSMobileAnalyticsContext>
 
 + (id<AWSMobileAnalyticsContext>)contextWithIdentifier:(NSString*) theCredentials
+                                    insightsPrivateKey:(NSString *)insightsPrivateKey
                                            withSdkInfo:(AWSMobileAnalyticsSDKInfo*)sdkInfo
                              withConfigurationSettings:(NSDictionary*)settings;
 
 + (id<AWSMobileAnalyticsContext>)contextWithIdentifier:(NSString*) theCredentials
+                                    insightsPrivateKey:(NSString *)insightsPrivateKey
                                withClientConfiguration:(AWSMobileAnalyticsConfiguration *)clientConfiguration
                                            withSdkInfo:(AWSMobileAnalyticsSDKInfo*)sdkInfo
                              withConfigurationSettings:(NSDictionary*)settings;
