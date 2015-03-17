@@ -1,5 +1,5 @@
 PODS:
-  - AWSiOSSDKv2/AWSCore (2.0.16):
+  - AWSiOSSDKv2/AWSCore (2.0.17):
     - Bolts (~> 1.1.0)
     - FMDB (~> 2.4)
     - GZIP (~> 1.0.3)
@@ -8,7 +8,7 @@ PODS:
     - TMCache (~> 1.2.1)
     - UICKeyChainStore (< 3.0)
     - XMLDictionary (~> 1.4.0)
-  - AWSiOSSDKv2/S3 (2.0.16):
+  - AWSiOSSDKv2/S3 (2.0.17):
     - AWSiOSSDKv2/AWSCore
     - Bolts (~> 1.1.0)
     - FMDB (~> 2.4)
@@ -18,7 +18,7 @@ PODS:
     - TMCache (~> 1.2.1)
     - UICKeyChainStore (< 3.0)
     - XMLDictionary (~> 1.4.0)
-  - AWSiOSSDKv2/SQS (2.0.16):
+  - AWSiOSSDKv2/SQS (2.0.17):
     - AWSiOSSDKv2/AWSCore
     - Bolts (~> 1.1.0)
     - FMDB (~> 2.4)
@@ -28,7 +28,7 @@ PODS:
     - TMCache (~> 1.2.1)
     - UICKeyChainStore (< 3.0)
     - XMLDictionary (~> 1.4.0)
-  - Bolts (1.1.3)
+  - Bolts (1.1.4)
   - FMDB (2.5):
     - FMDB/standard (= 2.5)
   - FMDB/common (2.5)
@@ -40,37 +40,37 @@ PODS:
   - Mantle/extobjc (1.5.4)
   - Reachability (3.1.1)
   - TMCache (1.2.3)
-  - UICKeyChainStore (2.0.3)
+  - UICKeyChainStore (2.0.4)
   - XMLDictionary (1.4)
-  - ZendriveSDK (3.1.1):
+  - ZendriveSDK (3.0.4):
     - AWSiOSSDKv2/S3 (~> 2.0.0)
     - AWSiOSSDKv2/SQS (~> 2.0.0)
     - FMDB
     - Reachability (~> 3.1.1)
 
 DEPENDENCIES:
-  - ZendriveSDK (from `https://bitbucket.org/zendrive-root/zendrive_cocoapod.git`, tag `3.1.1`)
+  - ZendriveSDK (from `https://bitbucket.org/zendrive-root/zendrive_cocoapod.git`, tag `3.0.4`)
 
 EXTERNAL SOURCES:
   ZendriveSDK:
     :git: https://bitbucket.org/zendrive-root/zendrive_cocoapod.git
-    :tag: 3.1.1
+    :tag: 3.0.4
 
 CHECKOUT OPTIONS:
   ZendriveSDK:
     :git: https://bitbucket.org/zendrive-root/zendrive_cocoapod.git
-    :tag: 3.1.1
+    :tag: 3.0.4
 
 SPEC CHECKSUMS:
-  AWSiOSSDKv2: bcf17afda187f45901b07369f1f59bfbc68922bc
-  Bolts: 3db0a875235e0c9042b013af13af0f00f79b102c
+  AWSiOSSDKv2: a463e466164c52814a624b5f3f70c986807f48e1
+  Bolts: dd9fb8433d67f5acc3b6b4d1379bbc5513d716c1
   FMDB: 0efa188cf0dd1ce82c27a478cd5f5fa245308677
   GZIP: f27c434ffee5e9a9b34f4e9c19e91350fa8bbde1
   Mantle: d5fbaf30fbc58031223af13812c060e15934a1fe
   Reachability: 8e9635e3cb4f98e7f825e51147f677ecc694d0e7
   TMCache: 11589ef8c40909114a5e60132711c9a559e01d97
-  UICKeyChainStore: 9b6ce74b89fc24e1879257eb51c002f7cc4a5b9b
+  UICKeyChainStore: 2399076d0950e20fe859b8f817548cf6ca542dd7
   XMLDictionary: 735e81b9a043e220b0d24e9d4f16719606f2e0fc
-  ZendriveSDK: 8d9c04f90f2229e10e51a3659619899567158e12
+  ZendriveSDK: 4ca5575fe61c055380ba580727fe41a28289970c
 
 COCOAPODS: 0.35.0
