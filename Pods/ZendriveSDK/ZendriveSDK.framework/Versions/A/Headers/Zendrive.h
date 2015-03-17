@@ -167,7 +167,8 @@
  * The application must call stopSession when it wants to end the session.
  *
  * Only one session may be active at a time. Calling startSession when a session is
- * already active will be a no-op.
+ * already active with a new sessionId will stop the ongoing session and start a new
+ * one.
  *
  * Calling it without having initialized the Zendrive SDK is a no-op.
  *

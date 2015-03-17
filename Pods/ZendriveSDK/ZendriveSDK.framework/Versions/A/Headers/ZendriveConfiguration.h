@@ -50,7 +50,7 @@ typedef NS_ENUM(int, ZendriveOperationMode) {
  * @abstract Your application key.
  *
  * @discussion Pass in the application key for your app. If you don't
- * have one, please create one at http://developer.zendrive.com/developer-portal/signup
+ * have one, please create one at https://developers.zendrive.com/signup
  *
  * This field is REQUIRED and should be a valid string.
  * Check [Zendrive isValidInputParameter:] to validate this field. Nil strings are not
@@ -91,7 +91,7 @@ typedef NS_ENUM(int, ZendriveOperationMode) {
  * suits your application requirements.
  * Once setup, all drives detected by the SDK would be in the specified operationMode. If
  * you wish to change the operation mode at any point, you need to call
- * @method [Zendrive teardown] and setup the SDK again.
+ * [Zendrive teardown] and setup the SDK again.
  * This field is REQUIRED. If this field is not explicitly set, SDK setup would fail.
  */
 @property (nonatomic) ZendriveOperationMode operationMode;

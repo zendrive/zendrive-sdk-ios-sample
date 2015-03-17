@@ -1,6 +1,6 @@
 Pod::Spec.new do |s| 
   s.name           = "ZendriveSDK"
-  s.version        = "3.0.4"
+  s.version        = "3.1.2"
   s.summary        = "Zendrive iOS SDK"
   s.homepage       = "http://www.zendrive.com"
   s.license        = 'Apache License, Version 2.0'

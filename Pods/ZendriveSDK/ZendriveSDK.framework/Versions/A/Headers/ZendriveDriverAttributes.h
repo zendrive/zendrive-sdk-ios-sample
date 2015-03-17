@@ -9,22 +9,22 @@
 #import <Foundation/Foundation.h>
 
 /**
- *  Key for first name as returned by @method toJson method.
+ *  Key for first name as returned by toJson method.
  */
 extern NSString * const kDriverAttributesKeyFirstName;
 
 /**
- *  Key for last name as returned by @method toJson method.
+ *  Key for last name as returned by toJson method.
  */
 extern NSString * const kDriverAttributesLastName;
 
 /**
- *  Key for email as returned by @method toJson method.
+ *  Key for email as returned by toJson method.
  */
 extern NSString * const kDriverAttributesKeyEmail;
 
 /**
- *  Key for groupId returned by @method toJson method.
+ *  Key for groupId returned by toJson method.
  */
 extern NSString * const kDriverAttributesKeyGroup;
 
