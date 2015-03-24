@@ -19,7 +19,7 @@ You can integrate <a href="http://developers.zendrive.com/docs/ios/">Zendrive iO
 <h4>How to run the sample app</h4>
 <ul style="list-style-position: inside">
 <li> Sign up <a href="http://developers.zendrive.com/signup">here.</a></li>
-<li> Replace &lt;your-application-key&gt; in ViewController.m with your own application key.</li>
+<li> Replace &lt;your-sdk-key&gt; in ViewController.m with your own application key.</li>
 <li> Assign your driver id in ViewController.m while generating configuration.</li>
 <li> Run!</li>
 </ul>

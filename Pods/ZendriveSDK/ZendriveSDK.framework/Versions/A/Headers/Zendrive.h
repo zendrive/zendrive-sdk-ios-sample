@@ -6,18 +6,77 @@
 
 #import <Foundation/Foundation.h>
 
+#import "ZendriveConfiguration.h"
 #import "ZendriveDriveInfo.h"
 #import "ZendriveDriveStartInfo.h"
 #import "ZendriveDriverAttributes.h"
-#import "ZendriveConfiguration.h"
+#import "ZendriveLocationPoint.h"
 #import "ZendriveSetupError.h"
 
 @protocol ZendriveDelegateProtocol;
 
 /**
+ * @typedef
+ * @abstract Block type used to define blocks called by Zendrive setup on completion
+ * @discussion If setup succeeds, success is set to YES and error is nil. If setup fails,
+ * success is set to NO and error contains details for why setup failed. Refer to
+ * ZendriveSetupError.h for a list of error codes.
+ */
+typedef void (^ZendriveSetupHandler)(BOOL success, NSError *error);
+
+/**
  *  Zendrive Object.
  */
 @interface Zendrive : NSObject
+
+/**
+ * @abstract Initializes the Zendrive library to automatically detect driving and collect
+ * data. Client code should call this method before anything else in the Zendrive API.
+ *
+ * @discussion This method authenticates the configuration with the server asynchronously
+ * before returning status.
+ *
+ * Calling this method multiple times with the same values for
+ * sdkApplicationKey and driverId pair is a no-op.
+ * Changing either will be the same as calling teardown followed by calling setup with
+ * the new parameters.
+ * Please note that even if other configuration parameters like driverAttributes or
+ * operationMode are changed, but driverId and sdkApplicationKey remain same,
+ * calling this method would still be a no-op.
+ * If you want to change these configuration parameters, invoke teardown
+ * explicitly and call this method again with the new configuration.
+ *
+ * This method requires network connection for every time the setup is called with a
+ * different value for
+ * sdkApplicationKey, driverId pair to validate the sdkApplicationKey from the server.
+ * Setup fails and returns NO if network is not available in such cases.
+ *
+ * This method returns NO whenever setup fails and sets up the error with the
+ * error code, cause and description.
+ *
+ * When data collection needs to be stopped call the teardown method.
+ * This might be done for example when the application's user has
+ * logged out (and possibly a different user might login later).
+ *
+ * @param zendriveConfiguration The configuration object used to setup the SDK. This
+ *                              object contains your credentials along with
+ *                              additional setup parameters that you can use to provide
+ *                              meta-information about the user or to tune the sdk
+ *                              functionality.
+ * @param delegate The delegate object on which Zendrive SDK will issue callbacks for
+ *                 handling various events. Can be nil if you do not want to
+ *                 register for callbacks.
+ *                 The delegate can also be set at a later point using setDelegate:
+ *                 method.
+ * @param handler This block is called when zendrive setup completes.
+ *                The application is expected to use the success and error
+ *                params passed to this block to handle failures. The handler
+ *                would be invoked on the main thread. Can be nil.
+ *
+ */
++ (void)setupWithConfiguration:(ZendriveConfiguration *)zendriveConfiguration
+                      delegate:(id<ZendriveDelegateProtocol>)delegate
+             completionHandler:(ZendriveSetupHandler)handler;
 
 /**
  * @abstract Initializes the Zendrive library to automatically detect driving and collect
@@ -64,10 +123,12 @@
  * @return YES if setup was successful and NO if an error is encountered. The error
  *         details can be found in the error object.
  *
+ * @warning This method is deprecated.
+ * Use setupWithConfiguration:delegate:completionHandler: method instead.
  */
 + (BOOL)setupWithConfiguration:(ZendriveConfiguration *)zendriveConfiguration
                       delegate:(id<ZendriveDelegateProtocol>)delegate
-                         error:(NSError **)error;
+                         error:(NSError **)error __deprecated;
 
 /**
  * @abstract Set delegate to receive callbacks for various events from Zendrive SDK.
@@ -82,10 +143,43 @@
 + (void)setDelegate:(id<ZendriveDelegateProtocol>)delegate;
 
 /**
+ * @abstract Change the drive detection mode to control how Zendrive SDK detects drives.
+ * See ZendriveDriveDetectionMode for further details. This will override the mode sent
+ * with ZendriveConfiguration during setup.
+ *
+ * @discussion Calling this method stops an ongoing auto-detected drive.
+ * Calling this method when the SDK is not setup is a no-op.
+ *
+ * @param driveDetectionMode The new drive detection mode.
+ */
++ (void)setDriveDetectionMode:(ZendriveDriveDetectionMode)driveDetectionMode;
+
+/**
  * @abstract Stops driving data collection. The application can disable the Zendrive SDK
- * by invoking this method.
+ * by invoking this method. This method is asynchronous.
+ *
+ * @discussion The teardown method is internally synchronized with
+ * setupWithConfiguration:delegate:completionHandler: method, and the enclosing
+ * application should avoid synchronizing the two methods independently. If you want a
+ * callback on teardown, use teardownWithCompletionHandler: method. This is same as
+ * calling teardownWithCompletionHandler: with a nil handler.
+ *
  */
 + (void)teardown;
+
+/**
+ * @abstract Stops driving data collection. The application can disable the Zendrive SDK
+ * by invoking this method. This method is asynchronous.
+ *
+ * @discussion The teardown method is internally synchronized with
+ * setupWithConfiguration:delegate:completionHandler: method, and the enclosing
+ * application should avoid synchronizing the two methods independently. Calling this
+ * with nil completion handler is same as calling teardown method.
+ *
+ * @param handler Called when method completes. The handler would be invoked on main
+ *        thread. Can be nil.
+ */
++ (void)teardownWithCompletionHandler:(void(^)(void))handler;
 
 /**
  * @abstract This API allows application to override Zendrive's auto drive detection
@@ -93,7 +187,7 @@
  *
  * @discussion Invoking this method forces the start of a drive. If this API is
  * used then it is application's responsibility to terminate the drive by
- * invoking stopDrive method. If an auto-detected drive is in progress, that drive
+ * invoking stopDrive: method. If an auto-detected drive is in progress, that drive
  * is stopped and a new drive is started.
  *
  * These methods should be used only by applications which have explicit
@@ -114,9 +208,9 @@
  *                   Use isValidInputParameter: to verify that groupId is valid.
  *                   Passing invalid string is a no-op.
  *
- * @see stopDrive
+ * @see stopDrive:
  *
- * @warning You need to call stopDrive to stop drive data collection.
+ * @warning You need to call stopDrive: to stop drive data collection.
  */
 + (void)startDrive:(NSString *)trackingId;
 
@@ -124,28 +218,28 @@
  * @abstract This should be called to indicate the end of a drive started by invoking
  * startDrive:
  *
+ * @discussion Calling it without having initialized the Zendrive SDK is a no-op.
+ *
  * @see startDrive:
  *
- * Calling it without having initialized the Zendrive SDK is a no-op.
- *
- * This method is deprecated. Use stopDrive: method instead.
+ * @warning This method is deprecated. Use stopDrive: method instead.
  *
  */
-+ (void)stopDrive __attribute__((deprecated));
++ (void)stopDrive __deprecated;
 
 /**
  * @abstract This should be called to indicate the end of a drive started by invoking
  * startDrive:
+ *
+ * @discussion This call has no effect on an automatically detected drive that may be
+ * in progress.
+ * Calling it without having initialized the Zendrive SDK is a no-op.
  *
  * @param trackingId This trackingId should match the trackingId sent to startDrive:
  *                   while starting the current drive. If the trackingIds do not match,
  *                   this function is a no-op. Cannot be nil or empty string.
  *
  * @see startDrive:
- *
- * This call has no effect on an automatically detected drive that may be in progress.
- *
- * Calling it without having initialized the Zendrive SDK is a no-op.
  *
  */
 + (void)stopDrive:(NSString *)trackingId;

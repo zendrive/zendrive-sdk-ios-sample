@@ -208,28 +208,28 @@ static NSTimeInterval _clockskew = 0.0;
     if (theBucketName == nil) {
         return NO;
     }
-    
+
     if ( [theBucketName length] < 3 || [theBucketName length] > 63) {
         return NO;
     }
-    
+
     if ( [theBucketName hasSuffix:@"-"]) {
         return NO;
     }
-    
+
     if ( [self aws_contains:theBucketName searchString:@"_"]) {
         return NO;
     }
-    
+
     if ( [self aws_contains:theBucketName searchString:@"-."] ||
         [self aws_contains:theBucketName searchString:@".-"]) {
         return NO;
     }
-    
+
     if ( [[theBucketName lowercaseString] isEqualToString:theBucketName] == NO) {
         return NO;
     }
-    
+
     return YES;
 }
 
@@ -245,7 +245,7 @@ static NSTimeInterval _clockskew = 0.0;
 - (BOOL)aws_contains:(NSString *)sourceString searchString:(NSString *)searchString
 {
     NSRange range = [sourceString rangeOfString:searchString];
-    
+
     return (range.location != NSNotFound);
 }
 

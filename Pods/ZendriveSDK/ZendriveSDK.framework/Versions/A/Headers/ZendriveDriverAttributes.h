@@ -29,6 +29,17 @@ extern NSString * const kDriverAttributesKeyEmail;
 extern NSString * const kDriverAttributesKeyGroup;
 
 /**
+ *  Key for phoneNumber returned by toJson method.
+ */
+extern NSString * const kDriverAttributesKeyPhoneNumber;
+
+/**
+ *  Key for driverStartDate returned by toJson method.
+ */
+extern NSString * const kDriverAttributesKeyDriverStartDate;
+
+
+/**
  * Additional attributes of a Zendrive driver.
  *
  * The application can specify both predefined and custom attributes for a driver.
@@ -44,22 +55,28 @@ extern NSString * const kDriverAttributesKeyGroup;
  *  @abstract First name of the user.
  *
  *  @param firstName First name. Max length is 64 characters.
+ *
+ *  @return YES, if the value was set, NO otherwise.
  */
-- (void)setFirstName:(NSString *)firstName;
+- (BOOL)setFirstName:(NSString *)firstName;
 
 /**
  *  @abstract Last name of the user.
  *
  *  @param lastName Last name. Max length is 64 characters.
+ *
+ *  @return YES, if the value was set, NO otherwise.
  */
-- (void)setLastName:(NSString *)lastName;
+- (BOOL)setLastName:(NSString *)lastName;
 
 /**
  *  @abstract Email of the user.
  *
  *  @param email Email Id. Max length is 64 characters.
+ *
+ *  @return YES, if the value was set, NO otherwise.
  */
-- (void)setEmail:(NSString *)email;
+- (BOOL)setEmail:(NSString *)email;
 
 /**
  * @abstract A unique id that associates the current user to a group. This groupId will
@@ -73,8 +90,35 @@ extern NSString * const kDriverAttributesKeyGroup;
  *
  * @param groupId A string representing the group of a user. Max length is 64 characters.
  *
+ * @return YES, if the value was set, NO otherwise.
+ *
  */
-- (void)setGroup:(NSString *)groupId;
+- (BOOL)setGroup:(NSString *)groupId;
+
+/**
+ * @abstract Phone number of the user.
+ *
+ * @discussion The phone number should be of the format <country_code><phone_number>.
+ * For example 14255526528, with 1 being the country code for US followed by the
+ * number. For India, it would be 918877554466, with 91 being the country code.
+ *
+ * @param phoneNumber Phone number. Max length is 20 characters.
+ *
+ * @return NO if the phone number string contains any characters other than digits, YES
+ *         otherwise.
+ */
+- (BOOL)setPhoneNumber:(NSString *)phoneNumber;
+
+/**
+ * @abstract The date which the driver signed up/started using your application.
+ * The date would be available in YYYY-MM-DD format on Zendrvie dashboard which is
+ * also what is would be returned by the toJson: and toDictionary: methods.
+ *
+ * @param startDate The start date for the user.
+ *
+ * @return YES, if the value was set, NO otherwise.
+ */
+- (BOOL)setDriverStartDate:(NSDate *)startDate;
 
 /**
  * @abstract Set the custom attribute of the user.
@@ -86,8 +130,10 @@ extern NSString * const kDriverAttributesKeyGroup;
  * @param key A key for the custom attribute. The maximum key length is 64 characters.
  * @param value Value of the custom attribute. The maximum value length is 64 characters.
  *
+ * @return YES, if the value was set, NO otherwise.
+ *
  */
-- (void)setCustomAttribute:(NSString *)value forKey:(NSString *)key;
+- (BOOL)setCustomAttribute:(NSString *)value forKey:(NSString *)key;
 
 /**
  * @abstract Returns the attributes as a json string.

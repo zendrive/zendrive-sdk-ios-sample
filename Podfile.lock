@@ -42,24 +42,24 @@ PODS:
   - TMCache (1.2.3)
   - UICKeyChainStore (2.0.4)
   - XMLDictionary (1.4)
-  - ZendriveSDK (3.1.2):
+  - ZendriveSDK (3.2.0):
     - AWSiOSSDKv2/S3 (~> 2.0.0)
     - AWSiOSSDKv2/SQS (~> 2.0.0)
     - FMDB
     - Reachability (~> 3.1.1)
 
 DEPENDENCIES:
-  - ZendriveSDK (from `https://bitbucket.org/zendrive-root/zendrive_cocoapod.git`, tag `3.1.2`)
+  - ZendriveSDK (from `https://bitbucket.org/zendrive-root/zendrive_cocoapod.git`, tag `3.2.0`)
 
 EXTERNAL SOURCES:
   ZendriveSDK:
     :git: https://bitbucket.org/zendrive-root/zendrive_cocoapod.git
-    :tag: 3.1.2
+    :tag: 3.2.0
 
 CHECKOUT OPTIONS:
   ZendriveSDK:
     :git: https://bitbucket.org/zendrive-root/zendrive_cocoapod.git
-    :tag: 3.1.2
+    :tag: 3.2.0
 
 SPEC CHECKSUMS:
   AWSiOSSDKv2: a463e466164c52814a624b5f3f70c986807f48e1
@@ -71,6 +71,6 @@ SPEC CHECKSUMS:
   TMCache: 11589ef8c40909114a5e60132711c9a559e01d97
   UICKeyChainStore: 2399076d0950e20fe859b8f817548cf6ca542dd7
   XMLDictionary: 735e81b9a043e220b0d24e9d4f16719606f2e0fc
-  ZendriveSDK: 89abe2d0f8f97b2887ca4daa7e7e78dd54189950
+  ZendriveSDK: 8258623b4c9c409b4a2ee1f6757bfa7d46467b45
 
 COCOAPODS: 0.35.0

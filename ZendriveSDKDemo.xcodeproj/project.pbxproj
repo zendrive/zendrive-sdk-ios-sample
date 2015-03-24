@@ -15,6 +15,8 @@
 		56D827D31A63086300703BEF /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56D827D11A63086300703BEF /* LaunchScreen.xib */; };
 		56D827DF1A63086300703BEF /* ZendriveSDKDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 56D827DE1A63086300703BEF /* ZendriveSDKDemoTests.m */; };
 		56D827EB1A63090700703BEF /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56D827E91A63090700703BEF /* ViewController.m */; };
+		EC976BA01AABAEF5009FB78F /* Trip.m in Sources */ = {isa = PBXBuildFile; fileRef = EC976B9F1AABAEF5009FB78F /* Trip.m */; };
+		EC976BA31AABB775009FB78F /* LocationPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = EC976BA21AABB775009FB78F /* LocationPoint.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +46,10 @@
 		56D827E91A63090700703BEF /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		7876CA5AA94FE1A0F97E8A89 /* Pods-ZendriveSDKDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZendriveSDKDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-ZendriveSDKDemo/Pods-ZendriveSDKDemo.release.xcconfig"; sourceTree = "<group>"; };
 		BF8239B07CA682C2563116FA /* Pods-ZendriveSDKDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZendriveSDKDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ZendriveSDKDemo/Pods-ZendriveSDKDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		EC976B9E1AABAEF5009FB78F /* Trip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Trip.h; sourceTree = "<group>"; };
+		EC976B9F1AABAEF5009FB78F /* Trip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Trip.m; sourceTree = "<group>"; };
+		EC976BA11AABB775009FB78F /* LocationPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationPoint.h; sourceTree = "<group>"; };
+		EC976BA21AABB775009FB78F /* LocationPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationPoint.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +94,7 @@
 		56D827C11A63086200703BEF /* ZendriveSDKDemo */ = {
 			isa = PBXGroup;
 			children = (
+				EC976B9D1AABAEE9009FB78F /* Model */,
 				56D827E81A63090700703BEF /* ViewController.h */,
 				56D827E91A63090700703BEF /* ViewController.m */,
 				56D827C61A63086200703BEF /* AppDelegate.h */,
@@ -141,6 +148,17 @@
 				3608893E93CA141EE28D782F /* libPods-ZendriveSDKDemo.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EC976B9D1AABAEE9009FB78F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				EC976B9E1AABAEF5009FB78F /* Trip.h */,
+				EC976B9F1AABAEF5009FB78F /* Trip.m */,
+				EC976BA11AABB775009FB78F /* LocationPoint.h */,
+				EC976BA21AABB775009FB78F /* LocationPoint.m */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -283,8 +301,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC976BA01AABAEF5009FB78F /* Trip.m in Sources */,
 				56D827EB1A63090700703BEF /* ViewController.m in Sources */,
 				56D827C81A63086200703BEF /* AppDelegate.m in Sources */,
+				EC976BA31AABB775009FB78F /* LocationPoint.m in Sources */,
 				56D827C51A63086200703BEF /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

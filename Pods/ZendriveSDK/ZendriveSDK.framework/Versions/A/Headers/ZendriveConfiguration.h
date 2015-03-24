@@ -39,6 +39,26 @@ typedef NS_ENUM(int, ZendriveOperationMode) {
     ZendriveOperationModeDriveTracking
 };
 
+/**
+ *  Dictates the functioning of Zendrive's drive detection.
+ */
+typedef NS_ENUM(int, ZendriveDriveDetectionMode) {
+    /**
+     * Zendrive SDK will automatically track drives in background in
+     * this mode once the SDK is setup. At the same time, the application can invoke
+     * [Zendrive startDrive:] to explicitly start recording a drive.
+     * This is the Default mode.
+     */
+    ZendriveDriveDetectionModeAutoON = 0,
+
+    /**
+     * In this mode auto drive-detection is disabled. All other APIs on Zendrive
+     * can be invoked independent of this mode. For recording trips in this mode, the
+     * application has to explicitly invoke the [Zendrive startDrive:] method.
+     */
+    ZendriveDriveDetectionModeAutoOFF
+};
+
 @class ZendriveDriverAttributes;
 
 /**
@@ -92,8 +112,25 @@ typedef NS_ENUM(int, ZendriveOperationMode) {
  * Once setup, all drives detected by the SDK would be in the specified operationMode. If
  * you wish to change the operation mode at any point, you need to call
  * [Zendrive teardown] and setup the SDK again.
- * This field is REQUIRED. If this field is not explicitly set, SDK setup would fail.
+ * @warning This field is REQUIRED. If this field is not explicitly set,
+ * SDK setup would fail.
  */
 @property (nonatomic) ZendriveOperationMode operationMode;
+
+/**
+ * @abstract Use this mode to control the SDK's behaviour for detecting drives
+ * automatically. This mode can be changed at a later point using
+ * [Zendrive setDriveDetectionMode:] method.
+ *
+ * @discussion Applications which do not want the SDK to continuously track drives in
+ * background should set this value to ZendriveDriveDetectionModeAutoOFF. With this, the
+ * application needs to call startDrive: method to record drives. In case the application
+ * wants to enable auto drive detection only for a fixed duration (like when the driver is
+ * on-duty), use method [Zendrive setDriveDetectionMode:]
+ * to change the mode to ZendriveDriveDetectionModeAutoON for that period and set it
+ * back to ZendriveDriveDetectionModeAutoOFF (once the driver goes off-duty).
+ *
+ */
+@property (nonatomic) ZendriveDriveDetectionMode driveDetectionMode;
 
 @end
