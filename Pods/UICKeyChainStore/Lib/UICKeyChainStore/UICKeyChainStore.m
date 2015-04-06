@@ -22,7 +22,7 @@ static NSString *_defaultService;
     if (!_defaultService) {
         _defaultService = [[NSBundle mainBundle] bundleIdentifier] ?: @"";
     }
-
+    
     return _defaultService;
 }
 
@@ -77,7 +77,7 @@ static NSString *_defaultService;
     self = [super init];
     if (self) {
         _itemClass = UICKeyChainStoreItemClassGenericPassword;
-
+        
         if (!service) {
             service = [self.class defaultService];
         }
@@ -85,7 +85,7 @@ static NSString *_defaultService;
         _accessGroup = accessGroup.copy;
         [self commonInit];
     }
-
+    
     return self;
 }
 
@@ -101,14 +101,14 @@ static NSString *_defaultService;
     self = [super init];
     if (self) {
         _itemClass = UICKeyChainStoreItemClassInternetPassword;
-
+        
         _server = server.copy;
         _protocolType = protocolType;
         _authenticationType = authenticationType;
-
+        
         [self commonInit];
     }
-
+    
     return self;
 }
 
@@ -158,7 +158,7 @@ static NSString *_defaultService;
     if (!service) {
         service = [self defaultService];
     }
-
+    
     UICKeyChainStore *keychain = [UICKeyChainStore keyChainStoreWithService:service accessGroup:accessGroup];
     return [keychain stringForKey:key error:error];
 }
@@ -275,7 +275,7 @@ static NSString *_defaultService;
     if (!service) {
         service = [self defaultService];
     }
-
+    
     UICKeyChainStore *keychain = [UICKeyChainStore keyChainStoreWithService:service accessGroup:accessGroup];
     return [keychain dataForKey:key error:error];
 }
@@ -349,7 +349,7 @@ static NSString *_defaultService;
     if (!service) {
         service = [self defaultService];
     }
-
+    
     UICKeyChainStore *keychain = [UICKeyChainStore keyChainStoreWithService:service accessGroup:accessGroup];
     return [keychain setData:data forKey:key genericAttribute:genericAttribute];
 }
@@ -360,7 +360,7 @@ static NSString *_defaultService;
 {
     NSMutableDictionary *query = [self query];
     query[(__bridge __strong id)kSecAttrAccount] = key;
-
+    
     OSStatus status = SecItemCopyMatching((__bridge CFDictionaryRef)query, NULL);
     return status == errSecSuccess;
 }
@@ -386,7 +386,7 @@ static NSString *_defaultService;
         }
         return nil;
     }
-
+    
     return nil;
 }
 
@@ -450,12 +450,12 @@ static NSString *_defaultService;
     NSMutableDictionary *query = [self query];
     query[(__bridge __strong id)kSecMatchLimit] = (__bridge id)kSecMatchLimitOne;
     query[(__bridge __strong id)kSecReturnData] = (__bridge id)kCFBooleanTrue;
-
+    
     query[(__bridge __strong id)kSecAttrAccount] = key;
-
+    
     CFTypeRef data = nil;
     OSStatus status = SecItemCopyMatching((__bridge CFDictionaryRef)query, &data);
-
+    
     if (status == errSecSuccess) {
         NSData *ret = [NSData dataWithData:(__bridge NSData *)data];
         if (data) {
@@ -471,7 +471,7 @@ static NSString *_defaultService;
     } else if (status == errSecItemNotFound) {
         return nil;
     }
-
+    
     NSError *e = [self.class securityError:status];
     if (error) {
         *error = e;
@@ -523,7 +523,7 @@ static NSString *_defaultService;
     if (!data) {
         return [self removeItemForKey:key error:error];
     }
-
+    
     NSMutableDictionary *query = [self query];
     query[(__bridge __strong id)kSecAttrAccount] = key;
 #if TARGET_OS_IPHONE
@@ -531,15 +531,15 @@ static NSString *_defaultService;
         query[(__bridge __strong id)kSecUseNoAuthenticationUI] = (__bridge id)kCFBooleanTrue;
     }
 #endif
-
+    
     OSStatus status = SecItemCopyMatching((__bridge CFDictionaryRef)query, NULL);
     if (status == errSecSuccess || status == errSecInteractionNotAllowed) {
         query = [self query];
         query[(__bridge __strong id)kSecAttrAccount] = key;
-
+        
         NSError *unexpectedError = nil;
         NSMutableDictionary *attributes = [self attributesWithKey:nil value:data error:&unexpectedError];
-
+        
         if (genericAttribute) {
             attributes[(__bridge __strong id)kSecAttrGeneric] = genericAttribute;
         }
@@ -549,7 +549,7 @@ static NSString *_defaultService;
         if (comment) {
             attributes[(__bridge __strong id)kSecAttrComment] = comment;
         }
-
+        
         if (unexpectedError) {
             NSLog(@"error: [%@] %@", @(unexpectedError.code), NSLocalizedString(@"Unexpected error has occurred.", nil));
             if (error) {
@@ -557,7 +557,7 @@ static NSString *_defaultService;
             }
             return NO;
         } else {
-
+            
             if (status == errSecInteractionNotAllowed && floor(NSFoundationVersionNumber) <= floor(1140.11)) { // iOS 8.0.x
                 if ([self removeItemForKey:key error:error]) {
                     return [self setData:data forKey:key label:label comment:comment error:error];
@@ -576,7 +576,7 @@ static NSString *_defaultService;
     } else if (status == errSecItemNotFound) {
         NSError *unexpectedError = nil;
         NSMutableDictionary *attributes = [self attributesWithKey:key value:data error:&unexpectedError];
-
+        
         if (genericAttribute) {
             attributes[(__bridge __strong id)kSecAttrGeneric] = genericAttribute;
         }
@@ -586,7 +586,7 @@ static NSString *_defaultService;
         if (comment) {
             attributes[(__bridge __strong id)kSecAttrComment] = comment;
         }
-
+        
         if (unexpectedError) {
             NSLog(@"error: [%@] %@", @(unexpectedError.code), NSLocalizedString(@"Unexpected error has occurred.", nil));
             if (error) {
@@ -610,7 +610,7 @@ static NSString *_defaultService;
         }
         return NO;
     }
-
+    
     return YES;
 }
 
@@ -653,7 +653,7 @@ static NSString *_defaultService;
     if (!service) {
         service = [self defaultService];
     }
-
+    
     UICKeyChainStore *keychain = [UICKeyChainStore keyChainStoreWithService:service accessGroup:accessGroup];
     return [keychain removeItemForKey:key error:error];
 }
@@ -702,7 +702,7 @@ static NSString *_defaultService;
 {
     NSMutableDictionary *query = [self query];
     query[(__bridge __strong id)kSecAttrAccount] = key;
-
+    
     OSStatus status = SecItemDelete((__bridge CFDictionaryRef)query);
     if (status != errSecSuccess && status != errSecItemNotFound) {
         NSError *e = [self.class securityError:status];
@@ -711,7 +711,7 @@ static NSString *_defaultService;
         }
         return NO;
     }
-
+    
     return YES;
 }
 
@@ -728,7 +728,7 @@ static NSString *_defaultService;
 #if !TARGET_OS_IPHONE
     query[(__bridge id)kSecMatchLimit] = (__bridge id)kSecMatchLimitAll;
 #endif
-
+    
     OSStatus status = SecItemDelete((__bridge CFDictionaryRef)query);
     if (status != errSecSuccess && status != errSecItemNotFound) {
         NSError *e = [self.class securityError:status];
@@ -737,7 +737,7 @@ static NSString *_defaultService;
         }
         return NO;
     }
-
+    
     return YES;
 }
 
@@ -777,15 +777,15 @@ static NSString *_defaultService;
     } else if (itemClass == UICKeyChainStoreItemClassInternetPassword) {
         itemClassObject = kSecClassInternetPassword;
     }
-
+    
     NSMutableDictionary *query = [[NSMutableDictionary alloc] init];
     query[(__bridge __strong id)kSecClass] = (__bridge id)itemClassObject;
     query[(__bridge __strong id)kSecMatchLimit] = (__bridge id)kSecMatchLimitAll;
     query[(__bridge __strong id)kSecReturnAttributes] = (__bridge id)kCFBooleanTrue;
-
+    
     CFArrayRef result = nil;
     OSStatus status = SecItemCopyMatching((__bridge CFDictionaryRef)query,(CFTypeRef *)&result);
-
+    
     if (status == errSecSuccess) {
         NSArray *items = [self prettify:itemClassObject items:(__bridge NSArray *)result];
         NSMutableArray *keys = [[NSMutableArray alloc] init];
@@ -800,7 +800,7 @@ static NSString *_defaultService;
     } else if (status == errSecItemNotFound) {
         return @[];
     }
-
+    
     return nil;
 }
 
@@ -812,7 +812,7 @@ static NSString *_defaultService;
     } else if (itemClass == UICKeyChainStoreItemClassInternetPassword) {
         itemClassObject = kSecClassInternetPassword;
     }
-
+    
     NSMutableDictionary *query = [[NSMutableDictionary alloc] init];
     query[(__bridge __strong id)kSecClass] = (__bridge id)itemClassObject;
     query[(__bridge __strong id)kSecMatchLimit] = (__bridge id)kSecMatchLimitAll;
@@ -820,16 +820,16 @@ static NSString *_defaultService;
 #if TARGET_OS_IPHONE
     query[(__bridge __strong id)kSecReturnData] = (__bridge id)kCFBooleanTrue;
 #endif
-
+    
     CFArrayRef result = nil;
     OSStatus status = SecItemCopyMatching((__bridge CFDictionaryRef)query,(CFTypeRef *)&result);
-
+    
     if (status == errSecSuccess) {
         return [self prettify:itemClassObject items:(__bridge NSArray *)result];
     } else if (status == errSecItemNotFound) {
         return @[];
     }
-
+    
     return nil;
 }
 
@@ -846,23 +846,23 @@ static NSString *_defaultService;
 #if TARGET_OS_IPHONE
     query[(__bridge __strong id)kSecReturnData] = (__bridge id)kCFBooleanTrue;
 #endif
-
+    
     CFArrayRef result = nil;
     OSStatus status = SecItemCopyMatching((__bridge CFDictionaryRef)query,(CFTypeRef *)&result);
-
+    
     if (status == errSecSuccess) {
         return CFBridgingRelease(result);
     } else if (status == errSecItemNotFound) {
         return @[];
     }
-
+    
     return nil;
 }
 
 + (NSArray *)prettify:(CFTypeRef)itemClass items:(NSArray *)items
 {
     NSMutableArray *prettified = [[NSMutableArray alloc] init];
-
+    
     for (NSDictionary *attributes in items) {
         NSMutableDictionary *item = [[NSMutableDictionary alloc] init];
         if (itemClass == kSecClassGenericPassword) {
@@ -901,7 +901,7 @@ static NSString *_defaultService;
         } else {
             item[@"value"] = data;
         }
-
+        
         id accessible = attributes[(__bridge id)kSecAttrAccessible];
         if (accessible) {
             item[@"accessibility"] = accessible;
@@ -910,10 +910,10 @@ static NSString *_defaultService;
         if (synchronizable) {
             item[@"synchronizable"] = synchronizable;
         }
-
+        
         [prettified addObject:item];
     }
-
+    
     return prettified.copy;
 }
 
@@ -1026,7 +1026,7 @@ static NSString *_defaultService;
                 NSLog(@"error: [%@] %@", @(e.code), e.localizedDescription);
             }
         }
-
+        
         NSMutableArray *sharedCredentials = [[NSMutableArray alloc] init];
         for (NSDictionary *credential in (__bridge NSArray *)credentials) {
             NSMutableDictionary *sharedCredential = [[NSMutableDictionary alloc] init];
@@ -1044,7 +1044,7 @@ static NSString *_defaultService;
             }
             [sharedCredentials addObject:sharedCredential];
         }
-
+        
         if (completion) {
             completion(sharedCredentials.copy, (__bridge NSError *)error);
         }
@@ -1097,13 +1097,13 @@ static NSString *_defaultService;
 - (NSMutableDictionary *)query
 {
     NSMutableDictionary *query = [[NSMutableDictionary alloc] init];
-
+    
     CFTypeRef itemClass = [self itemClassObject];
     query[(__bridge __strong id)kSecClass] =(__bridge id)itemClass;
     if (floor(NSFoundationVersionNumber) > floor(993.00)) { // iOS 7+ (NSFoundationVersionNumber_iOS_6_1)
         query[(__bridge __strong id)kSecAttrSynchronizable] = (__bridge id)kSecAttrSynchronizableAny;
     }
-
+    
     if (itemClass == kSecClassGenericPassword) {
         query[(__bridge __strong id)(kSecAttrService)] = _service;
 #if !TARGET_IPHONE_SIMULATOR
@@ -1127,7 +1127,7 @@ static NSString *_defaultService;
             query[(__bridge __strong id)kSecAttrAuthenticationType] = (__bridge id)authenticationTypeObject;
         }
     }
-
+    
 #if TARGET_OS_IPHONE
     if (_authenticationPrompt) {
         if (floor(NSFoundationVersionNumber) > floor(1047.25)) { // iOS 8+ (NSFoundationVersionNumber_iOS_7_1)
@@ -1137,23 +1137,23 @@ static NSString *_defaultService;
         }
     }
 #endif
-
+    
     return query;
 }
 
 - (NSMutableDictionary *)attributesWithKey:(NSString *)key value:(NSData *)value error:(NSError *__autoreleasing *)error
 {
     NSMutableDictionary *attributes;
-
+    
     if (key) {
         attributes = [self query];
         attributes[(__bridge __strong id)kSecAttrAccount] = key;
     } else {
         attributes = [[NSMutableDictionary alloc] init];
     }
-
+    
     attributes[(__bridge __strong id)kSecValueData] = value;
-
+    
 #if TARGET_OS_IPHONE
     double iOS_7_1_or_10_9_2 = 1047.25; // NSFoundationVersionNumber_iOS_7_1
 #else
@@ -1201,9 +1201,9 @@ static NSString *_defaultService;
             }
         }
     }
-
+    
     attributes[(__bridge __strong id)kSecAttrSynchronizable] = @(_synchronizable);
-
+    
     return attributes;
 }
 

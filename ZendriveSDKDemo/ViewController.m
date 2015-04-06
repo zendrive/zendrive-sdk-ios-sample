@@ -92,6 +92,9 @@ static NSString * kDriverId = @"<your-driver-id>";
     configuration.operationMode = ZendriveOperationModeDriverAnalytics;
     configuration.driveDetectionMode = ZendriveDriveDetectionModeAutoON;
 
+    // Please contact support@zendrive.com to if you wish to enable this service for your application.
+    configuration.accidentDetectionMode = ZendriveAccidentDetectionModeDisabled;
+
     [Zendrive
      setupWithConfiguration:configuration delegate:self
      completionHandler:^(BOOL success, NSError *error) {
@@ -128,6 +131,23 @@ static NSString * kDriverId = @"<your-driver-id>";
 - (void)processLocationDenied {
     [Zendrive teardown];
     self.driveStatusLabel.text = @"Location denied";
+}
+
+- (void)processAccidentDetected:(ZendriveAccidentInfo *)accidentInfo {
+    if (accidentInfo.confidence == ZendriveAccidentConfidenceHigh) {
+        // Panic
+        [[[UIAlertView alloc]
+          initWithTitle:@"Accident!!!"
+          message:@"Please respond if you are ok, we will send help if you don't respond for a min"
+          delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil] show];
+    }
+    else {
+        // Little panic
+        [[[UIAlertView alloc]
+          initWithTitle:@"Accident!!!"
+          message:@"Please respond if you are ok, we will send help if you don't respond for 10 mins"
+          delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil] show];
+    }
 }
 
 - (Trip *)tripFromZendriveDriveInfo:(ZendriveDriveInfo *)drive {

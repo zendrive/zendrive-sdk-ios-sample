@@ -7,6 +7,7 @@
 #import <Foundation/Foundation.h>
 
 #import "ZendriveConfiguration.h"
+#import "ZendriveAccidentInfo.h"
 #import "ZendriveDriveInfo.h"
 #import "ZendriveDriveStartInfo.h"
 #import "ZendriveDriverAttributes.h"
@@ -347,5 +348,15 @@ typedef void (^ZendriveSetupHandler)(BOOL success, NSError *error);
  *
  */
 - (void)processLocationDenied;
+
+/**
+ * @abstract This callback is fired on the main thread when an accident is detected by
+ * the SDK during a drive. Any ongoing auto-detected/manual drives will be stopped
+ * after this point.
+ *
+ * @param accidentInfo Info about accident.
+ *
+ */
+- (void)processAccidentDetected:(ZendriveAccidentInfo *)accidentInfo;
 
 @end

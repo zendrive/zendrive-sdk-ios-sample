@@ -85,7 +85,7 @@ static const CFTimeInterval kBFViewAnimationDuration = 0.25f;
 
     _view = view;
     _view.delegate = self;
-
+    
     if (_attachedToNavController) {
         _view.includeStatusBarInSize = BFIncludeStatusBarInSizeAlways;
     }

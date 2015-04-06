@@ -62,10 +62,10 @@ NSString * const AWSBufferedReaderErrorDomain = @"com.amazon.insights-framework.
 
 -(BOOL)readLine:(NSString**)line withError:(NSError**)readError
 {
-
+    
     NSString* returnString = nil;
     NSError* error = nil;
-
+    
     // do checks for improper state of underlying input stream
     if([self.inputStream streamStatus] == NSStreamStatusClosed)
     {
@@ -73,8 +73,8 @@ NSString * const AWSBufferedReaderErrorDomain = @"com.amazon.insights-framework.
                               withDescription:@"The underlying stream is closed"
                                 withErrorCode:AWSBufferedReaderErrorCode_IOStreamClosed];
     }
-
-
+    
+    
     if(self.readFromStream && error == nil)
     {
         // TODO: See if we can refactor this into a smaller critical section
@@ -84,12 +84,12 @@ NSString * const AWSBufferedReaderErrorDomain = @"com.amazon.insights-framework.
             {
                 uint8_t dataBuffer[self.bufferLength];
                 NSInteger readAmount = [self.inputStream read:dataBuffer maxLength:self.bufferLength];
-
+                
                 if(readAmount > 0)
                 {
                     [self.streamBuffer setLength:0];
                     [self.streamBuffer appendBytes:(const void *)dataBuffer length:readAmount];
-
+                    
                     /* if readString is nil, we probably are reading a multibytes characters
                      (e.g. Euro Sign "U+20AC" is 3 bytes char, "U+10348" is a 4 bytes char) and encounter a partial character. We need to continue
                      read byte by byte to a max of 4 bytes until the whole character has been read from inputStream
@@ -105,7 +105,7 @@ NSString * const AWSBufferedReaderErrorDomain = @"com.amazon.insights-framework.
                             //break if it is end of stream or any error occured.
                             break;
                         }
-
+                        
                         //according to RFC3629, no UTF8 encoded character has a length larger than 4 bytes.
                         if (count < 4) {
                             count++;
@@ -113,7 +113,7 @@ NSString * const AWSBufferedReaderErrorDomain = @"com.amazon.insights-framework.
                             break;
                         }
                     }
-
+                    
                     if (readString == nil) {
                         error = [AWSMobileAnalyticsErrorUtils errorWithDomain:AWSBufferedReaderErrorDomain
                                                               withDescription:@"unable to parse string, make sure it is a valid UTF8 string"
@@ -121,7 +121,7 @@ NSString * const AWSBufferedReaderErrorDomain = @"com.amazon.insights-framework.
                         break;
                     }
 
-
+                    
                     // append the new chunck of data to what we've read and re-evaluate the loop
                     [self.readFromStream appendString:readString];
                     newlineOccurence = [self.readFromStream rangeOfCharacterFromSet:[NSCharacterSet newlineCharacterSet]];
@@ -132,7 +132,7 @@ NSString * const AWSBufferedReaderErrorDomain = @"com.amazon.insights-framework.
                     break;
                 }
             }
-
+            
             if(error == nil)
             {
                 if(newlineOccurence.location == NSNotFound)
@@ -154,14 +154,14 @@ NSString * const AWSBufferedReaderErrorDomain = @"com.amazon.insights-framework.
                 {
                     // return the entire line (not including the newline char)
                     returnString = [self.readFromStream substringToIndex:newlineOccurence.location];
-
+                    
                     // remove from the string buffer what we are returning (incluing the newline)
                     [self.readFromStream deleteCharactersInRange:NSMakeRange(0, newlineOccurence.location + 1)];
                 }
             }
         }
     }
-
+    
     if(line != nil)
     {
         *line = returnString;
@@ -171,7 +171,7 @@ NSString * const AWSBufferedReaderErrorDomain = @"com.amazon.insights-framework.
     {
         *readError = error;
     }
-
+    
     return (error == nil);
 }
 

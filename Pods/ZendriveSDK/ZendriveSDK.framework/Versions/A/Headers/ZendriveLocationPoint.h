@@ -33,4 +33,6 @@
 - (id)initWithLatitude:(double)latitude
              longitude:(double)longitude;
 
+- (NSDictionary *)toDictionary;
+
 @end

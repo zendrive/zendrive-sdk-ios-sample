@@ -59,7 +59,14 @@ enum {
     /**
      * Zendrive SDK does not support the OS version of the device
      */
-    kZendriveSetupErrorUnsupportedOSVersion
+    kZendriveSetupErrorUnsupportedOSVersion,
+
+    /**
+     * Application tried to setup Zendrive with a request to enable a service
+     * (ex:Accident Detection) that the application is not authorized to use.
+     */
+    kZendriveSetupErrorUnauthorizedServiceRequest
+
 };
 
 #endif

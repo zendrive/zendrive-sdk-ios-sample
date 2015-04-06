@@ -59,6 +59,26 @@ typedef NS_ENUM(int, ZendriveDriveDetectionMode) {
     ZendriveDriveDetectionModeAutoOFF
 };
 
+/**
+ *  Specifies the accident detection mode of the Zendrive SDK.
+ *  The application should be running in ZendriveOperationModeDriverAnalytics
+ *  ZendriveOperationMode for accident detection to work reliably.
+ */
+typedef NS_ENUM(int, ZendriveAccidentDetectionMode) {
+    /**
+     * Zendrive's accident detection will be disabled in this mode. This is the default
+     * mode.
+     */
+    ZendriveAccidentDetectionModeDisabled = 0,
+
+    /**
+     * Zendrive's accident detection will be enabled in this mode. In case of an accident,
+     * the application will receive a callback on the processAccidentDetected: method
+     * of the delegate conforming to ZendriveDelegateProtocol.
+     */
+    ZendriveAccidentDetectionModeEnabled
+};
+
 @class ZendriveDriverAttributes;
 
 /**
@@ -132,5 +152,13 @@ typedef NS_ENUM(int, ZendriveDriveDetectionMode) {
  *
  */
 @property (nonatomic) ZendriveDriveDetectionMode driveDetectionMode;
+
+/**
+ * Specify ZendriveAccidentDetectionModeEnabled to enable detection of accidents by the
+ * Zendrive SDK and receive realtime callbacks for the same. This feature is available
+ * only to premium account holders. Please refer to https://developers.zedrive.com for
+ * further details.
+ */
+@property (nonatomic) ZendriveAccidentDetectionMode accidentDetectionMode;
 
 @end
