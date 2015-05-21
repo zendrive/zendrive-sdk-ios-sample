@@ -32,9 +32,6 @@ static const CGFloat BFCloseButtonHeight = 12.0;
 @end
 
 @implementation BFAppLinkReturnToRefererView
-{
-    BOOL _explicitlyHidden;
-}
 
 #pragma mark - Initialization
 
@@ -56,15 +53,15 @@ static const CGFloat BFCloseButtonHeight = 12.0;
 }
 
 - (void)commonInit {
-    // Initialization code
-    _includeStatusBarInSize = BFIncludeStatusBarInSizeIOS7AndLater;
+  // Initialization code
+  _includeStatusBarInSize = BFIncludeStatusBarInSizeIOS7AndLater;
 
-    // iOS 7 system blue color
-    self.backgroundColor = [UIColor colorWithRed:0.0 green:122.0/255.0 blue:1.0 alpha:1.0];
-    self.textColor = [UIColor whiteColor];
-    self.clipsToBounds = YES;
+  // iOS 7 system blue color
+  self.backgroundColor = [UIColor colorWithRed:0.0 green:122.0/255.0 blue:1.0 alpha:1.0];
+  self.textColor = [UIColor whiteColor];
+  self.clipsToBounds = YES;
 
-    [self initViews];
+  [self initViews];
 }
 
 - (void)initViews {
@@ -89,8 +86,10 @@ static const CGFloat BFCloseButtonHeight = 12.0;
         _labelView.textAlignment = UITextAlignmentCenter;
 #endif
         _labelView.clipsToBounds = YES;
+        _labelView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin;
         [self updateLabelText];
         [self addSubview:_labelView];
+
 
         _insideTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTapInside:)];
         _labelView.userInteractionEnabled = YES;
@@ -102,24 +101,13 @@ static const CGFloat BFCloseButtonHeight = 12.0;
 
 #pragma mark - Layout
 
-- (CGSize)intrinsicContentSize {
-    CGSize size = self.bounds.size;
-    if (_closed || !self.hasRefererData) {
-        size.height = 0.0;
-    } else {
-        CGSize labelSize = [_labelView sizeThatFits:size];
-        size = CGSizeMake(size.width, labelSize.height + 2 * BFMarginY + self.statusBarHeight);
-    }
-    return size;
-}
-
 - (void)layoutSubviews {
     [super layoutSubviews];
 
     CGRect bounds = self.bounds;
 
-    _labelView.preferredMaxLayoutWidth = _labelView.bounds.size.width;
     CGSize labelSize = [_labelView sizeThatFits:bounds.size];
+    _labelView.preferredMaxLayoutWidth = _labelView.bounds.size.width;
     _labelView.frame = CGRectMake(BFMarginX,
                                   CGRectGetMaxY(bounds) - labelSize.height - 1.5 * BFMarginY,
                                   CGRectGetMaxX(bounds) - BFCloseButtonWidth - 3 * BFMarginX,
@@ -133,35 +121,22 @@ static const CGFloat BFCloseButtonHeight = 12.0;
 
 - (CGSize)sizeThatFits:(CGSize)size {
     if (_closed || !self.hasRefererData) {
-        size = CGSizeMake(size.width, 0.0);
-    } else {
-        CGSize labelSize = [_labelView sizeThatFits:size];
-        size = CGSizeMake(size.width, labelSize.height + 2 * BFMarginY + self.statusBarHeight);
+        return CGSizeMake(size.width, 0.0);
     }
-    return size;
+
+    CGSize labelSize = [_labelView sizeThatFits:size];
+    return CGSizeMake(size.width, labelSize.height + 2 * BFMarginX + self.statusBarHeight);
 }
 
 - (CGFloat)statusBarHeight {
     UIApplication *application = [UIApplication sharedApplication];
+    float systemVersion = [[[UIDevice currentDevice] systemVersion] floatValue];
 
-    BOOL include;
-    switch (_includeStatusBarInSize) {
-        case BFIncludeStatusBarInSizeAlways:
-            include = NO;
-            break;
-        case BFIncludeStatusBarInSizeIOS7AndLater:{
-            float systemVersion = [[[UIDevice currentDevice] systemVersion] floatValue];
-            include = (systemVersion >= 7.0);
-            break;
-        }
-        case BFIncludeStatusBarInSizeNever:
-            include = NO;
-            break;
-    }
+    BOOL include = (_includeStatusBarInSize == BFIncludeStatusBarInSizeIOS7AndLater && systemVersion >= 7.0) ||
+        _includeStatusBarInSize == BFIncludeStatusBarInSizeAlways;
     if (include && !application.statusBarHidden) {
         BOOL landscape = UIInterfaceOrientationIsLandscape(application.statusBarOrientation);
-        CGRect statusBarFrame = application.statusBarFrame;
-        return landscape ? CGRectGetWidth(statusBarFrame) : CGRectGetHeight(statusBarFrame);
+        return landscape ? application.statusBarFrame.size.width : application.statusBarFrame.size.height;
     }
 
     return 0;
@@ -172,7 +147,6 @@ static const CGFloat BFCloseButtonHeight = 12.0;
 - (void)setIncludeStatusBarInSize:(BFIncludeStatusBarInSize)includeStatusBarInSize {
     _includeStatusBarInSize = includeStatusBarInSize;
     [self setNeedsLayout];
-    [self invalidateIntrinsicContentSize];
 }
 
 - (void)setTextColor:(UIColor *)textColor {
@@ -181,24 +155,8 @@ static const CGFloat BFCloseButtonHeight = 12.0;
 }
 
 - (void)setRefererAppLink:(BFAppLink *)refererAppLink {
-    _refererAppLink = refererAppLink;
-    [self updateLabelText];
-    [self updateHidden];
-    [self invalidateIntrinsicContentSize];
-}
-
-- (void)setClosed:(BOOL)closed
-{
-    if (_closed != closed) {
-        _closed = closed;
-        [self updateHidden];
-        [self invalidateIntrinsicContentSize];
-    }
-}
-
-- (void)setHidden:(BOOL)hidden {
-    _explicitlyHidden = hidden;
-    [self updateHidden];
+  _refererAppLink = refererAppLink;
+  [self updateLabelText];
 }
 
 #pragma mark - Private
@@ -262,10 +220,6 @@ static const CGFloat BFCloseButtonHeight = 12.0;
 
 - (void)onTapInside:(UIGestureRecognizer*)sender {
     [_delegate returnToRefererViewDidTapInsideLink:self link:_refererAppLink];
-}
-
-- (void)updateHidden {
-    [super setHidden:_explicitlyHidden || _closed || !self.hasRefererData];
 }
 
 @end

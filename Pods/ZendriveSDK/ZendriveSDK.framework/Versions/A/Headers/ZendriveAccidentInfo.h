@@ -12,8 +12,16 @@
  * Confidence measure of the detected accident.
  */
 typedef NS_ENUM(int, ZendriveAccidentConfidence) {
-    ZendriveAccidentConfidenceDefault = 0,
+    /**
+     * Accident was detected with a high confidence. The application might inform
+     * emergency services directly after waiting for some time for user feedback.
+     */
     ZendriveAccidentConfidenceHigh,
+
+    /**
+     * Accident was detected, but with a low confidence. The application might ask
+     * the user for feedback before notifying any emergency services.
+     */
     ZendriveAccidentConfidenceLow
 };
 

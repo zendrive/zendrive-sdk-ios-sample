@@ -11,6 +11,7 @@
 #import "Trip.h"
 #import "LocationPoint.h"
 #import <ZendriveSDK/ZendriveLocationPoint.h>
+#import <ZendriveSDK/ZendriveTest.h>
 
 static NSString * kZendriveKeyString = @"<your-sdk-key>";
 static NSString * kDriverId = @"<your-driver-id>";
@@ -76,6 +77,11 @@ static NSString * kDriverId = @"<your-driver-id>";
 
 - (IBAction)startDriveTapped:(id)sender {
     [Zendrive startDrive:@"your-tracking-id-here"];
+    
+    // Uncomment to test accident detection integration. Note that accident detection mode
+    // should be set to ZendriveAccidentDetectionModeEnabled in the configuration during
+    // setup.
+    // [ZendriveTest raiseMockAccident:ZendriveAccidentConfidenceHigh];
 }
 
 - (IBAction)endDriveTapped:(id)sender {

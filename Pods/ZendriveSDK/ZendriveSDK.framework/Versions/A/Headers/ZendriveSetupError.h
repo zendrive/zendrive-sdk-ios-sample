@@ -65,8 +65,12 @@ enum {
      * Application tried to setup Zendrive with a request to enable a service
      * (ex:Accident Detection) that the application is not authorized to use.
      */
-    kZendriveSetupErrorUnauthorizedServiceRequest
+    kZendriveSetupErrorUnauthorizedServiceRequest,
 
+    /**
+     * Zendrive SDK does not support the device.
+     */
+    kZendriveSetupErrorDeviceUnsupported
 };
 
 #endif
