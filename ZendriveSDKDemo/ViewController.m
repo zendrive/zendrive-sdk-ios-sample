@@ -77,7 +77,7 @@ static NSString * kDriverId = @"<your-driver-id>";
 
 - (IBAction)startDriveTapped:(id)sender {
     [Zendrive startDrive:@"your-tracking-id-here"];
-    
+
     // Uncomment to test accident detection integration. Note that accident detection mode
     // should be set to ZendriveAccidentDetectionModeEnabled in the configuration during
     // setup.
