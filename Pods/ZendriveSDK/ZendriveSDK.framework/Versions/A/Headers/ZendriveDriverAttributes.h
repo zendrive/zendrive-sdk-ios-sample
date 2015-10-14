@@ -16,7 +16,7 @@ extern NSString * const kDriverAttributesKeyFirstName;
 /**
  *  Key for last name as returned by toJson method.
  */
-extern NSString * const kDriverAttributesLastName;
+extern NSString * const kDriverAttributesKeyLastName;
 
 /**
  *  Key for email as returned by toJson method.
@@ -49,7 +49,7 @@ extern NSString * const kDriverAttributesKeyDriverStartDate;
  *
  * @warning All attribute keys and values can be atmost 64 characters in length.
  */
-@interface ZendriveDriverAttributes : NSObject
+@interface ZendriveDriverAttributes : NSObject<NSCopying>
 
 /**
  *  @abstract First name of the user.

@@ -13,8 +13,8 @@
 #import <ZendriveSDK/ZendriveLocationPoint.h>
 #import <ZendriveSDK/ZendriveTest.h>
 
-static NSString * kZendriveKeyString = @"<your-sdk-key>";
-static NSString * kDriverId = @"<your-driver-id>";
+static NSString * kZendriveKeyString = @"pi1dS9Fs90umLUVmrMNlN7foILPPRKpE";
+static NSString * kDriverId = @"zendrive-test";
 
 @interface ViewController () <ZendriveDelegateProtocol, UITableViewDelegate, UITableViewDataSource>
 
@@ -122,21 +122,21 @@ static NSString * kDriverId = @"<your-driver-id>";
 - (void)processEndOfDrive:(ZendriveDriveInfo *)drive {
     NSLog(@"Drive finished!!");
     self.driveStatusLabel.text = @"Drive Ended";
-    if (drive.isValid) {
 
-        Trip *trip = [self tripFromZendriveDriveInfo:drive];
-        [self saveTrip:trip];
-        [self.tripsArray insertObject:trip atIndex:0];
-        [self.tableView reloadData];
-
-    } else {
-        self.driveStatusLabel.text = @"Invalid trip";
-    }
+    Trip *trip = [self tripFromZendriveDriveInfo:drive];
+    [self saveTrip:trip];
+    [self.tripsArray insertObject:trip atIndex:0];
+    [self.tableView reloadData];
 }
 
 - (void)processLocationDenied {
-    [Zendrive teardown];
     self.driveStatusLabel.text = @"Location denied";
+}
+
+- (void)processLocationApproved {
+    if (self.isZendriveSetup) {
+        self.driveStatusLabel.text = @"Location approved";
+    }
 }
 
 - (void)processAccidentDetected:(ZendriveAccidentInfo *)accidentInfo {

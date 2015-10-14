@@ -1,1 +1,0 @@
-PODS_ZENDRIVESDKDEMO_AWSIOSSDKV__OTHER_LDFLAGS = -framework "Foundation" -framework "SystemConfiguration" -framework "UIKit"

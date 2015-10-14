@@ -173,6 +173,7 @@
 				56D827BC1A63086200703BEF /* Frameworks */,
 				56D827BD1A63086200703BEF /* Resources */,
 				F0243B0456CD7A5889303F36 /* Copy Pods Resources */,
+				BCF513A8121A7D722981562B /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -277,6 +278,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		BCF513A8121A7D722981562B /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ZendriveSDKDemo/Pods-ZendriveSDKDemo-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		F0243B0456CD7A5889303F36 /* Copy Pods Resources */ = {

@@ -15,7 +15,7 @@
  *  Discussion:
  *    Error returned as code to NSError from Zendrive setup.
  */
-enum {
+typedef NS_ENUM(int, ZendriveSetupError) {
     /**
      * Invalid parameters sent to setup
      */

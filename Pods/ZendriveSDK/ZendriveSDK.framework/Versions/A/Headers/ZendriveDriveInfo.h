@@ -19,8 +19,10 @@
  * @abstract Sometimes, the SDK detects that a drive is invalid after it has been started.
  * In these cases, the isValid property will be set to NO and values for all other
  * properties in this class have default values.
+ *
+ * @warning This variable is deprecated and always returns YES.
  */
-@property (nonatomic) BOOL isValid;
+@property (nonatomic, readonly) BOOL isValid __deprecated;
 
 /**
  * @abstract The start timestamp of trip in milliseconds since epoch.
@@ -53,4 +55,21 @@
  */
 @property (nonatomic) NSArray *waypoints;
 
+/**
+ * @abstract Tracking id is specified by the enclosing application when it
+ * wants to start a drive manually by calling [Zendrive startDrive:]
+ *
+ * @discussion This may be the case for example in a taxi cab application that would
+ * know when to start a drive based on when a meter gets flagged. trackingId will be
+ * nil in case of auto detected drives.
+ */
+@property (nonatomic) NSString *trackingId;
+
+/**
+ * @abstract Session id is specified by the enclosing application when it wants to
+ * record a session using [Zendrive startSession:]
+ *
+ * @discussion sessionId will be nil if there is no session associated with that drive.
+ */
+@property (nonatomic) NSString *sessionId;
 @end

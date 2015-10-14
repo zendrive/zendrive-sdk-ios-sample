@@ -84,7 +84,7 @@ typedef NS_ENUM(int, ZendriveAccidentDetectionMode) {
 /**
  *  This class contains parameters required by Zendrive during setup.
  */
-@interface ZendriveConfiguration : NSObject
+@interface ZendriveConfiguration : NSObject<NSCopying>
 
 /**
  * @abstract Your application key.

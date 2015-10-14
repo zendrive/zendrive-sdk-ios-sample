@@ -1,1 +1,0 @@
-PODS_ZENDRIVESDKDEMO_REACHABILITY_OTHER_LDFLAGS = -framework "SystemConfiguration"

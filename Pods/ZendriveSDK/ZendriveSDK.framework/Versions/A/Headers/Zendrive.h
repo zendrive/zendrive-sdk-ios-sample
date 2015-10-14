@@ -13,6 +13,8 @@
 #import "ZendriveDriverAttributes.h"
 #import "ZendriveLocationPoint.h"
 #import "ZendriveSetupError.h"
+#import "ZendriveLocationPoint.h"
+#import "ActiveDriveInfo.h"
 
 @protocol ZendriveDelegateProtocol;
 
@@ -80,68 +82,25 @@ typedef void (^ZendriveSetupHandler)(BOOL success, NSError *error);
              completionHandler:(ZendriveSetupHandler)handler;
 
 /**
- * @abstract Initializes the Zendrive library to automatically detect driving and collect
- * data. Client code should call this method before anything else in the Zendrive API.
- *
- * @discussion The enclosing applications are advised to call this method in a background
- * task since this method authenticates the configuration with the server synchronously
- * before returning status.
- *
- * Calling this method multiple times with the same values for
- * sdkApplicationKey and driverId pair is a no-op.
- * Changing either will be the same as calling teardown followed by calling setup with
- * the new parameters.
- * Please note that even if other configuration parameters like driverAttributes or
- * operationMode are changed, but driverId and sdkApplicationKey remain same,
- * calling this method would still be a no-op.
- * If you want to change these configuration parameters, invoke teardown
- * explicitly and call this method again with the new configuration.
- *
- * This method requires network connection for every time the setup is called with a
- * different value for
- * sdkApplicationKey, driverId pair to validate the sdkApplicationKey from the server.
- * Setup fails and returns NO if network is not available in such cases.
- *
- * This method returns NO whenever setup fails and sets up the error with the
- * error code, cause and description.
- *
- * When data collection needs to be stopped call the teardown method.
- * This might be done for example when the application's user has
- * logged out (and possibly a different user might login later).
- *
- * @param zendriveConfiguration The configuration object used to setup the SDK. This
- *                              object contains your credentials along with
- *                              additional setup parameters that you can use to provide
- *                              meta-information about the user or to tune the sdk
- *                              functionality.
- * @param delegate The delegate object on which Zendrive SDK will issue callbacks for
- *                 handling various events. Can be nil if you do not want to
- *                 register for callbacks.
- *                 The delegate can also be set at a later point using setDelegate:
- *                 method.
- * @param error A reference to a NSError pointer that will contain error detilas
- *              if this function call returns NO. Cannot be nil.
- * @return YES if setup was successful and NO if an error is encountered. The error
- *         details can be found in the error object.
- *
- * @warning This method is deprecated.
- * Use setupWithConfiguration:delegate:completionHandler: method instead.
- */
-+ (BOOL)setupWithConfiguration:(ZendriveConfiguration *)zendriveConfiguration
-                      delegate:(id<ZendriveDelegateProtocol>)delegate
-                         error:(NSError **)error __deprecated;
-
-/**
  * @abstract Set delegate to receive callbacks for various events from Zendrive SDK.
  * See ZendriveDelegateProtocol for further details.
  *
  * @discussion Calling this if Zendrvie is not setup is a no-op.
- * @see setupWithConfiguration:delegate:error: for further details.
+ * @see setupWithConfiguration:delegate:completionHandler: for further details.
  *
  * @param delegate The delegate object to give callbacks on.
  *
  */
 + (void)setDelegate:(id<ZendriveDelegateProtocol>)delegate;
+
+/**
+ * @abstract The drive detection mode controls how Zendrive SDK detects drives.
+ * See ZendriveDriveDetectionMode for further details.
+ *
+ * @discussion Use this method to get the current ZendriveDriveDetectionMode.
+ */
++ (ZendriveDriveDetectionMode)getDriveDetectionMode;
+
 
 /**
  * @abstract Change the drive detection mode to control how Zendrive SDK detects drives.
@@ -291,15 +250,41 @@ typedef void (^ZendriveSetupHandler)(BOOL success, NSError *error);
  *
  * @discussion All strings passed as input params to Zendrive SDK cannot contain
  * the following characters-
- * "+", "?", " ", "&", "/", "\", ";", "#"
+ * "?", " ", "&", "/", "\", ";", "#"
  * Non-ascii characters are not allowed.
  *
  * @param input The string to validate.
- * @return YES if the string is nil or valid, NO otherwise
+ * @return YES if the string is nil or valid, NO otherwise.
  *
  */
 + (BOOL)isValidInputParameter:(NSString *)input;
 
+/**
+ * @abstract Is the Zendrive SDK already setup?
+ *
+ * @return YES if Zendrive SDK is already setup. Else NO.
+ */
++ (BOOL)isSDKSetup;
+
+/**
+ * @abstract This returns the current configuration of Zendrive SDK. Returns nil if SDK is not setup.
+ *
+ * @discussion This returns a copy of Zendrive configuration. Any modifications to the returned
+ * object will have no affect on Zendrive SDK.
+ *
+ * @return The configuration that was used to setup the SDK.
+ */
++ (ZendriveConfiguration *)zendriveConfiguration;
+
+/**
+ *  @return An identifier which can be used to identify this SDK build.
+ */
++ (NSString *)buildVersion;
+
+/**
+ *  @return The currently active drive information.
+ */
++ (ActiveDriveInfo *)activeDriveInfo;
 @end
 
 
@@ -335,6 +320,16 @@ typedef void (^ZendriveSetupHandler)(BOOL success, NSError *error);
 - (void)processEndOfDrive:(ZendriveDriveInfo *)driveInfo;
 
 /**
+ * @abstract This callback is fired on the main thread when an accident is detected by
+ * the SDK during a drive. Any ongoing auto-detected/manual drives will be stopped
+ * after this point.
+ *
+ * @param accidentInfo Info about accident.
+ *
+ */
+- (void)processAccidentDetected:(ZendriveAccidentInfo *)accidentInfo;
+
+/**
  * @abstract This callback is fired on main thread when location services are denied for
  * the SDK. After this callback, drive detection is paused until location
  * services are re-enabled for the SDK.
@@ -350,13 +345,8 @@ typedef void (^ZendriveSetupHandler)(BOOL success, NSError *error);
 - (void)processLocationDenied;
 
 /**
- * @abstract This callback is fired on the main thread when an accident is detected by
- * the SDK during a drive. Any ongoing auto-detected/manual drives will be stopped
- * after this point.
- *
- * @param accidentInfo Info about accident.
- *
+ * @abstract This method is called when location permission state is determined
+ * for the first time or whenever it changes.
  */
-- (void)processAccidentDetected:(ZendriveAccidentInfo *)accidentInfo;
-
+- (void)processLocationApproved;
 @end

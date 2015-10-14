@@ -5,6 +5,5 @@ source 'https://github.com/CocoaPods/Specs.git'
 
 target 'ZendriveSDKDemo' do
 
-pod 'ZendriveSDK', :git => 'https://bitbucket.org/zendrive-root/zendrive_cocoapod.git', :tag => '3.3.4'
-
+pod 'ZendriveSDK', :git => 'https://bitbucket.org/zendrive-root/zendrive_cocoapod.git', :tag => '3.4.0'
 end
