@@ -13,8 +13,8 @@
 #import <ZendriveSDK/ZendriveLocationPoint.h>
 #import <ZendriveSDK/ZendriveTest.h>
 
-static NSString * kZendriveKeyString = @"pi1dS9Fs90umLUVmrMNlN7foILPPRKpE";
-static NSString * kDriverId = @"zendrive-test";
+static NSString * kZendriveKeyString = @"<your-sdk-key>";
+static NSString * kDriverId = @"<your-driver-id>";
 
 @interface ViewController () <ZendriveDelegateProtocol, UITableViewDelegate, UITableViewDataSource>
 
