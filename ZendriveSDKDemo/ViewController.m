@@ -13,8 +13,7 @@
 #import <ZendriveSDK/ZendriveLocationPoint.h>
 #import <ZendriveSDK/ZendriveTest.h>
 
-static NSString * kZendriveKeyString = @"<your-sdk-key>";
-static NSString * kDriverId = @"<your-driver-id>";
+static NSString * kZendriveKeyString = @"sdk_key";
 
 @interface ViewController () <ZendriveDelegateProtocol, UITableViewDelegate, UITableViewDataSource>
 
@@ -94,7 +93,7 @@ static NSString * kDriverId = @"<your-driver-id>";
                       andFailureHandler:(void (^)(NSError *))failureBlock {
     ZendriveConfiguration *configuration = [[ZendriveConfiguration alloc] init];
     configuration.applicationKey = kZendriveKeyString;
-    configuration.driverId = kDriverId;
+    configuration.driverId = [self getDriverId];
     configuration.operationMode = ZendriveOperationModeDriverAnalytics;
     configuration.driveDetectionMode = ZendriveDriveDetectionModeAutoON;
 
@@ -239,5 +238,17 @@ static NSString * kDriverId = @"<your-driver-id>";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+- (NSString *)getDriverId {
+    NSString *deviceName = [[UIDevice currentDevice] name];
+    deviceName = [deviceName capitalizedString];
+    deviceName = [[deviceName componentsSeparatedByCharactersInSet:
+                   [[NSCharacterSet alphanumericCharacterSet] invertedSet]]
+                  componentsJoinedByString:@""];
+
+    NSString *bundleIdentifier = [[NSBundle mainBundle] bundleIdentifier];
+    NSString *driverId = [NSString stringWithFormat:@"%@-%@", bundleIdentifier, deviceName];
+    return driverId;
 }
 @end
