@@ -2,13 +2,11 @@ PODS:
   - AWSCore (2.2.7)
   - AWSSQS (2.2.7):
     - AWSCore (= 2.2.7)
-  - FMDB (2.5):
-    - FMDB/standard (= 2.5)
-  - FMDB/common (2.5)
-  - FMDB/standard (2.5):
-    - FMDB/common
+  - FMDB (2.6):
+    - FMDB/standard (= 2.6)
+  - FMDB/standard (2.6)
   - Reachability (3.1.1)
-  - ZendriveSDK (3.4.1):
+  - ZendriveSDK (3.5.0):
     - AWSCore (~> 2.2.7)
     - AWSSQS (~> 2.2.7)
     - FMDB (~> 2.5)
@@ -16,23 +14,23 @@ PODS:
 
 DEPENDENCIES:
   - ZendriveSDK (from `https://bitbucket.org/zendrive-root/zendrive_cocoapod.git`,
-    tag `3.4.1`)
+    tag `3.5.0`)
 
 EXTERNAL SOURCES:
   ZendriveSDK:
     :git: https://bitbucket.org/zendrive-root/zendrive_cocoapod.git
-    :tag: 3.4.1
+    :tag: 3.5.0
 
 CHECKOUT OPTIONS:
   ZendriveSDK:
     :git: https://bitbucket.org/zendrive-root/zendrive_cocoapod.git
-    :tag: 3.4.1
+    :tag: 3.5.0
 
 SPEC CHECKSUMS:
   AWSCore: d81e1e534040780deb0f3877aaa207d297e54b4c
   AWSSQS: 0def5dfc1385564d88ebf88a0bdf7227f5f855e1
-  FMDB: 96e8f1bcc1329e269330f99770ad4285d9003e52
+  FMDB: c1968bab3ab0aed38f66cb778ae1e7fa9a652b6e
   Reachability: dd9aa4fb6667b9f787690a74f53cb7634ce99893
-  ZendriveSDK: 8155cd6d63a3de39572d12f8d466ebf5155f82a5
+  ZendriveSDK: 3c84c2b537104be0d4d22b763acf7871d8759257
 
 COCOAPODS: 0.39.0

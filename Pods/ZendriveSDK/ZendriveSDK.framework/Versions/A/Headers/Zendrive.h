@@ -277,14 +277,28 @@ typedef void (^ZendriveSetupHandler)(BOOL success, NSError *error);
 + (ZendriveConfiguration *)zendriveConfiguration;
 
 /**
- *  @return An identifier which can be used to identify this SDK build.
+ * @return An identifier which can be used to identify this SDK build.
  */
 + (NSString *)buildVersion;
 
 /**
- *  @return The currently active drive information.
+ * @return The currently active drive information.
  */
 + (ActiveDriveInfo *)activeDriveInfo;
+
+/**
+ * @abstract Use this parameter to update
+ * zendriveConfiguration.accidentDetectionMode before setup.
+ * Calling setup with ZendriveAccidentDetectionModeEnabled on an unsupported device
+ * will lead to setup failure.
+ *
+ * Curretly supported devices:
+ * - All iphones newer than iPhone 4S
+ *
+ * @return A boolean indicating whether ZendriveSDK can detect accidents
+ * on this devices or not.
+ */
++ (BOOL)isAccidentDetectionSupportedByDevice;
 @end
 
 
