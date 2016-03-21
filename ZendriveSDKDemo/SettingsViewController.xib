@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SettingsViewController">
+            <connections>
+                <outlet property="driveDetectionModeChooser" destination="8uo-i9-ABb" id="OJD-o6-0cn"/>
+                <outlet property="serviceTierChooser" destination="P2m-H3-mlt" id="c7C-ez-x2x"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Enu-jf-IdK">
+                    <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wwq-d2-hrC">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="f15-DC-MAP">
+                            <rect key="frame" x="0.0" y="43" width="375" height="1"/>
+                            <color key="backgroundColor" white="0.94999999999999996" alpha="1" colorSpace="calibratedWhite"/>
+                        </view>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q8w-eg-Pi4">
+                            <rect key="frame" x="0.0" y="0.0" width="68" height="44"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="68" id="53B-Kp-vqK"/>
+                            </constraints>
+                            <state key="normal" title="&lt; Back"/>
+                            <connections>
+                                <action selector="backButtonClicked:" destination="-1" eventType="touchUpInside" id="9U0-of-M8X"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="q8w-eg-Pi4" firstAttribute="leading" secondItem="Enu-jf-IdK" secondAttribute="leading" id="5uc-U0-xHk"/>
+                        <constraint firstAttribute="height" constant="44" id="ONv-QO-IyB"/>
+                        <constraint firstItem="Wwq-d2-hrC" firstAttribute="top" secondItem="Enu-jf-IdK" secondAttribute="top" id="OmP-YF-8fV"/>
+                        <constraint firstAttribute="bottom" secondItem="q8w-eg-Pi4" secondAttribute="bottom" id="SBk-KW-2mZ"/>
+                        <constraint firstAttribute="bottom" secondItem="Wwq-d2-hrC" secondAttribute="bottom" id="fa4-Ub-EVR"/>
+                        <constraint firstItem="q8w-eg-Pi4" firstAttribute="top" secondItem="Enu-jf-IdK" secondAttribute="top" id="fby-cN-Jy2"/>
+                        <constraint firstAttribute="trailing" secondItem="Wwq-d2-hrC" secondAttribute="trailing" id="joN-JM-kUi"/>
+                        <constraint firstItem="Wwq-d2-hrC" firstAttribute="leading" secondItem="Enu-jf-IdK" secondAttribute="leading" id="zdL-jR-Bjl"/>
+                    </constraints>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Drive Detection Mode" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tyV-V0-rBt">
+                    <rect key="frame" x="20" y="91" width="355" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="Ht1-VW-tXU"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="8uo-i9-ABb">
+                    <rect key="frame" x="20" y="129" width="200" height="29"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="200" id="E9g-nK-mwf"/>
+                        <constraint firstAttribute="height" constant="28" id="HeK-7H-oEc"/>
+                    </constraints>
+                    <segments>
+                        <segment title="AUTO ON"/>
+                        <segment title="AUTO OFF"/>
+                    </segments>
+                    <connections>
+                        <action selector="driveDetectionModeChooserValueChanged:" destination="-1" eventType="valueChanged" id="Zhh-6g-X93"/>
+                    </connections>
+                </segmentedControl>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Service Level" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dhs-qI-7YP">
+                    <rect key="frame" x="21" y="178" width="354" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="FLy-HO-wJv"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="P2m-H3-mlt">
+                    <rect key="frame" x="20" y="216" width="200" height="29"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="200" id="MJO-gx-0V9"/>
+                        <constraint firstAttribute="height" constant="28" id="jkP-hK-5XI"/>
+                    </constraints>
+                    <segments>
+                        <segment title="Default"/>
+                        <segment title="Level 1"/>
+                    </segments>
+                    <connections>
+                        <action selector="serviceTierChooserValueChanged:" destination="-1" eventType="valueChanged" id="c9k-Nn-AeQ"/>
+                    </connections>
+                </segmentedControl>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoDark" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wbM-GC-lIe">
+                    <rect key="frame" x="203" y="95" width="22" height="22"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="22" id="bwe-Zc-u8f"/>
+                        <constraint firstAttribute="width" constant="22" id="hXt-z4-qFZ"/>
+                    </constraints>
+                    <connections>
+                        <action selector="driveDetectionModeInfoButtonClicked:" destination="-1" eventType="touchUpInside" id="dWA-90-3lX"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoDark" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K1G-lQ-gmt">
+                    <rect key="frame" x="139" y="182" width="22" height="22"/>
+                    <constraints>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="22" id="ENU-BW-3ka"/>
+                        <constraint firstAttribute="width" constant="22" id="Pfn-CC-vyk"/>
+                        <constraint firstAttribute="height" constant="22" id="Sao-wi-xkx"/>
+                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="22" id="v6u-bK-tvA"/>
+                    </constraints>
+                    <connections>
+                        <action selector="serviceTierInfoButtonClicked:" destination="-1" eventType="touchUpInside" id="90N-J2-p7i"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rtE-It-mRv">
+                    <rect key="frame" x="20" y="278" width="335" height="41"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="41" id="dMH-Lr-SXJ"/>
+                    </constraints>
+                    <state key="normal" title="Log Out"/>
+                    <connections>
+                        <action selector="logoutButtonClicked:" destination="-1" eventType="touchUpInside" id="oOj-aq-pFN"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="K1G-lQ-gmt" firstAttribute="top" secondItem="8uo-i9-ABb" secondAttribute="bottom" constant="25" id="270-mu-iA8"/>
+                <constraint firstItem="8uo-i9-ABb" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="899-Rg-8oH"/>
+                <constraint firstItem="Enu-jf-IdK" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="8vt-ov-MVB"/>
+                <constraint firstItem="tyV-V0-rBt" firstAttribute="top" secondItem="Enu-jf-IdK" secondAttribute="bottom" constant="27" id="D1w-CS-cCO"/>
+                <constraint firstItem="K1G-lQ-gmt" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="139" id="HH3-PJ-X4l"/>
+                <constraint firstItem="rtE-It-mRv" firstAttribute="top" secondItem="P2m-H3-mlt" secondAttribute="bottom" constant="34" id="JhW-gZ-hnx"/>
+                <constraint firstItem="P2m-H3-mlt" firstAttribute="top" secondItem="Dhs-qI-7YP" secondAttribute="bottom" constant="8" id="Ln9-53-YUO"/>
+                <constraint firstAttribute="trailing" secondItem="Dhs-qI-7YP" secondAttribute="trailing" id="N2i-fB-2MB"/>
+                <constraint firstAttribute="trailing" secondItem="rtE-It-mRv" secondAttribute="trailing" constant="20" id="U5V-9f-UX1"/>
+                <constraint firstAttribute="trailing" secondItem="tyV-V0-rBt" secondAttribute="trailing" id="Wl6-bg-SGk"/>
+                <constraint firstItem="tyV-V0-rBt" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="blA-7b-q1t"/>
+                <constraint firstItem="Dhs-qI-7YP" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="21" id="dzp-Hi-slh"/>
+                <constraint firstItem="Enu-jf-IdK" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="eLc-OE-t8s"/>
+                <constraint firstItem="8uo-i9-ABb" firstAttribute="top" secondItem="tyV-V0-rBt" secondAttribute="bottom" constant="8" id="foj-eN-oKI"/>
+                <constraint firstItem="Dhs-qI-7YP" firstAttribute="top" secondItem="8uo-i9-ABb" secondAttribute="bottom" constant="21" id="hqq-fX-Kpo"/>
+                <constraint firstAttribute="trailing" secondItem="Enu-jf-IdK" secondAttribute="trailing" id="htG-Ap-EW5"/>
+                <constraint firstItem="wbM-GC-lIe" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="203" id="iYz-Rt-q2n"/>
+                <constraint firstItem="wbM-GC-lIe" firstAttribute="top" secondItem="Enu-jf-IdK" secondAttribute="bottom" constant="31" id="qRS-L7-V73"/>
+                <constraint firstItem="P2m-H3-mlt" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="vLv-eQ-x5p"/>
+                <constraint firstItem="rtE-It-mRv" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="wNy-FY-dux"/>
+            </constraints>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+            <point key="canvasLocation" x="259.5" y="251.5"/>
+        </view>
+    </objects>
+</document>

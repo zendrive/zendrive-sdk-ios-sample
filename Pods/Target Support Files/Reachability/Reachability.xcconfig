@@ -1,5 +1,5 @@
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
-HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers/Private" "${PODS_ROOT}/Headers/Private/Reachability" "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/AWSCore" "${PODS_ROOT}/Headers/Public/AWSSQS" "${PODS_ROOT}/Headers/Public/FMDB" "${PODS_ROOT}/Headers/Public/Reachability" "${PODS_ROOT}/Headers/Public/ZendriveSDK"
+HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers/Private" "${PODS_ROOT}/Headers/Private/Reachability" "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/AWSCore" "${PODS_ROOT}/Headers/Public/AWSSQS" "${PODS_ROOT}/Headers/Public/FMDB" "${PODS_ROOT}/Headers/Public/MBProgressHUD" "${PODS_ROOT}/Headers/Public/Reachability" "${PODS_ROOT}/Headers/Public/ZendriveSDK"
 OTHER_LDFLAGS = -framework "SystemConfiguration"
 PODS_ROOT = ${SRCROOT}
 SKIP_INSTALL = YES

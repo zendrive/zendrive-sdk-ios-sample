@@ -19,12 +19,12 @@
 @property (nonatomic) long long startTimestamp;
 
 /**
- * @abstract The average speed of trip in metres/second
+ * @abstract The current speed of vehicle in metres/second.
  */
 @property (nonatomic) double currentSpeed;
 
 /**
- * @abstract The distance of the trip in metres
+ * @abstract The distance covered so far in this trip in meters.
  */
 @property (nonatomic) double distance;
 

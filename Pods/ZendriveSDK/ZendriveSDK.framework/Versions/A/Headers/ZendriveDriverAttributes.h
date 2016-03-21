@@ -38,6 +38,39 @@ extern NSString * const kDriverAttributesKeyPhoneNumber;
  */
 extern NSString * const kDriverAttributesKeyDriverStartDate;
 
+/**
+ * Key for ServiceLevel returned by toJson method.
+ */
+extern NSString * const kDriverAttributesKeyPriority;
+
+/**
+ * @typedef
+ * @abstract Enumeration for different service levels supported by Zendrive for a driver.
+ * By default, drivers will be assigned to the default service level - SERVICE_LEVEL_DEFAULT.
+ *
+ * @discussion This is useful for applications which need special modes in the Zendrive SDK for different
+ * drivers - e.g default mode for free users and a advanced mode for paid users.
+ *
+ * By default, multiple service levels are not enabled for an application.
+ * To be able to use different modes for your application, you should contact
+ * <a href="mailto:support@zendrive.com">support@zendrive.com</a>
+ * with your requirements and get that enabled for your application.
+ * Otherwise, if this is not enabled for your application, all drivers get mapped to
+ * SERVICE_LEVEL_DEFAULT irrespective of the service level specified.
+ */
+typedef enum ServiceLevel {
+    /**
+     * Default service level. This is most common level required by most of the applications
+     * that use Zendrive SDK.
+     */
+    SERVICE_LEVEL_DEFAULT,
+    /**
+     * Special service level 1 that is enabled for a particular application.
+     * Contact <a href="mailto:support@zendrive.com">support@zendrive.com</a> with your
+     * requirements to get this enabled for your application.
+     */
+    SERVICE_LEVEL_1
+} ServiceLevel;
 
 /**
  * Additional attributes of a Zendrive driver.
@@ -119,6 +152,15 @@ extern NSString * const kDriverAttributesKeyDriverStartDate;
  * @return YES, if the value was set, NO otherwise.
  */
 - (BOOL)setDriverStartDate:(NSDate *)startDate;
+
+/**
+ * The service level of a driver. This is useful for applications where Zendrive supports
+ * different service levels for different drivers. See ServiceLevel
+ * for more information about this attribute.
+ */
+- (BOOL)setServiceLevel:(ServiceLevel)priority;
+
+- (NSString *)getServiceLevel;
 
 /**
  * @abstract Set the custom attribute of the user.

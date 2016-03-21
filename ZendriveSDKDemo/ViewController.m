@@ -7,29 +7,43 @@
 //
 
 #import "ViewController.h"
-#import <ZendriveSDK/Zendrive.h>
+#import "UserDefaultsManager.h"
 #import "Trip.h"
+#import "User.h"
 #import "LocationPoint.h"
+#import <MBProgressHUD/MBProgressHUD.h>
+
+#import <ZendriveSDK/Zendrive.h>
 #import <ZendriveSDK/ZendriveLocationPoint.h>
 #import <ZendriveSDK/ZendriveTest.h>
 
-static NSString * kZendriveKeyString = @"sdk_key";
+#import "UIAlertView+BlockExtensions.h"
+
+#import "SettingsViewController.h"
+#import "NotificationConstants.h"
+
+static NSString * kZendriveSDKKeyString = @"your-sdk-key";
 
 @interface ViewController () <ZendriveDelegateProtocol, UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, weak) IBOutlet UILabel* driveStatusLabel;
 @property (nonatomic, weak) IBOutlet UIButton* startDriveButton;
 @property (nonatomic, weak) IBOutlet UIButton* endDriveButton;
+@property (nonatomic, weak) IBOutlet UIButton* mockAccidentButton;
 @property (nonatomic, weak) IBOutlet UITableView* tableView;
+@property (nonatomic, weak) IBOutlet UILabel *driverIdLabel;
 @property (nonatomic) BOOL isZendriveSetup;
 
 @property (nonatomic, strong) NSMutableArray *tripsArray;
 
+@property (nonatomic, weak) IBOutlet UIView *loginView;
+@property (nonatomic, weak) IBOutlet UITextField *driverIdField;
+@property (nonatomic, weak) IBOutlet UISegmentedControl *operationModeChooser;
 @end
 
 @implementation ViewController
 
-- init {
+- (instancetype)init {
     self = [super initWithNibName:@"ViewController" bundle:[NSBundle mainBundle]];
     if (self) {
         _isZendriveSetup = NO;
@@ -42,8 +56,14 @@ static NSString * kZendriveKeyString = @"sdk_key";
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
 
-    self.tripsArray = [self fetchAllTrips];
+    self.tripsArray = [SharedUserDefaultsManager fetchAllTrips];
     [self.tableView reloadData];
+    [self registerForNotifications];
+    [self reloadView];
+}
+
+- (void)dealloc {
+    [NotificationCenter removeObserver:self];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -53,52 +73,148 @@ static NSString * kZendriveKeyString = @"sdk_key";
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
+}
 
+- (void)reloadView {
     if (!self.isZendriveSetup) {
-        [self initializeSDKWithSuccessHandler:^{
-            // Will be called on main queue
-            self.isZendriveSetup = YES;
-            self.endDriveButton.enabled = YES;
-            self.startDriveButton.enabled = YES;
-            self.driveStatusLabel.text = @"Initialized successfully";
-            NSLog(@"Initialized successfully");
-        } andFailureHandler:^(NSError *err) {
-            // Will be called on main queue
-            self.driveStatusLabel.text =
-            [NSString stringWithFormat:@"Failed to initialize zendrive :%@",
-             err.localizedFailureReason];
-            NSLog(@"Failed to initialize zendrive :%@", err.localizedFailureReason);
-        }];
+        User *user = [SharedUserDefaultsManager loggedInUser];
+        if (!user) {
+            // Display login
+            self.loginView.hidden = NO;
+            return;
+        }
+        self.driverIdLabel.text = user.driverId;
+        self.loginView.hidden = YES;
+        if ([Zendrive isSDKSetup]) {
+            return;
+        }
+        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        [self initializeSDKForUser:user successHandler:
+         ^{
+             // Will be called on main queue
+             self.isZendriveSetup = YES;
+             self.endDriveButton.enabled = YES;
+             self.startDriveButton.enabled = YES;
+             self.driveStatusLabel.text = @"Initialized successfully";
+             [MBProgressHUD hideHUDForView:self.view animated:YES];
+         } andFailureHandler:^(NSError *err) {
+             // Will be called on main queue
+             self.driveStatusLabel.text =
+             [NSString stringWithFormat:@"Failed to initialize zendrive :%@",
+              err.localizedFailureReason];
+             [MBProgressHUD hideHUDForView:self.view animated:YES];
+         }];
     }
 }
 
+//------------------------------------------------------------------------------
+#pragma mark - Notification Handling
+//------------------------------------------------------------------------------
+- (void)registerForNotifications {
+    [NotificationCenter addObserver:self selector:@selector(userLoggedOut:)
+                               name:kNotificationUserLogout object:nil];
+    [NotificationCenter addObserver:self selector:@selector(driveDetectionModeUpdated:)
+                               name:kNotificationDriveDetectionModeUpdated object:nil];
+    [NotificationCenter addObserver:self selector:@selector(serviceTierUpdated:)
+                               name:kNotificationServiceTierUpdated object:nil];
+}
+
+- (void)userLoggedOut:(NSNotification *)notification {
+    [Zendrive teardown];
+    self.isZendriveSetup = NO;
+    [self reloadView];
+}
+
+- (void)driveDetectionModeUpdated:(NSNotification *)notification {
+    ZendriveDriveDetectionMode driveDetectionMode =
+    [SharedUserDefaultsManager driveDetectionMode];
+    [Zendrive setDriveDetectionMode:driveDetectionMode];
+}
+
+- (void)serviceTierUpdated:(NSNotification *)notification {
+    [Zendrive teardown];
+    self.isZendriveSetup = NO;
+    [self reloadView];
+}
+
+//------------------------------------------------------------------------------
 #pragma mark UIButtonActions
+//------------------------------------------------------------------------------
+- (IBAction)loginButtonTapped:(id)sender {
+    NSString *driverId = self.driverIdField.text;
+    if (driverId.length == 0 || ![Zendrive isValidInputParameter:driverId]) {
+        [[[UIAlertView alloc] initWithTitle:@"Oops!!"
+                                    message:@"Please enter a valid driver-id"
+                                   delegate:nil cancelButtonTitle:@"Ok"
+                          otherButtonTitles:nil] show];
+    }
+
+    [self.view endEditing:YES];
+    User *user = [[User alloc] initWithFullName:@"FirstName LastName"
+                                    phoneNumber:@"+1234567890"
+                                       driverId:driverId];
+    [SharedUserDefaultsManager setLoggedInUser:user];
+    [self reloadView];
+}
 
 - (IBAction)startDriveTapped:(id)sender {
     [Zendrive startDrive:@"your-tracking-id-here"];
-
-    // Uncomment to test accident detection integration. Note that accident detection mode
-    // should be set to ZendriveAccidentDetectionModeEnabled in the configuration during
-    // setup.
-    // [ZendriveTest raiseMockAccident:ZendriveAccidentConfidenceHigh];
 }
 
 - (IBAction)endDriveTapped:(id)sender {
     [Zendrive stopDrive:@"your-tracking-id-here"];
 }
 
+- (IBAction)triggerMockAccidentTapped:(id)sender {
+    // Following will trigger onAccidentDetected callback from ZendriveSDK, this
+    // workflow will work just like a collision in a real world scenario and can
+    // be used to test accident UX of your application.
+    // Note that this will only work when ZendriveSDK is set up and there's an
+    // active drive, accident detection mode should also be set to
+    // ZendriveAccidentDetectionModeEnabled in the configuration during setup.
+    [ZendriveTest raiseMockAccident:ZendriveAccidentConfidenceHigh];
+}
+
+- (IBAction)settingsButtonClicked:(id)sender {
+    SettingsViewController *settings = [[SettingsViewController alloc] init];
+    [self.navigationController pushViewController:settings animated:YES];
+}
+
+//------------------------------------------------------------------------------
 #pragma mark - Zendrive setup helper
-
-- (void)initializeSDKWithSuccessHandler:(void (^)(void))successBlock
-                      andFailureHandler:(void (^)(NSError *))failureBlock {
+//------------------------------------------------------------------------------
+- (void)initializeSDKForUser:(User *)user
+              successHandler:(void (^)(void))successBlock
+           andFailureHandler:(void (^)(NSError *))failureBlock {
     ZendriveConfiguration *configuration = [[ZendriveConfiguration alloc] init];
-    configuration.applicationKey = kZendriveKeyString;
-    configuration.driverId = [self getDriverId];
-    configuration.operationMode = ZendriveOperationModeDriverAnalytics;
-    configuration.driveDetectionMode = ZendriveDriveDetectionModeAutoON;
+    configuration.applicationKey = kZendriveSDKKeyString;
 
-    // Please contact support@zendrive.com to if you wish to enable this service for your application.
-    configuration.accidentDetectionMode = ZendriveAccidentDetectionModeDisabled;
+    ZendriveDriveDetectionMode driveDetectionMode = [SharedUserDefaultsManager driveDetectionMode];
+    configuration.driveDetectionMode = driveDetectionMode;
+
+    configuration.driverId = user.driverId;
+
+    ZendriveDriverAttributes *driverAttrs = [[ZendriveDriverAttributes alloc] init];
+
+    NSString *firstName = user.firstName;
+    if (firstName.length > 0) {
+        [driverAttrs setFirstName:firstName];
+    }
+
+    NSString *lastName = user.lastName;
+    if (lastName.length > 0) {
+        [driverAttrs setLastName:lastName];
+    }
+
+    NSString *phoneNumber = user.phoneNumber;
+    if (phoneNumber) {
+        phoneNumber = [phoneNumber stringByReplacingOccurrencesOfString:@"+" withString:@""];
+    }
+    if (phoneNumber.length > 0) {
+        [driverAttrs setPhoneNumber:phoneNumber];
+    }
+
+    configuration.driverAttributes = driverAttrs;
 
     [Zendrive
      setupWithConfiguration:configuration delegate:self
@@ -111,19 +227,27 @@ static NSString * kZendriveKeyString = @"sdk_key";
      }];
 }
 
+//------------------------------------------------------------------------------
 #pragma mark - Zendrive Delegate collbacks
-
+//------------------------------------------------------------------------------
 - (void)processStartOfDrive:(ZendriveDriveStartInfo *)startInfo {
     NSLog(@"Drive started!!");
     self.driveStatusLabel.text = @"Driving";
+
+    if ([self isAccidentEnabled]) {
+        self.mockAccidentButton.enabled = YES;
+    }
 }
 
 - (void)processEndOfDrive:(ZendriveDriveInfo *)drive {
     NSLog(@"Drive finished!!");
     self.driveStatusLabel.text = @"Drive Ended";
+    if ([self isAccidentEnabled]) {
+        self.mockAccidentButton.enabled = NO;
+    }
 
     Trip *trip = [self tripFromZendriveDriveInfo:drive];
-    [self saveTrip:trip];
+    [SharedUserDefaultsManager saveTrip:trip];
     [self.tripsArray insertObject:trip atIndex:0];
     [self.tableView reloadData];
 }
@@ -139,20 +263,51 @@ static NSString * kZendriveKeyString = @"sdk_key";
 }
 
 - (void)processAccidentDetected:(ZendriveAccidentInfo *)accidentInfo {
+    NSString *alertString;
     if (accidentInfo.confidence == ZendriveAccidentConfidenceHigh) {
         // Panic
-        [[[UIAlertView alloc]
-          initWithTitle:@"Accident!!!"
-          message:@"Please respond if you are ok, we will send help if you don't respond for a min"
-          delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil] show];
+        alertString = @"Please respond if you are ok, we will "
+        "send help if you don't respond for a min";
     }
     else {
         // Little panic
-        [[[UIAlertView alloc]
-          initWithTitle:@"Accident!!!"
-          message:@"Please respond if you are ok, we will send help if you don't respond for 10 mins"
-          delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil] show];
+        alertString = @"Please respond if you are ok, we will send help "
+        "if you don't respond for 10 mins";
     }
+
+    [[[UIAlertView alloc]
+      initWithTitle:@"Accident!!!"
+      message:alertString
+      completionBlock:
+      ^(NSUInteger buttonIndex, UIAlertView *alertView) {
+          ZendriveAccidentFeedback *feedback;
+          switch (buttonIndex) {
+              case 0: {
+                  // Example accident feedback flow
+                  feedback = [[ZendriveAccidentFeedback alloc] initWithAccidentId:accidentInfo.accidentId isAccident:YES];
+                  [feedback setPersonalInjury:NO];
+                  NSLog(@"I'm Ok.");
+                  break;
+              }
+              case 1:
+                  feedback = [[ZendriveAccidentFeedback alloc] initWithAccidentId:accidentInfo.accidentId isAccident:NO];
+                  NSLog(@"Nothing happened.");
+                  break;
+              case 2:
+                  feedback = [[ZendriveAccidentFeedback alloc] initWithAccidentId:accidentInfo.accidentId isAccident:YES];
+                  [feedback setPersonalInjury:YES];
+                  NSLog(@"Please send help.");
+                  break;
+
+              default:
+                  break;
+          }
+          if (feedback) {
+              [Zendrive addAccidentFeedback:feedback];
+          }
+      }
+      cancelButtonTitle:nil
+      otherButtonTitles:@"I'm Ok.", @"Nothing happened.", @"Please send help.", nil] show];
 }
 
 - (Trip *)tripFromZendriveDriveInfo:(ZendriveDriveInfo *)drive {
@@ -172,41 +327,9 @@ static NSString * kZendriveKeyString = @"sdk_key";
     return trip;
 }
 
-#pragma mark - Saving and retrieving trips
-#define kTripsUserDefaultsKey @"tripsArray"
-
-- (void)saveTrip:(Trip *)trip {
-
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    NSDictionary *tripDictionary = [trip toDictionary];
-    NSArray *tripsArray = [userDefaults objectForKey:kTripsUserDefaultsKey];
-    NSArray *newTripsArray;
-    if (tripsArray == nil) {
-        newTripsArray = @[tripDictionary];
-    }
-    else {
-        newTripsArray = [tripsArray arrayByAddingObject:tripDictionary];
-    }
-
-    [userDefaults setObject:newTripsArray forKey:kTripsUserDefaultsKey];
-    [userDefaults synchronize];
-}
-
-- (NSMutableArray *)fetchAllTrips {
-    NSMutableArray *tripsArray = [[NSMutableArray alloc] init];
-
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    NSArray *tripDictionariesArray = [userDefaults objectForKey:kTripsUserDefaultsKey];
-    for (NSDictionary *tripDictioanry in tripDictionariesArray) {
-        Trip *trip = [[Trip alloc] initWithDictionary:tripDictioanry];
-        [tripsArray insertObject:trip atIndex:0];
-    }
-
-    return tripsArray;
-}
-
+//------------------------------------------------------------------------------
 #pragma mark - UITableViewDatasource
-
+//------------------------------------------------------------------------------
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
@@ -234,8 +357,9 @@ static NSString * kZendriveKeyString = @"sdk_key";
     return cell;
 }
 
+//------------------------------------------------------------------------------
 #pragma mark - UITableViewDelegate
-
+//------------------------------------------------------------------------------
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
@@ -250,5 +374,12 @@ static NSString * kZendriveKeyString = @"sdk_key";
     NSString *bundleIdentifier = [[NSBundle mainBundle] bundleIdentifier];
     NSString *driverId = [NSString stringWithFormat:@"%@-%@", bundleIdentifier, deviceName];
     return driverId;
+}
+
+//------------------------------------------------------------------------------
+#pragma mark - Utils
+//------------------------------------------------------------------------------
+- (BOOL)isAccidentEnabled {
+    return [Zendrive isAccidentDetectionSupportedByDevice];
 }
 @end

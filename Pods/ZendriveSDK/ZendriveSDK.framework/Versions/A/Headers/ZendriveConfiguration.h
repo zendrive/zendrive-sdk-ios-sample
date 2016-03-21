@@ -132,10 +132,9 @@ typedef NS_ENUM(int, ZendriveAccidentDetectionMode) {
  * Once setup, all drives detected by the SDK would be in the specified operationMode. If
  * you wish to change the operation mode at any point, you need to call
  * [Zendrive teardown] and setup the SDK again.
- * @warning This field is REQUIRED. If this field is not explicitly set,
- * SDK setup would fail.
+ * @warning This field is Deprecated. It is always set to ZendriveOperationModeDriverAnalytics.
  */
-@property (nonatomic) ZendriveOperationMode operationMode;
+@property (nonatomic) ZendriveOperationMode operationMode __deprecated_msg("Property ignored. It is always set to ZendriveOperationModeDriverAnalytics");
 
 /**
  * @abstract Use this mode to control the SDK's behaviour for detecting drives
@@ -158,7 +157,10 @@ typedef NS_ENUM(int, ZendriveAccidentDetectionMode) {
  * Zendrive SDK and receive realtime callbacks for the same. This feature is available
  * only to premium account holders. Please refer to https://developers.zedrive.com for
  * further details.
+ * @warning This field is Deprecated. It is always set to ZendriveAccidentDetectionModeEnabled.
+ * Please refer to [Zendrive isAccidentDetectionSupportedByDevice] to check whether accident
+ * detection would work on the device or not.
  */
-@property (nonatomic) ZendriveAccidentDetectionMode accidentDetectionMode;
+@property (nonatomic) ZendriveAccidentDetectionMode accidentDetectionMode __deprecated_msg("Property ignored. It is always set to ZendriveAccidentDetectionModeEnabled");
 
 @end

@@ -15,6 +15,11 @@
 		56D827D31A63086300703BEF /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56D827D11A63086300703BEF /* LaunchScreen.xib */; };
 		56D827DF1A63086300703BEF /* ZendriveSDKDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 56D827DE1A63086300703BEF /* ZendriveSDKDemoTests.m */; };
 		56D827EB1A63090700703BEF /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56D827E91A63090700703BEF /* ViewController.m */; };
+		EC7F86181C803D9E000B4FE1 /* UIAlertView+BlockExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = EC7F86171C803D9E000B4FE1 /* UIAlertView+BlockExtensions.m */; };
+		EC7F861E1C8070C3000B4FE1 /* UserDefaultsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EC7F861D1C8070C3000B4FE1 /* UserDefaultsManager.m */; };
+		EC7F86211C807258000B4FE1 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = EC7F86201C807258000B4FE1 /* User.m */; };
+		EC7F86251C808B63000B4FE1 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC7F86231C808B63000B4FE1 /* SettingsViewController.m */; };
+		EC7F86261C808B63000B4FE1 /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC7F86241C808B63000B4FE1 /* SettingsViewController.xib */; };
 		EC976BA01AABAEF5009FB78F /* Trip.m in Sources */ = {isa = PBXBuildFile; fileRef = EC976B9F1AABAEF5009FB78F /* Trip.m */; };
 		EC976BA31AABB775009FB78F /* LocationPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = EC976BA21AABB775009FB78F /* LocationPoint.m */; };
 /* End PBXBuildFile section */
@@ -46,10 +51,20 @@
 		56D827E91A63090700703BEF /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		7876CA5AA94FE1A0F97E8A89 /* Pods-ZendriveSDKDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZendriveSDKDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-ZendriveSDKDemo/Pods-ZendriveSDKDemo.release.xcconfig"; sourceTree = "<group>"; };
 		BF8239B07CA682C2563116FA /* Pods-ZendriveSDKDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZendriveSDKDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ZendriveSDKDemo/Pods-ZendriveSDKDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		EC7F86161C803D9E000B4FE1 /* UIAlertView+BlockExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+BlockExtensions.h"; sourceTree = "<group>"; };
+		EC7F86171C803D9E000B4FE1 /* UIAlertView+BlockExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+BlockExtensions.m"; sourceTree = "<group>"; };
+		EC7F861C1C8070C3000B4FE1 /* UserDefaultsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserDefaultsManager.h; sourceTree = "<group>"; };
+		EC7F861D1C8070C3000B4FE1 /* UserDefaultsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserDefaultsManager.m; sourceTree = "<group>"; };
+		EC7F861F1C807258000B4FE1 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		EC7F86201C807258000B4FE1 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		EC7F86221C808B63000B4FE1 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		EC7F86231C808B63000B4FE1 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
+		EC7F86241C808B63000B4FE1 /* SettingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
 		EC976B9E1AABAEF5009FB78F /* Trip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Trip.h; sourceTree = "<group>"; };
 		EC976B9F1AABAEF5009FB78F /* Trip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Trip.m; sourceTree = "<group>"; };
 		EC976BA11AABB775009FB78F /* LocationPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationPoint.h; sourceTree = "<group>"; };
 		EC976BA21AABB775009FB78F /* LocationPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationPoint.m; sourceTree = "<group>"; };
+		ECC70D241C80972B00AC7044 /* NotificationConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationConstants.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,13 +110,21 @@
 			isa = PBXGroup;
 			children = (
 				EC976B9D1AABAEE9009FB78F /* Model */,
+				EC7F86161C803D9E000B4FE1 /* UIAlertView+BlockExtensions.h */,
+				EC7F86171C803D9E000B4FE1 /* UIAlertView+BlockExtensions.m */,
 				56D827E81A63090700703BEF /* ViewController.h */,
 				56D827E91A63090700703BEF /* ViewController.m */,
+				5611DED01A630B93004CA14C /* ViewController.xib */,
+				EC7F86221C808B63000B4FE1 /* SettingsViewController.h */,
+				EC7F86231C808B63000B4FE1 /* SettingsViewController.m */,
+				EC7F86241C808B63000B4FE1 /* SettingsViewController.xib */,
+				EC7F861C1C8070C3000B4FE1 /* UserDefaultsManager.h */,
+				EC7F861D1C8070C3000B4FE1 /* UserDefaultsManager.m */,
+				ECC70D241C80972B00AC7044 /* NotificationConstants.h */,
 				56D827C61A63086200703BEF /* AppDelegate.h */,
 				56D827C71A63086200703BEF /* AppDelegate.m */,
 				56D827CF1A63086300703BEF /* Images.xcassets */,
 				56D827D11A63086300703BEF /* LaunchScreen.xib */,
-				5611DED01A630B93004CA14C /* ViewController.xib */,
 				56D827C21A63086200703BEF /* Supporting Files */,
 			);
 			path = ZendriveSDKDemo;
@@ -153,6 +176,8 @@
 		EC976B9D1AABAEE9009FB78F /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				EC7F861F1C807258000B4FE1 /* User.h */,
+				EC7F86201C807258000B4FE1 /* User.m */,
 				EC976B9E1AABAEF5009FB78F /* Trip.h */,
 				EC976B9F1AABAEF5009FB78F /* Trip.m */,
 				EC976BA11AABB775009FB78F /* LocationPoint.h */,
@@ -208,7 +233,7 @@
 		56D827B71A63086200703BEF /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0610;
+				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = Zendrive;
 				TargetAttributes = {
 					56D827BE1A63086200703BEF = {
@@ -252,6 +277,7 @@
 				56D827D31A63086300703BEF /* LaunchScreen.xib in Resources */,
 				5611DED11A630B93004CA14C /* ViewController.xib in Resources */,
 				56D827D01A63086300703BEF /* Images.xcassets in Resources */,
+				EC7F86261C808B63000B4FE1 /* SettingsViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -318,6 +344,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				EC976BA01AABAEF5009FB78F /* Trip.m in Sources */,
+				EC7F86181C803D9E000B4FE1 /* UIAlertView+BlockExtensions.m in Sources */,
+				EC7F86211C807258000B4FE1 /* User.m in Sources */,
+				EC7F86251C808B63000B4FE1 /* SettingsViewController.m in Sources */,
+				EC7F861E1C8070C3000B4FE1 /* UserDefaultsManager.m in Sources */,
 				56D827EB1A63090700703BEF /* ViewController.m in Sources */,
 				56D827C81A63086200703BEF /* AppDelegate.m in Sources */,
 				EC976BA31AABB775009FB78F /* LocationPoint.m in Sources */,
@@ -375,6 +405,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -438,8 +469,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = ZendriveSDKDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.zendrive.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -451,8 +483,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = ZendriveSDKDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.zendrive.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -471,6 +504,7 @@
 				);
 				INFOPLIST_FILE = ZendriveSDKDemoTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.zendrive.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ZendriveSDKDemo.app/ZendriveSDKDemo";
 			};
@@ -486,6 +520,7 @@
 				);
 				INFOPLIST_FILE = ZendriveSDKDemoTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.zendrive.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ZendriveSDKDemo.app/ZendriveSDKDemo";
 			};
