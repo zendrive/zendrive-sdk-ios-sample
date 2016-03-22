@@ -211,6 +211,9 @@ static NSString * kZendriveSDKKeyString = @"your-sdk-key";
         [driverAttrs setPhoneNumber:phoneNumber];
     }
 
+    ZendriveServiceLevel serviceLevel = [SharedUserDefaultsManager serviceTier];
+    [driverAttrs setServiceLevel:serviceLevel];
+
     configuration.driverAttributes = driverAttrs;
 
     [Zendrive

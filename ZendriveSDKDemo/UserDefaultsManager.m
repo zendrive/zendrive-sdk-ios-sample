@@ -76,7 +76,7 @@ static UserDefaultsManager *_sharedInstance;
     if (serviceTierNsNum) {
         return serviceTierNsNum.intValue;
     }
-    return 0;
+    return ZendriveServiceLevelDefault;
 }
 
 //------------------------------------------------------------------------------
