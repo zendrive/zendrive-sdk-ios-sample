@@ -12,6 +12,8 @@
  *  Specifies the operation category for Zendrive SDK.
  *  Each category varies in the type and frequency of data collected, accuracy of
  *  drive-related attributes and battery consumption.
+ *
+ *  @warning This is deprecated and has no affect on ZendriveSDK functionality.
  */
 typedef NS_ENUM(int, ZendriveOperationMode) {
     /**
@@ -63,6 +65,8 @@ typedef NS_ENUM(int, ZendriveDriveDetectionMode) {
  *  Specifies the accident detection mode of the Zendrive SDK.
  *  The application should be running in ZendriveOperationModeDriverAnalytics
  *  ZendriveOperationMode for accident detection to work reliably.
+ *
+ *  @warning This is deprecated and has no affect on ZendriveSDK functionality.
  */
 typedef NS_ENUM(int, ZendriveAccidentDetectionMode) {
     /**
@@ -132,7 +136,8 @@ typedef NS_ENUM(int, ZendriveAccidentDetectionMode) {
  * Once setup, all drives detected by the SDK would be in the specified operationMode. If
  * you wish to change the operation mode at any point, you need to call
  * [Zendrive teardown] and setup the SDK again.
- * @warning This field is Deprecated. It is always set to ZendriveOperationModeDriverAnalytics.
+ *
+ * @warning Property ignored. It is always set to ZendriveOperationModeDriverAnalytics.
  */
 @property (nonatomic) ZendriveOperationMode operationMode __deprecated_msg("Property ignored. It is always set to ZendriveOperationModeDriverAnalytics");
 
@@ -157,9 +162,11 @@ typedef NS_ENUM(int, ZendriveAccidentDetectionMode) {
  * Zendrive SDK and receive realtime callbacks for the same. This feature is available
  * only to premium account holders. Please refer to https://developers.zedrive.com for
  * further details.
- * @warning This field is Deprecated. It is always set to ZendriveAccidentDetectionModeEnabled.
+ *
  * Please refer to [Zendrive isAccidentDetectionSupportedByDevice] to check whether accident
  * detection would work on the device or not.
+ *
+ * @warning Property ignored. It is always set to ZendriveAccidentDetectionModeEnabled.
  */
 @property (nonatomic) ZendriveAccidentDetectionMode accidentDetectionMode __deprecated_msg("Property ignored. It is always set to ZendriveAccidentDetectionModeEnabled");
 

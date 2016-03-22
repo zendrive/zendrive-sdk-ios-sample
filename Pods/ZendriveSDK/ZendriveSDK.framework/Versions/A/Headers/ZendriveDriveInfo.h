@@ -19,10 +19,8 @@
  * @abstract Sometimes, the SDK detects that a drive is invalid after it has been started.
  * In these cases, the isValid property will be set to NO and values for all other
  * properties in this class have default values.
- *
- * @warning This variable is deprecated and always returns YES.
  */
-@property (nonatomic, readonly) BOOL isValid __deprecated;
+@property (nonatomic, readonly) BOOL isValid;
 
 /**
  * @abstract The start timestamp of trip in milliseconds since epoch.

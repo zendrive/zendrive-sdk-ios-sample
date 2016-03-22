@@ -1,5 +1,5 @@
 //
-//  ActiveDriveInfo.h
+//  ZendriveActiveDriveInfo.h
 //  ZendriveSDK
 //
 //  Created by Yogesh on 9/10/15.
@@ -11,7 +11,7 @@
 /**
  *  Information about the active drive if any.
  */
-@interface ActiveDriveInfo : NSObject
+@interface ZendriveActiveDriveInfo : NSObject
 
 /**
  * @abstract The start timestamp of trip in milliseconds since epoch.

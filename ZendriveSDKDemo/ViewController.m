@@ -85,9 +85,6 @@ static NSString * kZendriveSDKKeyString = @"your-sdk-key";
         }
         self.driverIdLabel.text = user.driverId;
         self.loginView.hidden = YES;
-        if ([Zendrive isSDKSetup]) {
-            return;
-        }
         [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         [self initializeSDKForUser:user successHandler:
          ^{

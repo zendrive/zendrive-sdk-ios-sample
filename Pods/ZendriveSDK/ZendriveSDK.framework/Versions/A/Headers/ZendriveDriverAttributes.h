@@ -157,8 +157,10 @@ typedef enum ServiceLevel {
  * The service level of a driver. This is useful for applications where Zendrive supports
  * different service levels for different drivers. See ServiceLevel
  * for more information about this attribute.
+ *
+ * @param serviceLevel service tier of the user.
  */
-- (BOOL)setServiceLevel:(ServiceLevel)priority;
+- (BOOL)setServiceLevel:(ServiceLevel)serviceLevel;
 
 - (NSString *)getServiceLevel;
 
