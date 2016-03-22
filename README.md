@@ -13,7 +13,7 @@ You can integrate <a href="http://developers.zendrive.com/docs/ios/">Zendrive iO
 </ul>
 
 <p class="center">
-<img src="http://developers.zendrive.com/static/img/dev_intro_1.png" />
+<img src="https://www.zendrive.com/static/img/developers/dev_intro_1.png?v=1.1" />
 
 
 <h4>How to run the sample app</h4>
