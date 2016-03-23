@@ -38,6 +38,13 @@
 @property (nonatomic) double averageSpeed;
 
 /**
+ * @abstract The maximum speed of trip in metres/second
+ * @discussion If we do not receive any accurate location data during the drive, this
+ * property would be set to -1
+ */
+@property (nonatomic) double maxSpeed;
+
+/**
  * @abstract The distance of the trip in metres
  */
 @property (nonatomic) double distance;

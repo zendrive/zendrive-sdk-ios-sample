@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 /**
- * Represents a geographical coordinate along with accuracy and timestamp information.
+ * Represents a geographical coordinate.
  */
 @interface ZendriveLocationPoint : NSObject
 
