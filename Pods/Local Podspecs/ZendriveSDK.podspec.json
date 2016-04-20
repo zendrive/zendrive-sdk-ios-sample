@@ -1,6 +1,6 @@
 {
   "name": "ZendriveSDK",
-  "version": "3.5.6",
+  "version": "3.5.7",
   "summary": "Zendrive iOS SDK",
   "homepage": "http://www.zendrive.com",
   "license": "Apache License, Version 2.0",
@@ -28,10 +28,10 @@
   },
   "dependencies": {
     "AWSCore": [
-      "~>2.2.7"
+      "~>2.3.6"
     ],
     "AWSSQS": [
-      "~>2.2.7"
+      "~>2.3.6"
     ],
     "FMDB": [
       "~>2.5"
