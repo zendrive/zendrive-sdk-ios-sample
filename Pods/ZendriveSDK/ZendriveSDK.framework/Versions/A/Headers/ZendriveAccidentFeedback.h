@@ -55,11 +55,11 @@ typedef NS_ENUM(int, ZendriveAccidentLoss) {
  *  @param accidentId accidentId of ZendriveAccidentInfo object returned from 
  *  [ZendriveDelegateProtocol processAccidentDetected:]
  *  @param isAccident Let Zendrive know whether this was a real accident 
- *  or a false positive. This will help us in improving our algorithms
+ *  or a false positive. This will help Zendrive in improving the algorithm.
  *
  *  @return New ZendriveAccidentFeedback object
  */
-- (id)initWithAccidentId:(NSString *)accidentId isAccident:(BOOL)isAccident;
+- (nullable id)initWithAccidentId:(nonnull NSString *)accidentId isAccident:(BOOL)isAccident;
 
 /**
  *  Set loss incurred in the accident.

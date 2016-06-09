@@ -15,9 +15,14 @@
 @interface ZendriveDriveStartInfo : NSObject
 
 /**
+ * @abstract The unique Id for this drive
+ */
+@property (nonatomic, readonly, nonnull) NSString *driveId;
+
+/**
  * @abstract The start timestamp of trip in milliseconds since epoch
  */
-@property (nonatomic) long long startTimestamp;
+@property (nonatomic, assign) long long startTimestamp;
 
 /**
  * @abstract The start location of the drive.
@@ -27,12 +32,12 @@
  *
  * @warning This is deprecated. Use firstObject of waypoints instead.
  */
-@property (nonatomic) ZendriveLocationPoint *startLocation __deprecated;
+@property (nonatomic, strong, nullable) ZendriveLocationPoint *startLocation __deprecated;
 
 /**
  * @abstract The distance of the trip in metres
  */
-@property (nonatomic) double distance;
+@property (nonatomic, assign) double distance;
 
 /**
  * @abstract A list of ZendriveLocationPoint objects corresponding to this trip in
@@ -42,10 +47,10 @@
  * approximate the path taken by the driver. This is not the detailed location
  * data but rather a sample representing route geometry.
  *
- * @note The array might be empty if no accurate gps location is determined till 
+ * @note The array might be empty if no accurate gps location is determined till
  * [ZendriveDelegateProtocol processStartOfDrive:] call.
  */
-@property (nonatomic) NSArray *waypoints;
+@property (nonatomic, strong, nullable) NSArray *waypoints;
 
 /**
  * @abstract Tracking id is specified by the enclosing application when it
@@ -55,7 +60,7 @@
  * know when to start a drive based on when a meter gets flagged. trackingId will be
  * nil in case of auto detected drives.
  */
-@property (nonatomic) NSString *trackingId;
+@property (nonatomic, strong, nullable) NSString *trackingId;
 
 /**
  * @abstract Session id is specified by the enclosing application when it wants to
@@ -63,5 +68,5 @@
  *
  * @discussion sessionId will be nil if there is no session associated with that drive.
  */
-@property (nonatomic) NSString *sessionId;
+@property (nonatomic, strong, nullable) NSString *sessionId;
 @end

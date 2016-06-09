@@ -38,8 +38,12 @@ typedef NS_ENUM(int, ZendriveSetupError) {
 
     /**
      * User has disallowed/restricted location services
+     *
+     * @warning Deprecated. Now ZendriveSDK setup will succeed and
+     * [ZendriveDelegateProtocol processLocationDenied] callback will be sent. This
+     * error will never be fired from ZendriveSDK.
      */
-    kZendriveSetupErrorLocationDisabled,
+    kZendriveSetupErrorLocationDisabled __attribute__((deprecated)),
 
     /**
      * Internal error during setup
@@ -48,8 +52,11 @@ typedef NS_ENUM(int, ZendriveSetupError) {
 
     /**
      * Invalid operation mode sent to setup
+     *
+     * @warning operationMode in ZendriveConfiguration is deprecated, so
+     * this error will never be seen.
      */
-    kZendriveSetupErrorOperationModeInvalid,
+    kZendriveSetupErrorOperationModeInvalid __attribute__((deprecated)),
 
     /**
      * Cannot verify the API key.

@@ -11,37 +11,37 @@
 /**
  *  Key for first name as returned by toJson method.
  */
-extern NSString * const kDriverAttributesKeyFirstName;
+extern NSString * __nonnull const kDriverAttributesKeyFirstName;
 
 /**
  *  Key for last name as returned by toJson method.
  */
-extern NSString * const kDriverAttributesKeyLastName;
+extern NSString * __nonnull const kDriverAttributesKeyLastName;
 
 /**
  *  Key for email as returned by toJson method.
  */
-extern NSString * const kDriverAttributesKeyEmail;
+extern NSString * __nonnull const kDriverAttributesKeyEmail;
 
 /**
  *  Key for groupId returned by toJson method.
  */
-extern NSString * const kDriverAttributesKeyGroup;
+extern NSString * __nonnull const kDriverAttributesKeyGroup;
 
 /**
  *  Key for phoneNumber returned by toJson method.
  */
-extern NSString * const kDriverAttributesKeyPhoneNumber;
+extern NSString * __nonnull const kDriverAttributesKeyPhoneNumber;
 
 /**
  *  Key for driverStartDate returned by toJson method.
  */
-extern NSString * const kDriverAttributesKeyDriverStartDate;
+extern NSString * __nonnull const kDriverAttributesKeyDriverStartDate;
 
 /**
  * Key for ServiceLevel returned by toJson method.
  */
-extern NSString * const kDriverAttributesKeyPriority;
+extern NSString * __nonnull const kDriverAttributesKeyPriority;
 
 /**
  * @typedef
@@ -91,7 +91,7 @@ typedef NS_ENUM(int, ZendriveServiceLevel) {
  *
  *  @return YES, if the value was set, NO otherwise.
  */
-- (BOOL)setFirstName:(NSString *)firstName;
+- (BOOL)setFirstName:(nonnull NSString *)firstName;
 
 /**
  *  @abstract Last name of the user.
@@ -100,7 +100,7 @@ typedef NS_ENUM(int, ZendriveServiceLevel) {
  *
  *  @return YES, if the value was set, NO otherwise.
  */
-- (BOOL)setLastName:(NSString *)lastName;
+- (BOOL)setLastName:(nonnull NSString *)lastName;
 
 /**
  *  @abstract Email of the user.
@@ -109,7 +109,7 @@ typedef NS_ENUM(int, ZendriveServiceLevel) {
  *
  *  @return YES, if the value was set, NO otherwise.
  */
-- (BOOL)setEmail:(NSString *)email;
+- (BOOL)setEmail:(nonnull NSString *)email;
 
 /**
  * @abstract A unique id that associates the current user to a group. This groupId will
@@ -126,7 +126,7 @@ typedef NS_ENUM(int, ZendriveServiceLevel) {
  * @return YES, if the value was set, NO otherwise.
  *
  */
-- (BOOL)setGroup:(NSString *)groupId;
+- (BOOL)setGroup:(nonnull NSString *)groupId;
 
 /**
  * @abstract Phone number of the user.
@@ -140,7 +140,7 @@ typedef NS_ENUM(int, ZendriveServiceLevel) {
  * @return NO if the phone number string contains any characters other than digits, YES
  *         otherwise.
  */
-- (BOOL)setPhoneNumber:(NSString *)phoneNumber;
+- (BOOL)setPhoneNumber:(nonnull NSString *)phoneNumber;
 
 /**
  * @abstract The date which the driver signed up/started using your application.
@@ -151,7 +151,7 @@ typedef NS_ENUM(int, ZendriveServiceLevel) {
  *
  * @return YES, if the value was set, NO otherwise.
  */
-- (BOOL)setDriverStartDate:(NSDate *)startDate;
+- (BOOL)setDriverStartDate:(nonnull NSDate *)startDate;
 
 /**
  * The service level of a driver. This is useful for applications where Zendrive supports
@@ -161,8 +161,6 @@ typedef NS_ENUM(int, ZendriveServiceLevel) {
  * @param serviceLevel service tier of the user.
  */
 - (BOOL)setServiceLevel:(ZendriveServiceLevel)serviceLevel;
-
-- (NSString *)getServiceLevel;
 
 /**
  * @abstract Set the custom attribute of the user.
@@ -177,7 +175,7 @@ typedef NS_ENUM(int, ZendriveServiceLevel) {
  * @return YES, if the value was set, NO otherwise.
  *
  */
-- (BOOL)setCustomAttribute:(NSString *)value forKey:(NSString *)key;
+- (BOOL)setCustomAttribute:(nonnull NSString *)value forKey:(nonnull NSString *)key;
 
 /**
  * @abstract Returns the attributes as a json string.
@@ -185,13 +183,13 @@ typedef NS_ENUM(int, ZendriveServiceLevel) {
  * @return Driver attributes as a json string. nil if json serialization
  *         fails.
  */
-- (NSString *)asJson;
+- (nonnull NSString *)asJson;
 
 /**
  * @abstract Returns the driver attributes as a dictionary.
  *
  * @return Driver attributes as a dictionary.
  */
-- (NSDictionary *)asDictionary;
+- (nonnull NSDictionary *)asDictionary;
 
 @end

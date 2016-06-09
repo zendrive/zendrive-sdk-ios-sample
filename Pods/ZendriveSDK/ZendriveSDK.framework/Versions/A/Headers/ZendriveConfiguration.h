@@ -101,7 +101,7 @@ typedef NS_ENUM(int, ZendriveAccidentDetectionMode) {
  * allowed.
  * Passing invalid string would cause SDK setup to fail.
  */
-@property (nonatomic) NSString *applicationKey;
+@property (nonatomic, strong, nonnull) NSString *applicationKey;
 
 /**
  * @abstract Unique ID for the current user. This can be any ID used by your app to
@@ -113,7 +113,7 @@ typedef NS_ENUM(int, ZendriveAccidentDetectionMode) {
  * allowed.
  * Passing invalid string would cause SDK setup to fail.
  */
-@property (nonatomic) NSString *driverId;
+@property (nonatomic, strong, nonnull) NSString *driverId;
 
 /**
  * @abstract Attributes for the current user. These attributes are stored on the server
@@ -124,7 +124,7 @@ typedef NS_ENUM(int, ZendriveAccidentDetectionMode) {
  * email, groupId or any custom attributes you wish to provide.
  * Default value is nil.
  */
-@property (nonatomic) ZendriveDriverAttributes *driverAttributes;
+@property (nonatomic, strong, nullable) ZendriveDriverAttributes *driverAttributes;
 
 /**
  * @abstract You should assign a value to this property that is appropriate for your usage
@@ -139,7 +139,7 @@ typedef NS_ENUM(int, ZendriveAccidentDetectionMode) {
  *
  * @warning Property ignored. It is always set to ZendriveOperationModeDriverAnalytics.
  */
-@property (nonatomic) ZendriveOperationMode operationMode __deprecated_msg("Property ignored. It is always set to ZendriveOperationModeDriverAnalytics");
+@property (nonatomic, assign) ZendriveOperationMode operationMode __deprecated_msg("Property ignored. It is always set to ZendriveOperationModeDriverAnalytics");
 
 /**
  * @abstract Use this mode to control the SDK's behaviour for detecting drives
@@ -155,7 +155,7 @@ typedef NS_ENUM(int, ZendriveAccidentDetectionMode) {
  * back to ZendriveDriveDetectionModeAutoOFF (once the driver goes off-duty).
  *
  */
-@property (nonatomic) ZendriveDriveDetectionMode driveDetectionMode;
+@property (nonatomic, assign) ZendriveDriveDetectionMode driveDetectionMode;
 
 /**
  * Specify ZendriveAccidentDetectionModeEnabled to enable detection of accidents by the
@@ -168,6 +168,6 @@ typedef NS_ENUM(int, ZendriveAccidentDetectionMode) {
  *
  * @warning Property ignored. It is always set to ZendriveAccidentDetectionModeEnabled.
  */
-@property (nonatomic) ZendriveAccidentDetectionMode accidentDetectionMode __deprecated_msg("Property ignored. It is always set to ZendriveAccidentDetectionModeEnabled");
+@property (nonatomic, assign) ZendriveAccidentDetectionMode accidentDetectionMode __deprecated_msg("Property ignored. It is always set to ZendriveAccidentDetectionModeEnabled");
 
 @end

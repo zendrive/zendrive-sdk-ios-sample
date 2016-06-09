@@ -14,19 +14,24 @@
 @interface ZendriveActiveDriveInfo : NSObject
 
 /**
+ * @abstract The unique Id for this drive
+ */
+@property (nonatomic, readonly, nonnull) NSString *driveId;
+
+/**
  * @abstract The start timestamp of trip in milliseconds since epoch.
  */
-@property (nonatomic) long long startTimestamp;
+@property (nonatomic, assign) long long startTimestamp;
 
 /**
  * @abstract The current speed of vehicle in metres/second.
  */
-@property (nonatomic) double currentSpeed;
+@property (nonatomic, assign) double currentSpeed;
 
 /**
  * @abstract The distance covered so far in this trip in meters.
  */
-@property (nonatomic) double distance;
+@property (nonatomic, assign) double distance;
 
 /**
  * @abstract Tracking id is specified by the enclosing application when it
@@ -36,7 +41,7 @@
  * know when to start a drive based on when a meter gets flagged. trackingId will be
  * nil in case of auto detected drives.
  */
-@property (nonatomic) NSString *trackingId;
+@property (nonatomic, strong, nullable) NSString *trackingId;
 
 /**
  * @abstract Session id is specified by the enclosing application when it wants to
@@ -44,5 +49,5 @@
  *
  * @discussion sessionId will be nil if there is no session associated with that drive.
  */
-@property (nonatomic) NSString *sessionId;
+@property (nonatomic, strong, nullable) NSString *sessionId;
 @end

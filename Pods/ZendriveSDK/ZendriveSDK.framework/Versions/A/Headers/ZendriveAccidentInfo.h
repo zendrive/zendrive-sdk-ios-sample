@@ -35,9 +35,14 @@ typedef NS_ENUM(int, ZendriveAccidentConfidence) {
 @interface ZendriveAccidentInfo : NSObject
 
 /**
+ * @abstract The unique Id of drive during which the accident occured
+ */
+@property (nonatomic, readonly, nonnull) NSString *driveId;
+
+/**
  * @abstract The location of the accident.
  */
-@property (nonatomic, readonly) ZendriveLocationPoint *accidentLocation;
+@property (nonatomic, readonly, nonnull) ZendriveLocationPoint *accidentLocation;
 
 /**
  * @abstract The timestamp of the accident in milliseconds since epoch.
@@ -50,14 +55,14 @@ typedef NS_ENUM(int, ZendriveAccidentConfidence) {
  *
  * @see [Zendrive startSession:]
  */
-@property (nonatomic, readonly) NSString *sessionId;
+@property (nonatomic, readonly, nullable) NSString *sessionId;
 
 /**
  * @abstract The tracking id of the ongoing drive when the accident occured.
  *
  * @see [Zendrive startDrive:]
  */
-@property (nonatomic, readonly) NSString *trackingId;
+@property (nonatomic, readonly, nullable) NSString *trackingId;
 
 /**
  * @abstract The confidence of detected accident.
@@ -70,16 +75,17 @@ typedef NS_ENUM(int, ZendriveAccidentConfidence) {
  * providing accident feedback via [Zendrive addAccidentFeedback:]
  * method.
  */
-@property (nonatomic, readonly) NSString* accidentId;
+@property (nonatomic, readonly, nonnull) NSString* accidentId;
 
-- (id)initWithLocation:(ZendriveLocationPoint *)location
-             timestamp:(long long)timestamp
-            trackingId:(NSString *)trackingId
-             sessionId:(NSString *)sessionId
-            confidence:(ZendriveAccidentConfidence)confidence
-            accidentId:(NSString *)accidentId;
+- (nonnull id)initWithLocation:(nonnull ZendriveLocationPoint *)location
+                     timestamp:(long long)timestamp
+                    trackingId:(nullable NSString *)trackingId
+                     sessionId:(nullable NSString *)sessionId
+                    confidence:(ZendriveAccidentConfidence)confidence
+                    accidentId:(nonnull NSString *)accidentId
+                       driveId:(nonnull NSString*)driveId;
 
-- (NSDictionary *)toDictionary;
-- (NSString *)toJson;
+- (nonnull NSDictionary *)toDictionary;
+- (nonnull NSString *)toJson;
 
 @end

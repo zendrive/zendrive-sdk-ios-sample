@@ -7,15 +7,24 @@
 #import <Foundation/Foundation.h>
 
 #import "ZendriveConfiguration.h"
-#import "ZendriveAccidentInfo.h"
-#import "ZendriveDriveInfo.h"
-#import "ZendriveDriveStartInfo.h"
 #import "ZendriveDriverAttributes.h"
+#import "ZendriveDriveStartInfo.h"
+#import "ZendriveActiveDriveInfo.h"
+#import "ZendriveDriveInfo.h"
+#import "ZendriveAccidentInfo.h"
 #import "ZendriveLocationPoint.h"
+#import "ZendriveErrorDomain.h"
 #import "ZendriveSetupError.h"
 #import "ZendriveLocationPoint.h"
-#import "ZendriveActiveDriveInfo.h"
 #import "ZendriveAccidentFeedback.h"
+#import "ZendriveEvent.h"
+#import "ZendriveDriveScore.h"
+
+/**
+ * Identifier used by Zendrive SDK for region monitoring geofences
+ */
+extern NSString * __nonnull const kZendriveGeofenceIdentifier;
+
 @protocol ZendriveDelegateProtocol;
 
 /**
@@ -25,7 +34,7 @@
  * success is set to NO and error contains details for why setup failed. Refer to
  * ZendriveSetupError.h for a list of error codes.
  */
-typedef void (^ZendriveSetupHandler)(BOOL success, NSError *error);
+typedef void (^ZendriveSetupHandler)(BOOL success, NSError * __nullable error);
 
 /**
  *  Zendrive Object.
@@ -77,9 +86,9 @@ typedef void (^ZendriveSetupHandler)(BOOL success, NSError *error);
  *                would be invoked on the main thread. Can be nil.
  *
  */
-+ (void)setupWithConfiguration:(ZendriveConfiguration *)zendriveConfiguration
-                      delegate:(id<ZendriveDelegateProtocol>)delegate
-             completionHandler:(ZendriveSetupHandler)handler;
++ (void)setupWithConfiguration:(nonnull ZendriveConfiguration *)zendriveConfiguration
+                      delegate:(nullable id<ZendriveDelegateProtocol>)delegate
+             completionHandler:(nullable ZendriveSetupHandler)handler;
 
 /**
  * @abstract Set delegate to receive callbacks for various events from Zendrive SDK.
@@ -91,7 +100,7 @@ typedef void (^ZendriveSetupHandler)(BOOL success, NSError *error);
  * @param delegate The delegate object to give callbacks on.
  *
  */
-+ (void)setDelegate:(id<ZendriveDelegateProtocol>)delegate;
++ (void)setDelegate:(nullable id<ZendriveDelegateProtocol>)delegate;
 
 /**
  * @abstract The drive detection mode controls how Zendrive SDK detects drives.
@@ -139,7 +148,7 @@ typedef void (^ZendriveSetupHandler)(BOOL success, NSError *error);
  * @param handler Called when method completes. The handler would be invoked on main
  *        thread. Can be nil.
  */
-+ (void)teardownWithCompletionHandler:(void(^)(void))handler;
++ (void)teardownWithCompletionHandler:(void(^ __nullable)(void))handler;
 
 /**
  * @abstract This API allows application to override Zendrive's auto drive detection
@@ -172,7 +181,7 @@ typedef void (^ZendriveSetupHandler)(BOOL success, NSError *error);
  *
  * @warning You need to call stopDrive: to stop drive data collection.
  */
-+ (void)startDrive:(NSString *)trackingId;
++ (void)startDrive:(nonnull NSString *)trackingId;
 
 /**
  * @abstract This should be called to indicate the end of a drive started by invoking
@@ -202,7 +211,7 @@ typedef void (^ZendriveSetupHandler)(BOOL success, NSError *error);
  * @see startDrive:
  *
  */
-+ (void)stopDrive:(NSString *)trackingId;
++ (void)stopDrive:(nonnull NSString *)trackingId;
 
 /**
  * Start a session in the SDK.
@@ -232,7 +241,7 @@ typedef void (^ZendriveSetupHandler)(BOOL success, NSError *error);
  *                  Passing invalid string is a no-op.
  *
  */
-+ (void)startSession:(NSString *)sessionId;
++ (void)startSession:(nonnull NSString *)sessionId;
 
 /**
  * @abstract Stop currently ongoing session. No-op if no session is ongoing. Trips that
@@ -257,7 +266,7 @@ typedef void (^ZendriveSetupHandler)(BOOL success, NSError *error);
  * @return YES if the string is nil or valid, NO otherwise.
  *
  */
-+ (BOOL)isValidInputParameter:(NSString *)input;
++ (BOOL)isValidInputParameter:(nullable NSString *)input;
 
 /**
  * @abstract Is the Zendrive SDK already setup?
@@ -274,17 +283,17 @@ typedef void (^ZendriveSetupHandler)(BOOL success, NSError *error);
  *
  * @return The configuration that was used to setup the SDK.
  */
-+ (ZendriveConfiguration *)zendriveConfiguration;
++ (nullable ZendriveConfiguration *)zendriveConfiguration;
 
 /**
  * @return An identifier which can be used to identify this SDK build.
  */
-+ (NSString *)buildVersion;
++ (nonnull NSString *)buildVersion;
 
 /**
  * @return The currently active drive information.
  */
-+ (ZendriveActiveDriveInfo *)activeDriveInfo;
++ (nullable ZendriveActiveDriveInfo *)activeDriveInfo;
 
 /**
  * Provide feedback to Zendrive about the reported collision. The collision is reported by
@@ -293,7 +302,7 @@ typedef void (^ZendriveSetupHandler)(BOOL success, NSError *error);
  * @param accidentFeedback The actual information about the accident as per user feedback.
  *
  */
-+ (void)addAccidentFeedback:(ZendriveAccidentFeedback *)accidentFeedback;
++ (void)addAccidentFeedback:(nonnull ZendriveAccidentFeedback *)accidentFeedback;
 
 /**
  * @abstract Use this parameter to update
@@ -308,6 +317,17 @@ typedef void (^ZendriveSetupHandler)(BOOL success, NSError *error);
  * on this devices or not.
  */
 + (BOOL)isAccidentDetectionSupportedByDevice;
+
+/**
+ * Returns a NSDictionary with keys as ZendriveEventType and values being BOOL which represent
+ * if a particular event will be detected by the SDK on this device.
+ */
++ (nonnull NSDictionary *)getEventSupportForDevice;
+
+/**
+ * Send a debug report of the current driver to Zendrive.
+ */
++ (void)uploadAllDebugDataAndLogs;
 @end
 
 
@@ -326,7 +346,7 @@ typedef void (^ZendriveSetupHandler)(BOOL success, NSError *error);
  *                  further details.
  *
  */
-- (void)processStartOfDrive:(ZendriveDriveStartInfo *)startInfo;
+- (void)processStartOfDrive:(nonnull ZendriveDriveStartInfo *)startInfo;
 
 /**
  * @abstract Called on the delegate in the main thread when Zendrive SDK detects a drive
@@ -340,7 +360,7 @@ typedef void (^ZendriveSetupHandler)(BOOL success, NSError *error);
  *                  further details.
  *
  */
-- (void)processEndOfDrive:(ZendriveDriveInfo *)driveInfo;
+- (void)processEndOfDrive:(nonnull ZendriveDriveInfo *)driveInfo;
 
 /**
  * @abstract This callback is fired on the main thread when an accident is detected by
@@ -350,7 +370,7 @@ typedef void (^ZendriveSetupHandler)(BOOL success, NSError *error);
  * @param accidentInfo Info about accident.
  *
  */
-- (void)processAccidentDetected:(ZendriveAccidentInfo *)accidentInfo;
+- (void)processAccidentDetected:(nonnull ZendriveAccidentInfo *)accidentInfo;
 
 /**
  * @abstract This callback is fired on main thread when location services are denied for

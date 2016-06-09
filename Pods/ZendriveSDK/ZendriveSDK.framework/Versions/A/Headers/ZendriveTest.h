@@ -15,7 +15,6 @@
  */
 @interface ZendriveTest : NSObject
 
-#ifdef DEBUG
 /**
  *  Use this method to test Zendrive Accident detection integration. Works only in
  *  DEBUG mode, disabled in RELEASE mode.
@@ -30,6 +29,5 @@
  *  location (In title bar, select Debug->Location->Apple).
  */
 + (void)raiseMockAccident:(ZendriveAccidentConfidence)confidence;
-#endif
 
 @end
