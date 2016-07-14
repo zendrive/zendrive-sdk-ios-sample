@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1B930961457FDEDA5138C33B /* libPods-ZendriveSDKDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 064549E30914213F21BAC982 /* libPods-ZendriveSDKDemo.a */; };
 		5611DED11A630B93004CA14C /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5611DED01A630B93004CA14C /* ViewController.xib */; };
 		56D827C51A63086200703BEF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 56D827C41A63086200703BEF /* main.m */; };
 		56D827C81A63086200703BEF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 56D827C71A63086200703BEF /* AppDelegate.m */; };
@@ -15,6 +14,7 @@
 		56D827D31A63086300703BEF /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56D827D11A63086300703BEF /* LaunchScreen.xib */; };
 		56D827DF1A63086300703BEF /* ZendriveSDKDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 56D827DE1A63086300703BEF /* ZendriveSDKDemoTests.m */; };
 		56D827EB1A63090700703BEF /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56D827E91A63090700703BEF /* ViewController.m */; };
+		8BD5AD354F95097E8CE35F0B /* libPods-ZendriveSDKDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F009CD3DE7E936FA70920B31 /* libPods-ZendriveSDKDemo.a */; };
 		EC7F86181C803D9E000B4FE1 /* UIAlertView+BlockExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = EC7F86171C803D9E000B4FE1 /* UIAlertView+BlockExtensions.m */; };
 		EC7F861E1C8070C3000B4FE1 /* UserDefaultsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EC7F861D1C8070C3000B4FE1 /* UserDefaultsManager.m */; };
 		EC7F86211C807258000B4FE1 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = EC7F86201C807258000B4FE1 /* User.m */; };
@@ -35,7 +35,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		064549E30914213F21BAC982 /* libPods-ZendriveSDKDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ZendriveSDKDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5611DED01A630B93004CA14C /* ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
 		56D827BF1A63086200703BEF /* ZendriveSDKDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZendriveSDKDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		56D827C31A63086200703BEF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -49,8 +48,7 @@
 		56D827DE1A63086300703BEF /* ZendriveSDKDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZendriveSDKDemoTests.m; sourceTree = "<group>"; };
 		56D827E81A63090700703BEF /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		56D827E91A63090700703BEF /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		84381D4F633BB1EAA8F86838 /* Pods-ZendriveSDKDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZendriveSDKDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-ZendriveSDKDemo/Pods-ZendriveSDKDemo.release.xcconfig"; sourceTree = "<group>"; };
-		C703982FBB1BDA5F054E6D8A /* Pods-ZendriveSDKDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZendriveSDKDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ZendriveSDKDemo/Pods-ZendriveSDKDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		5820191E57888E47517ECA72 /* Pods-ZendriveSDKDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZendriveSDKDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-ZendriveSDKDemo/Pods-ZendriveSDKDemo.release.xcconfig"; sourceTree = "<group>"; };
 		EC7F86161C803D9E000B4FE1 /* UIAlertView+BlockExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+BlockExtensions.h"; sourceTree = "<group>"; };
 		EC7F86171C803D9E000B4FE1 /* UIAlertView+BlockExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+BlockExtensions.m"; sourceTree = "<group>"; };
 		EC7F861C1C8070C3000B4FE1 /* UserDefaultsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserDefaultsManager.h; sourceTree = "<group>"; };
@@ -65,6 +63,8 @@
 		EC976BA11AABB775009FB78F /* LocationPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationPoint.h; sourceTree = "<group>"; };
 		EC976BA21AABB775009FB78F /* LocationPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationPoint.m; sourceTree = "<group>"; };
 		ECC70D241C80972B00AC7044 /* NotificationConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationConstants.h; sourceTree = "<group>"; };
+		F009CD3DE7E936FA70920B31 /* libPods-ZendriveSDKDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ZendriveSDKDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F1CBFB96BEE30056977A2CCC /* Pods-ZendriveSDKDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZendriveSDKDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ZendriveSDKDemo/Pods-ZendriveSDKDemo.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,7 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1B930961457FDEDA5138C33B /* libPods-ZendriveSDKDemo.a in Frameworks */,
+				8BD5AD354F95097E8CE35F0B /* libPods-ZendriveSDKDemo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,11 +86,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2B962053311BA0E504A42A02 /* Pods */ = {
+		008281A73450A51F086DC780 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				C703982FBB1BDA5F054E6D8A /* Pods-ZendriveSDKDemo.debug.xcconfig */,
-				84381D4F633BB1EAA8F86838 /* Pods-ZendriveSDKDemo.release.xcconfig */,
+				F009CD3DE7E936FA70920B31 /* libPods-ZendriveSDKDemo.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		0EBDCAA28EBA842FA88750B2 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F1CBFB96BEE30056977A2CCC /* Pods-ZendriveSDKDemo.debug.xcconfig */,
+				5820191E57888E47517ECA72 /* Pods-ZendriveSDKDemo.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -101,8 +109,8 @@
 				56D827C11A63086200703BEF /* ZendriveSDKDemo */,
 				56D827DB1A63086300703BEF /* ZendriveSDKDemoTests */,
 				56D827C01A63086200703BEF /* Products */,
-				2B962053311BA0E504A42A02 /* Pods */,
-				E8B9EC59112C4FD5D497ECE7 /* Frameworks */,
+				0EBDCAA28EBA842FA88750B2 /* Pods */,
+				008281A73450A51F086DC780 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -165,14 +173,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		E8B9EC59112C4FD5D497ECE7 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				064549E30914213F21BAC982 /* libPods-ZendriveSDKDemo.a */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		EC976B9D1AABAEE9009FB78F /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -193,12 +193,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 56D827E21A63086300703BEF /* Build configuration list for PBXNativeTarget "ZendriveSDKDemo" */;
 			buildPhases = (
-				BE2D7B1860A85D5D3F6D09F9 /* [CP] Check Pods Manifest.lock */,
+				E405AE8D6F09A9145B40A42D /* [CP] Check Pods Manifest.lock */,
 				56D827BB1A63086200703BEF /* Sources */,
 				56D827BC1A63086200703BEF /* Frameworks */,
 				56D827BD1A63086200703BEF /* Resources */,
-				E54E9EAA0504F8C41C893718 /* [CP] Embed Pods Frameworks */,
-				CF092F89C90EC2509E4ADFB8 /* [CP] Copy Pods Resources */,
+				C38F9AA4269AAB060EF7F8A1 /* [CP] Embed Pods Frameworks */,
+				0B4ABB9115C7D61F1475F25C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -291,22 +291,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		BE2D7B1860A85D5D3F6D09F9 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		CF092F89C90EC2509E4ADFB8 /* [CP] Copy Pods Resources */ = {
+		0B4ABB9115C7D61F1475F25C /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -321,7 +306,7 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ZendriveSDKDemo/Pods-ZendriveSDKDemo-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		E54E9EAA0504F8C41C893718 /* [CP] Embed Pods Frameworks */ = {
+		C38F9AA4269AAB060EF7F8A1 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -334,6 +319,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ZendriveSDKDemo/Pods-ZendriveSDKDemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E405AE8D6F09A9145B40A42D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -464,7 +464,7 @@
 		};
 		56D827E31A63086300703BEF /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C703982FBB1BDA5F054E6D8A /* Pods-ZendriveSDKDemo.debug.xcconfig */;
+			baseConfigurationReference = F1CBFB96BEE30056977A2CCC /* Pods-ZendriveSDKDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ENABLE_BITCODE = NO;
@@ -478,7 +478,7 @@
 		};
 		56D827E41A63086300703BEF /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 84381D4F633BB1EAA8F86838 /* Pods-ZendriveSDKDemo.release.xcconfig */;
+			baseConfigurationReference = 5820191E57888E47517ECA72 /* Pods-ZendriveSDKDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ENABLE_BITCODE = NO;
