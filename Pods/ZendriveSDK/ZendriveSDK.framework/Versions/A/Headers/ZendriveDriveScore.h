@@ -25,6 +25,7 @@
  * cautiousness of a driver. It reflects the accident risk associated with this drive.
  * The scores is expressed as a number between 0 to 100 and will be -1 if not available.
  */
-@property (nonatomic, assign) int zendriveScore;
+@property (nonatomic, readonly) int zendriveScore;
 
+- (instancetype)initWithZendriveScore:(int)zendriveScore;
 @end
