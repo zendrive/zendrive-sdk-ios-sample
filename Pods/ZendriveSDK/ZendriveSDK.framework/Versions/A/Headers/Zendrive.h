@@ -19,6 +19,7 @@
 #import "ZendriveAccidentFeedback.h"
 #import "ZendriveEvent.h"
 #import "ZendriveDriveScore.h"
+#import "ZendriveDriveResumeInfo.h"
 
 /**
  * Identifier used by Zendrive SDK for region monitoring geofences
@@ -170,6 +171,10 @@ typedef void (^ZendriveSetupHandler)(BOOL success, NSError * __nullable error);
  * is a no-op. Calling startDrive: with a different trackingId: with implicitly call
  * stopDrive: before starting a new drive.
  *
+ * This is an asynchronous method, [ZendriveDelegateProtocol processStartOfDrive:]
+ * is triggered once this finishes with basic information about the drive
+ * [Zendrive activeDriveInfo] will return nil until processStartOfDrive: is called
+ *
  * @param trackingId Pass a tracking Id to correlate apps internal
  *                   data with the drive data. Cannot be nil or empty string.
  *                   Cannot be longer than 64 characters.
@@ -203,6 +208,10 @@ typedef void (^ZendriveSetupHandler)(BOOL success, NSError * __nullable error);
  * @discussion This call has no effect on an automatically detected drive that may be
  * in progress.
  * Calling it without having initialized the Zendrive SDK is a no-op.
+ *
+ * This is an asynchronous method, [ZendriveDelegateProtocol processEndOfDrive:]
+ * is triggered once this successfully finishes with basic information about the drive
+ * [Zendrive activeDriveInfo] will return nil after processEndOfDrive: is called.
  *
  * @param trackingId This trackingId should match the trackingId sent to startDrive:
  *                   while starting the current drive. If the trackingIds do not match,
@@ -347,6 +356,22 @@ typedef void (^ZendriveSetupHandler)(BOOL success, NSError * __nullable error);
  *
  */
 - (void)processStartOfDrive:(nonnull ZendriveDriveStartInfo *)startInfo;
+
+/**
+ *
+ * @abstract Called on delegate in the main thread when Zendrive SDK resumes a
+ * drive after a gap.
+ *
+ * @discussion The gap in drive recording may occur due to an application restart by the OS,
+ * application kill and restart by a user, an application crash or other reasons.
+ * Drives started by calling [Zendrive startDrive:] are always resumed and they
+ * will not end until [Zendrive stopDrive:] is called.
+ *
+ * @param resumeInfo Info about drive resume. Refer to ZendriveDriveResumeInfo for
+ *                  further details.
+ *
+ */
+- (void)processResumeOfDrive:(nonnull ZendriveDriveResumeInfo *)resumeInfo;
 
 /**
  * @abstract Called on the delegate in the main thread when Zendrive SDK detects a drive
