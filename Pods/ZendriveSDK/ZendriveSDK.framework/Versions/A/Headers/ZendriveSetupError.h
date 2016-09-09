@@ -22,14 +22,17 @@ typedef NS_ENUM(int, ZendriveSetupError) {
     kZendriveSetupErrorInvalidParams = 0,
 
     /**
-     * Keystring being used is deprecated/invalid
+     * SDK Key used in setup is invalid
      */
     kZendriveSetupErrorInvalidKeyString,
 
     /**
      * SDK has been disabled from the server
+     *
+     * @warning Deprecated. kZendriveSetupErrorInvalidKeyString is returned
+     * if SDK is disabled from server.
      */
-    kZendriveSetupErrorSDKDisabled,
+    kZendriveSetupErrorSDKDisabled __attribute__((deprecated)),
 
     /**
      * Network not reachable
@@ -53,15 +56,17 @@ typedef NS_ENUM(int, ZendriveSetupError) {
     /**
      * Invalid operation mode sent to setup
      *
-     * @warning operationMode in ZendriveConfiguration is deprecated, so
+     * @warning Deprecated. operationMode in ZendriveConfiguration is deprecated, so
      * this error will never be seen.
      */
     kZendriveSetupErrorOperationModeInvalid __attribute__((deprecated)),
 
     /**
      * Cannot verify the API key.
+     *
+     * @warning Deprecated. This was returned if network timed out. @use kZendriveSetupErrorNetworkUnreachable.
      */
-    kZendriveSetupErrorCannotVerifyAPIKey,
+    kZendriveSetupErrorCannotVerifyAPIKey __attribute__((deprecated)),
 
     /**
      * Zendrive SDK does not support the OS version of the device
@@ -71,8 +76,11 @@ typedef NS_ENUM(int, ZendriveSetupError) {
     /**
      * Application tried to setup Zendrive with a request to enable a service
      * (ex:Accident Detection) that the application is not authorized to use.
+     *
+     * @warning Deprecated. All services of ZendriveSDK are open now, this
+     * error is never be returned.
      */
-    kZendriveSetupErrorUnauthorizedServiceRequest,
+    kZendriveSetupErrorUnauthorizedServiceRequest __attribute__((deprecated)),
 
     /**
      * Zendrive SDK does not support the device.

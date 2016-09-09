@@ -49,6 +49,14 @@ typedef NS_ENUM(int, ZendriveAccidentLoss) {
  */
 @interface ZendriveAccidentFeedback : NSObject
 
+@property (nonatomic, readonly, nonnull) NSString *accidentId;
+@property (nonatomic, readonly) BOOL isAccident;
+@property (nonatomic, readonly) ZendriveAccidentLoss accidentLoss;
+@property (nonatomic, readonly) ZendriveImpactDirection impactDirection;
+@property (nonatomic, readonly) BOOL personalInjury;
+@property (nonatomic, readonly) BOOL towingNeeded;
+@property (nonatomic, readonly) BOOL airbagsDeployed;
+
 /**
  *  Initialize ZendriveAccidentFeedback using most basic accident information.
  *
