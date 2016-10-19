@@ -144,6 +144,7 @@ static NSString * kZendriveSDKKeyString = @"your-sdk-key";
                                     message:@"Please enter a valid driver-id"
                                    delegate:nil cancelButtonTitle:@"Ok"
                           otherButtonTitles:nil] show];
+        return;
     }
 
     [self.view endEditing:YES];
@@ -228,7 +229,7 @@ static NSString * kZendriveSDKKeyString = @"your-sdk-key";
 }
 
 //------------------------------------------------------------------------------
-#pragma mark - Zendrive Delegate collbacks
+#pragma mark - Zendrive Delegate callbacks
 //------------------------------------------------------------------------------
 - (void)processStartOfDrive:(ZendriveDriveStartInfo *)startInfo {
     NSLog(@"Drive started!!");
