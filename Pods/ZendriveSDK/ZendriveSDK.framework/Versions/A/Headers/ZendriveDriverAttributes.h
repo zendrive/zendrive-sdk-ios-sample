@@ -80,14 +80,15 @@ typedef NS_ENUM(int, ZendriveServiceLevel) {
  * In addition to predefined special attributes, up to 4 custom key value attributes
  * can be associated with a driver using the Zendrive SDK.
  *
- * @warning All attribute keys and values can be atmost 64 characters in length.
+ * @warning All attribute keys can be atmost 64 characters in length.
+ * @warning All attribute values can be atmost 1024 characters in length.
  */
 @interface ZendriveDriverAttributes : NSObject<NSCopying>
 
 /**
  *  @abstract First name of the user.
  *
- *  @param firstName First name. Max length is 64 characters.
+ *  @param firstName First name.
  *
  *  @return YES, if the value was set, NO otherwise.
  */
@@ -96,7 +97,7 @@ typedef NS_ENUM(int, ZendriveServiceLevel) {
 /**
  *  @abstract Last name of the user.
  *
- *  @param lastName Last name. Max length is 64 characters.
+ *  @param lastName Last name.
  *
  *  @return YES, if the value was set, NO otherwise.
  */
@@ -105,7 +106,7 @@ typedef NS_ENUM(int, ZendriveServiceLevel) {
 /**
  *  @abstract Email of the user.
  *
- *  @param email Email Id. Max length is 64 characters.
+ *  @param email Email Id.
  *
  *  @return YES, if the value was set, NO otherwise.
  */
@@ -121,7 +122,7 @@ typedef NS_ENUM(int, ZendriveServiceLevel) {
  * [Zendrive isValidInputParameter:] method to validate group id. Setting an invalid
  * groupId is a no-op and would log an error.
  *
- * @param groupId A string representing the group of a user. Max length is 64 characters.
+ * @param groupId A string representing the group of a user.
  *
  * @return YES, if the value was set, NO otherwise.
  *
@@ -167,10 +168,10 @@ typedef NS_ENUM(int, ZendriveServiceLevel) {
  *
  * @discussion Up to 4 custom attributes can be set for a user.
  * A new value for an existing key would be overwritten only if the value length
- * is within 64 characters, otherwise the original value would be retained.
+ * is within 1024 characters, otherwise the original value would be retained.
  *
  * @param key A key for the custom attribute. The maximum key length is 64 characters.
- * @param value Value of the custom attribute. The maximum value length is 64 characters.
+ * @param value Value of the custom attribute. The maximum value length is 1024 characters.
  *
  * @return YES, if the value was set, NO otherwise.
  *
