@@ -27,5 +27,6 @@
  */
 @property (nonatomic, readonly) int zendriveScore;
 
+- (instancetype)init;
 - (instancetype)initWithZendriveScore:(int)zendriveScore;
 @end

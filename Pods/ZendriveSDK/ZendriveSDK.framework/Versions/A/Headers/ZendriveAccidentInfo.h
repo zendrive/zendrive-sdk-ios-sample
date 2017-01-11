@@ -71,9 +71,7 @@ typedef NS_ENUM(int, ZendriveAccidentConfidence) {
 @property (nonatomic, readonly) ZendriveAccidentConfidence confidence;
 
 /**
- * @abstract A unique identifier of this accident. This should be used by the application when
- * providing accident feedback via [Zendrive addAccidentFeedback:]
- * method.
+ * @abstract A unique identifier of this accident.
  */
 @property (nonatomic, readonly, nonnull) NSString* accidentId;
 

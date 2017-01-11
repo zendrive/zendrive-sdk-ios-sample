@@ -13,6 +13,11 @@
 @interface ZendriveLocationPoint : NSObject
 
 /**
+ * Epoch timestamp of the location point.
+ */
+@property (nonatomic, readonly) long long timestamp;
+
+/**
  * @abstract Latitude in degrees
  */
 @property (nonatomic, readonly) double latitude;
@@ -25,12 +30,14 @@
 /**
  *  @abstract Init
  *
+ *  @param timestamp Epoch timestamp of the location
  *  @param latitude  Latitude in degrees
  *  @param longitude Longitude in degrees
  *
  *  @return ZendriveLocationPoint object
  */
-- (id)initWithLatitude:(double)latitude
+- (id)initWithTimestamp:(long long)timestamp
+               latitude:(double)latitude
              longitude:(double)longitude;
 
 - (NSDictionary *)toDictionary;

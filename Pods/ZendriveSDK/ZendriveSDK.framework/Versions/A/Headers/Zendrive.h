@@ -16,7 +16,6 @@
 #import "ZendriveErrorDomain.h"
 #import "ZendriveSetupError.h"
 #import "ZendriveLocationPoint.h"
-#import "ZendriveAccidentFeedback.h"
 #import "ZendriveEvent.h"
 #import "ZendriveDriveScore.h"
 #import "ZendriveDriveResumeInfo.h"
@@ -303,15 +302,6 @@ typedef void (^ZendriveSetupHandler)(BOOL success, NSError * __nullable error);
  * @return The currently active drive information.
  */
 + (nullable ZendriveActiveDriveInfo *)activeDriveInfo;
-
-/**
- * Provide feedback to Zendrive about the reported collision. The collision is reported by
- * the Zendrive SDK via the [ZendriveDelegateProtocol processAccidentDetected:] callback.
- *
- * @param accidentFeedback The actual information about the accident as per user feedback.
- *
- */
-+ (void)addAccidentFeedback:(nonnull ZendriveAccidentFeedback *)accidentFeedback;
 
 /**
  * @abstract Use this parameter to update

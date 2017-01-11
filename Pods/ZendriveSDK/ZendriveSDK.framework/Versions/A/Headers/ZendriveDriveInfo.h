@@ -8,6 +8,37 @@
 
 #import <Foundation/Foundation.h>
 
+/**
+ * @abstract The type of the drive return from [ZendriveDriveInfo tripType].
+ * @discussion This decides what other ZendriveDriveInfo parameters will be populated.
+ * A drive callback can be sent as a false alarm or when we detect that the user was not
+ * actually driving but moved using other means of transport.
+ */
+typedef NS_ENUM(int, ZendriveTripType) {
+    /**
+     * Sometimes, the SDK detects that a trip is invalid after it has been started.
+     * In these cases, the values for [ZendriveDriveInfo waypoints], [ZendriveDriveInfo events],
+     * [ZendriveDriveInfo score], [ZendriveDriveInfo maxSpeed] and [ZendriveDriveInfo averageSpeed]
+     * will have invalid values.
+     */
+    ZendriveTripTypeInvalid = 0,
+
+    /**
+     * This was not a driving trip. For e.g bike and train rides will fall under this trip type.
+     * The ZendriveDriveInfo will have [ZendriveDriveInfo waypoints], [ZendriveDriveInfo maxSpeed]
+     * and [ZendriveDriveInfo averageSpeed] but [ZendriveDriveInfo events] and
+     * [ZendriveDriveInfo score] will have invalid values.
+     */
+    ZendriveTripTypeNonDriving = 1,
+
+    /**
+     * The trip was taken as a driver of a vehicle.
+     * The ZendriveDriveInfo will have [ZendriveDriveInfo waypoints], [ZendriveDriveInfo maxSpeed],
+     * [ZendriveDriveInfo averageSpeed], [ZendriveDriveInfo events] and [ZendriveDriveInfo score].*/
+    ZendriveTripTypeDrive = 2
+};
+
+
 @class ZendriveDriveScore;
 /**
  * ZendriveDriveInfo
@@ -22,11 +53,11 @@
 @property (nonatomic, readonly, nonnull) NSString *driveId;
 
 /**
- * @abstract Sometimes, the SDK detects that a drive is invalid after it has been started.
- * In these cases, the isValid property will be set to NO and values for all other
- * properties in this class have default values.
+ * @abstract The type of the drive. This decides what other info parameters will be populated.
+ * @discussion A drive callback will be sent even for falsely detected drives or for non
+ * automobile trips (Eg. biking, public transport).
  */
-@property (nonatomic, assign) BOOL isValid;
+@property (nonatomic, assign) ZendriveTripType tripType;
 
 /**
  * @abstract The start timestamp of trip in milliseconds since epoch.
@@ -94,4 +125,5 @@
  * @abstract The driving behaviour score for this trip.
  */
 @property (nonatomic, strong, nonnull) ZendriveDriveScore *score;
+
 @end

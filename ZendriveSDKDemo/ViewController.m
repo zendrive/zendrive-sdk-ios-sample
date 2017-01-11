@@ -275,40 +275,6 @@ static NSString * kZendriveSDKKeyString = @"your-sdk-key";
         alertString = @"Please respond if you are ok, we will send help "
         "if you don't respond for 10 mins";
     }
-
-    [[[UIAlertView alloc]
-      initWithTitle:@"Accident!!!"
-      message:alertString
-      completionBlock:
-      ^(NSUInteger buttonIndex, UIAlertView *alertView) {
-          ZendriveAccidentFeedback *feedback;
-          switch (buttonIndex) {
-              case 0: {
-                  // Example accident feedback flow
-                  feedback = [[ZendriveAccidentFeedback alloc] initWithAccidentId:accidentInfo.accidentId isAccident:YES];
-                  [feedback setPersonalInjury:NO];
-                  NSLog(@"I'm Ok.");
-                  break;
-              }
-              case 1:
-                  feedback = [[ZendriveAccidentFeedback alloc] initWithAccidentId:accidentInfo.accidentId isAccident:NO];
-                  NSLog(@"Nothing happened.");
-                  break;
-              case 2:
-                  feedback = [[ZendriveAccidentFeedback alloc] initWithAccidentId:accidentInfo.accidentId isAccident:YES];
-                  [feedback setPersonalInjury:YES];
-                  NSLog(@"Please send help.");
-                  break;
-
-              default:
-                  break;
-          }
-          if (feedback) {
-              [Zendrive addAccidentFeedback:feedback];
-          }
-      }
-      cancelButtonTitle:nil
-      otherButtonTitles:@"I'm Ok.", @"Nothing happened.", @"Please send help.", nil] show];
 }
 
 - (Trip *)tripFromZendriveDriveInfo:(ZendriveDriveInfo *)drive {
