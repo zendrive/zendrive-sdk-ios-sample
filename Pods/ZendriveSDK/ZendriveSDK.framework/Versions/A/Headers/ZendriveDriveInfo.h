@@ -9,19 +9,19 @@
 #import <Foundation/Foundation.h>
 
 /**
- * @abstract The type of the drive return from [ZendriveDriveInfo tripType].
+ * @abstract The type of the drive return from [ZendriveDriveInfo driveType].
  * @discussion This decides what other ZendriveDriveInfo parameters will be populated.
  * A drive callback can be sent as a false alarm or when we detect that the user was not
  * actually driving but moved using other means of transport.
  */
-typedef NS_ENUM(int, ZendriveTripType) {
+typedef NS_ENUM(int, ZendriveDriveType) {
     /**
      * Sometimes, the SDK detects that a trip is invalid after it has been started.
      * In these cases, the values for [ZendriveDriveInfo waypoints], [ZendriveDriveInfo events],
      * [ZendriveDriveInfo score], [ZendriveDriveInfo maxSpeed] and [ZendriveDriveInfo averageSpeed]
      * will have invalid values.
      */
-    ZendriveTripTypeInvalid = 0,
+    ZendriveDriveTypeInvalid = 0,
 
     /**
      * This was not a driving trip. For e.g bike and train rides will fall under this trip type.
@@ -29,13 +29,38 @@ typedef NS_ENUM(int, ZendriveTripType) {
      * and [ZendriveDriveInfo averageSpeed] but [ZendriveDriveInfo events] and
      * [ZendriveDriveInfo score] will have invalid values.
      */
-    ZendriveTripTypeNonDriving = 1,
+    ZendriveDriveTypeNonDriving = 1,
 
     /**
      * The trip was taken as a driver of a vehicle.
      * The ZendriveDriveInfo will have [ZendriveDriveInfo waypoints], [ZendriveDriveInfo maxSpeed],
      * [ZendriveDriveInfo averageSpeed], [ZendriveDriveInfo events] and [ZendriveDriveInfo score].*/
-    ZendriveTripTypeDrive = 2
+    ZendriveDriveTypeDrive = 2
+};
+
+
+/**
+ * The value return from [ZendriveDriveInfo userMode]. Indicates whether user
+ * was a driver or passenger.
+ */
+typedef NS_ENUM(int, ZendriveUserMode) {
+    /**
+     * Indicates that the user was in the driver seat.
+     * All values in ZendriveDriveInfo will be set.
+     */
+    ZendriveUserModeDriver = 0,
+
+    /**
+     * Indicates that the user was in the passenger seat.
+     * [ZendriveDriveInfo score] will have default value. All other values will be set.
+     */
+    ZendriveUserModePassenger = 1,
+
+    /**
+     * Indicates that Zendrive was not able to determine user mode.
+     * All values in ZendriveDriveInfo will be set.
+     */
+    ZendriveUserModeUnavailable = 2
 };
 
 
@@ -57,7 +82,20 @@ typedef NS_ENUM(int, ZendriveTripType) {
  * @discussion A drive callback will be sent even for falsely detected drives or for non
  * automobile trips (Eg. biking, public transport).
  */
-@property (nonatomic, assign) ZendriveTripType tripType;
+@property (nonatomic, assign) ZendriveDriveType driveType;
+
+/**
+ * @abstract Whether the user was a driver or a passenger.
+ *
+ * @discussion Driver/Passenger detection is disabled by default. Talk to your
+ * contact in Zendrive to enable this feature. Only present when driveType is
+ * ZendriveDriveTypeDrive and the SDK was able to determine with confidence
+ * whether the user was a driver or a passenger.
+ *
+ * If the SDK was not able to determine the user mode, this field is
+ * ZendriveUserModeUnavailable.
+ */
+@property (nonatomic, assign) ZendriveUserMode userMode;
 
 /**
  * @abstract The start timestamp of trip in milliseconds since epoch.

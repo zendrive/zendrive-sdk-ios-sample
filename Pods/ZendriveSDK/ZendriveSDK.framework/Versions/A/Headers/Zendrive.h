@@ -19,6 +19,8 @@
 #import "ZendriveEvent.h"
 #import "ZendriveDriveScore.h"
 #import "ZendriveDriveResumeInfo.h"
+#import "ZendriveFeedback.h"
+
 
 /**
  * Identifier used by Zendrive SDK for region monitoring geofences
@@ -299,6 +301,9 @@ typedef void (^ZendriveSetupHandler)(BOOL success, NSError * __nullable error);
 + (nonnull NSString *)buildVersion;
 
 /**
+ * @abstract Get info on the currently active drive. If sdk is not setup or if
+ * no drive is in progress, nil is returned.
+ *
  * @return The currently active drive information.
  */
 + (nullable ZendriveActiveDriveInfo *)activeDriveInfo;
