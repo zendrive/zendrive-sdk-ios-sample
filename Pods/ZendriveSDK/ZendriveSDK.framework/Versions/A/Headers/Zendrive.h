@@ -10,7 +10,8 @@
 #import "ZendriveDriverAttributes.h"
 #import "ZendriveDriveStartInfo.h"
 #import "ZendriveActiveDriveInfo.h"
-#import "ZendriveDriveInfo.h"
+#import "ZendriveEstimatedDriveInfo.h"
+#import "ZendriveAnalyzedDriveInfo.h"
 #import "ZendriveAccidentInfo.h"
 #import "ZendriveLocationPoint.h"
 #import "ZendriveErrorDomain.h"
@@ -374,13 +375,39 @@ typedef void (^ZendriveSetupHandler)(BOOL success, NSError * __nullable error);
  *
  * @discussion It is possible that Zendrive SDK might decide at a later time that an
  * ongoing trip was a falsely detected trip. In such scenario processEndOfDrive: will be
- * invoked on delegate with ZendriveDriveInfo.isValid set to NO.
+ * invoked on delegate with ZendriveDriveInfo.driveType set to ZendriveDriveTypeInvalid.
  *
- * @param driveInfo Info about entire drive. Refer to ZendriveDriveInfo for
- *                  further details.
+ * Every trip with ZendriveDriveInfo.driveType not set to ZendriveDriveTypeInvalid
+ * will receive a corresponding processAnalysisOfDrive: callback containing
+ * additional info related to this drive.
+ *
+ * @param estimatedDriveInfo Best estimate info about the drive.
+ * Refer to ZendriveEstimatedDriveInfo for further details.
  *
  */
-- (void)processEndOfDrive:(nonnull ZendriveDriveInfo *)driveInfo;
+- (void)processEndOfDrive:(nonnull ZendriveEstimatedDriveInfo *)estimatedDriveInfo;
+
+/**
+ * @abstract Called on the delegate in the main thread when Zendrive SDK finishes
+ * full analysis of all valid drives returned from processEndOfDrive: callback.
+ *
+ * @discussion This will be called for all the processEndOfDrive: callbacks
+ * with the value of ZendriveDriveInfo.driveType not set to ZendriveDriveTypeInvalid.
+ *
+ * This may contain additional or improved data over the ZendriveEstimatedDriveInfo 
+ * returned from processEndOfDrive:
+ *
+ * Typically this callback will be fired within a few seconds after processEndOfDrive:
+ * callback but in some rare cases this delay can be really large depending on
+ * phone network conditions.
+ *
+ * This callback will be fired in trip occurrence sequence, i.e from oldest trip to
+ * the latest trip.
+ *
+ * @param analyzedDriveInfo Analyzed insights of the drive.
+ *
+ */
+- (void)processAnalysisOfDrive:(nonnull ZendriveAnalyzedDriveInfo *)analyzedDriveInfo;
 
 /**
  * @abstract This callback is fired on the main thread when an accident is detected by

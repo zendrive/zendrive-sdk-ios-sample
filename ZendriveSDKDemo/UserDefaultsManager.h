@@ -33,6 +33,7 @@
 #pragma mark - Trip load/save
 //------------------------------------------------------------------------------
 - (void)saveTrip:(Trip *)trip;
+- (void)updateTrip:(Trip *)trip;
 - (NSMutableArray *)fetchAllTrips;
 
 //------------------------------------------------------------------------------

@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 /**
- * @abstract The type of the drive return from [ZendriveDriveInfo driveType].
+ * @abstract The type of the drive returned from [ZendriveDriveInfo driveType].
  * @discussion This decides what other ZendriveDriveInfo parameters will be populated.
  * A drive callback can be sent as a false alarm or when we detect that the user was not
  * actually driving but moved using other means of transport.
@@ -32,9 +32,14 @@ typedef NS_ENUM(int, ZendriveDriveType) {
     ZendriveDriveTypeNonDriving = 1,
 
     /**
-     * The trip was taken as a driver of a vehicle.
+     * This trip was taken in a car.
+     *
+     * If the SDK determined the user to be a driver or a passenger, the value
+     * will be available in [ZendriveDriveInfo userMode]
+     *
      * The ZendriveDriveInfo will have [ZendriveDriveInfo waypoints], [ZendriveDriveInfo maxSpeed],
-     * [ZendriveDriveInfo averageSpeed], [ZendriveDriveInfo events] and [ZendriveDriveInfo score].*/
+     * [ZendriveDriveInfo averageSpeed], [ZendriveDriveInfo events] and [ZendriveDriveInfo score].
+     */
     ZendriveDriveTypeDrive = 2
 };
 
@@ -57,7 +62,8 @@ typedef NS_ENUM(int, ZendriveUserMode) {
     ZendriveUserModePassenger = 1,
 
     /**
-     * Indicates that Zendrive was not able to determine user mode.
+     * Indicates that either [ZendriveDriveInfo driveType] is not
+     * ZendriveDriveTypeDrive or Zendrive was not able to determine user mode.
      * All values in ZendriveDriveInfo will be set.
      */
     ZendriveUserModeUnavailable = 2

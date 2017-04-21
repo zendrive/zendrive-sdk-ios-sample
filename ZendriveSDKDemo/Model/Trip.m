@@ -14,6 +14,7 @@
 #define kAverageSpeedKey                    @"averageSpeed"
 #define kDistanceKey                        @"distance"
 #define kWaypointsKey                       @"waypoints"
+#define kTripStatusKey                      @"tripStatus"
 
 @implementation Trip
 
@@ -47,6 +48,8 @@
             [waypoints addObject:locationPoint];
         }
         _waypoints = waypoints;
+
+        _tripStatus = [dictionary objectForKey:kTripStatusKey];
     }
     return self;
 }
@@ -69,6 +72,10 @@
         [waypointDictioariesArray addObject:locationPoint.toDictionary];
     }
     [dictionary setObject:waypointDictioariesArray forKey:kWaypointsKey];
+
+    if (self.tripStatus) {
+        [dictionary setObject:self.tripStatus forKey:kTripStatusKey];
+    }
 
     return dictionary;
 }

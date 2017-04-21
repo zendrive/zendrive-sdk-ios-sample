@@ -248,8 +248,23 @@ static NSString * kZendriveSDKKeyString = @"your-sdk-key";
     }
 
     Trip *trip = [self tripFromZendriveDriveInfo:drive];
+    trip.tripStatus = @"Ended";
     [SharedUserDefaultsManager saveTrip:trip];
     [self.tripsArray insertObject:trip atIndex:0];
+    [self.tableView reloadData];
+}
+
+- (void)processAnalysisOfDrive:(ZendriveAnalyzedDriveInfo *)analyzedDriveInfo {
+    NSLog(@"Drive finished!!");
+    self.driveStatusLabel.text = @"Drive Analyzed";
+    if ([self isAccidentEnabled]) {
+        self.mockAccidentButton.enabled = NO;
+    }
+
+    Trip *trip = [self tripFromZendriveDriveInfo:analyzedDriveInfo];
+    trip.tripStatus = @"Analyzed";
+    [SharedUserDefaultsManager updateTrip:trip];
+    self.tripsArray = [SharedUserDefaultsManager fetchAllTrips];
     [self.tableView reloadData];
 }
 
@@ -348,8 +363,8 @@ static NSString * kZendriveSDKKeyString = @"your-sdk-key";
     [dateFormatter setDateFormat:@"dd MMM, yyyy HH:mm"];
     cell.textLabel.text = [dateFormatter stringFromDate:trip.startDate];
     int duration = trip.endDate.timeIntervalSince1970 - trip.startDate.timeIntervalSince1970;
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%.2f Meters, %i seconds", trip.distance, duration];
-
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%.2f Meters, %i seconds, %@",
+                                 trip.distance, duration, trip.tripStatus];
     return cell;
 }
 

@@ -18,4 +18,5 @@
 @property (nonatomic, assign) double averageSpeed;
 @property (nonatomic, assign) double distance;
 @property (nonatomic, strong) NSArray *waypoints;
+@property (nonatomic, strong) NSString *tripStatus;
 @end

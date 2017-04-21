@@ -98,6 +98,29 @@ static UserDefaultsManager *_sharedInstance;
     [userDefaults synchronize];
 }
 
+- (void)updateTrip:(Trip *)trip {
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    NSDictionary *tripDictionary = [trip toDictionary];
+    NSMutableArray *tripsArray = [[userDefaults objectForKey:kTripsUserDefaultsKey] mutableCopy];
+    if (tripsArray != nil) {
+        int i = -1;
+        for (i = 0; i < tripsArray.count; i++) {
+            NSDictionary *thisTripDict = tripsArray[i];
+            Trip *thisTrip = [[Trip alloc] initWithDictionary:thisTripDict];
+            if ([thisTrip.startDate compare:trip.startDate] == NSOrderedSame) {
+                break;
+            }
+        }
+
+        if (i >= 0 && i < tripsArray.count) {
+            [tripsArray replaceObjectAtIndex:i withObject:tripDictionary];
+        }
+    }
+
+    [userDefaults setObject:tripsArray forKey:kTripsUserDefaultsKey];
+    [userDefaults synchronize];
+}
+
 - (NSMutableArray *)fetchAllTrips {
     NSMutableArray *tripsArray = [[NSMutableArray alloc] init];
 
