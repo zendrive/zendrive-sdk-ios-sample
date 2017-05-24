@@ -21,7 +21,7 @@
  *  On invoking this method, you will get a processAccidentDetected: callback on your
  *  delegate after 5 seconds. You can look at console logs for debugging in case you
  *  do not receive the callback. If issue persists, please contact us at
- *  developers@zendrive.com.
+ *  support@zendrive.com.
  *
  *  @param confidence Any value from ZendriveAccidentConfidence enum.
  *
