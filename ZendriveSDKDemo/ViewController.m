@@ -255,7 +255,7 @@ static NSString * kZendriveSDKKeyString = @"your-sdk-key";
 }
 
 - (void)processAnalysisOfDrive:(ZendriveAnalyzedDriveInfo *)analyzedDriveInfo {
-    NSLog(@"Drive finished!!");
+    NSLog(@"Drive analyzed!!");
     self.driveStatusLabel.text = @"Drive Analyzed";
     if ([self isAccidentEnabled]) {
         self.mockAccidentButton.enabled = NO;
