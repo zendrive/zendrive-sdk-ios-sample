@@ -15,7 +15,7 @@
 #import "ZendriveAccidentInfo.h"
 #import "ZendriveLocationPoint.h"
 #import "ZendriveErrorDomain.h"
-#import "ZendriveSetupError.h"
+#import "ZendriveError.h"
 #import "ZendriveLocationPoint.h"
 #import "ZendriveEvent.h"
 #import "ZendriveDriveScore.h"
@@ -35,7 +35,7 @@ extern NSString * __nonnull const kZendriveGeofenceIdentifier;
  * @abstract Block type used to define blocks called by Zendrive setup on completion
  * @discussion If setup succeeds, success is set to YES and error is nil. If setup fails,
  * success is set to NO and error contains details for why setup failed. Refer to
- * ZendriveSetupError.h for a list of error codes.
+ * ZendriveError.h for a list of error codes.
  */
 typedef void (^ZendriveSetupHandler)(BOOL success, NSError * __nullable error);
 
