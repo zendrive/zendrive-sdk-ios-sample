@@ -65,5 +65,9 @@
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>Help us track and improve your drives.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Help us track and improve your drives.</string>
 </dict>
 </plist>
