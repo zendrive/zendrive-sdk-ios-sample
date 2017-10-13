@@ -1,0 +1,9 @@
+framework module ZendriveSDK {
+    umbrella header "Zendrive.h"
+    explicit module Insurance {
+        header "ZendriveInsurance.h"
+    }
+    explicit module Test {
+        header "ZendriveTest.h"
+    }
+}

@@ -1,1 +1,1 @@
-../../../../ZendriveSDK/ZendriveSDK.framework/Versions/A/Headers/ZendriveAnalyzedDriveInfo.h
+../../../../ZendriveSDK/ZendriveSDK.framework/Headers/ZendriveAnalyzedDriveInfo.h

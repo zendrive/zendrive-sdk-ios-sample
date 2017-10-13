@@ -1,1 +1,1 @@
-../../../../ZendriveSDK/ZendriveSDK.framework/Versions/A/Headers/ZendriveInsurance.h
+../../../../ZendriveSDK/ZendriveSDK.framework/Headers/ZendriveInsurance.h

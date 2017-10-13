@@ -1,1 +1,1 @@
-../../../../ZendriveSDK/ZendriveSDK.framework/Versions/A/Headers/ZendriveActiveDriveInfo.h
+../../../../ZendriveSDK/ZendriveSDK.framework/Headers/ZendriveActiveDriveInfo.h

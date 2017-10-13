@@ -1,1 +1,1 @@
-../../../../ZendriveSDK/ZendriveSDK.framework/Versions/A/Headers/ZendriveDriveResumeInfo.h
+../../../../ZendriveSDK/ZendriveSDK.framework/Headers/ZendriveDriveResumeInfo.h

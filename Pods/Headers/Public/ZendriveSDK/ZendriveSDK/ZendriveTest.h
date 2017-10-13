@@ -1,1 +1,1 @@
-../../../../ZendriveSDK/ZendriveSDK.framework/Versions/A/Headers/ZendriveTest.h
+../../../../ZendriveSDK/ZendriveSDK.framework/Headers/ZendriveTest.h

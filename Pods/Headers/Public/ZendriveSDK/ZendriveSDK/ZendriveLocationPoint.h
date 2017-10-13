@@ -1,1 +1,1 @@
-../../../../ZendriveSDK/ZendriveSDK.framework/Versions/A/Headers/ZendriveLocationPoint.h
+../../../../ZendriveSDK/ZendriveSDK.framework/Headers/ZendriveLocationPoint.h
