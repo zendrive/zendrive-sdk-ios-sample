@@ -20,6 +20,7 @@
 		0E942C7AB6F73E96D615CF3C942C2587 /* AWSLogging.h in Headers */ = {isa = PBXBuildFile; fileRef = 00B46088AAED52FC0FD62A010FA7DF77 /* AWSLogging.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0FE7F64BABCC35FD2215C2CCF7FBFA70 /* AWSFMDatabase.h in Headers */ = {isa = PBXBuildFile; fileRef = 7ACF6FBB86E219CBEF141A9C707201BE /* AWSFMDatabase.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		12841ACD151C8AC8EF6F09FB1AE0DDA0 /* AWSCognitoIdentityResources.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B6F3D8F5E72D0EB5AA43B1972B08FA4 /* AWSCognitoIdentityResources.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		14545732BBF3AD2D4C4A53D852F70B9A /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DEBBD8433E77A2492BCF0C3EDECC865 /* SystemConfiguration.framework */; };
 		14D3154493A4268C055CD8F124767F75 /* AWSSTSModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A7A771A7E790B302C1A0683CB1A9B008 /* AWSSTSModel.m */; };
 		166484F546599F5398F8A9496E63E4FF /* AWSEXTKeyPathCoding.h in Headers */ = {isa = PBXBuildFile; fileRef = E93FCBDE19E2095F02233FCDB471B66A /* AWSEXTKeyPathCoding.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		1A22ECBA74891877B0A0E4BDAF13BA73 /* NSError+AWSMTLModelException.h in Headers */ = {isa = PBXBuildFile; fileRef = 88A46E95AB3ACE987142FC29B9A7DE9D /* NSError+AWSMTLModelException.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -29,6 +30,7 @@
 		1E528D890E3B32D53D963CE1417BA4D8 /* MBProgressHUD-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2BDE4FEAE80D66AE43B84DDC53E725 /* MBProgressHUD-dummy.m */; };
 		2012864C735C3DD88ECE425F6C981F6B /* FMDatabasePool.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A1BBF9979E6B8B16990AB0A806899A2 /* FMDatabasePool.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		22F83952DF49B0C2CA550449278BD55A /* AWSSTSService.h in Headers */ = {isa = PBXBuildFile; fileRef = 94DD686B98DD6D0E31499B13144FDB94 /* AWSSTSService.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		24ED4DC17E08B45F8449A6BFF68FF174 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DEBBD8433E77A2492BCF0C3EDECC865 /* SystemConfiguration.framework */; };
 		298C89E02070DDAAAE75AD1E2821CC7D /* AWSSTSResources.m in Sources */ = {isa = PBXBuildFile; fileRef = 80BABA5515BB786D12D341CC7732DF75 /* AWSSTSResources.m */; };
 		2996CF12015B87E93F611322D1CAF24A /* AWSTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F5D33CDDB4755389EE7FE435C5C876B /* AWSTask.m */; };
 		2A76DB3CD21C569626495DE7D69D7B0C /* MBProgressHUD.h in Headers */ = {isa = PBXBuildFile; fileRef = 6A87954B75FCBAB2988094A814F6C0C3 /* MBProgressHUD.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -47,27 +49,27 @@
 		398A5C11EFB816892FD5E18AD24F03D4 /* FMResultSet.h in Headers */ = {isa = PBXBuildFile; fileRef = 684BA4D812B7DF5C29783DBF8387373C /* FMResultSet.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3AA3383F5207B83CDC43488DC2F8DA6F /* AWSURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 886DFA842E4493BE6E73490F560A01F6 /* AWSURLSessionManager.m */; };
 		3FC5F74961D0E887F886BB7C44A10F78 /* AWSCognitoIdentityResources.m in Sources */ = {isa = PBXBuildFile; fileRef = 569875DA9170A06BE9DF8C01F04EC075 /* AWSCognitoIdentityResources.m */; };
+		3FECFDE87253334FA356C4898AA1478D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D45EDE76472B6CE65C9F35AE559B1608 /* Foundation.framework */; };
 		4225555DB740A6310ED6E02A7CD1FA3D /* AWSSynchronizedMutableDictionary.h in Headers */ = {isa = PBXBuildFile; fileRef = F30F7F2EBC3D6D67256C5A32DABE3227 /* AWSSynchronizedMutableDictionary.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		45FFF4F77B1D05E487E51D4083211878 /* Fabric.h in Headers */ = {isa = PBXBuildFile; fileRef = 289C5B2212D4EFDE38A2B23FB0FE3C2C /* Fabric.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		498CA7AE5429A0E886B4D1EB0F7372F7 /* AWSBolts.h in Headers */ = {isa = PBXBuildFile; fileRef = 6151D1E28646D6CC475206E56766FA50 /* AWSBolts.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4AF070A984B6002C69C4DBB2591F1FA6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D45EDE76472B6CE65C9F35AE559B1608 /* Foundation.framework */; };
 		4B3B2EABA01FE0065CA6693CEE33CA92 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 094CF92EA2CFAFE7D257E47098BDE4EF /* FMResultSet.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		4D66E6E432D75A2218EC0FB9C4D9AB56 /* AWSMTLValueTransformer.h in Headers */ = {isa = PBXBuildFile; fileRef = 8CB403FFF9E8FE20A9C1CEC4924DD58A /* AWSMTLValueTransformer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4DB541C1C41B1C597EC36CDAB5243D1A /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = E728D1CE4AD8F84912B01C835DD43260 /* FMDatabaseAdditions.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		4EFA44817E17E6B0812680FAA21CFC0F /* FABAttributes.h in Headers */ = {isa = PBXBuildFile; fileRef = 41EE0262D81D4D754506526FD4DFC51F /* FABAttributes.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		50893723F96955B32D024508640656C1 /* AWSExecutor.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AA299680D289D2B30530C99615A3CAB /* AWSExecutor.m */; };
+		509D8F10DC7BD0265790C450C94228E3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D18A31FDB616B1B7B6F71BEC26F11894 /* CoreGraphics.framework */; };
 		535C3BD688BA2CDEC5DAE361DDF5D7B0 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A79990574647B5DEE45EF7CAB481B12 /* MBProgressHUD.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		544E5885ADEF16ECA5F7A68CD21698CD /* AWSMantle.h in Headers */ = {isa = PBXBuildFile; fileRef = A5DB9A7B4E4B4BDD2D8520ECC70A9936 /* AWSMantle.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		558B3AF6E118E5C0A1E1AAE610354C3A /* AWSMTLJSONAdapter.h in Headers */ = {isa = PBXBuildFile; fileRef = D9CC466501F71AB01B4DF87F1651E183 /* AWSMTLJSONAdapter.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		56C4A78144D37A63C9D0F3594D5A77F1 /* AWSGZIP.h in Headers */ = {isa = PBXBuildFile; fileRef = 0BD3DC215B35C3A1C03AA11034847108 /* AWSGZIP.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		573D843E8A089442ADFDE41167127B75 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07577FC7CF792E124F9CCC33AE15CA1D /* Foundation.framework */; };
 		5793FF2EB0CCB7AD37FA7D7902E7B7EA /* AWSSQSModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 05849896E2B573B5671E14C1EFD8363F /* AWSSQSModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		59B17089D7231AB4BCFFCC5201055494 /* AWSXMLDictionary.h in Headers */ = {isa = PBXBuildFile; fileRef = C705827DE88ECB548CEF0DE7676461FE /* AWSXMLDictionary.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		6032CA22F7CFAE7EEB1227F20291C5EF /* AWSFMDatabaseQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = 5A3147EC827BA51908A6558EDB104BF7 /* AWSFMDatabaseQueue.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6083C0718C7A5858F6413226A48D5715 /* AWSCredentialsProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = E4BE3274F2F8B53B1565268B778C2CFD /* AWSCredentialsProvider.m */; };
 		6199817CB29DADBC9AB1D4C44E52F5BA /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 1979D46FD176C6369661D319A362278B /* FMDatabase.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		6536CF649BE3EB47DCC10A9916C002CD /* NSValueTransformer+AWSMTLPredefinedTransformerAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 11A5D498A2418C2C082BA1D16E0BACC9 /* NSValueTransformer+AWSMTLPredefinedTransformerAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6702C8B678D52CFE703762D4D73CE58B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF70F8F1AEFEF1E714087969D8F03BD1 /* CoreGraphics.framework */; };
-		677BFFF9E9676553FD1B924062B3D4AA /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D8AC9D7770E02E124D124316D8DCEB5 /* SystemConfiguration.framework */; };
 		69944294DCB8AB4A3FFAE3659945A392 /* AWSUICKeyChainStore.h in Headers */ = {isa = PBXBuildFile; fileRef = DFCB5993BCD0CD6C7DE5707063CF591F /* AWSUICKeyChainStore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		69BF8F4975A57DB26F38C5D613FB8CC6 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C292E3119BB09763A9B9558D7B9BE07 /* Reachability.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		6B8A2364E0B7307E183791C1DD902216 /* AWSSTSResources.h in Headers */ = {isa = PBXBuildFile; fileRef = DEBD1C94C30EC39AD6A8C292504E23C2 /* AWSSTSResources.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -88,15 +90,14 @@
 		8021697A1557D425AC130472DA1317CC /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E5E51933DF71DB66F67736CDC1D779D /* FMDatabasePool.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		80ACD71CD35BD3F1E2B9064425F46EAE /* AWSValidation.h in Headers */ = {isa = PBXBuildFile; fileRef = D5AE4C19240E3EB73AC39704E965566B /* AWSValidation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		80E7B9F8CF660DDC31556884DB076D91 /* AWSCancellationTokenRegistration.m in Sources */ = {isa = PBXBuildFile; fileRef = 03A186DD7E69DB582FE0A6235A7236C5 /* AWSCancellationTokenRegistration.m */; };
-		85D744B46D01509A889EC42A6EE99D9A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 206883176F1D9BC5574C41A36E604805 /* UIKit.framework */; };
 		869D5619A1F9B96D8ECA37C700A41F58 /* AWSTask.h in Headers */ = {isa = PBXBuildFile; fileRef = 7C383CB184F8EB04B00B380838222726 /* AWSTask.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8745E587FE75CA447441723BB91FA31E /* AWSCategory.h in Headers */ = {isa = PBXBuildFile; fileRef = 60E9A9CE6F4FE70A85DD77C5D340ACFC /* AWSCategory.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		87CED840861086E18BB9979E2EF52250 /* AWSCancellationTokenSource.m in Sources */ = {isa = PBXBuildFile; fileRef = FC4AAFD73632661B914D45A547A44380 /* AWSCancellationTokenSource.m */; };
-		88726FF9B2B6F925A0FAEA93D37905B4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07577FC7CF792E124F9CCC33AE15CA1D /* Foundation.framework */; };
 		889D48A9B81ADF617C1D4E4E9473E3A9 /* FMDB.h in Headers */ = {isa = PBXBuildFile; fileRef = 0E8899C4D416FFEAD5372598807EBDBF /* FMDB.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		8C8FE823FB0DA31FA72637BBBA637026 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07577FC7CF792E124F9CCC33AE15CA1D /* Foundation.framework */; };
+		8BC455892407EB2DD2807B00AD5D0127 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D45EDE76472B6CE65C9F35AE559B1608 /* Foundation.framework */; };
 		8E0FE7CCB905350EA24CB27FB6C1B733 /* AWSMTLManagedObjectAdapter.h in Headers */ = {isa = PBXBuildFile; fileRef = C4629CCF0A1EDCA56C66782DD412B33F /* AWSMTLManagedObjectAdapter.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		90030984A01A6A07795AFE07C93DD051 /* AWSSQS-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F72EEFDA2D787FBC68CA4EDF2AB92692 /* AWSSQS-dummy.m */; };
+		951E122F9EFF8F6DF2AAF2E80A10630A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D45EDE76472B6CE65C9F35AE559B1608 /* Foundation.framework */; };
 		98ABF277A45F1AB72A8D02D53FFE67BF /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = AB716D5A2C3FF3A9F5CBC44B8E767E16 /* FMDatabaseQueue.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		99714143FA44A34F87D1F2AA6D254177 /* FMDatabaseQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = 54A5FAFF7778502EAAE16DFFE08DEF75 /* FMDatabaseQueue.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9A274487043BC334B7B6DE9DB051F906 /* AWSMTLJSONAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 49F9FD965A9944E1AF7F68D07E2D93C4 /* AWSMTLJSONAdapter.m */; };
@@ -107,11 +108,11 @@
 		9B90D7555AF8B52654204755CA36EFAE /* AWSMTLModel+NSCoding.h in Headers */ = {isa = PBXBuildFile; fileRef = 949ACEA42D1C7AD33BDCEAEFD4BE13EB /* AWSMTLModel+NSCoding.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9CD3DC356FD2C31C535480D8D289B61D /* AWSService.h in Headers */ = {isa = PBXBuildFile; fileRef = 0CCC3CFD3E5B4F8F2FF0D246CB4F5BF7 /* AWSService.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A12417D382BCE222579C2587666E0915 /* AWSFMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B00F50CFBA52E425303B590F33BB979 /* AWSFMResultSet.m */; };
-		A19E66B74E9C3FA199D1BF1F4A38BD11 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07577FC7CF792E124F9CCC33AE15CA1D /* Foundation.framework */; };
 		A1F1E270C209DF642FE0C122D65F2230 /* AWSReachability.h in Headers */ = {isa = PBXBuildFile; fileRef = 0368F88E627E93BBCD89954D575E26C1 /* AWSReachability.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A4773A47DA7489BF08BC877E743F1473 /* NSError+AWSMTLModelException.m in Sources */ = {isa = PBXBuildFile; fileRef = F446285C073DEC5214AB62EE6A2EA2DD /* NSError+AWSMTLModelException.m */; };
 		A618E84945C073F505BECB53420B3AE2 /* AWSSignature.h in Headers */ = {isa = PBXBuildFile; fileRef = 7EA8CF7B1F05273EEB1AB30416CF7847 /* AWSSignature.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A6DB196190D445A8A7A6B6171A863DE3 /* AWSURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 743E9BA30231873E651E7ECE041858CA /* AWSURLRequestSerialization.m */; };
+		A772CD0F59061CE42433820AEC9430F5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AFEE78C7FC9C6310D6415F71F296BE9 /* UIKit.framework */; };
 		A88E014B2C3CEFE4275A924A206EC30F /* AWSMTLReflection.h in Headers */ = {isa = PBXBuildFile; fileRef = 3DC11E1A8DDA400CBE770A4DD1428F3C /* AWSMTLReflection.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A8B67ED5C29E3DAA56DF4EAE2B33D827 /* AWSLogging.m in Sources */ = {isa = PBXBuildFile; fileRef = 13256566222AA1F999995A7EEBFE1AB9 /* AWSLogging.m */; };
 		AA04E61DEAE9CD6B777DCA66F7E4D917 /* NSValueTransformer+AWSMTLInversionAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = BA749FD03B4F52F6B2D103ABC26EB729 /* NSValueTransformer+AWSMTLInversionAdditions.m */; };
@@ -130,7 +131,6 @@
 		C35DCC6F2E7F4B0313A509E0913B1294 /* AWSExecutor.h in Headers */ = {isa = PBXBuildFile; fileRef = 8A401B7A69EA406006215C64A1D7F0BA /* AWSExecutor.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C40CFE1274D588CA1A9DF9394BF76EAE /* FMDB-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = FACA78B3F1B6F9766C09639F88F31C1C /* FMDB-dummy.m */; };
 		C546151BD321008E196FF2807D7DC76C /* AWSSerialization.h in Headers */ = {isa = PBXBuildFile; fileRef = 0F584CF0A8F0F1144189683256EDFF2F /* AWSSerialization.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C62CF850237DB4D6338E30472245FF6F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07577FC7CF792E124F9CCC33AE15CA1D /* Foundation.framework */; };
 		C8067FB9F83C470AC3EA409B796D25D2 /* AWSMTLValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F6866715D5CB92473268C31A874F1C4 /* AWSMTLValueTransformer.m */; };
 		CB173FC85676FE4980C31229DF91D0A3 /* AWSCancellationToken.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A7DFDE1316A97503F29338DA77060EB /* AWSCancellationToken.m */; };
 		CC52CA34B41B39526D03B21AA5122B02 /* Reachability-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BFF13CC492EFE96EA4FD4C7FE35D3FD /* Reachability-dummy.m */; };
@@ -150,8 +150,9 @@
 		DD41F1954FC038D25BE50E9AFC75D871 /* AWSTMCacheBackgroundTaskManager.h in Headers */ = {isa = PBXBuildFile; fileRef = A5996CB2F5FBC68079FC5419B054DDA0 /* AWSTMCacheBackgroundTaskManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DDF400A98FD594208CA6CAD98B15D4A3 /* AWSCore-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 45AF7A846277780C5B4E82A10E889943 /* AWSCore-dummy.m */; };
 		DEA1A76A1457C8F1347FB5A675780278 /* AWSURLRequestSerialization.h in Headers */ = {isa = PBXBuildFile; fileRef = E20CBFC8B7CCBDF7B9329C530EE9D58B /* AWSURLRequestSerialization.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E2D2F146BFB5A6C384AC05929E0C4A7A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D45EDE76472B6CE65C9F35AE559B1608 /* Foundation.framework */; };
 		E2DB8DFF7689150922B83F3C2A962F32 /* AWSModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BD9E2164F724F7458F1ADA98122E6D6C /* AWSModel.m */; };
-		E4ADCC080DBFC1AFD11F5A93E62D6380 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D8AC9D7770E02E124D124316D8DCEB5 /* SystemConfiguration.framework */; };
+		E38DA771D150D902AAC2A0F20FFC8534 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D45EDE76472B6CE65C9F35AE559B1608 /* Foundation.framework */; };
 		E4D6A2E6C6E0A4C4DD9B570BCC61C76B /* AWSCognitoIdentityModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 016AC8D6E8632E365184C8075C94C68F /* AWSCognitoIdentityModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E650685D1D7E83F99763341215D6F54D /* AWSIdentityProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = 5985BE466C92F4C9BF02FD45C7D8D62F /* AWSIdentityProvider.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E886D4F1FB931A99E3201DB0D4992D1C /* AWSTaskCompletionSource.m in Sources */ = {isa = PBXBuildFile; fileRef = F34DF556B490C4DB7D576B2B91710C2A /* AWSTaskCompletionSource.m */; };
@@ -167,7 +168,6 @@
 		F78B517D7637D4072E15E5C19FADB8F3 /* AWSMTLModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EF0E2EEF09C0ADA43958AEC5A4487579 /* AWSMTLModel.m */; };
 		F8216B1E2BC5BB79C3C250999690DFFF /* AWSUICKeyChainStore.m in Sources */ = {isa = PBXBuildFile; fileRef = A98DC8DD6B8F4663315E425EB85EFA96 /* AWSUICKeyChainStore.m */; };
 		FA730AC2678EDCA1E8FE3F365E945CAF /* AWSXMLWriter.h in Headers */ = {isa = PBXBuildFile; fileRef = 9948AE024237596208CB9E361E72C00C /* AWSXMLWriter.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		FA95B59C22F11E76A23DF3D7D328B8EA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07577FC7CF792E124F9CCC33AE15CA1D /* Foundation.framework */; };
 		FB6F79821BEC72787BF8BFECC302233E /* AWSCognitoIdentityService.m in Sources */ = {isa = PBXBuildFile; fileRef = D14961C6467BD018F3FFE0F08FDFF642 /* AWSCognitoIdentityService.m */; };
 		FCBA99A93F2228937C5AE5093BAC4C04 /* NSDictionary+AWSMTLManipulationAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 21D95B02F50E2575C1B5F48444F29304 /* NSDictionary+AWSMTLManipulationAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FD84C2B00046825AF34A21A3C39F3ADF /* AWSSQSResources.h in Headers */ = {isa = PBXBuildFile; fileRef = D00274CCCB8377D6FCA24E5E6A4B9C24 /* AWSSQSResources.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -229,7 +229,6 @@
 		05849896E2B573B5671E14C1EFD8363F /* AWSSQSModel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AWSSQSModel.h; path = AWSSQS/AWSSQSModel.h; sourceTree = "<group>"; };
 		06E3CE1FB4D91A94BFCB6EDD7AB92568 /* AWSCategory.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AWSCategory.m; path = AWSCore/Utility/AWSCategory.m; sourceTree = "<group>"; };
 		0749B6FB31246B9DE0A52467A4B4604A /* AWSMTLReflection.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AWSMTLReflection.m; path = AWSCore/Mantle/AWSMTLReflection.m; sourceTree = "<group>"; };
-		07577FC7CF792E124F9CCC33AE15CA1D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		094CF92EA2CFAFE7D257E47098BDE4EF /* FMResultSet.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FMResultSet.m; path = src/fmdb/FMResultSet.m; sourceTree = "<group>"; };
 		0BD3DC215B35C3A1C03AA11034847108 /* AWSGZIP.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AWSGZIP.h; path = AWSCore/GZIP/AWSGZIP.h; sourceTree = "<group>"; };
 		0CCC3CFD3E5B4F8F2FF0D246CB4F5BF7 /* AWSService.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AWSService.h; path = AWSCore/Service/AWSService.h; sourceTree = "<group>"; };
@@ -243,9 +242,9 @@
 		1527D8E65EF4BC3C49BAD6C24EB5A621 /* NSValueTransformer+AWSMTLInversionAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSValueTransformer+AWSMTLInversionAdditions.h"; path = "AWSCore/Mantle/NSValueTransformer+AWSMTLInversionAdditions.h"; sourceTree = "<group>"; };
 		1979D46FD176C6369661D319A362278B /* FMDatabase.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FMDatabase.m; path = src/fmdb/FMDatabase.m; sourceTree = "<group>"; };
 		1A1BBF9979E6B8B16990AB0A806899A2 /* FMDatabasePool.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FMDatabasePool.h; path = src/fmdb/FMDatabasePool.h; sourceTree = "<group>"; };
+		1AFEE78C7FC9C6310D6415F71F296BE9 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		1BFF13CC492EFE96EA4FD4C7FE35D3FD /* Reachability-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Reachability-dummy.m"; sourceTree = "<group>"; };
 		1F2A8915A0B8F4187DF8E28AF1811459 /* AWSXMLWriter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AWSXMLWriter.m; path = AWSCore/XMLWriter/AWSXMLWriter.m; sourceTree = "<group>"; };
-		206883176F1D9BC5574C41A36E604805 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		2186C66F3595D87B5654927C94D10E2B /* AWSSQSService.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AWSSQSService.m; path = AWSSQS/AWSSQSService.m; sourceTree = "<group>"; };
 		21D95B02F50E2575C1B5F48444F29304 /* NSDictionary+AWSMTLManipulationAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSDictionary+AWSMTLManipulationAdditions.h"; path = "AWSCore/Mantle/NSDictionary+AWSMTLManipulationAdditions.h"; sourceTree = "<group>"; };
 		23D17766AA5B78D6DEFD3B726D25FDB7 /* Pods-ZendriveSDKDemo-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-ZendriveSDKDemo-acknowledgements.markdown"; sourceTree = "<group>"; };
@@ -276,6 +275,7 @@
 		49F9FD965A9944E1AF7F68D07E2D93C4 /* AWSMTLJSONAdapter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AWSMTLJSONAdapter.m; path = AWSCore/Mantle/AWSMTLJSONAdapter.m; sourceTree = "<group>"; };
 		4B6F3D8F5E72D0EB5AA43B1972B08FA4 /* AWSCognitoIdentityResources.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AWSCognitoIdentityResources.h; path = AWSCore/CognitoIdentity/AWSCognitoIdentityResources.h; sourceTree = "<group>"; };
 		4D9A3E5ACA32CBD786318647C50CFEBB /* AWSSynchronizedMutableDictionary.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AWSSynchronizedMutableDictionary.m; path = AWSCore/Utility/AWSSynchronizedMutableDictionary.m; sourceTree = "<group>"; };
+		4DEBBD8433E77A2492BCF0C3EDECC865 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/SystemConfiguration.framework; sourceTree = DEVELOPER_DIR; };
 		4E5E51933DF71DB66F67736CDC1D779D /* FMDatabasePool.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FMDatabasePool.m; path = src/fmdb/FMDatabasePool.m; sourceTree = "<group>"; };
 		4F5D33CDDB4755389EE7FE435C5C876B /* AWSTask.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AWSTask.m; path = AWSCore/Bolts/AWSTask.m; sourceTree = "<group>"; };
 		50054E522CA76AD6999B4DCEDEA7F164 /* AWSSignature.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AWSSignature.m; path = AWSCore/Authentication/AWSSignature.m; sourceTree = "<group>"; };
@@ -288,7 +288,6 @@
 		5985BE466C92F4C9BF02FD45C7D8D62F /* AWSIdentityProvider.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AWSIdentityProvider.h; path = AWSCore/Authentication/AWSIdentityProvider.h; sourceTree = "<group>"; };
 		5A3147EC827BA51908A6558EDB104BF7 /* AWSFMDatabaseQueue.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AWSFMDatabaseQueue.h; path = AWSCore/FMDB/AWSFMDatabaseQueue.h; sourceTree = "<group>"; };
 		5D2BDE4FEAE80D66AE43B84DDC53E725 /* MBProgressHUD-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD-dummy.m"; sourceTree = "<group>"; };
-		5D8AC9D7770E02E124D124316D8DCEB5 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/SystemConfiguration.framework; sourceTree = DEVELOPER_DIR; };
 		60E9A9CE6F4FE70A85DD77C5D340ACFC /* AWSCategory.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AWSCategory.h; path = AWSCore/Utility/AWSCategory.h; sourceTree = "<group>"; };
 		6151D1E28646D6CC475206E56766FA50 /* AWSBolts.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AWSBolts.h; path = AWSCore/Bolts/AWSBolts.h; sourceTree = "<group>"; };
 		684BA4D812B7DF5C29783DBF8387373C /* FMResultSet.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FMResultSet.h; path = src/fmdb/FMResultSet.h; sourceTree = "<group>"; };
@@ -363,7 +362,9 @@
 		CD0B4AAE06B953D76D953D87E90A6EBE /* NSObject+AWSMTLComparisonAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSObject+AWSMTLComparisonAdditions.m"; path = "AWSCore/Mantle/NSObject+AWSMTLComparisonAdditions.m"; sourceTree = "<group>"; };
 		D00274CCCB8377D6FCA24E5E6A4B9C24 /* AWSSQSResources.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AWSSQSResources.h; path = AWSSQS/AWSSQSResources.h; sourceTree = "<group>"; };
 		D14961C6467BD018F3FFE0F08FDFF642 /* AWSCognitoIdentityService.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AWSCognitoIdentityService.m; path = AWSCore/CognitoIdentity/AWSCognitoIdentityService.m; sourceTree = "<group>"; };
+		D18A31FDB616B1B7B6F71BEC26F11894 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
 		D23B5E040E0E712EBDB9518357729A09 /* libAWSSQS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libAWSSQS.a; path = libAWSSQS.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		D45EDE76472B6CE65C9F35AE559B1608 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		D5AE4C19240E3EB73AC39704E965566B /* AWSValidation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AWSValidation.h; path = AWSCore/Serialization/AWSValidation.h; sourceTree = "<group>"; };
 		D727533FD15BE256AC343673BFE4CDD9 /* MBProgressHUD-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD-prefix.pch"; sourceTree = "<group>"; };
 		D9CC466501F71AB01B4DF87F1651E183 /* AWSMTLJSONAdapter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AWSMTLJSONAdapter.h; path = AWSCore/Mantle/AWSMTLJSONAdapter.h; sourceTree = "<group>"; };
@@ -400,7 +401,6 @@
 		FC4AAFD73632661B914D45A547A44380 /* AWSCancellationTokenSource.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AWSCancellationTokenSource.m; path = AWSCore/Bolts/AWSCancellationTokenSource.m; sourceTree = "<group>"; };
 		FDE7EAB1916A11ECC501446C7BD43BF6 /* Reachability.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		FECF37FBDB554E8B8321C3D4B741D794 /* MBProgressHUD.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MBProgressHUD.xcconfig; sourceTree = "<group>"; };
-		FF70F8F1AEFEF1E714087969D8F03BD1 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
 		FF9F54DEC39160687EAE1E38B205D071 /* Pods-ZendriveSDKDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ZendriveSDKDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		FF9F9557596F223D5D48837FC7E5798C /* AWSCancellationTokenSource.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AWSCancellationTokenSource.h; path = AWSCore/Bolts/AWSCancellationTokenSource.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -410,7 +410,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8C8FE823FB0DA31FA72637BBBA637026 /* Foundation.framework in Frameworks */,
+				3FECFDE87253334FA356C4898AA1478D /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -418,8 +418,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6702C8B678D52CFE703762D4D73CE58B /* CoreGraphics.framework in Frameworks */,
-				C62CF850237DB4D6338E30472245FF6F /* Foundation.framework in Frameworks */,
+				509D8F10DC7BD0265790C450C94228E3 /* CoreGraphics.framework in Frameworks */,
+				951E122F9EFF8F6DF2AAF2E80A10630A /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -427,9 +427,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				573D843E8A089442ADFDE41167127B75 /* Foundation.framework in Frameworks */,
-				E4ADCC080DBFC1AFD11F5A93E62D6380 /* SystemConfiguration.framework in Frameworks */,
-				85D744B46D01509A889EC42A6EE99D9A /* UIKit.framework in Frameworks */,
+				E38DA771D150D902AAC2A0F20FFC8534 /* Foundation.framework in Frameworks */,
+				24ED4DC17E08B45F8449A6BFF68FF174 /* SystemConfiguration.framework in Frameworks */,
+				A772CD0F59061CE42433820AEC9430F5 /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -437,7 +437,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A19E66B74E9C3FA199D1BF1F4A38BD11 /* Foundation.framework in Frameworks */,
+				4AF070A984B6002C69C4DBB2591F1FA6 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -445,7 +445,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				88726FF9B2B6F925A0FAEA93D37905B4 /* Foundation.framework in Frameworks */,
+				E2D2F146BFB5A6C384AC05929E0C4A7A /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -453,8 +453,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA95B59C22F11E76A23DF3D7D328B8EA /* Foundation.framework in Frameworks */,
-				677BFFF9E9676553FD1B924062B3D4AA /* SystemConfiguration.framework in Frameworks */,
+				8BC455892407EB2DD2807B00AD5D0127 /* Foundation.framework in Frameworks */,
+				14545732BBF3AD2D4C4A53D852F70B9A /* SystemConfiguration.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -475,7 +475,7 @@
 		14B8B9B15ECBE87983FF987239AB2D7B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				73A4B7FB4D1ED6D7C5A2569F6DE6BEEF /* iOS */,
+				DAB52AA0C87E5535522FCA209A015880 /* iOS */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -645,17 +645,6 @@
 			path = AWSCore;
 			sourceTree = "<group>";
 		};
-		73A4B7FB4D1ED6D7C5A2569F6DE6BEEF /* iOS */ = {
-			isa = PBXGroup;
-			children = (
-				FF70F8F1AEFEF1E714087969D8F03BD1 /* CoreGraphics.framework */,
-				07577FC7CF792E124F9CCC33AE15CA1D /* Foundation.framework */,
-				5D8AC9D7770E02E124D124316D8DCEB5 /* SystemConfiguration.framework */,
-				206883176F1D9BC5574C41A36E604805 /* UIKit.framework */,
-			);
-			name = iOS;
-			sourceTree = "<group>";
-		};
 		7DB346D0F39D3F0E887471402A8071AB = {
 			isa = PBXGroup;
 			children = (
@@ -804,6 +793,17 @@
 			);
 			name = "Support Files";
 			path = "../Target Support Files/FMDB";
+			sourceTree = "<group>";
+		};
+		DAB52AA0C87E5535522FCA209A015880 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				D18A31FDB616B1B7B6F71BEC26F11894 /* CoreGraphics.framework */,
+				D45EDE76472B6CE65C9F35AE559B1608 /* Foundation.framework */,
+				4DEBBD8433E77A2492BCF0C3EDECC865 /* SystemConfiguration.framework */,
+				1AFEE78C7FC9C6310D6415F71F296BE9 /* UIKit.framework */,
+			);
+			name = iOS;
 			sourceTree = "<group>";
 		};
 		F2B3D6DAA17176C56AB3B897A97037BE /* Frameworks */ = {
@@ -1051,7 +1051,7 @@
 		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0730;
+				LastSwiftUpdateCheck = 0830;
 				LastUpgradeCheck = 0700;
 			};
 			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
@@ -1233,365 +1233,376 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		015A368F878AC3E2CEAE21DDE8026304 /* Debug */ = {
+		1F94CE7E65F6BDD0A280D8B698381DB3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FECF37FBDB554E8B8321C3D4B741D794 /* MBProgressHUD.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				GCC_PREFIX_HEADER = "Target Support Files/MBProgressHUD/MBProgressHUD-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3B87C681A8EB830A483477BF3AEA202A /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B3DC775BBA51D7A4CA2579E1C5CE4498 /* AWSCore.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				GCC_PREFIX_HEADER = "Target Support Files/AWSCore/AWSCore-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		496E1BACA4CCB3836BAE7B6017DA6344 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 271202F5A6D31DD52248834BCD9776FC /* AWSSQS.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				GCC_PREFIX_HEADER = "Target Support Files/AWSSQS/AWSSQS-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		5FB525E227727422E630DBEE5FFAA691 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F219B344D72CF987DE47E0FD3AE0FB68 /* Pods-ZendriveSDKDemo.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MACH_O_TYPE = staticlib;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		675F10C2F4E5A16B91CD921935DCAE82 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 985DD9CE3C5368F7B66D6C64FD072D9C /* Reachability.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				GCC_PREFIX_HEADER = "Target Support Files/Reachability/Reachability-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		8CA59A83295726DFBF724C4BFF2EB444 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FF9F54DEC39160687EAE1E38B205D071 /* Pods-ZendriveSDKDemo.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MACH_O_TYPE = staticlib;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		8E3E69B64B41A5AE96AB2C92B462BCF8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B3DC775BBA51D7A4CA2579E1C5CE4498 /* AWSCore.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				GCC_PREFIX_HEADER = "Target Support Files/AWSCore/AWSCore-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		99810B21E4CD930D156FBB967795ED1B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 985DD9CE3C5368F7B66D6C64FD072D9C /* Reachability.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				GCC_PREFIX_HEADER = "Target Support Files/Reachability/Reachability-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		B254DAA6CF0CE39F4A3D11B90A7E059A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGNING_REQUIRED = NO;
 				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		BD87F014AD67D1B113CB8E9958F091C2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 53F409E9DA48B2154868EAB9D0D6DCC9 /* FMDB.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				GCC_PREFIX_HEADER = "Target Support Files/FMDB/FMDB-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C2FC8EBE563740D6348EBEDFA24F4704 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 271202F5A6D31DD52248834BCD9776FC /* AWSSQS.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				GCC_PREFIX_HEADER = "Target Support Files/AWSSQS/AWSSQS-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E4B68EE12B21C47CB798D9B1ECA6D7A7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"POD_CONFIGURATION_DEBUG=1",
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
 				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SYMROOT = "${SRCROOT}/../build";
 			};
 			name = Debug;
 		};
-		14DC5BAF9F2D73AE90C675175085A05D /* Release */ = {
+		F23173131F023479A14667144513663E /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 53F409E9DA48B2154868EAB9D0D6DCC9 /* FMDB.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/FMDB/FMDB-prefix.pch";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
-				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PRIVATE_HEADERS_FOLDER_PATH = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
 				PUBLIC_HEADERS_FOLDER_PATH = "";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-			};
-			name = Release;
-		};
-		3768207F5A09EAD8E013BA9B6144E38A /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 271202F5A6D31DD52248834BCD9776FC /* AWSSQS.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/AWSSQS/AWSSQS-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRIVATE_HEADERS_FOLDER_PATH = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PUBLIC_HEADERS_FOLDER_PATH = "";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		44CDBB6D11DE06DB64D6268622BDC47E /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGNING_REQUIRED = NO;
-				COPY_PHASE_STRIP = YES;
-				ENABLE_NS_ASSERTIONS = NO;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"POD_CONFIGURATION_RELEASE=1",
-					"$(inherited)",
-				);
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
-				STRIP_INSTALLED_PRODUCT = NO;
-				SYMROOT = "${SRCROOT}/../build";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
-		4ECD94EB658408EAB639A8B305F4DA79 /* Debug */ = {
+		FFCFD877A0D05122357C558B9F34B2B9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = FECF37FBDB554E8B8321C3D4B741D794 /* MBProgressHUD.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/MBProgressHUD/MBProgressHUD-prefix.pch";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
-				MTL_ENABLE_DEBUG_INFO = YES;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PRIVATE_HEADERS_FOLDER_PATH = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
 				PUBLIC_HEADERS_FOLDER_PATH = "";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
-		};
-		50578562CB4D9ABA8620420C08C638C2 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = FECF37FBDB554E8B8321C3D4B741D794 /* MBProgressHUD.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/MBProgressHUD/MBProgressHUD-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRIVATE_HEADERS_FOLDER_PATH = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PUBLIC_HEADERS_FOLDER_PATH = "";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Release;
-		};
-		5E2F95937BD27829D299193A3165F929 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 53F409E9DA48B2154868EAB9D0D6DCC9 /* FMDB.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/FMDB/FMDB-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRIVATE_HEADERS_FOLDER_PATH = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PUBLIC_HEADERS_FOLDER_PATH = "";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		9370FF2DB99EC3A16DDF732646544068 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 985DD9CE3C5368F7B66D6C64FD072D9C /* Reachability.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Reachability/Reachability-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRIVATE_HEADERS_FOLDER_PATH = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PUBLIC_HEADERS_FOLDER_PATH = "";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		948639C6C05C3AF0C984E0343E41AAC7 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = F219B344D72CF987DE47E0FD3AE0FB68 /* Pods-ZendriveSDKDemo.release.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				MACH_O_TYPE = staticlib;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Release;
-		};
-		A8F7A7DADAADAC8DFBE23F855B659F8E /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 271202F5A6D31DD52248834BCD9776FC /* AWSSQS.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/AWSSQS/AWSSQS-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRIVATE_HEADERS_FOLDER_PATH = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PUBLIC_HEADERS_FOLDER_PATH = "";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Release;
-		};
-		A957525BF24B1C4372F454040393700B /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = FF9F54DEC39160687EAE1E38B205D071 /* Pods-ZendriveSDKDemo.debug.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				MACH_O_TYPE = staticlib;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		BE7F472626DE890201C76238C24A832A /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 985DD9CE3C5368F7B66D6C64FD072D9C /* Reachability.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Reachability/Reachability-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRIVATE_HEADERS_FOLDER_PATH = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PUBLIC_HEADERS_FOLDER_PATH = "";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Release;
-		};
-		D52A7E4348CC7D49C6E5EC0C5B5FE0A7 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = B3DC775BBA51D7A4CA2579E1C5CE4498 /* AWSCore.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/AWSCore/AWSCore-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRIVATE_HEADERS_FOLDER_PATH = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PUBLIC_HEADERS_FOLDER_PATH = "";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		F875D88501D7A0D8EB3CC3E4A57ADB97 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = B3DC775BBA51D7A4CA2579E1C5CE4498 /* AWSCore.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/AWSCore/AWSCore-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRIVATE_HEADERS_FOLDER_PATH = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PUBLIC_HEADERS_FOLDER_PATH = "";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
@@ -1599,8 +1610,8 @@
 		1BA066B3D32C553BF37E3322F9113F02 /* Build configuration list for PBXNativeTarget "FMDB" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				5E2F95937BD27829D299193A3165F929 /* Debug */,
-				14DC5BAF9F2D73AE90C675175085A05D /* Release */,
+				BD87F014AD67D1B113CB8E9958F091C2 /* Debug */,
+				F23173131F023479A14667144513663E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1608,8 +1619,8 @@
 		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				015A368F878AC3E2CEAE21DDE8026304 /* Debug */,
-				44CDBB6D11DE06DB64D6268622BDC47E /* Release */,
+				E4B68EE12B21C47CB798D9B1ECA6D7A7 /* Debug */,
+				B254DAA6CF0CE39F4A3D11B90A7E059A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1617,8 +1628,8 @@
 		379EAD3B011EF391434561F573DAC056 /* Build configuration list for PBXNativeTarget "AWSSQS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				3768207F5A09EAD8E013BA9B6144E38A /* Debug */,
-				A8F7A7DADAADAC8DFBE23F855B659F8E /* Release */,
+				496E1BACA4CCB3836BAE7B6017DA6344 /* Debug */,
+				C2FC8EBE563740D6348EBEDFA24F4704 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1626,8 +1637,8 @@
 		546B3FDABA6746CF31DC9344C61F90E3 /* Build configuration list for PBXNativeTarget "AWSCore" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				D52A7E4348CC7D49C6E5EC0C5B5FE0A7 /* Debug */,
-				F875D88501D7A0D8EB3CC3E4A57ADB97 /* Release */,
+				8E3E69B64B41A5AE96AB2C92B462BCF8 /* Debug */,
+				3B87C681A8EB830A483477BF3AEA202A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1635,8 +1646,8 @@
 		6319A8A79CAF55E51D28A20D70AA4F50 /* Build configuration list for PBXNativeTarget "Pods-ZendriveSDKDemo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				A957525BF24B1C4372F454040393700B /* Debug */,
-				948639C6C05C3AF0C984E0343E41AAC7 /* Release */,
+				8CA59A83295726DFBF724C4BFF2EB444 /* Debug */,
+				5FB525E227727422E630DBEE5FFAA691 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1644,8 +1655,8 @@
 		7C66CB3E04875BC1C255326C7ADB2D78 /* Build configuration list for PBXNativeTarget "MBProgressHUD" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				4ECD94EB658408EAB639A8B305F4DA79 /* Debug */,
-				50578562CB4D9ABA8620420C08C638C2 /* Release */,
+				FFCFD877A0D05122357C558B9F34B2B9 /* Debug */,
+				1F94CE7E65F6BDD0A280D8B698381DB3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1653,8 +1664,8 @@
 		BE810009CAE5DA1635CDBF4322FE1B45 /* Build configuration list for PBXNativeTarget "Reachability" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				9370FF2DB99EC3A16DDF732646544068 /* Debug */,
-				BE7F472626DE890201C76238C24A832A /* Release */,
+				99810B21E4CD930D156FBB967795ED1B /* Debug */,
+				675F10C2F4E5A16B91CD921935DCAE82 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
