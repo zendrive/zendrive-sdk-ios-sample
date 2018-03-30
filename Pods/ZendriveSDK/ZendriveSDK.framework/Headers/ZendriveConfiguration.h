@@ -58,7 +58,14 @@ typedef NS_ENUM(int, ZendriveDriveDetectionMode) {
      * can be invoked independent of this mode. For recording trips in this mode, the
      * application has to explicitly invoke the [Zendrive startDrive:] method.
      */
-    ZendriveDriveDetectionModeAutoOFF
+    ZendriveDriveDetectionModeAutoOFF = 1,
+
+    /**
+     * In this mode drive detection is controlled by period APIs present in
+     * ZendriveInsurance class. Only ZendriveInsurance APIs should be used in
+     * this mode to control ZendriveSDK behavior.
+     */
+    ZendriveDriveDetectionModeInsurance = 2
 };
 
 /**
