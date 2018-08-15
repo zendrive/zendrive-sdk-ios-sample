@@ -9,11 +9,11 @@
 #import <Foundation/Foundation.h>
 
 /**
- * @abstract Applications which want to record insurance periods for a driver may use these APIs.
+ * @abstract Applications which want to record Fairmatic insurance periods for a driver may use these APIs.
  *
  * @discussion All drives (automatically detected or manually started) when a period is in progress 
  * will be tagged with the period id. This period id will be made available in the reports and API
- * that Zendrive provides.
+ * that Fairmatic provides via Zendrive.
  *
  * Only one period can be active at a time.
  * Switching periods or calling stopPeriod stops any active drives (automatic or manual).
@@ -23,7 +23,7 @@
 @interface ZendriveInsurance : NSObject
 
 /**
- * @abstract Start insurance period 1 in the SDK.
+ * @abstract Start Fairmatic insurance period 1 in the SDK.
  *
  * @discussion Trips in this period will be detected automatically.
  *
@@ -35,7 +35,7 @@
 + (void)startPeriod1:(NSError **)error;
 
 /**
- * @abstract Start insurance period 2 in the SDK.
+ * @abstract Start Fairmatic insurance period 2 in the SDK.
  *
  * @discussion A manual trip of id trackingId will be started immediately on this call.
  * The entire duration in this period will be recorded as a single trip. 
@@ -51,7 +51,7 @@
 + (void)startDriveWithPeriod2:(NSString *)trackingId error:(NSError **)error;
 
 /**
- * @abstract Start insurance period 3 in the SDK.
+ * @abstract Start Fairmatic insurance period 3 in the SDK.
  *
  * @discussion A manual trip of id trackingId will be started immediately on this call.
  * The entire duration in this period will be recorded as a single trip.
@@ -67,7 +67,7 @@
 + (void)startDriveWithPeriod3:(NSString *)trackingId error:(NSError **)error;
 
 /**
- * @abstract Stop currently ongoing insurance period if any.
+ * @abstract Stop currently ongoing Fairmatic insurance period if any.
  *
  * @discussion Ongoing trips at the time of this call will be stopped.
  * Auto trip detection is turned off on this call.

@@ -15,16 +15,24 @@
  * Status of the debug upload request. As received in the delegate.
  **/
 typedef NS_ENUM(int, ZendriveDebugUploadStatus) {
-    // Success.
+    /**
+     * Debug data upload finished successfully.
+     */
     ZendriveDebugUploadStatusSuccess = 0,
 
-    // Failed due to missing driverId.
+    /**
+     * Failed due to missing driverId.
+     */
     ZendriveDebugUploadStatusFailedMissingDriverId,
 
-    // Failed due to missing application key.
+    /**
+     * Failed due to missing application key.
+     */
     ZendriveDebugUploadStatusFailedMissingApplicationKey,
 
-    // Failed due to some other reason while uploading.
+    /**
+     * Failed due to some other reason while uploading.
+     */
     ZendriveDebugUploadStatusFailedInternal
 };
 
@@ -60,6 +68,9 @@ typedef NS_ENUM(int, ZendriveDebugUploadStatus) {
  * Typically this method should be used to check the ownership of a session idenfier obtained in
  * application:handleEventsForBackgroundURLSession:completionHandler: method of
  * UIApplicationDelegate
+ *
+ * @param identifier The identifier in application:handleEventsForBackgroundURLSession:completionHandler:
+ *
  **/
 + (BOOL)isZendriveSessionIdentifier:(nonnull NSString *)identifier;
 
@@ -74,7 +85,6 @@ typedef NS_ENUM(int, ZendriveDebugUploadStatus) {
  *
  * @param identifier The identifier in application:handleEventsForBackgroundURLSession:completionHandler:
  * @param completionHandler The completionhandler in application:handleEventsForBackgroundURLSession:completionHandler:
- * @param delegate The delegate which will receive the success and failure messages
  *
  **/
 + (void)handleEventsForBackgroundURLSession:(nonnull NSString *)identifier

@@ -142,7 +142,7 @@ typedef NS_ENUM(int, ZendriveAccidentDetectionMode) {
  * suits your application requirements.
  * Once setup, all drives detected by the SDK would be in the specified operationMode. If
  * you wish to change the operation mode at any point, you need to call
- * [Zendrive teardown] and setup the SDK again.
+ * [Zendrive teardownWithCompletionHandler:] and setup the SDK again.
  *
  * @warning Property ignored. It is always set to ZendriveOperationModeDriverAnalytics.
  */

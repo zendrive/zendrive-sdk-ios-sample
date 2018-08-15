@@ -133,19 +133,6 @@ typedef void (^ZendriveSetupHandler)(BOOL success, NSError * __nullable error);
  *
  * @discussion The teardown method is internally synchronized with
  * setupWithConfiguration:delegate:completionHandler: method, and the enclosing
- * application should avoid synchronizing the two methods independently. If you want a
- * callback on teardown, use teardownWithCompletionHandler: method. This is same as
- * calling teardownWithCompletionHandler: with a nil handler.
- *
- */
-+ (void)teardown;
-
-/**
- * @abstract Stops driving data collection. The application can disable the Zendrive SDK
- * by invoking this method. This method is asynchronous.
- *
- * @discussion The teardown method is internally synchronized with
- * setupWithConfiguration:delegate:completionHandler: method, and the enclosing
  * application should avoid synchronizing the two methods independently. Calling this
  * with nil completion handler is same as calling teardown method.
  *

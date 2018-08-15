@@ -29,6 +29,24 @@ typedef NS_ENUM(NSInteger, ZendriveEventSeverity) {
 };
 
 /**
+ * This is returned in [ZendriveEvent turnDirection], it represents the turn direction for ZendriveEventHardTurn
+ */
+typedef NS_ENUM(NSInteger, ZendriveTurnDirection) {
+    /**
+     * This is returned for all [ZendriveEvent eventType] values other than ZendriveEventHardTurn
+     */
+    ZendriveTurnDirectionNotAvailable = 0,
+    /**
+     * Indicates that the turn direction of the event was Left.
+     */
+    ZendriveTurnDirectionLeft,
+    /**
+     * Indicates that the turn direction of the event was right.
+     */
+    ZendriveTurnDirectionRight
+};
+
+/**
  * The event type as specified in [ZendriveEvent eventType]
  */
 typedef NS_ENUM(NSInteger, ZendriveEventType) {
@@ -54,11 +72,16 @@ typedef NS_ENUM(NSInteger, ZendriveEventType) {
     ZendriveEventOverSpeeding,
 
     /**
-     * This denotes a collision as detection by ZendriveSDK.
+     * This denotes a collision as detected by ZendriveSDK.
      * You will also receive [ZendriveDelegateProtocol processAccidentDetected:]
      * in realtime for this event.
      */
-    ZendriveEventAccident
+    ZendriveEventAccident,
+
+    /**
+     * This denotes a hard turn as detected by ZendriveSDK.
+     */
+    ZendriveEventHardTurn
 };
 
 /**
@@ -111,9 +134,11 @@ typedef NS_ENUM(NSInteger, ZendriveEventType) {
  */
 @property (nonatomic, assign) ZendriveEventSeverity eventSeverity;
 /**
+ * Denotes the turn direction of a hard turn whether a left or right turn.
+ */
+@property (nonatomic, assign) ZendriveTurnDirection turnDirection;
+/**
  * Additional data in the eventType is ZendriveEventOverSpeeding, will be nil otherwise.
  */
 @property (nonatomic, strong, nullable) ZendriveSpeedingData *speedingData;
 @end
-
-

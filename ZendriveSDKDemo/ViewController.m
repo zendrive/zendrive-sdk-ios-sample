@@ -117,7 +117,7 @@ static NSString * kZendriveSDKKeyString = @"your-sdk-key";
 }
 
 - (void)userLoggedOut:(NSNotification *)notification {
-    [Zendrive teardown];
+    [Zendrive teardownWithCompletionHandler:nil];
     self.isZendriveSetup = NO;
     [self reloadView];
 }
@@ -129,7 +129,7 @@ static NSString * kZendriveSDKKeyString = @"your-sdk-key";
 }
 
 - (void)serviceTierUpdated:(NSNotification *)notification {
-    [Zendrive teardown];
+    [Zendrive teardownWithCompletionHandler:nil];
     self.isZendriveSetup = NO;
     [self reloadView];
 }
