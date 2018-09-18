@@ -66,7 +66,18 @@ typedef NS_ENUM(int, ZendriveError) {
      * Invalid trackingId passed for new drive. This error may be returned from
      * startDriveWithPeriod2, startDriveWithPeriod3 APIs of ZendriveInsurance.
      */
-    kZendriveErrorInvalidTrackingId = 105
+    kZendriveErrorInvalidTrackingId = 105,
+
+    /**
+     * ZendriveSDK is not torn down. This error is returned if the requested operation cannot
+     * be completed while the SDK is running like the wipeout API.
+     */
+    kZendriveErrorNotTornDown = 106,
+
+    /**
+     * Some IO error occured while doing the operation. Refer to error description for more info.
+     */
+    kZendriveErrorIOError = 107
 };
 
 #endif

@@ -142,6 +142,18 @@ typedef void (^ZendriveSetupHandler)(BOOL success, NSError * __nullable error);
 + (void)teardownWithCompletionHandler:(void(^ __nullable)(void))handler;
 
 /**
+ * @abstract Wipe out all the data that zendrive keeps locally on the device.
+ *
+ * @discussion When Zendrive SDK is torn down, trip data that is locally persisted continues to remain persisted.
+ * The data will be uploaded when SDK setup is called at a later time.
+ * Wipeout should be used when the application wants to remove all traces of Zendrive on the device.
+ * Data cannot be recovered after this call.
+ * NOTE: This call can only be made when the SDK is not running.
+ * Call teardownWithCompletionHandler: to tear down a live SDK before making this call.
+ */
++ (BOOL)wipeOut:(NSError * __nullable * __nullable)error;
+
+/**
  * @abstract This API allows application to override Zendrive's auto drive detection
  * algorithm.
  *
