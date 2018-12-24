@@ -6,5 +6,5 @@ source 'https://github.com/CocoaPods/Specs.git'
 target 'ZendriveSDKDemo' do
 
 pod 'ZendriveSDK', :git => 'https://bitbucket.org/zendrive-root/zendrive_cocoapod.git', :tag => '5.6.1'
-pod 'MBProgressHUD', '~> 0.8'
+pod 'MBProgressHUD', '~> 0.9.2'
 end
