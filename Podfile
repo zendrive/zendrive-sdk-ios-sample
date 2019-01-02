@@ -4,7 +4,11 @@ platform :ios, '8.0'
 source 'https://github.com/CocoaPods/Specs.git'
 
 target 'ZendriveSDKDemo' do
+  pod 'ZendriveSDK', :git => 'https://bitbucket.org/zendrive-root/zendrive_cocoapod.git', :tag => '5.8.0'
+  pod 'MBProgressHUD', '~> 0.9.2'
+end
 
-pod 'ZendriveSDK', :git => 'https://bitbucket.org/zendrive-root/zendrive_cocoapod.git', :tag => '5.6.1'
-pod 'MBProgressHUD', '~> 0.9.2'
+target 'Testing-ZendriveSDKDemo' do
+  pod 'ZendriveSDK/Testing', :git => 'https://bitbucket.org/zendrive-root/zendrive_cocoapod.git', :tag => '5.8.0'
+  pod 'MBProgressHUD', '~> 0.9.2'
 end

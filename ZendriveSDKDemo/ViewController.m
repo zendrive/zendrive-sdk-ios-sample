@@ -160,7 +160,7 @@ static NSString * kZendriveSDKKeyString = @"your-sdk-key";
 }
 
 - (IBAction)endDriveTapped:(id)sender {
-    [Zendrive stopDrive:@"your-tracking-id-here"];
+    [Zendrive stopManualDrive];
 }
 
 - (IBAction)triggerMockAccidentTapped:(id)sender {
@@ -238,6 +238,12 @@ static NSString * kZendriveSDKKeyString = @"your-sdk-key";
     if ([self isAccidentEnabled]) {
         self.mockAccidentButton.enabled = YES;
     }
+
+    NSDateFormatter *df = [[NSDateFormatter alloc] init];
+    df.dateFormat = @"dd/MM/yyyy, HH:mm";
+    NSString *dateString = [df stringFromDate:[NSDate dateWithTimeIntervalSince1970:
+                                               (startInfo.startTimestamp/1000)]];
+    [self displayNotification:[NSString stringWithFormat:@"Trip started: %@", dateString]];
 }
 
 - (void)processEndOfDrive:(ZendriveDriveInfo *)drive {
@@ -252,6 +258,16 @@ static NSString * kZendriveSDKKeyString = @"your-sdk-key";
     [SharedUserDefaultsManager saveTrip:trip];
     [self.tripsArray insertObject:trip atIndex:0];
     [self.tableView reloadData];
+
+    NSDateFormatter *df = [[NSDateFormatter alloc] init];
+    df.dateFormat = @"dd/MM/yyyy, HH:mm";
+    NSString *startDateString = [df stringFromDate:[NSDate dateWithTimeIntervalSince1970:
+                                                    (drive.startTimestamp/1000)]];
+    NSString *endDateString = [df stringFromDate:[NSDate dateWithTimeIntervalSince1970:
+                                                  (drive.endTimestamp/1000)]];
+    [self displayNotification:
+     [NSString stringWithFormat:@"Trip ended: %@, %@\nDistance: %.2fm",
+      startDateString, endDateString, drive.distance]];
 }
 
 - (void)processAnalysisOfDrive:(ZendriveAnalyzedDriveInfo *)analyzedDriveInfo {
@@ -266,6 +282,16 @@ static NSString * kZendriveSDKKeyString = @"your-sdk-key";
     [SharedUserDefaultsManager updateTrip:trip];
     self.tripsArray = [SharedUserDefaultsManager fetchAllTrips];
     [self.tableView reloadData];
+
+    NSDateFormatter *df = [[NSDateFormatter alloc] init];
+    df.dateFormat = @"dd/MM/yyyy, HH:mm";
+    NSString *startDateString = [df stringFromDate:[NSDate dateWithTimeIntervalSince1970:
+                                                    (analyzedDriveInfo.startTimestamp/1000)]];
+    NSString *endDateString = [df stringFromDate:[NSDate dateWithTimeIntervalSince1970:
+                                                  (analyzedDriveInfo.endTimestamp/1000)]];
+    [self displayNotification:
+     [NSString stringWithFormat:@"Trip analyzed: %@, %@\nDistance: %.2fm",
+      startDateString, endDateString, analyzedDriveInfo.distance]];
 }
 
 - (void)processLocationDenied {
@@ -284,11 +310,13 @@ static NSString * kZendriveSDKKeyString = @"your-sdk-key";
         // Panic
         alertString = @"Please respond if you are ok, we will "
         "send help if you don't respond for a min";
+        [self displayNotification:@"Accident Detected with high confidence."];
     }
     else {
         // Little panic
         alertString = @"Please respond if you are ok, we will send help "
         "if you don't respond for 10 mins";
+        [self displayNotification:@"Accident Detected with low confidence."];
     }
 
     [[[UIAlertView alloc]
@@ -393,4 +421,15 @@ static NSString * kZendriveSDKKeyString = @"your-sdk-key";
 - (BOOL)isAccidentEnabled {
     return [Zendrive isAccidentDetectionSupportedByDevice];
 }
+
+- (void)displayNotification:(NSString *)message {
+    UILocalNotification* localNotification = [[UILocalNotification alloc] init];
+    localNotification.alertBody = message;
+    localNotification.alertAction = @"Open";
+    localNotification.soundName = UILocalNotificationDefaultSoundName;
+    localNotification.timeZone = [NSTimeZone defaultTimeZone];
+    localNotification.applicationIconBadgeNumber = 1;
+    [[UIApplication sharedApplication] presentLocalNotificationNow:localNotification];
+}
+
 @end

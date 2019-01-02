@@ -20,7 +20,15 @@ You can integrate <a href="http://developers.zendrive.com/docs/ios/">Zendrive iO
 <ul style="list-style-position: inside">
 <li> Sign up <a href="http://developers.zendrive.com/signup">here.</a></li>
 <li> Replace &lt;your-sdk-key&gt; in ViewController.m with your own application key.</li>
-<li> Run!</li>
+<li> Run ZendriveSDKDemo target!</li>
+</ul>
+
+<h4>How to run the mock sample app</h4>
+<ul style="list-style-position: inside">
+<li> Sign up <a href="http://developers.zendrive.com/signup">here.</a></li>
+<li> Replace &lt;your-sdk-key&gt; in ViewController.m with your own application key.</li>
+<li> Run Mock-ZendriveSDKDemo target!</li>
+<li> For simulating sample mock drives, Goto Settings->Simulate Preset Drives.</li>
 </ul>
 
 <h5>Please go to <a href="http://developers.zendrive.com/docs/ios/">Zendrive iOS SDK</a> documentation for further details.</h5>

@@ -27,6 +27,8 @@
     self.window.rootViewController = navigationController;
     [self.window makeKeyAndVisible];
 
+    [self registerForNotifications:application];
+
     return YES;
 }
 
@@ -50,6 +52,17 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+- (void)registerForNotifications:(UIApplication *)application {
+    if ([application respondsToSelector:@selector(registerUserNotificationSettings:)]) {
+        UIUserNotificationSettings *settings =
+        [UIUserNotificationSettings settingsForTypes:(UIUserNotificationTypeBadge |
+                                                      UIUserNotificationTypeSound |
+                                                      UIUserNotificationTypeAlert)
+                                          categories:nil];
+        [application registerUserNotificationSettings:settings];
+    }
 }
 
 @end

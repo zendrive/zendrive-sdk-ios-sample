@@ -8,6 +8,9 @@
 
 #import "SettingsViewController.h"
 #import "UserDefaultsManager.h"
+#ifdef MOCK_BUILD
+#import "MockDriveController.h"
+#endif
 
 #import "NotificationConstants.h"
 
@@ -74,6 +77,19 @@
       "Free/Paid users, contact us on support@zendrive.com to create "
       "special service plans"
       delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil] show];
+}
+
+- (IBAction)simulateDriveList:(id)sender {
+#ifdef MOCK_BUILD
+    MockDriveController *controller = [[MockDriveController alloc] initWithNibName:nil bundle:nil];
+    [self.navigationController pushViewController:controller animated:YES];
+#else
+    [[[UIAlertView alloc]
+      initWithTitle:@"Mock Drive not enabled"
+      message:@"Simulate preset drives is not enabled in this build. Please build "
+      "Mock-ZendriveSDKDemo target to access this option."
+      delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil] show];
+#endif
 }
 
 @end
