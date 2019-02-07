@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F4EF76563407D451ACC4ADE /* libPods-Testing-ZendriveSDKDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A613E60F6D63C272CE18B0BE /* libPods-Testing-ZendriveSDKDemo.a */; };
 		5611DED11A630B93004CA14C /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5611DED01A630B93004CA14C /* ViewController.xib */; };
 		56D827C51A63086200703BEF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 56D827C41A63086200703BEF /* main.m */; };
 		56D827C81A63086200703BEF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 56D827C71A63086200703BEF /* AppDelegate.m */; };
@@ -29,6 +30,7 @@
 		AABC218821DCD4CF002B87FB /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC7F86241C808B63000B4FE1 /* SettingsViewController.xib */; };
 		AABC219321DCD625002B87FB /* MockDriveController.m in Sources */ = {isa = PBXBuildFile; fileRef = AABC219121DCD625002B87FB /* MockDriveController.m */; };
 		AABC219421DCD625002B87FB /* MockDriveController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AABC219221DCD625002B87FB /* MockDriveController.xib */; };
+		E57F7942D68C532F9180D37A /* libPods-ZendriveSDKDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F884C9A1F8ACDA1E0185ABA /* libPods-ZendriveSDKDemo.a */; };
 		EC7F86181C803D9E000B4FE1 /* UIAlertView+BlockExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = EC7F86171C803D9E000B4FE1 /* UIAlertView+BlockExtensions.m */; };
 		EC7F861E1C8070C3000B4FE1 /* UserDefaultsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EC7F861D1C8070C3000B4FE1 /* UserDefaultsManager.m */; };
 		EC7F86211C807258000B4FE1 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = EC7F86201C807258000B4FE1 /* User.m */; };
@@ -49,6 +51,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		009A1686F98DABCAEB685F82 /* Pods-Testing-ZendriveSDKDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Testing-ZendriveSDKDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-Testing-ZendriveSDKDemo/Pods-Testing-ZendriveSDKDemo.release.xcconfig"; sourceTree = "<group>"; };
+		09BCDCEF9DE917F7701D46A7 /* Pods-Testing-ZendriveSDKDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Testing-ZendriveSDKDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Testing-ZendriveSDKDemo/Pods-Testing-ZendriveSDKDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		4F884C9A1F8ACDA1E0185ABA /* libPods-ZendriveSDKDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ZendriveSDKDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		54CEEBA8B3DABC5996FC833A /* Pods-ZendriveSDKDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZendriveSDKDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ZendriveSDKDemo/Pods-ZendriveSDKDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		5611DED01A630B93004CA14C /* ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
 		56D827BF1A63086200703BEF /* ZendriveSDKDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZendriveSDKDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		56D827C31A63086200703BEF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -62,6 +68,8 @@
 		56D827DE1A63086300703BEF /* ZendriveSDKDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZendriveSDKDemoTests.m; sourceTree = "<group>"; };
 		56D827E81A63090700703BEF /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		56D827E91A63090700703BEF /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		7F3D09148A54B77C007FD3E1 /* Pods-ZendriveSDKDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZendriveSDKDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-ZendriveSDKDemo/Pods-ZendriveSDKDemo.release.xcconfig"; sourceTree = "<group>"; };
+		A613E60F6D63C272CE18B0BE /* libPods-Testing-ZendriveSDKDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Testing-ZendriveSDKDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AABC218C21DCD4CF002B87FB /* Testing-ZendriveSDKDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Testing-ZendriveSDKDemo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AABC218D21DCD4D0002B87FB /* Testing-ZendriveSDKDemo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Testing-ZendriveSDKDemo-Info.plist"; path = "/Users/sudeepkumar/sdk-ios-sample/Testing-ZendriveSDKDemo-Info.plist"; sourceTree = "<absolute>"; };
 		AABC219021DCD625002B87FB /* MockDriveController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MockDriveController.h; sourceTree = "<group>"; };
@@ -88,6 +96,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E57F7942D68C532F9180D37A /* libPods-ZendriveSDKDemo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -102,6 +111,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F4EF76563407D451ACC4ADE /* libPods-Testing-ZendriveSDKDemo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -115,6 +125,8 @@
 				56D827C11A63086200703BEF /* ZendriveSDKDemo */,
 				56D827DB1A63086300703BEF /* ZendriveSDKDemoTests */,
 				56D827C01A63086200703BEF /* Products */,
+				A1436D8D622D4151ACEE1CDE /* Pods */,
+				D9FDF4CA7C55FFFC0D5C2786 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -178,6 +190,17 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		A1436D8D622D4151ACEE1CDE /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				09BCDCEF9DE917F7701D46A7 /* Pods-Testing-ZendriveSDKDemo.debug.xcconfig */,
+				009A1686F98DABCAEB685F82 /* Pods-Testing-ZendriveSDKDemo.release.xcconfig */,
+				54CEEBA8B3DABC5996FC833A /* Pods-ZendriveSDKDemo.debug.xcconfig */,
+				7F3D09148A54B77C007FD3E1 /* Pods-ZendriveSDKDemo.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		AABC218E21DCD504002B87FB /* Testing-ZendriveSDKDemo */ = {
 			isa = PBXGroup;
 			children = (
@@ -195,6 +218,15 @@
 				AABC218D21DCD4D0002B87FB /* Testing-ZendriveSDKDemo-Info.plist */,
 			);
 			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D9FDF4CA7C55FFFC0D5C2786 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A613E60F6D63C272CE18B0BE /* libPods-Testing-ZendriveSDKDemo.a */,
+				4F884C9A1F8ACDA1E0185ABA /* libPods-ZendriveSDKDemo.a */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		EC976B9D1AABAEE9009FB78F /* Model */ = {
@@ -217,6 +249,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 56D827E21A63086300703BEF /* Build configuration list for PBXNativeTarget "ZendriveSDKDemo" */;
 			buildPhases = (
+				C6F84CEFE9019DED0617DFBA /* [CP] Check Pods Manifest.lock */,
 				56D827BB1A63086200703BEF /* Sources */,
 				56D827BC1A63086200703BEF /* Frameworks */,
 				56D827BD1A63086200703BEF /* Resources */,
@@ -252,6 +285,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AABC218921DCD4CF002B87FB /* Build configuration list for PBXNativeTarget "Testing-ZendriveSDKDemo" */;
 			buildPhases = (
+				B1600CD40D2BBE5EB30B1467 /* [CP] Check Pods Manifest.lock */,
 				AABC217821DCD4CF002B87FB /* Sources */,
 				AABC218221DCD4CF002B87FB /* Frameworks */,
 				AABC218421DCD4CF002B87FB /* Resources */,
@@ -346,6 +380,53 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		B1600CD40D2BBE5EB30B1467 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Testing-ZendriveSDKDemo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C6F84CEFE9019DED0617DFBA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ZendriveSDKDemo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		56D827BB1A63086200703BEF /* Sources */ = {
@@ -451,6 +532,7 @@
 					"$(inherited)",
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -497,6 +579,7 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -512,6 +595,7 @@
 		};
 		56D827E31A63086300703BEF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 54CEEBA8B3DABC5996FC833A /* Pods-ZendriveSDKDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -522,6 +606,7 @@
 					"$(inherited)",
 					"\"${PODS_ROOT}/ZendriveSDK\"/**",
 				);
+				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				INFOPLIST_FILE = ZendriveSDKDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -534,6 +619,7 @@
 		};
 		56D827E41A63086300703BEF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7F3D09148A54B77C007FD3E1 /* Pods-ZendriveSDKDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -544,6 +630,7 @@
 					"$(inherited)",
 					"\"${PODS_ROOT}/ZendriveSDK\"/**",
 				);
+				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				INFOPLIST_FILE = ZendriveSDKDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -566,6 +653,7 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
+				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				INFOPLIST_FILE = ZendriveSDKDemoTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.zendrive.$(PRODUCT_NAME:rfc1034identifier)";
@@ -582,6 +670,7 @@
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 				);
+				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				INFOPLIST_FILE = ZendriveSDKDemoTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.zendrive.$(PRODUCT_NAME:rfc1034identifier)";
@@ -592,6 +681,7 @@
 		};
 		AABC218A21DCD4CF002B87FB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 09BCDCEF9DE917F7701D46A7 /* Pods-Testing-ZendriveSDKDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -618,6 +708,7 @@
 		};
 		AABC218B21DCD4CF002B87FB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 009A1686F98DABCAEB685F82 /* Pods-Testing-ZendriveSDKDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
