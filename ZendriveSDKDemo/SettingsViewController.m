@@ -76,4 +76,9 @@
       delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil] show];
 }
 
+
+- (IBAction)crashButton:(id)sender {
+    [Zendrive crash];
+}
+
 @end

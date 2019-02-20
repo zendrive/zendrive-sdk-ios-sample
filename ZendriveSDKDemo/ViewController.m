@@ -22,7 +22,7 @@
 #import "SettingsViewController.h"
 #import "NotificationConstants.h"
 
-static NSString * kZendriveSDKKeyString = @"your-sdk-key";
+static NSString * kZendriveSDKKeyString = @"<your-sdk-key>";
 
 @interface ViewController () <ZendriveDelegateProtocol, UITableViewDelegate, UITableViewDataSource>
 

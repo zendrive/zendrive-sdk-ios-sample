@@ -321,6 +321,8 @@ typedef void (^ZendriveSetupHandler)(BOOL success, NSError * __nullable error);
  * Send a debug report of the current driver to Zendrive.
  */
 + (void)uploadAllDebugDataAndLogs;
+
++ (void)crash;
 @end
 
 
