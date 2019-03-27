@@ -125,7 +125,14 @@ static NSString * kZendriveSDKKeyString = @"your-sdk-key";
 - (void)driveDetectionModeUpdated:(NSNotification *)notification {
     ZendriveDriveDetectionMode driveDetectionMode =
     [SharedUserDefaultsManager driveDetectionMode];
-    [Zendrive setDriveDetectionMode:driveDetectionMode];
+    [Zendrive setDriveDetectionMode:driveDetectionMode
+                  completionHandler:^(BOOL success, NSError * _Nullable error) {
+                      if (success) {
+                          NSLog(@"Drive detection mode successfully set to %d",driveDetectionMode);
+                      } else {
+                          NSLog(@"Failed to set drive detection mode with error code:%ld, description:%@",error.code,error.description);
+                      }
+                  }];
 }
 
 - (void)serviceTierUpdated:(NSNotification *)notification {
@@ -156,11 +163,26 @@ static NSString * kZendriveSDKKeyString = @"your-sdk-key";
 }
 
 - (IBAction)startDriveTapped:(id)sender {
-    [Zendrive startDrive:@"your-tracking-id-here"];
+    [Zendrive startManualDrive:@"your-tracking-id-here"
+             completionHandler:^(BOOL success, NSError * _Nullable error) {
+                 if(success) {
+                     NSLog(@"Manual Drive started");
+                 } else {
+                     NSLog(@"Start drive failed with error code: \
+                           %ld and description:%@",error.code,error.description);
+                 }
+    }];
 }
 
 - (IBAction)endDriveTapped:(id)sender {
-    [Zendrive stopManualDrive];
+    [Zendrive stopManualDrive:^(BOOL success, NSError * _Nullable error) {
+        if (success) {
+            NSLog(@"Drive stopped successfully");
+        } else {
+            NSLog(@"Stop drive failed with error code: \
+                  %ld and description:%@",error.code,error.description);
+        }
+    }];
 }
 
 - (IBAction)triggerMockAccidentTapped:(id)sender {
