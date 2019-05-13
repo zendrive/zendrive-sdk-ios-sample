@@ -21,10 +21,11 @@
 
 #import "SettingsViewController.h"
 #import "NotificationConstants.h"
+#import "UserConsentUtility.h"
 
 static NSString * kZendriveSDKKeyString = @"your-sdk-key";
 
-@interface ViewController () <ZendriveDelegateProtocol, UITableViewDelegate, UITableViewDataSource>
+@interface ViewController () <ZendriveDelegateProtocol, UITableViewDelegate, UITableViewDataSource, UserConsentViewControllerDelegate>
 
 @property (nonatomic, weak) IBOutlet UILabel* driveStatusLabel;
 @property (nonatomic, weak) IBOutlet UIButton* startDriveButton;
@@ -59,7 +60,9 @@ static NSString * kZendriveSDKKeyString = @"your-sdk-key";
     self.tripsArray = [SharedUserDefaultsManager fetchAllTrips];
     [self.tableView reloadData];
     [self registerForNotifications];
-    [self reloadView];
+    if ([UserConsentUtility isConsentProvidedByTheUser] && [UserConsentUtility isThirdPartyDataCollectionAllowed]) {
+        [self setupZendriveSdkAndReloadView];
+    }
 }
 
 - (void)dealloc {
@@ -75,7 +78,7 @@ static NSString * kZendriveSDKKeyString = @"your-sdk-key";
     [super viewDidAppear:animated];
 }
 
-- (void)reloadView {
+- (void)setupZendriveSdkAndReloadView {
     if (!self.isZendriveSetup) {
         User *user = [SharedUserDefaultsManager loggedInUser];
         if (!user) {
@@ -85,6 +88,12 @@ static NSString * kZendriveSDKKeyString = @"your-sdk-key";
         }
         self.driverIdLabel.text = user.driverId;
         self.loginView.hidden = YES;
+        if (![UserConsentUtility isThirdPartyDataCollectionAllowed]) {
+            self.endDriveButton.enabled = NO;
+            self.startDriveButton.enabled = NO;
+            self.driveStatusLabel.text = @"SDK Not Initialized";
+            return;
+        }
         [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         [self initializeSDKForUser:user successHandler:
          ^{
@@ -114,12 +123,14 @@ static NSString * kZendriveSDKKeyString = @"your-sdk-key";
                                name:kNotificationDriveDetectionModeUpdated object:nil];
     [NotificationCenter addObserver:self selector:@selector(serviceTierUpdated:)
                                name:kNotificationServiceTierUpdated object:nil];
+    [NotificationCenter addObserver:self selector:@selector(thirdPartyDataCollectionPermissionUpdated:)
+                               name:kNotificationThirdPartyDataCollectionPermissionUpdated object:nil];
 }
 
 - (void)userLoggedOut:(NSNotification *)notification {
     [Zendrive teardownWithCompletionHandler:nil];
     self.isZendriveSetup = NO;
-    [self reloadView];
+    [self setupZendriveSdkAndReloadView];
 }
 
 - (void)driveDetectionModeUpdated:(NSNotification *)notification {
@@ -138,7 +149,22 @@ static NSString * kZendriveSDKKeyString = @"your-sdk-key";
 - (void)serviceTierUpdated:(NSNotification *)notification {
     [Zendrive teardownWithCompletionHandler:nil];
     self.isZendriveSetup = NO;
-    [self reloadView];
+    [self setupZendriveSdkAndReloadView];
+}
+
+- (void)thirdPartyDataCollectionPermissionUpdated:(NSNotification *)notification {
+    // Consent Step: User has changed permissions for third-party data collection
+    if ([UserConsentUtility isThirdPartyDataCollectionAllowed]) {
+        // Choose to show the consent screen to the user and setup the SDK thereafter
+        [UserConsentUtility showConsentScreenForCompanyName:@"ZendriveSDKDemo"
+                                                   delegate:self
+                                   presentingViewController:self];
+    } else {
+        // Tear down ZendriveSDK since user has disallowed third-party data collection
+        [Zendrive teardownWithCompletionHandler:nil];
+        self.isZendriveSetup = NO;
+        [self setupZendriveSdkAndReloadView];
+    }
 }
 
 //------------------------------------------------------------------------------
@@ -159,7 +185,10 @@ static NSString * kZendriveSDKKeyString = @"your-sdk-key";
                                     phoneNumber:@"+1234567890"
                                        driverId:driverId];
     [SharedUserDefaultsManager setLoggedInUser:user];
-    [self reloadView];
+    // Consent Step: Take consent from user
+    [UserConsentUtility showConsentScreenForCompanyName:@"ZendriveSDKDemo"
+                                               delegate:self
+                               presentingViewController:self];
 }
 
 - (IBAction)startDriveTapped:(id)sender {
@@ -439,6 +468,18 @@ static NSString * kZendriveSDKKeyString = @"your-sdk-key";
     localNotification.timeZone = [NSTimeZone defaultTimeZone];
     localNotification.applicationIconBadgeNumber = 1;
     [[UIApplication sharedApplication] presentLocalNotificationNow:localNotification];
+}
+
+//------------------------------------------------------------------------------
+#pragma mark - UserConsentViewControllerDelegate
+//------------------------------------------------------------------------------
+// Consent Step: User has granted consent. Setup Zendrive SDK here.
+- (void)userDidGrantConsent {
+    [self setupZendriveSdkAndReloadView];
+}
+
+- (void)displayPrivacyPolicyScreen {
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://www.zendrive.com/policy/"]];
 }
 
 @end

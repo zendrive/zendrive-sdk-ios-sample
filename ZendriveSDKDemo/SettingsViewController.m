@@ -13,11 +13,13 @@
 #endif
 
 #import "NotificationConstants.h"
+#import "UserConsentUtility.h"
 
 @interface SettingsViewController ()
 
 @property (nonatomic, weak) IBOutlet UISegmentedControl *driveDetectionModeChooser;
 @property (nonatomic, weak) IBOutlet UISegmentedControl *serviceTierChooser;
+@property (nonatomic, weak) IBOutlet UISegmentedControl *thirdPartyDataCollectionChooser;
 @end
 
 @implementation SettingsViewController
@@ -32,6 +34,9 @@
 
     int serviceTier = [SharedUserDefaultsManager serviceTier];
     [_serviceTierChooser setSelectedSegmentIndex:serviceTier];
+
+    BOOL thirdPartyPermission = [UserConsentUtility isThirdPartyDataCollectionAllowed];
+    [self.thirdPartyDataCollectionChooser setSelectedSegmentIndex:(thirdPartyPermission ? 0 : 1)];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -60,6 +65,11 @@
 - (IBAction)serviceTierChooserValueChanged:(UISegmentedControl *)sender {
     [SharedUserDefaultsManager setServiceTier:(int)sender.selectedSegmentIndex];
     [NotificationCenter postNotificationName:kNotificationServiceTierUpdated object:nil];
+}
+
+- (IBAction)thirdPartyDataCollectionValueChanged:(UISegmentedControl *)sender {
+    [UserConsentUtility setAllowThirdPartyToCollectData:((int)sender.selectedSegmentIndex == 0)];
+    [NotificationCenter postNotificationName:kNotificationThirdPartyDataCollectionPermissionUpdated object:nil];
 }
 
 - (IBAction)driveDetectionModeInfoButtonClicked:(id)sender {

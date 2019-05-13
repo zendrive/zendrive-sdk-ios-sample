@@ -30,6 +30,12 @@
 		AABC218821DCD4CF002B87FB /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC7F86241C808B63000B4FE1 /* SettingsViewController.xib */; };
 		AABC219321DCD625002B87FB /* MockDriveController.m in Sources */ = {isa = PBXBuildFile; fileRef = AABC219121DCD625002B87FB /* MockDriveController.m */; };
 		AABC219421DCD625002B87FB /* MockDriveController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AABC219221DCD625002B87FB /* MockDriveController.xib */; };
+		B7BB322022894CBA00A6B98C /* UserConsentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B7BB321E22894CBA00A6B98C /* UserConsentViewController.m */; };
+		B7BB322122894CBA00A6B98C /* UserConsentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B7BB321E22894CBA00A6B98C /* UserConsentViewController.m */; };
+		B7BB322222894CBA00A6B98C /* UserConsentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B7BB321F22894CBA00A6B98C /* UserConsentViewController.xib */; };
+		B7BB322322894CBA00A6B98C /* UserConsentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B7BB321F22894CBA00A6B98C /* UserConsentViewController.xib */; };
+		B7BB3226228960BE00A6B98C /* UserConsentUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = B7BB3225228960BE00A6B98C /* UserConsentUtility.m */; };
+		B7BB3227228960BE00A6B98C /* UserConsentUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = B7BB3225228960BE00A6B98C /* UserConsentUtility.m */; };
 		E57F7942D68C532F9180D37A /* libPods-ZendriveSDKDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F884C9A1F8ACDA1E0185ABA /* libPods-ZendriveSDKDemo.a */; };
 		EC7F86181C803D9E000B4FE1 /* UIAlertView+BlockExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = EC7F86171C803D9E000B4FE1 /* UIAlertView+BlockExtensions.m */; };
 		EC7F861E1C8070C3000B4FE1 /* UserDefaultsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EC7F861D1C8070C3000B4FE1 /* UserDefaultsManager.m */; };
@@ -75,6 +81,11 @@
 		AABC219021DCD625002B87FB /* MockDriveController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MockDriveController.h; sourceTree = "<group>"; };
 		AABC219121DCD625002B87FB /* MockDriveController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MockDriveController.m; sourceTree = "<group>"; };
 		AABC219221DCD625002B87FB /* MockDriveController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MockDriveController.xib; sourceTree = "<group>"; };
+		B7BB321D22894CBA00A6B98C /* UserConsentViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserConsentViewController.h; sourceTree = "<group>"; };
+		B7BB321E22894CBA00A6B98C /* UserConsentViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserConsentViewController.m; sourceTree = "<group>"; };
+		B7BB321F22894CBA00A6B98C /* UserConsentViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserConsentViewController.xib; sourceTree = "<group>"; };
+		B7BB3224228960BE00A6B98C /* UserConsentUtility.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserConsentUtility.h; sourceTree = "<group>"; };
+		B7BB3225228960BE00A6B98C /* UserConsentUtility.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserConsentUtility.m; sourceTree = "<group>"; };
 		EC7F86161C803D9E000B4FE1 /* UIAlertView+BlockExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+BlockExtensions.h"; sourceTree = "<group>"; };
 		EC7F86171C803D9E000B4FE1 /* UIAlertView+BlockExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+BlockExtensions.m"; sourceTree = "<group>"; };
 		EC7F861C1C8070C3000B4FE1 /* UserDefaultsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserDefaultsManager.h; sourceTree = "<group>"; };
@@ -143,6 +154,7 @@
 		56D827C11A63086200703BEF /* ZendriveSDKDemo */ = {
 			isa = PBXGroup;
 			children = (
+				B7BB321C22894B8900A6B98C /* UserConsentManagement */,
 				EC976B9D1AABAEE9009FB78F /* Model */,
 				EC7F86161C803D9E000B4FE1 /* UIAlertView+BlockExtensions.h */,
 				EC7F86171C803D9E000B4FE1 /* UIAlertView+BlockExtensions.m */,
@@ -218,6 +230,18 @@
 				AABC218D21DCD4D0002B87FB /* Testing-ZendriveSDKDemo-Info.plist */,
 			);
 			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B7BB321C22894B8900A6B98C /* UserConsentManagement */ = {
+			isa = PBXGroup;
+			children = (
+				B7BB321D22894CBA00A6B98C /* UserConsentViewController.h */,
+				B7BB321E22894CBA00A6B98C /* UserConsentViewController.m */,
+				B7BB321F22894CBA00A6B98C /* UserConsentViewController.xib */,
+				B7BB3224228960BE00A6B98C /* UserConsentUtility.h */,
+				B7BB3225228960BE00A6B98C /* UserConsentUtility.m */,
+			);
+			path = UserConsentManagement;
 			sourceTree = "<group>";
 		};
 		D9FDF4CA7C55FFFC0D5C2786 /* Frameworks */ = {
@@ -333,6 +357,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -355,6 +380,7 @@
 			files = (
 				56D827D31A63086300703BEF /* LaunchScreen.xib in Resources */,
 				5611DED11A630B93004CA14C /* ViewController.xib in Resources */,
+				B7BB322222894CBA00A6B98C /* UserConsentViewController.xib in Resources */,
 				56D827D01A63086300703BEF /* Images.xcassets in Resources */,
 				EC7F86261C808B63000B4FE1 /* SettingsViewController.xib in Resources */,
 			);
@@ -375,6 +401,7 @@
 				AABC218521DCD4CF002B87FB /* LaunchScreen.xib in Resources */,
 				AABC218621DCD4CF002B87FB /* ViewController.xib in Resources */,
 				AABC218721DCD4CF002B87FB /* Images.xcassets in Resources */,
+				B7BB322322894CBA00A6B98C /* UserConsentViewController.xib in Resources */,
 				AABC218821DCD4CF002B87FB /* SettingsViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -433,12 +460,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B7BB322022894CBA00A6B98C /* UserConsentViewController.m in Sources */,
 				EC976BA01AABAEF5009FB78F /* Trip.m in Sources */,
 				EC7F86181C803D9E000B4FE1 /* UIAlertView+BlockExtensions.m in Sources */,
 				EC7F86211C807258000B4FE1 /* User.m in Sources */,
 				EC7F86251C808B63000B4FE1 /* SettingsViewController.m in Sources */,
 				EC7F861E1C8070C3000B4FE1 /* UserDefaultsManager.m in Sources */,
 				56D827EB1A63090700703BEF /* ViewController.m in Sources */,
+				B7BB3226228960BE00A6B98C /* UserConsentUtility.m in Sources */,
 				56D827C81A63086200703BEF /* AppDelegate.m in Sources */,
 				EC976BA31AABB775009FB78F /* LocationPoint.m in Sources */,
 				56D827C51A63086200703BEF /* main.m in Sources */,
@@ -460,8 +489,10 @@
 				AABC217921DCD4CF002B87FB /* Trip.m in Sources */,
 				AABC219321DCD625002B87FB /* MockDriveController.m in Sources */,
 				AABC217A21DCD4CF002B87FB /* UIAlertView+BlockExtensions.m in Sources */,
+				B7BB3227228960BE00A6B98C /* UserConsentUtility.m in Sources */,
 				AABC217B21DCD4CF002B87FB /* User.m in Sources */,
 				AABC217C21DCD4CF002B87FB /* SettingsViewController.m in Sources */,
+				B7BB322122894CBA00A6B98C /* UserConsentViewController.m in Sources */,
 				AABC217D21DCD4CF002B87FB /* UserDefaultsManager.m in Sources */,
 				AABC217E21DCD4CF002B87FB /* ViewController.m in Sources */,
 				AABC217F21DCD4CF002B87FB /* AppDelegate.m in Sources */,

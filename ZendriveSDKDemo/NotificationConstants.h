@@ -10,3 +10,4 @@
 #define kNotificationUserLogout @"userLoggedOut"
 #define kNotificationDriveDetectionModeUpdated @"driveDetectionModeUpdated"
 #define kNotificationServiceTierUpdated @"serviceTierUpdated"
+#define kNotificationThirdPartyDataCollectionPermissionUpdated @"thirdPartyDataCollectionPermissionUpdated"
