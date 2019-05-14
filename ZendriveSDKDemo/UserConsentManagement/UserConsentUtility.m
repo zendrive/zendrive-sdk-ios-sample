@@ -35,7 +35,7 @@
 
 + (BOOL)isThirdPartyDataCollectionAllowed {
     id value = [[NSUserDefaults standardUserDefaults] valueForKey:kAllowThirdPartyDataCollectionKey];
-    return ((value == nil) || [[NSUserDefaults standardUserDefaults] boolForKey:kAllowThirdPartyDataCollectionKey]);
+    return ((value == nil) || [value boolValue]);
 }
 
 + (void)setAllowThirdPartyToCollectData:(BOOL)allow {
