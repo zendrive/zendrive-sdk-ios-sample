@@ -22,6 +22,7 @@
 #import "SettingsViewController.h"
 #import "NotificationConstants.h"
 #import "UserConsentUtility.h"
+#import <CoreMotion/CMMotionActivityManager.h>
 
 static NSString * kZendriveSDKKeyString = @"your-sdk-key";
 
@@ -40,6 +41,8 @@ static NSString * kZendriveSDKKeyString = @"your-sdk-key";
 @property (nonatomic, weak) IBOutlet UIView *loginView;
 @property (nonatomic, weak) IBOutlet UITextField *driverIdField;
 @property (nonatomic, weak) IBOutlet UISegmentedControl *operationModeChooser;
+
+@property (nonatomic) CMMotionActivityManager *motionActivityManager;
 @end
 
 @implementation ViewController
@@ -254,6 +257,28 @@ static NSString * kZendriveSDKKeyString = @"your-sdk-key";
     [driverAttrs setServiceLevel:serviceLevel];
 
     configuration.driverAttributes = driverAttrs;
+
+    configuration.managesActivityPermission = NO;
+
+    //Fetch activity and motion permission
+    if ([CMMotionActivityManager isActivityAvailable]) {
+        _motionActivityManager = [[CMMotionActivityManager alloc] init];
+        if (@available(iOS 11.0, *)) {
+            CMAuthorizationStatus authStatus = [CMMotionActivityManager authorizationStatus];
+            if(authStatus == CMAuthorizationStatusNotDetermined) {
+                [self.motionActivityManager startActivityUpdatesToQueue:[NSOperationQueue mainQueue] withHandler:^(CMMotionActivity * _Nullable activity) {
+                    NSLog(@"Get motion data permissions");
+                    [self.motionActivityManager stopActivityUpdates];
+                }];
+            }
+        } else {
+            // Fallback on earlier versions
+            [self.motionActivityManager startActivityUpdatesToQueue:[NSOperationQueue mainQueue] withHandler:^(CMMotionActivity * _Nullable activity) {
+                NSLog(@"Get motion data permissions");
+                [self.motionActivityManager stopActivityUpdates];
+            }];
+        }
+    }
 
     [Zendrive
      setupWithConfiguration:configuration delegate:self
