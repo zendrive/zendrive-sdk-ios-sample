@@ -1,26 +1,26 @@
 PODS:
-  - AWSCore (2.6.35)
-  - AWSSQS (2.6.35):
-    - AWSCore (= 2.6.35)
+  - AWSCore (2.9.10)
+  - AWSSQS (2.9.10):
+    - AWSCore (= 2.9.10)
   - FMDB (2.7.5):
     - FMDB/standard (= 2.7.5)
   - FMDB/standard (2.7.5)
   - MBProgressHUD (1.1.0)
   - SSZipArchive (2.1.5)
-  - ZendriveSDK (5.9.2):
-    - ZendriveSDK/Standard (= 5.9.2)
-  - ZendriveSDK/Standard (5.9.2):
-    - AWSCore (~> 2.6.31)
-    - AWSSQS (~> 2.6.31)
+  - ZendriveSDK (5.10.2):
+    - ZendriveSDK/Standard (= 5.10.2)
+  - ZendriveSDK/Standard (5.10.2):
+    - AWSCore (~> 2.9.7)
+    - AWSSQS (~> 2.9.7)
     - FMDB (~> 2.7.5)
     - SSZipArchive (~> 2.1.4)
-  - ZendriveSDK/Testing (5.9.2):
+  - ZendriveSDK/Testing (5.10.2):
     - ZendriveSDK/Standard
 
 DEPENDENCIES:
   - MBProgressHUD (~> 1.1.0)
-  - ZendriveSDK (from `https://bitbucket.org/zendrive-root/zendrive_cocoapod.git`, tag `5.9.2`)
-  - ZendriveSDK/Testing (from `https://bitbucket.org/zendrive-root/zendrive_cocoapod.git`, tag `5.9.2`)
+  - ZendriveSDK (from `https://bitbucket.org/zendrive-root/zendrive_cocoapod.git`, tag `5.10.2`)
+  - ZendriveSDK/Testing (from `https://bitbucket.org/zendrive-root/zendrive_cocoapod.git`, tag `5.10.2`)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -33,21 +33,21 @@ SPEC REPOS:
 EXTERNAL SOURCES:
   ZendriveSDK:
     :git: https://bitbucket.org/zendrive-root/zendrive_cocoapod.git
-    :tag: 5.9.2
+    :tag: 5.10.2
 
 CHECKOUT OPTIONS:
   ZendriveSDK:
     :git: https://bitbucket.org/zendrive-root/zendrive_cocoapod.git
-    :tag: 5.9.2
+    :tag: 5.10.2
 
 SPEC CHECKSUMS:
-  AWSCore: 2dab62ef2e5ca5d8c72c6cbdb3a6ea1532c27c2b
-  AWSSQS: 149383dbe40c8eddf5a8d08cc93b2b401fc6307e
+  AWSCore: 22b6bbc6761ca9981d878155d11bc02edd681a64
+  AWSSQS: e0277a8d9e49e4ea603f1df49a52df7f08a72ab8
   FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
   MBProgressHUD: e7baa36a220447d8aeb12769bf0585582f3866d9
   SSZipArchive: cefe1364104a0231268a5deb8495bdf2861f52f0
-  ZendriveSDK: cb43201575ae7c9f2f1758cabee53cfb4d6185c0
+  ZendriveSDK: ffa116f6e244f3d0028298193cdff89a6014e264
 
-PODFILE CHECKSUM: 4dbd6b8702182cbd7d972975877894362b29fdc7
+PODFILE CHECKSUM: ffe0e37985cc10769a20d98faad4446097b7df93
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.7.5
