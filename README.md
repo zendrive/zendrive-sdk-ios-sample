@@ -1,8 +1,8 @@
 # Zendrive SDK sample for iOS
-<a href="http://www.zendrive.com">Zendrive</a> is commited to improving driving and transportation for everyone through better data and analytics.
+<a href="https://www.zendrive.com">Zendrive</a> is commited to improving driving and transportation for everyone through better data and analytics.
 <br/>
-You can integrate <a href="http://developers.zendrive.com/docs/ios/">Zendrive iOS SDK</a> in your application to get Zendrive's driver centric analytics and insights for your fleet.
-<p>This is a sample project to demonstrate the <a href="http://developers.zendrive.com/docs/ios/">Zendrive iOS SDK</a> integration</p>
+You can integrate <a href="https://docs.zendrive.com/ios/start">Zendrive iOS SDK</a> in your application to get Zendrive's driver centric analytics and insights for your fleet.
+<p>This is a sample project to demonstrate the <a href="https://docs.zendrive.com/ios/start">Zendrive iOS SDK</a> integration</p>
 
 <h4>Zendrive SDK performs four key functions.</h4>
 <ul style="list-style-position: inside">
@@ -13,25 +13,25 @@ You can integrate <a href="http://developers.zendrive.com/docs/ios/">Zendrive iO
 </ul>
 
 <p class="center">
-<img src="https://www.zendrive.com/static/img/developers/dev_intro_1.png?v=1.1" />
+<img src="https://app.zendrive.com/static/img/developers/dev_intro_1.png?v=1.1" />
 
 
 <h4>How to run the sample app</h4>
 <ul style="list-style-position: inside">
-<li> Sign up <a href="http://developers.zendrive.com/signup">here.</a></li>
+<li> Sign up <a href="https://app.zendrive.com/signup">here.</a></li>
 <li> Replace &lt;your-sdk-key&gt; in ViewController.m with your own application key.</li>
 <li> Run ZendriveSDKDemo target!</li>
 </ul>
 
 <h4>How to run the mock sample app</h4>
 <ul style="list-style-position: inside">
-<li> Sign up <a href="http://developers.zendrive.com/signup">here.</a></li>
+<li> Sign up <a href="https://app.zendrive.com/signup">here.</a></li>
 <li> Replace &lt;your-sdk-key&gt; in ViewController.m with your own application key.</li>
 <li> Run Mock-ZendriveSDKDemo target!</li>
 <li> For simulating sample mock drives, Goto Settings->Simulate Preset Drives.</li>
 </ul>
 
-<h5>Please go to <a href="http://developers.zendrive.com/docs/ios/">Zendrive iOS SDK</a> documentation for further details.</h5>
+<h5>Please go to <a href="https://docs.zendrive.com/ios/start">Zendrive iOS SDK</a> documentation for further details.</h5>
 <br/>
 <br/>
 <br/>
