@@ -7,10 +7,9 @@
 //
 
 import UIKit
-import ZendriveSDK
-import ZendriveSDK.Test
+import ZendriveSDKSwift
 
-final class TripsViewController: UIViewController, ZendriveDelegateProtocol, ZendriveDebugDelegateProtocol, UITableViewDelegate, UITableViewDataSource {
+final class TripsViewController: UIViewController, ZendriveDelegate, ZendriveDebugDelegate, UITableViewDelegate, UITableViewDataSource {
     private let zendriveSDKKeyString = "Your SDK Key"
     @IBOutlet weak var mockAccidentButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
@@ -71,7 +70,6 @@ final class TripsViewController: UIViewController, ZendriveDelegateProtocol, Zen
 
     @IBAction func mockAccidentButton(_ sender: Any) {
         ZendriveTest.raiseMockAccident(.high)
-
     }
 
     @IBAction func startDriveButton(_ sender: Any) {
@@ -124,7 +122,7 @@ final class TripsViewController: UIViewController, ZendriveDelegateProtocol, Zen
         return cell!
     }
 
-    func zendriveDebugUploadFinished(_ status: ZendriveDebugUploadStatus) {
+    func debugUploadFinished(_ status: DebugUploadStatus) {
         AppLogger.logDebug("ZendriveDebugUploadFinished : \(status.rawValue)")
         var result: String
 
@@ -174,7 +172,7 @@ final class TripsViewController: UIViewController, ZendriveDelegateProtocol, Zen
 
     @objc func uploadAllZendriveData(_ notification: Notification?) {
         let user = User(dictionary: UserDefaultsManager.sharedInstance().loggedInUser())
-        let config = ZendriveConfiguration()
+        let config = Configuration()
         config.applicationKey = zendriveSDKKeyString
         config.driverId = user.driverId
         ZendriveDebug.uploadAllZendriveData(with: config, delegate: self)
@@ -182,23 +180,23 @@ final class TripsViewController: UIViewController, ZendriveDelegateProtocol, Zen
 
     // SDK initialization
     func initializeSDK(for user: User, successHandler successBlock: @escaping () -> Void, andFailureHandler failureBlock: @escaping (Error?) -> Void) {
-        let configuration = ZendriveConfiguration()
+        let configuration = Configuration()
         configuration.applicationKey = zendriveSDKKeyString
         let driveDetectionMode = UserDefaultsManager.sharedInstance().driveDetectionMode()
         configuration.driveDetectionMode = driveDetectionMode
         configuration.driverId = user.driverId
-        let driveAttrs = ZendriveDriverAttributes()
+        let driveAttrs = DriverAttributes()
         var phoneNumber = user.phoneNumber
 
         if let _ = phoneNumber {
             phoneNumber = phoneNumber?.replacingOccurrences(of: "+", with: "")
             if (phoneNumber?.count ?? 0) > 0 {
-                driveAttrs.setAlias(phoneNumber ?? "00000000")
+                _ = driveAttrs.setAlias(phoneNumber ?? "00000000")
             }
         }
 
         let serviceLevel = UserDefaultsManager.sharedInstance().serviceTier()
-        driveAttrs.setServiceLevel(ZendriveServiceLevel(rawValue: Int32(serviceLevel))!)
+        _ = driveAttrs.setServiceLevel(ServiceLevel(rawValue: Int32(serviceLevel))!)
         configuration.driverAttributes = driveAttrs
         Zendrive.setup(with: configuration, delegate: self, completionHandler: {sucess, error in
             if sucess {
@@ -210,11 +208,11 @@ final class TripsViewController: UIViewController, ZendriveDelegateProtocol, Zen
     }
 
     func isAccidentEnabled()-> Bool {
-        return Zendrive.isAccidentDetectionSupportedByDevice()
+        return Zendrive.isAccidentDetectionSupportedByDevice
     }
 
     // Zendrive Delegate callbacks
-    func processStart(ofDrive startInfo: ZendriveDriveStartInfo) {
+    func processStart(ofDrive startInfo: DriveStartInfo) {
         AppLogger.logInfo("Drive Started \(startInfo.startTimestamp)")
         self.driveStatusLabel.text = "Driving"
 
@@ -226,7 +224,7 @@ final class TripsViewController: UIViewController, ZendriveDelegateProtocol, Zen
         NotificationManager.displayNotification(message: "Trip Started: \(dateString)")
     }
 
-    func processEnd(ofDrive estimatedDriveInfo: ZendriveEstimatedDriveInfo) {
+    func processEnd(ofDrive estimatedDriveInfo: EstimatedDriveInfo) {
         AppLogger.logInfo("Drive Ended \(estimatedDriveInfo.endTimestamp)")
         self.driveStatusLabel.text = "Drive Ended"
 
@@ -244,7 +242,7 @@ final class TripsViewController: UIViewController, ZendriveDelegateProtocol, Zen
         NotificationManager.displayNotification(message: "Trip Ended \(startDateString), \(endDateString) Distance \(estimatedDriveInfo.distance)")
     }
 
-    func processAnalysis(ofDrive analyzedDriveInfo: ZendriveAnalyzedDriveInfo) {
+    func processAnalysis(ofDrive analyzedDriveInfo: AnalyzedDriveInfo) {
         AppLogger.logInfo("Drive Analyzed")
         self.driveStatusLabel.text = "Drive Analyzed"
 
@@ -262,7 +260,7 @@ final class TripsViewController: UIViewController, ZendriveDelegateProtocol, Zen
         NotificationManager.displayNotification(message: "Drive Analyzed \(startDateString) \(endDateString) Distance \(analyzedDriveInfo.distance)")
     }
 
-    func processResume(ofDrive resumeInfo: ZendriveDriveResumeInfo) {
+    func processResume(ofDrive resumeInfo: DriveResumeInfo) {
         AppLogger.logInfo("Drive Resumed")
         self.driveStatusLabel.text = "Driving Resumed"
         let startDateString = DateFormatter.shortStyleFormatter.string(from: Date(timeIntervalSince1970: TimeInterval(resumeInfo.startTimestamp/1000)))
@@ -282,7 +280,7 @@ final class TripsViewController: UIViewController, ZendriveDelegateProtocol, Zen
         }
     }
 
-    func processAccidentDetected(_ accidentInfo: ZendriveAccidentInfo) {
+    func processAccidentDetected(_ accidentInfo: AccidentInfo) {
         AppLogger.logInfo("Accident Detected \(accidentInfo.timestamp)")
         //var alertString: String = ""
         if accidentInfo.confidence == .high {
@@ -296,22 +294,15 @@ final class TripsViewController: UIViewController, ZendriveDelegateProtocol, Zen
         }
     }
 
-    func getTrip(from drive: ZendriveDriveInfo)-> Trip {
+    func getTrip(from drive: DriveInfo)-> Trip {
         let trip = Trip()
         trip.startDate = Date(timeIntervalSince1970: (TimeInterval(drive.startTimestamp/1000)))
         trip.endDate = Date(timeIntervalSince1970: (TimeInterval(drive.endTimestamp/1000)))
         trip.distance = drive.distance
         trip.averageSpeed = drive.averageSpeed
-        var wayPoints:[LocationPoint] = []
-
-        if let zendriveLocationArray = drive.waypoints as? [ZendriveLocationPoint] {
-            for location in zendriveLocationArray {
-                let newLocationPoint = LocationPoint(latitude: location.latitude, longitude: location.longitude)
-                wayPoints.append(newLocationPoint)
-            }
+        trip.waypoints = drive.waypoints.map { (location) -> LocationPoint in
+            return LocationPoint(latitude: location.latitude, longitude: location.longitude)
         }
-
-        trip.waypoints = wayPoints
         return trip
     }
 }

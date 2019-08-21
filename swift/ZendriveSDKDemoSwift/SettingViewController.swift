@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import ZendriveSDK
+import ZendriveSDKSwift
 
 final class SettingViewController: UIViewController {
 
@@ -16,7 +16,7 @@ final class SettingViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let driveDetectionModeValue: ZendriveDriveDetectionMode = UserDefaultsManager.sharedInstance().driveDetectionMode()
+        let driveDetectionModeValue: DriveDetectionMode = UserDefaultsManager.sharedInstance().driveDetectionMode()
         driveDetectionMode.selectedSegmentIndex = Int(driveDetectionModeValue.rawValue)
         let serviceTier = UserDefaultsManager.sharedInstance().serviceTier()
         serviceLevel.selectedSegmentIndex = serviceTier
@@ -25,10 +25,10 @@ final class SettingViewController: UIViewController {
     @IBAction func driveDetectionMode(_ sender: Any) {
         switch driveDetectionMode.selectedSegmentIndex {
             case 0:
-                let driveDetectionMode: ZendriveDriveDetectionMode = .autoON
+                let driveDetectionMode: DriveDetectionMode = .autoON
                 UserDefaultsManager.sharedInstance().setDriveDetectionMode(driveDetectionMode)
             case 1:
-                let driveDetectionMode: ZendriveDriveDetectionMode = .autoOFF
+                let driveDetectionMode: DriveDetectionMode = .autoOFF
                 UserDefaultsManager.sharedInstance().setDriveDetectionMode(driveDetectionMode)
             default:
                 break

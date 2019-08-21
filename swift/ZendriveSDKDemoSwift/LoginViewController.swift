@@ -7,11 +7,11 @@
 //
 
 import UIKit
-import ZendriveSDK
+import ZendriveSDKSwift
 
-var driverId: String?
 final class LoginViewController: UIViewController {
 
+    var driverId: String?
     let router: Router = Router()
 
     @IBOutlet weak var driverIdEmail: UITextField!

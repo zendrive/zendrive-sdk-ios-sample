@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import ZendriveSDK
+import ZendriveSDKSwift
 
 private var _sharedInstance: UserDefaultsManager? = nil
 
@@ -38,12 +38,12 @@ final class UserDefaultsManager {
         UserDefaults.standard.set(user?.toDictionary(), forKey: loggedInUserKey)
     }
 
-    func driveDetectionMode() -> ZendriveDriveDetectionMode {
+    func driveDetectionMode() -> DriveDetectionMode {
         let driveDetectionModeNsNum: Int = UserDefaults.standard.integer(forKey: driveDetectionModeKey)
-        return ZendriveDriveDetectionMode(rawValue: Int32(driveDetectionModeNsNum))!
+        return DriveDetectionMode(rawValue: Int32(driveDetectionModeNsNum))!
     }
 
-    func setDriveDetectionMode(_ driveDetectionMode: ZendriveDriveDetectionMode) {
+    func setDriveDetectionMode(_ driveDetectionMode: DriveDetectionMode) {
         UserDefaults.standard.set(driveDetectionMode.rawValue, forKey: driveDetectionModeKey)
         UserDefaults.standard.synchronize()
     }
