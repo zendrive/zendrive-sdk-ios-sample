@@ -1,7 +1,7 @@
 PODS:
-  - AWSCore (2.9.10)
-  - AWSSQS (2.9.10):
-    - AWSCore (= 2.9.10)
+  - AWSCore (2.9.8)
+  - AWSSQS (2.9.8):
+    - AWSCore (= 2.9.8)
   - FMDB (2.7.5):
     - FMDB/standard (= 2.7.5)
   - FMDB/standard (2.7.5)
@@ -41,8 +41,8 @@ CHECKOUT OPTIONS:
     :tag: 5.10.2
 
 SPEC CHECKSUMS:
-  AWSCore: 22b6bbc6761ca9981d878155d11bc02edd681a64
-  AWSSQS: e0277a8d9e49e4ea603f1df49a52df7f08a72ab8
+  AWSCore: 5da86c5afde44a87b06a2df50601bca81a8cee13
+  AWSSQS: 84012627f8d65866a352a2118c64c562d1c8cee4
   FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
   MBProgressHUD: e7baa36a220447d8aeb12769bf0585582f3866d9
   SSZipArchive: cefe1364104a0231268a5deb8495bdf2861f52f0
@@ -50,4 +50,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: ffe0e37985cc10769a20d98faad4446097b7df93
 
-COCOAPODS: 1.7.5
+COCOAPODS: 1.5.3

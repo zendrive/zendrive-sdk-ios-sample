@@ -30,6 +30,9 @@
 		AABC218821DCD4CF002B87FB /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC7F86241C808B63000B4FE1 /* SettingsViewController.xib */; };
 		AABC219321DCD625002B87FB /* MockDriveController.m in Sources */ = {isa = PBXBuildFile; fileRef = AABC219121DCD625002B87FB /* MockDriveController.m */; };
 		AABC219421DCD625002B87FB /* MockDriveController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AABC219221DCD625002B87FB /* MockDriveController.xib */; };
+		B7947C45230E8ACA004EB2E2 /* LocationPermissionUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = B7947C44230E8ACA004EB2E2 /* LocationPermissionUtility.m */; };
+		B7947C49230E964E004EB2E2 /* LocationPermissionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B7947C46230E964E004EB2E2 /* LocationPermissionViewController.m */; };
+		B7947C4A230E964E004EB2E2 /* LocationPermissionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B7947C48230E964E004EB2E2 /* LocationPermissionViewController.xib */; };
 		B7BB322022894CBA00A6B98C /* UserConsentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B7BB321E22894CBA00A6B98C /* UserConsentViewController.m */; };
 		B7BB322122894CBA00A6B98C /* UserConsentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B7BB321E22894CBA00A6B98C /* UserConsentViewController.m */; };
 		B7BB322222894CBA00A6B98C /* UserConsentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B7BB321F22894CBA00A6B98C /* UserConsentViewController.xib */; };
@@ -81,6 +84,11 @@
 		AABC219021DCD625002B87FB /* MockDriveController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MockDriveController.h; sourceTree = "<group>"; };
 		AABC219121DCD625002B87FB /* MockDriveController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MockDriveController.m; sourceTree = "<group>"; };
 		AABC219221DCD625002B87FB /* MockDriveController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MockDriveController.xib; sourceTree = "<group>"; };
+		B7947C43230E8ACA004EB2E2 /* LocationPermissionUtility.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocationPermissionUtility.h; sourceTree = "<group>"; };
+		B7947C44230E8ACA004EB2E2 /* LocationPermissionUtility.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocationPermissionUtility.m; sourceTree = "<group>"; };
+		B7947C46230E964E004EB2E2 /* LocationPermissionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationPermissionViewController.m; sourceTree = "<group>"; };
+		B7947C47230E964E004EB2E2 /* LocationPermissionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationPermissionViewController.h; sourceTree = "<group>"; };
+		B7947C48230E964E004EB2E2 /* LocationPermissionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LocationPermissionViewController.xib; sourceTree = "<group>"; };
 		B7BB321D22894CBA00A6B98C /* UserConsentViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserConsentViewController.h; sourceTree = "<group>"; };
 		B7BB321E22894CBA00A6B98C /* UserConsentViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserConsentViewController.m; sourceTree = "<group>"; };
 		B7BB321F22894CBA00A6B98C /* UserConsentViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserConsentViewController.xib; sourceTree = "<group>"; };
@@ -154,6 +162,7 @@
 		56D827C11A63086200703BEF /* ZendriveSDKDemo */ = {
 			isa = PBXGroup;
 			children = (
+				B7947C42230E8A82004EB2E2 /* LocationPermissionUtility */,
 				B7BB321C22894B8900A6B98C /* UserConsentManagement */,
 				EC976B9D1AABAEE9009FB78F /* Model */,
 				EC7F86161C803D9E000B4FE1 /* UIAlertView+BlockExtensions.h */,
@@ -230,6 +239,18 @@
 				AABC218D21DCD4D0002B87FB /* Testing-ZendriveSDKDemo-Info.plist */,
 			);
 			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B7947C42230E8A82004EB2E2 /* LocationPermissionUtility */ = {
+			isa = PBXGroup;
+			children = (
+				B7947C47230E964E004EB2E2 /* LocationPermissionViewController.h */,
+				B7947C46230E964E004EB2E2 /* LocationPermissionViewController.m */,
+				B7947C48230E964E004EB2E2 /* LocationPermissionViewController.xib */,
+				B7947C43230E8ACA004EB2E2 /* LocationPermissionUtility.h */,
+				B7947C44230E8ACA004EB2E2 /* LocationPermissionUtility.m */,
+			);
+			path = LocationPermissionUtility;
 			sourceTree = "<group>";
 		};
 		B7BB321C22894B8900A6B98C /* UserConsentManagement */ = {
@@ -380,6 +401,7 @@
 			files = (
 				56D827D31A63086300703BEF /* LaunchScreen.xib in Resources */,
 				5611DED11A630B93004CA14C /* ViewController.xib in Resources */,
+				B7947C4A230E964E004EB2E2 /* LocationPermissionViewController.xib in Resources */,
 				B7BB322222894CBA00A6B98C /* UserConsentViewController.xib in Resources */,
 				56D827D01A63086300703BEF /* Images.xcassets in Resources */,
 				EC7F86261C808B63000B4FE1 /* SettingsViewController.xib in Resources */,
@@ -460,10 +482,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B7947C49230E964E004EB2E2 /* LocationPermissionViewController.m in Sources */,
 				B7BB322022894CBA00A6B98C /* UserConsentViewController.m in Sources */,
 				EC976BA01AABAEF5009FB78F /* Trip.m in Sources */,
 				EC7F86181C803D9E000B4FE1 /* UIAlertView+BlockExtensions.m in Sources */,
 				EC7F86211C807258000B4FE1 /* User.m in Sources */,
+				B7947C45230E8ACA004EB2E2 /* LocationPermissionUtility.m in Sources */,
 				EC7F86251C808B63000B4FE1 /* SettingsViewController.m in Sources */,
 				EC7F861E1C8070C3000B4FE1 /* UserDefaultsManager.m in Sources */,
 				56D827EB1A63090700703BEF /* ViewController.m in Sources */,

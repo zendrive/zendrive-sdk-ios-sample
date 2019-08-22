@@ -8,8 +8,10 @@
 
 #import "AppDelegate.h"
 #import "ViewController.h"
+#import <UserNotifications/UserNotifications.h>
+#import "LocationPermissionUtility.h"
 
-@interface AppDelegate ()
+@interface AppDelegate () <UNUserNotificationCenterDelegate>
 
 @end
 
@@ -28,7 +30,6 @@
     [self.window makeKeyAndVisible];
 
     [self registerForNotifications:application];
-
     return YES;
 }
 
@@ -62,7 +63,12 @@
                                                       UIUserNotificationTypeAlert)
                                           categories:nil];
         [application registerUserNotificationSettings:settings];
+        [[UNUserNotificationCenter currentNotificationCenter] setDelegate:self];
     }
+}
+
+- (void)userNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void (^)(void))completionHandler {
+    [LocationPermissionUtility handleNotification:response.notification];
 }
 
 @end

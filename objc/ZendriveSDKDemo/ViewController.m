@@ -12,10 +12,11 @@
 #import "User.h"
 #import "LocationPoint.h"
 #import <MBProgressHUD/MBProgressHUD.h>
-
+#import "LocationPermissionUtility.h"
 #import <ZendriveSDK/Zendrive.h>
 #import <ZendriveSDK/ZendriveLocationPoint.h>
 #import <ZendriveSDK/ZendriveTest.h>
+#import <CoreLocation/CoreLocation.h>
 
 #import "UIAlertView+BlockExtensions.h"
 
@@ -94,21 +95,24 @@ static NSString * kZendriveSDKKeyString = @"your-sdk-key";
             self.driveStatusLabel.text = @"SDK Not Initialized";
             return;
         }
+        CLAuthorizationStatus authStatusUponAppLaunch = [CLLocationManager authorizationStatus];
+        [LocationPermissionUtility initializeWithAuthStatus:authStatusUponAppLaunch];
         [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         [self initializeSDKForUser:user successHandler:
          ^{
              // Will be called on main queue
-             self.isZendriveSetup = YES;
-             self.endDriveButton.enabled = YES;
-             self.startDriveButton.enabled = YES;
-             self.driveStatusLabel.text = @"Initialized successfully";
-             [MBProgressHUD hideHUDForView:self.view animated:YES];
+            self.isZendriveSetup = YES;
+            self.endDriveButton.enabled = YES;
+            self.startDriveButton.enabled = YES;
+            self.driveStatusLabel.text = @"Initialized successfully";
+            [MBProgressHUD hideHUDForView:self.view animated:YES];
+            [LocationPermissionUtility scheduleNotification:[[LocationNotificationConfiguration alloc] init]];
          } andFailureHandler:^(NSError *err) {
-             // Will be called on main queue
-             self.driveStatusLabel.text =
-             [NSString stringWithFormat:@"Failed to initialize zendrive :%@",
-              err.localizedFailureReason];
-             [MBProgressHUD hideHUDForView:self.view animated:YES];
+            // Will be called on main queue
+            self.driveStatusLabel.text =
+            [NSString stringWithFormat:@"Failed to initialize zendrive :%@",
+            err.localizedFailureReason];
+            [MBProgressHUD hideHUDForView:self.view animated:YES];
          }];
     }
 }
@@ -141,7 +145,7 @@ static NSString * kZendriveSDKKeyString = @"your-sdk-key";
                       if (success) {
                           NSLog(@"Drive detection mode successfully set to %d",driveDetectionMode);
                       } else {
-                          NSLog(@"Failed to set drive detection mode with error code:%ld, description:%@",error.code,error.description);
+                          NSLog(@"Failed to set drive detection mode with error code:%ld, description:%@",(long)error.code,error.description);
                       }
                   }];
 }
@@ -198,7 +202,7 @@ static NSString * kZendriveSDKKeyString = @"your-sdk-key";
                      NSLog(@"Manual Drive started");
                  } else {
                      NSLog(@"Start drive failed with error code: \
-                           %ld and description:%@",error.code,error.description);
+                           %ld and description:%@",(long)error.code,error.description);
                  }
     }];
 }
@@ -209,7 +213,7 @@ static NSString * kZendriveSDKKeyString = @"your-sdk-key";
             NSLog(@"Drive stopped successfully");
         } else {
             NSLog(@"Stop drive failed with error code: \
-                  %ld and description:%@",error.code,error.description);
+                  %ld and description:%@",(long)error.code,error.description);
         }
     }];
 }
