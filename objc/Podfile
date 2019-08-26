@@ -3,7 +3,7 @@ platform :ios, '8.0'
 
 source 'https://github.com/CocoaPods/Specs.git'
 
-SDK_VERSION='5.10.2'
+SDK_VERSION='6.0.0'
 
 target 'ZendriveSDKDemo' do
   pod 'ZendriveSDK', :git => 'https://bitbucket.org/zendrive-root/zendrive_cocoapod.git', :tag => SDK_VERSION
