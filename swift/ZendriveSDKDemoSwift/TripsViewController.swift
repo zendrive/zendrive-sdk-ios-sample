@@ -27,6 +27,8 @@ final class TripsViewController: UIViewController, ZendriveDelegate, ZendriveDeb
         tableView.reloadData()
         self.tableView.delegate = self
         self.tableView.dataSource = self
+        self.tableView.estimatedRowHeight = 150
+        self.tableView.rowHeight = UITableView.automaticDimension
         self.registerForNotifications()
         mockAccidentButton.isEnabled = false
         self.navigationItem.title = "ZendriveSDKDemo"
@@ -118,7 +120,10 @@ final class TripsViewController: UIViewController, ZendriveDelegate, ZendriveDeb
         if let distance = trip?.distance, let tripStatus = trip?.tripstatus {
             cell?.detailTextLabel?.text = String(format: "%.2f Meters, %i seconds, %@", distance, duration, tripStatus)
         }
-
+        if let eventRatings = trip?.eventRatings, let detailedText = cell?.detailTextLabel?.text {
+            cell?.detailTextLabel?.text = detailedText + "\nPhone Handling: \(eventRatings.phoneHandlingRating.getText())\nHard Brake Rating: \(eventRatings.hardBrakeRating.getText())\nHard Turn Rating: \(eventRatings.hardTurnRating.getText())\nSpeeding Rating: \(eventRatings.speedingRating.getText())\nAggressive Acceleration Rating: \(eventRatings.aggressiveAccelerationRating.getText())"
+        }
+        cell?.detailTextLabel?.numberOfLines = 0
         return cell!
     }
 
@@ -303,6 +308,8 @@ final class TripsViewController: UIViewController, ZendriveDelegate, ZendriveDeb
         trip.waypoints = drive.waypoints.map { (location) -> LocationPoint in
             return LocationPoint(latitude: location.latitude, longitude: location.longitude)
         }
+        trip.eventRatings = EventRatings(phoneHandlingRating: Int(drive.eventRatings.phoneHandlingRating.rawValue),
+                                         hardBrakeRating: Int(drive.eventRatings.hardBrakeRating.rawValue), hardTurnRating: Int(drive.eventRatings.hardTurnRating.rawValue), speedingRating: Int(drive.eventRatings.speedingRating.rawValue), aggressiveAccelerationRating: Int(drive.eventRatings.aggressiveAccelerationRating.rawValue))
         return trip
     }
 }
