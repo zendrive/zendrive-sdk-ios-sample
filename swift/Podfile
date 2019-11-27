@@ -2,7 +2,7 @@ platform :ios, '8.0'
 
 source 'https://github.com/CocoaPods/Specs.git'
 
-SDK_VERSION='6.0.0'
+SDK_VERSION='6.1.0'
 
 
 target 'ZendriveSDKDemoSwift' do
