@@ -73,20 +73,31 @@
 }
 
 - (IBAction)driveDetectionModeInfoButtonClicked:(id)sender {
-    [[[UIAlertView alloc]
-      initWithTitle:@"Drive Detection Mode"
-      message:@"Choose AUTO ON if you want drives to be detected automatically in"
-      " the application. This can be modified by calling [Zendrive setDriveDetectionMode:]"
-      delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil] show];
+    UIAlertController *alertController = [UIAlertController
+                                          alertControllerWithTitle:@"Drive Detection Mode"
+                                          message:@"Choose AUTO ON if you want drives to be detected automatically"
+                                                  " in the application. This can be modified by calling [Zendrive "
+                                                  "setDriveDetectionMode:]"
+                                          preferredStyle:UIAlertControllerStyleAlert];
+    [alertController addAction:[UIAlertAction
+                                actionWithTitle:@"Ok"
+                                style:UIAlertActionStyleCancel
+                                handler:nil]];
+    [self presentViewController:alertController animated:YES completion:nil];
 }
 
 - (IBAction)serviceTierInfoButtonClicked:(id)sender {
-    [[[UIAlertView alloc]
-      initWithTitle:@"Service Tier"
-      message:@"If you have multiple service tier users in your application like "
-      "Free/Paid users, contact us on support@zendrive.com to create "
-      "special service plans"
-      delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil] show];
+    UIAlertController *alertController = [UIAlertController
+                                          alertControllerWithTitle:@"Service Tier"
+                                          message:@"If you have multiple service tier users in your application"
+                                                   "like Free/Paid users, contact us on support@zendrive.com "
+                                                   "to create special service plans"
+                                          preferredStyle:UIAlertControllerStyleAlert];
+    [alertController addAction:[UIAlertAction
+                                actionWithTitle:@"Ok"
+                                style:UIAlertActionStyleCancel
+                                handler:nil]];
+    [self presentViewController:alertController animated:YES completion:nil];
 }
 
 - (IBAction)simulateDriveList:(id)sender {
@@ -94,11 +105,16 @@
     MockDriveController *controller = [[MockDriveController alloc] initWithNibName:nil bundle:nil];
     [self.navigationController pushViewController:controller animated:YES];
 #else
-    [[[UIAlertView alloc]
-      initWithTitle:@"Mock Drive not enabled"
-      message:@"Simulate preset drives is not enabled in this build. Please build "
-      "Mock-ZendriveSDKDemo target to access this option."
-      delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil] show];
+    UIAlertController *alertController = [UIAlertController
+                                          alertControllerWithTitle:@"Mock Drive not enabled"
+                                          message:@"Simulate preset drives is not enabled in this build. Please"
+                                                   "build Mock-ZendriveSDKDemo target to access this option."
+                                          preferredStyle:UIAlertControllerStyleAlert];
+    [alertController addAction:[UIAlertAction
+                                actionWithTitle:@"Ok"
+                                style:UIAlertActionStyleCancel
+                                handler:nil]];
+    [self presentViewController:alertController animated:YES completion:nil];
 #endif
 }
 

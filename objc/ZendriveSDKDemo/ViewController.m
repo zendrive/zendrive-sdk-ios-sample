@@ -18,8 +18,6 @@
 #import <ZendriveSDK/ZendriveTest.h>
 #import <CoreLocation/CoreLocation.h>
 
-#import "UIAlertView+BlockExtensions.h"
-
 #import "SettingsViewController.h"
 #import "NotificationConstants.h"
 #import "UserConsentUtility.h"
@@ -177,10 +175,15 @@ static NSString * kZendriveSDKKeyString = @"your-sdk-key";
 - (IBAction)loginButtonTapped:(id)sender {
     NSString *driverId = self.driverIdField.text;
     if (driverId.length == 0 || ![Zendrive isValidInputParameter:driverId]) {
-        [[[UIAlertView alloc] initWithTitle:@"Oops!!"
-                                    message:@"Please enter a valid driver-id"
-                                   delegate:nil cancelButtonTitle:@"Ok"
-                          otherButtonTitles:nil] show];
+        UIAlertController *alertController = [UIAlertController
+                                              alertControllerWithTitle:@"Oops!!"
+                                              message:@"Please enter a valid driver-id"
+                                              preferredStyle:UIAlertControllerStyleAlert];
+        [alertController addAction:[UIAlertAction
+                                    actionWithTitle:@"Ok"
+                                    style:UIAlertActionStyleCancel
+                                    handler:nil]];
+        [self presentViewController:alertController animated:YES completion:nil];
         return;
     }
 
@@ -361,34 +364,45 @@ static NSString * kZendriveSDKKeyString = @"your-sdk-key";
         [self displayNotification:@"Accident Detected with low confidence."];
     }
 
-    [[[UIAlertView alloc]
-      initWithTitle:@"Accident!!!"
-      message:alertString
-      completionBlock:
-      ^(NSUInteger buttonIndex, UIAlertView *alertView) {
-          switch (buttonIndex) {
-              case 0:
-              case 1: {
-                  // Example accident feedback flow
-                  [ZendriveFeedback addEventOccurrenceWithDriveId:accidentInfo.driveId
-                                                   eventTimestamp:accidentInfo.timestamp
-                                                        eventType:ZendriveEventAccident
-                                                       occurrence:YES];
-                  break;
-              }
-              case 2:
-                  [ZendriveFeedback addEventOccurrenceWithDriveId:accidentInfo.driveId
-                                                   eventTimestamp:accidentInfo.timestamp
-                                                        eventType:ZendriveEventAccident
-                                                       occurrence:NO];
-                  break;
+    UIAlertController *alertController = [UIAlertController
+                                          alertControllerWithTitle:@"Accident!!!"
+                                          message:alertString
+                                          preferredStyle:UIAlertControllerStyleAlert];
 
-              default:
-                  break;
-          }
-      }
-      cancelButtonTitle:nil
-      otherButtonTitles:@"I'm Ok.", @"Please send help.", @"Nothing happened.", nil] show];
+    [alertController addAction:[UIAlertAction
+                                actionWithTitle:@"I'm Ok."
+                                style:UIAlertActionStyleDefault
+                                handler:^(UIAlertAction *action) {
+         [ZendriveFeedback addEventOccurrenceWithDriveId:accidentInfo.driveId
+                                          eventTimestamp:accidentInfo.timestamp
+                                               eventType:ZendriveEventAccident
+                                              occurrence:YES];
+
+    }]];
+
+    [alertController addAction:[UIAlertAction
+                                actionWithTitle:@"Please send help."
+                                style:UIAlertActionStyleDefault
+                                handler:^(UIAlertAction *action) {
+         [ZendriveFeedback addEventOccurrenceWithDriveId:accidentInfo.driveId
+                                          eventTimestamp:accidentInfo.timestamp
+                                               eventType:ZendriveEventAccident
+                                              occurrence:YES];
+
+    }]];
+
+    [alertController addAction:[UIAlertAction
+                                actionWithTitle:@"Nothing happened."
+                                style:UIAlertActionStyleDefault
+                                handler:^(UIAlertAction *action) {
+         [ZendriveFeedback addEventOccurrenceWithDriveId:accidentInfo.driveId
+                                          eventTimestamp:accidentInfo.timestamp
+                                               eventType:ZendriveEventAccident
+                                              occurrence:NO];
+
+    }]];
+
+    [self presentViewController:alertController animated:YES completion:nil];
 }
 
 - (Trip *)tripFromZendriveDriveInfo:(ZendriveDriveInfo *)drive {

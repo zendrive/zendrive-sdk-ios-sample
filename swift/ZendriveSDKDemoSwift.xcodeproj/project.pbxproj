@@ -3,11 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5C5BF948FFC16887E43E0494 /* libPods-ZendriveSDKDemoSwift.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D68F9FB08102B60F6DDF6B6 /* libPods-ZendriveSDKDemoSwift.a */; };
+		B268A85BFF99A9A07F04FEB8 /* Pods_ZendriveSDKDemoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9E9F1C3DBBCCB0BAACE04EA /* Pods_ZendriveSDKDemoSwift.framework */; };
 		F61E928022EB027500601E2F /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61E927F22EB027500601E2F /* SettingViewController.swift */; };
 		F61E928222F04D2000601E2F /* AppLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61E928122F04D2000601E2F /* AppLogger.swift */; };
 		F6291CAE22E08F8300981E23 /* Trip.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6291CAD22E08F8300981E23 /* Trip.swift */; };
@@ -27,11 +27,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2D68F9FB08102B60F6DDF6B6 /* libPods-ZendriveSDKDemoSwift.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ZendriveSDKDemoSwift.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3EE82B56ABBD266BAF92B41C /* Pods-ZendriveSDKDemoSwiftTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZendriveSDKDemoSwiftTests.release.xcconfig"; path = "Target Support Files/Pods-ZendriveSDKDemoSwiftTests/Pods-ZendriveSDKDemoSwiftTests.release.xcconfig"; sourceTree = "<group>"; };
 		445EF60ABB1AEEB083314B97 /* Pods-ZendriveSDKDemoSwiftTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZendriveSDKDemoSwiftTests.debug.xcconfig"; path = "Target Support Files/Pods-ZendriveSDKDemoSwiftTests/Pods-ZendriveSDKDemoSwiftTests.debug.xcconfig"; sourceTree = "<group>"; };
 		A7178F8E0F3701B27F45BEFB /* Pods-ZendriveSDKDemoSwift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZendriveSDKDemoSwift.release.xcconfig"; path = "Target Support Files/Pods-ZendriveSDKDemoSwift/Pods-ZendriveSDKDemoSwift.release.xcconfig"; sourceTree = "<group>"; };
 		B24F6B4DA66D37594DD12FBE /* libPods-ZendriveSDKDemoSwiftTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ZendriveSDKDemoSwiftTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E9E9F1C3DBBCCB0BAACE04EA /* Pods_ZendriveSDKDemoSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ZendriveSDKDemoSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED8116A0CF8C7C701E349452 /* Pods-ZendriveSDKDemoSwift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZendriveSDKDemoSwift.debug.xcconfig"; path = "Target Support Files/Pods-ZendriveSDKDemoSwift/Pods-ZendriveSDKDemoSwift.debug.xcconfig"; sourceTree = "<group>"; };
 		F61E927F22EB027500601E2F /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		F61E928122F04D2000601E2F /* AppLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLogger.swift; sourceTree = "<group>"; };
@@ -58,7 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5C5BF948FFC16887E43E0494 /* libPods-ZendriveSDKDemoSwift.a in Frameworks */,
+				B268A85BFF99A9A07F04FEB8 /* Pods_ZendriveSDKDemoSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,8 +68,8 @@
 		03BA028F2D2D2A6FEBE635C0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				2D68F9FB08102B60F6DDF6B6 /* libPods-ZendriveSDKDemoSwift.a */,
 				B24F6B4DA66D37594DD12FBE /* libPods-ZendriveSDKDemoSwiftTests.a */,
+				E9E9F1C3DBBCCB0BAACE04EA /* Pods_ZendriveSDKDemoSwift.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -151,9 +151,11 @@
 			buildConfigurationList = F6C0C3A622D8A52400984814 /* Build configuration list for PBXNativeTarget "ZendriveSDKDemoSwift" */;
 			buildPhases = (
 				11C0B58719153971A831F863 /* [CP] Check Pods Manifest.lock */,
+				D23E2C30270FD6CDBFA25611 /* [CP] Prepare Artifacts */,
 				F6C0C37A22D8A51E00984814 /* Sources */,
 				F6C0C37B22D8A51E00984814 /* Frameworks */,
 				F6C0C37C22D8A51E00984814 /* Resources */,
+				E52DC9D9E216103F8E3F4B64 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -236,6 +238,40 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D23E2C30270FD6CDBFA25611 /* [CP] Prepare Artifacts */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ZendriveSDKDemoSwift/Pods-ZendriveSDKDemoSwift-artifacts-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Prepare Artifacts";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ZendriveSDKDemoSwift/Pods-ZendriveSDKDemoSwift-artifacts-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ZendriveSDKDemoSwift/Pods-ZendriveSDKDemoSwift-artifacts.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E52DC9D9E216103F8E3F4B64 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ZendriveSDKDemoSwift/Pods-ZendriveSDKDemoSwift-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ZendriveSDKDemoSwift/Pods-ZendriveSDKDemoSwift-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ZendriveSDKDemoSwift/Pods-ZendriveSDKDemoSwift-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
