@@ -45,6 +45,7 @@
 		EC7F86261C808B63000B4FE1 /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC7F86241C808B63000B4FE1 /* SettingsViewController.xib */; };
 		EC976BA01AABAEF5009FB78F /* Trip.m in Sources */ = {isa = PBXBuildFile; fileRef = EC976B9F1AABAEF5009FB78F /* Trip.m */; };
 		EC976BA31AABB775009FB78F /* LocationPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = EC976BA21AABB775009FB78F /* LocationPoint.m */; };
+		FB0AEEE52403F35E00C64499 /* LocationPermissionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B7947C48230E964E004EB2E2 /* LocationPermissionViewController.xib */; };
 		FB1F324F23FA963F002EA197 /* LocationPermissionUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = B7947C44230E8ACA004EB2E2 /* LocationPermissionUtility.m */; };
 		FB1F325023FA96B1002EA197 /* LocationPermissionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B7947C46230E964E004EB2E2 /* LocationPermissionViewController.m */; };
 /* End PBXBuildFile section */
@@ -79,7 +80,6 @@
 		56D827E91A63090700703BEF /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		7F3D09148A54B77C007FD3E1 /* Pods-ZendriveSDKDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZendriveSDKDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-ZendriveSDKDemo/Pods-ZendriveSDKDemo.release.xcconfig"; sourceTree = "<group>"; };
 		AABC218C21DCD4CF002B87FB /* Testing-ZendriveSDKDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Testing-ZendriveSDKDemo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		AABC218D21DCD4D0002B87FB /* Testing-ZendriveSDKDemo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Testing-ZendriveSDKDemo-Info.plist"; path = "/Users/sudeepkumar/sdk-ios-sample/Testing-ZendriveSDKDemo-Info.plist"; sourceTree = "<absolute>"; };
 		AABC219021DCD625002B87FB /* MockDriveController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MockDriveController.h; sourceTree = "<group>"; };
 		AABC219121DCD625002B87FB /* MockDriveController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MockDriveController.m; sourceTree = "<group>"; };
 		AABC219221DCD625002B87FB /* MockDriveController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MockDriveController.xib; sourceTree = "<group>"; };
@@ -106,6 +106,7 @@
 		EC976BA21AABB775009FB78F /* LocationPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationPoint.m; sourceTree = "<group>"; };
 		ECC70D241C80972B00AC7044 /* NotificationConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationConstants.h; sourceTree = "<group>"; };
 		F75ED99D6104414F6B6CC519 /* Pods_ZendriveSDKDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ZendriveSDKDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FB0AEEE32403EF0B00C64499 /* Testing-ZendriveSDKDemo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Testing-ZendriveSDKDemo-Info.plist"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -232,7 +233,7 @@
 		AABC218F21DCD50E002B87FB /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				AABC218D21DCD4D0002B87FB /* Testing-ZendriveSDKDemo-Info.plist */,
+				FB0AEEE32403EF0B00C64499 /* Testing-ZendriveSDKDemo-Info.plist */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -421,6 +422,7 @@
 			files = (
 				AABC219421DCD625002B87FB /* MockDriveController.xib in Resources */,
 				AABC218521DCD4CF002B87FB /* LaunchScreen.xib in Resources */,
+				FB0AEEE52403F35E00C64499 /* LocationPermissionViewController.xib in Resources */,
 				AABC218621DCD4CF002B87FB /* ViewController.xib in Resources */,
 				AABC218721DCD4CF002B87FB /* Images.xcassets in Resources */,
 				B7BB322322894CBA00A6B98C /* UserConsentViewController.xib in Resources */,
