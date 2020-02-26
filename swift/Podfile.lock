@@ -1,74 +1,70 @@
 PODS:
-  - AWSCore (2.9.10)
-  - AWSSQS (2.9.10):
-    - AWSCore (= 2.9.10)
+  - AWSCore (2.11.1)
+  - AWSSQS (2.11.1):
+    - AWSCore (= 2.11.1)
   - CocoaLumberjack/Core (3.5.3)
   - CocoaLumberjack/Swift (3.5.3):
     - CocoaLumberjack/Core
   - Crashlytics (3.13.2):
     - Fabric (~> 1.10.2)
   - Fabric (1.10.2)
-  - FMDB (2.7.5):
-    - FMDB/standard (= 2.7.5)
-  - FMDB/standard (2.7.5)
   - MBProgressHUD (1.1.0)
-  - SSZipArchive (2.1.5)
-  - ZendriveSDK (6.0.0):
-    - ZendriveSDK/Standard (= 6.0.0)
-  - ZendriveSDK/Standard (6.0.0):
-    - AWSCore (~> 2.9.7)
-    - AWSSQS (~> 2.9.7)
-    - FMDB (~> 2.7.5)
-    - SSZipArchive (~> 2.1.4)
-  - ZendriveSDKSwift (6.0.0):
+  - SQLite.swift (0.12.2):
+    - SQLite.swift/standard (= 0.12.2)
+  - SQLite.swift/standard (0.12.2)
+  - ZendriveSDK (6.2.0):
+    - ZendriveSDK/Standard (= 6.2.0)
+  - ZendriveSDK/Standard (6.2.0):
+    - AWSCore (~> 2.11.1)
+    - AWSSQS (~> 2.11.1)
+    - SQLite.swift (~> 0.12.0)
+  - ZendriveSDKSwift (6.2.0):
     - ZendriveSDK
 
 DEPENDENCIES:
   - CocoaLumberjack/Swift
   - Crashlytics
   - MBProgressHUD (~> 1.1.0)
-  - ZendriveSDK (from `https://bitbucket.org/zendrive-root/zendrive_cocoapod.git`, tag `6.0.0`)
-  - ZendriveSDKSwift (from `https://bitbucket.org/zendrive-root/zendrive_cocoapod.git`, tag `6.0.0`)
+  - ZendriveSDK (from `https://bitbucket.org/zendrive-root/zendrive_cocoapod.git`, tag `6.2.0`)
+  - ZendriveSDKSwift (from `https://bitbucket.org/zendrive-root/zendrive_cocoapod.git`, tag `6.2.0`)
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  https://github.com/CocoaPods/Specs.git:
     - AWSCore
     - AWSSQS
     - CocoaLumberjack
     - Crashlytics
     - Fabric
-    - FMDB
     - MBProgressHUD
-    - SSZipArchive
+    - SQLite.swift
 
 EXTERNAL SOURCES:
   ZendriveSDK:
     :git: https://bitbucket.org/zendrive-root/zendrive_cocoapod.git
-    :tag: 6.0.0
+    :tag: 6.2.0
   ZendriveSDKSwift:
     :git: https://bitbucket.org/zendrive-root/zendrive_cocoapod.git
-    :tag: 6.0.0
+    :tag: 6.2.0
 
 CHECKOUT OPTIONS:
   ZendriveSDK:
     :git: https://bitbucket.org/zendrive-root/zendrive_cocoapod.git
-    :tag: 6.0.0
+    :tag: 6.2.0
   ZendriveSDKSwift:
     :git: https://bitbucket.org/zendrive-root/zendrive_cocoapod.git
-    :tag: 6.0.0
+    :tag: 6.2.0
 
 SPEC CHECKSUMS:
-  AWSCore: 22b6bbc6761ca9981d878155d11bc02edd681a64
-  AWSSQS: e0277a8d9e49e4ea603f1df49a52df7f08a72ab8
+  AWSCore: 00093a1ff49b5d6ce5f1e4d83fe301486fc5034d
+  AWSSQS: 42876563f01932be2af2d6df19889e38b009ad55
   CocoaLumberjack: 2f44e60eb91c176d471fdba43b9e3eae6a721947
   Crashlytics: 611738c7847f8291a1a51084e35987b86ba6b3ee
   Fabric: 706c8b8098fff96c33c0db69cbf81f9c551d0d74
-  FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
   MBProgressHUD: e7baa36a220447d8aeb12769bf0585582f3866d9
-  SSZipArchive: cefe1364104a0231268a5deb8495bdf2861f52f0
-  ZendriveSDK: c4d52f56fc689b469be676f6b4caf635e65f6e50
-  ZendriveSDKSwift: 2bb014d786a3179aead2d8bf78d1dc40a956fab5
+  SQLite.swift: d2b4642190917051ce6bd1d49aab565fe794eea3
+  ZendriveSDK: e660aeb45ea7db33438c5e8a5059cc44614e8e49
+  ZendriveSDKSwift: b5ec6827b271e3bf359e4ef87d0fe6d7e069cf9c
 
-PODFILE CHECKSUM: c98e4d0e9396679565556b500be34ee14bb868fe
+PODFILE CHECKSUM: a133168ff476378adca8dcf50f67d062cc2cb983
 
-COCOAPODS: 1.7.5
+COCOAPODS: 1.9.0.beta.3

@@ -56,15 +56,11 @@
 }
 
 - (void)registerForNotifications:(UIApplication *)application {
-    if ([application respondsToSelector:@selector(registerUserNotificationSettings:)]) {
-        UIUserNotificationSettings *settings =
-        [UIUserNotificationSettings settingsForTypes:(UIUserNotificationTypeBadge |
-                                                      UIUserNotificationTypeSound |
-                                                      UIUserNotificationTypeAlert)
-                                          categories:nil];
-        [application registerUserNotificationSettings:settings];
-        [[UNUserNotificationCenter currentNotificationCenter] setDelegate:self];
-    }
+    UNAuthorizationOptions authOptions = UNAuthorizationOptionBadge|UNAuthorizationOptionSound|UNAuthorizationOptionAlert;
+    [UNUserNotificationCenter.currentNotificationCenter requestAuthorizationWithOptions:authOptions
+                                                                      completionHandler:^(BOOL granted, NSError * _Nullable error) {
+    }];
+    [[UNUserNotificationCenter currentNotificationCenter] setDelegate:self];
 }
 
 - (void)userNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void (^)(void))completionHandler {

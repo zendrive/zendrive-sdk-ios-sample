@@ -90,8 +90,9 @@ static NSString * const kZendriveLocationNotificationIdentifier = @"kZendriveLoc
     if (@available(iOS 13, *)) {
         if ([notification.request.identifier isEqualToString:kZendriveLocationNotificationIdentifier] && CLLocationManager.authorizationStatus != kCLAuthorizationStatusAuthorizedAlways) {
             dispatch_async(dispatch_get_main_queue(), ^{
-                [[UIApplication sharedApplication]
-                 openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString]];
+                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString]
+                                                   options:@{}
+                                         completionHandler:nil];
             });
             return YES;
         }

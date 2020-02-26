@@ -1,8 +1,8 @@
-platform :ios, '10.0'
+platform :ios, '11.0'
 
 source 'https://github.com/CocoaPods/Specs.git'
 
-SDK_VERSION='6.1.0'
+SDK_VERSION='6.2.0'
 
 
 target 'ZendriveSDKDemoSwift' do
@@ -12,12 +12,4 @@ target 'ZendriveSDKDemoSwift' do
   pod 'CocoaLumberjack/Swift'
   pod 'MBProgressHUD', '~> 1.1.0'
   pod 'Crashlytics'
-end
-
-post_install do |installer|
-  installer.pods_project.targets.each do |target|
-    target.build_configurations.each do |config|
-      config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '10.0'
-    end
-  end
 end

@@ -479,13 +479,13 @@ static NSString * kZendriveSDKKeyString = @"your-sdk-key";
 }
 
 - (void)displayNotification:(NSString *)message {
-    UILocalNotification* localNotification = [[UILocalNotification alloc] init];
-    localNotification.alertBody = message;
-    localNotification.alertAction = @"Open";
-    localNotification.soundName = UILocalNotificationDefaultSoundName;
-    localNotification.timeZone = [NSTimeZone defaultTimeZone];
-    localNotification.applicationIconBadgeNumber = 1;
-    [[UIApplication sharedApplication] presentLocalNotificationNow:localNotification];
+    UNMutableNotificationContent* notification = [[UNMutableNotificationContent alloc] init];
+    notification.body = message;
+    UNNotificationRequest *request = [UNNotificationRequest requestWithIdentifier:@"id"
+                                                                          content:notification
+                                                                          trigger:nil];
+    [[UNUserNotificationCenter currentNotificationCenter] addNotificationRequest:request
+                                                           withCompletionHandler:nil];
 }
 
 //------------------------------------------------------------------------------
@@ -497,7 +497,9 @@ static NSString * kZendriveSDKKeyString = @"your-sdk-key";
 }
 
 - (void)displayPrivacyPolicyScreen {
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://www.zendrive.com/policy/"]];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://www.zendrive.com/policy/"]
+                                       options:@{}
+                             completionHandler:nil];
 }
 
 @end
