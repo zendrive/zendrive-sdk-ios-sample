@@ -15,6 +15,7 @@ final class Trip {
     var waypoints: [LocationPoint]
     var distance: Double
     var tripstatus: String?
+    var tags: [Tag]
 
     private let startDateKey = "startDate"
     private let endDateKey = "endDate"
@@ -22,10 +23,12 @@ final class Trip {
     private let distanceKey = "distance"
     private let waypointsKey = "waypoints"
     private let tripStatusKey = "tripStatus"
+    private let tagsKey = "tags"
 
     init() {
         averageSpeed = 0.0
-        waypoints  = [ ]
+        waypoints  = []
+        tags = []
         distance = 0.0
         tripstatus = ""
     }
@@ -39,6 +42,7 @@ final class Trip {
         if let endDate = dictionary?[endDateKey] as? Date {
             self.endDate = endDate
         }
+
 
         if let averageSpeed = dictionary?[averageSpeedKey] as? Double {
             self.averageSpeed = averageSpeed
@@ -54,6 +58,14 @@ final class Trip {
                 waypoints.append(LocationPoint(dictionary: waypointDict))
             }
             self.waypoints = waypoints
+        }
+
+        if let tagDictionaries = dictionary?[tagsKey] as? [[String: String]] {
+            var tags:[Tag] = []
+            for tagDict in tagDictionaries {
+                tags.append(Tag(dictionary: tagDict))
+            }
+            self.tags = tags
         }
 
         if let tripstatus = dictionary?[tripStatusKey] as? String {
@@ -76,12 +88,18 @@ final class Trip {
             dictionary[endDateKey] = endDate
         }
 
-        var waypointDictionaries = [[:]]
+        var waypointDictionaries: [[AnyHashable: Any]] = []
         for waypoint in self.waypoints {
             waypointDictionaries.append(waypoint.toDictionary())
         }
 
+        var tagDictionaries: [[String: String]] = []
+        for tag in self.tags {
+            tagDictionaries.append(tag.toDictionary())
+        }
+
         dictionary[waypointsKey] = waypointDictionaries
+        dictionary[tagsKey] = tagDictionaries
         dictionary[distanceKey] = self.distance
         dictionary[averageSpeedKey] = self.averageSpeed
         return dictionary

@@ -27,6 +27,7 @@ final class TripsViewController: UIViewController, ZendriveDelegate, ZendriveDeb
         tableView.reloadData()
         self.tableView.delegate = self
         self.tableView.dataSource = self
+        self.tableView.rowHeight = UITableView.automaticDimension
         self.registerForNotifications()
         mockAccidentButton.isEnabled = false
         self.navigationItem.title = "ZendriveSDKDemo"
@@ -38,6 +39,12 @@ final class TripsViewController: UIViewController, ZendriveDelegate, ZendriveDeb
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.isHidden = false
+        self.navigationItem.hidesBackButton = true
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -102,6 +109,10 @@ final class TripsViewController: UIViewController, ZendriveDelegate, ZendriveDeb
         return self.tripsArray.count
     }
 
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellIdentifier = "tripCell"
         var cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier)
@@ -111,7 +122,12 @@ final class TripsViewController: UIViewController, ZendriveDelegate, ZendriveDeb
 
         let trip: Trip? = self.tripsArray[indexPath.row]
         if let startDate = trip?.startDate {
-            cell?.textLabel?.text = DateFormatter.shortStyleFormatter.string(from: startDate)
+            var textLabelText: String = DateFormatter.shortStyleFormatter.string(from: startDate)
+            trip?.tags.forEach({ tag in
+                textLabelText =  textLabelText + ("\n" + tag.key + ": " + tag.value)
+            })
+            cell?.textLabel?.text = textLabelText
+            cell?.textLabel?.numberOfLines = 0
         }
 
         let duration = Int((trip?.endDate?.timeIntervalSince1970 ?? 0.0) - (trip?.startDate?.timeIntervalSince1970 ?? 0.0))
@@ -150,7 +166,6 @@ final class TripsViewController: UIViewController, ZendriveDelegate, ZendriveDeb
     @objc func userLoggedOut(_ notification: Notification?) {
         Zendrive.teardown(completionHandler: {
             self.isZendriveSetup = false
-            self.reloadView()
         })
     }
 
@@ -302,6 +317,9 @@ final class TripsViewController: UIViewController, ZendriveDelegate, ZendriveDeb
         trip.averageSpeed = drive.averageSpeed
         trip.waypoints = drive.waypoints.map { (location) -> LocationPoint in
             return LocationPoint(latitude: location.latitude, longitude: location.longitude)
+        }
+        trip.tags = drive.tags.map { (tag) -> Tag in
+            return Tag(key: tag.key, value: tag.value)
         }
         return trip
     }

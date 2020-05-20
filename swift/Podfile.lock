@@ -12,21 +12,21 @@ PODS:
   - SQLite.swift (0.12.2):
     - SQLite.swift/standard (= 0.12.2)
   - SQLite.swift/standard (0.12.2)
-  - ZendriveSDK (6.2.3):
-    - ZendriveSDK/Standard (= 6.2.3)
-  - ZendriveSDK/Standard (6.2.3):
+  - ZendriveSDK (6.3.0):
+    - ZendriveSDK/Standard (= 6.3.0)
+  - ZendriveSDK/Standard (6.3.0):
     - AWSCore (~> 2.11.1)
     - AWSSQS (~> 2.11.1)
     - SQLite.swift (~> 0.12.0)
-  - ZendriveSDKSwift (6.2.3):
+  - ZendriveSDKSwift (6.3.0):
     - ZendriveSDK
 
 DEPENDENCIES:
   - CocoaLumberjack/Swift
   - Crashlytics
   - MBProgressHUD (~> 1.1.0)
-  - ZendriveSDK (from `https://bitbucket.org/zendrive-root/zendrive_cocoapod.git`, tag `6.2.3`)
-  - ZendriveSDKSwift (from `https://bitbucket.org/zendrive-root/zendrive_cocoapod.git`, tag `6.2.3`)
+  - ZendriveSDK (from `https://bitbucket.org/zendrive-root/zendrive_cocoapod.git`, tag `6.3.0`)
+  - ZendriveSDKSwift (from `https://bitbucket.org/zendrive-root/zendrive_cocoapod.git`, tag `6.3.0`)
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
@@ -41,18 +41,18 @@ SPEC REPOS:
 EXTERNAL SOURCES:
   ZendriveSDK:
     :git: https://bitbucket.org/zendrive-root/zendrive_cocoapod.git
-    :tag: 6.2.3
+    :tag: 6.3.0
   ZendriveSDKSwift:
     :git: https://bitbucket.org/zendrive-root/zendrive_cocoapod.git
-    :tag: 6.2.3
+    :tag: 6.3.0
 
 CHECKOUT OPTIONS:
   ZendriveSDK:
     :git: https://bitbucket.org/zendrive-root/zendrive_cocoapod.git
-    :tag: 6.2.3
+    :tag: 6.3.0
   ZendriveSDKSwift:
     :git: https://bitbucket.org/zendrive-root/zendrive_cocoapod.git
-    :tag: 6.2.3
+    :tag: 6.3.0
 
 SPEC CHECKSUMS:
   AWSCore: 00093a1ff49b5d6ce5f1e4d83fe301486fc5034d
@@ -62,9 +62,9 @@ SPEC CHECKSUMS:
   Fabric: 706c8b8098fff96c33c0db69cbf81f9c551d0d74
   MBProgressHUD: e7baa36a220447d8aeb12769bf0585582f3866d9
   SQLite.swift: d2b4642190917051ce6bd1d49aab565fe794eea3
-  ZendriveSDK: 1d3a1ea1aeeb0be7960c5b925ba1010799fb4f64
-  ZendriveSDKSwift: 21b0d372e7ed8dbfbabadae307373833703f9fe7
+  ZendriveSDK: 3b7bdd24d82a3126ae5b2dd6d546e5780b092a9e
+  ZendriveSDKSwift: f2a54df99f9a8d6a177fbb2742c947959acc7000
 
-PODFILE CHECKSUM: 523fcd41a1fe71af06da4db382dadef2a2afdb14
+PODFILE CHECKSUM: 7143faabd74ddaf3c4df9826974867f0cdd42e5a
 
 COCOAPODS: 1.9.1

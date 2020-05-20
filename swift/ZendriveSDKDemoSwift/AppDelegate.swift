@@ -19,14 +19,14 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window = UIWindow(frame: UIScreen.main.bounds)
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         // Condition check to decide root ViewController
+        let viewController: UIViewController
         if let _ = usr {
-            let viewController = storyboard.instantiateViewController(withIdentifier: "TripsViewController") as! TripsViewController
-            let navigationController = UINavigationController(rootViewController: viewController)
-            self.window?.rootViewController = navigationController
+            viewController = storyboard.instantiateViewController(withIdentifier: "TripsViewController") as! TripsViewController
         } else {
-            let viewController = storyboard.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
-            self.window?.rootViewController = viewController
+            viewController = storyboard.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
         }
+        let navigationController = UINavigationController(rootViewController: viewController)
+        self.window?.rootViewController = navigationController
         self.window?.makeKeyAndVisible()
         return true
     }

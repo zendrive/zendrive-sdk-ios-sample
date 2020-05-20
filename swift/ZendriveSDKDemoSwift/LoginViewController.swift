@@ -12,9 +12,13 @@ import ZendriveSDKSwift
 final class LoginViewController: UIViewController {
 
     var driverId: String?
-    let router: Router = Router()
 
     @IBOutlet weak var driverIdEmail: UITextField!
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.isHidden = true
+    }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -22,7 +26,10 @@ final class LoginViewController: UIViewController {
         let usr = UserDefaultsManager.sharedInstance().loggedInUser()
         if let usr = usr {
             driverId = usr["loggedInUser"] as? String
-            router.present(storyBoardName: "Main", viewControllerId: "TripsViewController",presenter: self, navigation: true)
+            if let controller = storyboard?.instantiateViewController(
+                withIdentifier: "TripsViewController") {
+                self.navigationController?.pushViewController(controller, animated: true)
+            }
         }
     }
 
@@ -38,7 +45,10 @@ final class LoginViewController: UIViewController {
 
         let usr = User(fullName: "firstName lastName", phoneNumber: "1234567890", driverId: driverId!)
         UserDefaultsManager.sharedInstance().setLoggedIn(usr)
-        router.present(storyBoardName: "Main", viewControllerId: "TripsViewController",presenter: self, navigation: true)
+        if let controller = storyboard?.instantiateViewController(
+            withIdentifier: "TripsViewController") {
+            self.navigationController?.pushViewController(controller, animated: true)
+        }
     }
 }
 

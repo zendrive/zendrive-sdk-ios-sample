@@ -12,7 +12,6 @@
 		F61E928222F04D2000601E2F /* AppLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61E928122F04D2000601E2F /* AppLogger.swift */; };
 		F6291CAE22E08F8300981E23 /* Trip.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6291CAD22E08F8300981E23 /* Trip.swift */; };
 		F63A110422DDAF4F00A71A57 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F63A110322DDAF4F00A71A57 /* User.swift */; };
-		F63A110722DDF90A00A71A57 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = F63A110622DDF90A00A71A57 /* Router.swift */; };
 		F64AACC122E1B593005D235E /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F64AACC022E1B593005D235E /* NotificationManager.swift */; };
 		F64AACC322E1CE68005D235E /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F64AACC222E1CE68005D235E /* UserDefaultsManager.swift */; };
 		F64AACC722E5B63B005D235E /* TripsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F64AACC622E5B63B005D235E /* TripsViewController.swift */; };
@@ -24,6 +23,9 @@
 		F6C0C38722D8A51E00984814 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6C0C38522D8A51E00984814 /* Main.storyboard */; };
 		F6C0C38922D8A52300984814 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F6C0C38822D8A52300984814 /* Assets.xcassets */; };
 		F6C0C38C22D8A52300984814 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6C0C38A22D8A52300984814 /* LaunchScreen.storyboard */; };
+		FB3D8099247653F9001EBA49 /* DissociateVehicleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB3D8098247653F9001EBA49 /* DissociateVehicleViewController.swift */; };
+		FB75896324759C3900B382B4 /* AssociateVehicleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB75896224759C3900B382B4 /* AssociateVehicleViewController.swift */; };
+		FBE3FD6424767473008E332E /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE3FD6324767473008E332E /* Tag.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,7 +39,6 @@
 		F61E928122F04D2000601E2F /* AppLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLogger.swift; sourceTree = "<group>"; };
 		F6291CAD22E08F8300981E23 /* Trip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trip.swift; sourceTree = "<group>"; };
 		F63A110322DDAF4F00A71A57 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		F63A110622DDF90A00A71A57 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		F64AACC022E1B593005D235E /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		F64AACC222E1CE68005D235E /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
 		F64AACC622E5B63B005D235E /* TripsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripsViewController.swift; sourceTree = "<group>"; };
@@ -51,6 +52,9 @@
 		F6C0C38822D8A52300984814 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F6C0C38B22D8A52300984814 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F6C0C38D22D8A52300984814 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FB3D8098247653F9001EBA49 /* DissociateVehicleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DissociateVehicleViewController.swift; sourceTree = "<group>"; };
+		FB75896224759C3900B382B4 /* AssociateVehicleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssociateVehicleViewController.swift; sourceTree = "<group>"; };
+		FBE3FD6324767473008E332E /* Tag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,16 +96,9 @@
 				F6291CAD22E08F8300981E23 /* Trip.swift */,
 				F64AACC822E72AAD005D235E /* LocationPoint.swift */,
 				F6BE420E22F2CAB00069E738 /* Constants.swift */,
+				FBE3FD6324767473008E332E /* Tag.swift */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		F63A110522DDF8DD00A71A57 /* helper */ = {
-			isa = PBXGroup;
-			children = (
-				F63A110622DDF90A00A71A57 /* Router.swift */,
-			);
-			path = helper;
 			sourceTree = "<group>";
 		};
 		F6C0C37522D8A51E00984814 = {
@@ -125,7 +122,6 @@
 		F6C0C38022D8A51E00984814 /* ZendriveSDKDemoSwift */ = {
 			isa = PBXGroup;
 			children = (
-				F63A110522DDF8DD00A71A57 /* helper */,
 				F63A110222DDAEF800A71A57 /* Model */,
 				F6C0C38122D8A51E00984814 /* AppDelegate.swift */,
 				F6C0C38322D8A51E00984814 /* LoginViewController.swift */,
@@ -139,6 +135,8 @@
 				F61E927F22EB027500601E2F /* SettingViewController.swift */,
 				F61E928122F04D2000601E2F /* AppLogger.swift */,
 				F69C25B922F99C27004E2B3B /* FoundationExtension.swift */,
+				FB75896224759C3900B382B4 /* AssociateVehicleViewController.swift */,
+				FB3D8098247653F9001EBA49 /* DissociateVehicleViewController.swift */,
 			);
 			path = ZendriveSDKDemoSwift;
 			sourceTree = "<group>";
@@ -281,6 +279,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB75896324759C3900B382B4 /* AssociateVehicleViewController.swift in Sources */,
 				F69C25BA22F99C27004E2B3B /* FoundationExtension.swift in Sources */,
 				F64AACC722E5B63B005D235E /* TripsViewController.swift in Sources */,
 				F61E928022EB027500601E2F /* SettingViewController.swift in Sources */,
@@ -289,11 +288,12 @@
 				F6291CAE22E08F8300981E23 /* Trip.swift in Sources */,
 				F63A110422DDAF4F00A71A57 /* User.swift in Sources */,
 				F6C0C38422D8A51E00984814 /* LoginViewController.swift in Sources */,
+				FB3D8099247653F9001EBA49 /* DissociateVehicleViewController.swift in Sources */,
 				F6BE420F22F2CAB00069E738 /* Constants.swift in Sources */,
 				F64AACC122E1B593005D235E /* NotificationManager.swift in Sources */,
+				FBE3FD6424767473008E332E /* Tag.swift in Sources */,
 				F6C0C38222D8A51E00984814 /* AppDelegate.swift in Sources */,
 				F64AACC322E1CE68005D235E /* UserDefaultsManager.swift in Sources */,
-				F63A110722DDF90A00A71A57 /* Router.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -61,6 +61,21 @@ final class SettingViewController: UIViewController {
         self.present(alert, animated: true, completion: nil)
     }
 
+    @IBAction func registerVehicleButtonClicked(_ sender: Any) {
+        let associateVehicleController: AssociateVehicleViewController =
+            storyboard?.instantiateViewController(
+                withIdentifier: "AssociateVehicleViewController") as! AssociateVehicleViewController
+        self.navigationController?.pushViewController(associateVehicleController, animated: true)
+    }
+
+    @IBAction func deregisterVehicleButtonClicked(_ sender: Any) {
+        let dissociateVehicleController: DissociateVehicleViewController =
+            storyboard?.instantiateViewController(
+                withIdentifier: "DissociateVehicleViewController") as! DissociateVehicleViewController
+        self.navigationController?.pushViewController(dissociateVehicleController,
+                                                      animated: true)
+    }
+
     @IBAction func logOutButton(_ sender: Any) {
         UserDefaultsManager.sharedInstance().setLoggedIn(nil)
         let window: UIWindow? = UIWindow(frame: UIScreen.main.bounds)
@@ -68,7 +83,7 @@ final class SettingViewController: UIViewController {
         let viewController = storyboard.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
         window?.rootViewController = viewController
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: Constants.Notification.userLogout), object: nil)
-        self.present(viewController, animated: true, completion: nil)
+        self.navigationController?.pushViewController(viewController, animated: true)
     }
 
     @IBAction func uploadDebugDataButton(_ sender: Any) {
