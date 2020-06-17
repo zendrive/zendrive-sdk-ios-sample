@@ -200,6 +200,10 @@ final class TripsViewController: UIViewController, ZendriveDelegate, ZendriveDeb
         let driveDetectionMode = UserDefaultsManager.sharedInstance().driveDetectionMode()
         configuration.driveDetectionMode = driveDetectionMode
         configuration.driverId = user.driverId
+        // Please make sure that your application handles both
+        // potential as well as final accident callbacks before
+        // setting `implementsMultipleAccidentCallbacks` to true.
+        configuration.implementsMultipleAccidentCallbacks = true;
         let driveAttrs = DriverAttributes()
         var phoneNumber = user.phoneNumber
 
@@ -307,6 +311,10 @@ final class TripsViewController: UIViewController, ZendriveDelegate, ZendriveDeb
             //"if you don't respond for 10 mins"
             NotificationManager.displayNotification(message: "Accident detected with low confidence")
         }
+    }
+
+    func processPotentialAccidentDetected(_ accidentInfo: AccidentInfo) {
+        NotificationManager.displayNotification(message: "Potential accident detected!")
     }
 
     func getTrip(from drive: DriveInfo)-> Trip {

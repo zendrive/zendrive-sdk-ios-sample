@@ -244,11 +244,14 @@ static NSString * kZendriveSDKKeyString = @"your-sdk-key";
            andFailureHandler:(void (^)(NSError *))failureBlock {
     ZendriveConfiguration *configuration = [[ZendriveConfiguration alloc] init];
     configuration.applicationKey = kZendriveSDKKeyString;
-
     ZendriveDriveDetectionMode driveDetectionMode = [SharedUserDefaultsManager driveDetectionMode];
     configuration.driveDetectionMode = driveDetectionMode;
 
     configuration.driverId = user.driverId;
+    // Please make sure that your application handles both
+    // potential as well as final accident callbacks before
+    // setting `implementsMultipleAccidentCallbacks` to true.
+    configuration.implementsMultipleAccidentCallbacks = true;
 
     ZendriveDriverAttributes *driverAttrs = [[ZendriveDriverAttributes alloc] init];
 
@@ -403,6 +406,10 @@ static NSString * kZendriveSDKKeyString = @"your-sdk-key";
     }]];
 
     [self presentViewController:alertController animated:YES completion:nil];
+}
+
+- (void)processPotentialAccidentDetected:(ZendriveAccidentInfo *)accidentInfo {
+    [self displayNotification:@"Potential accident detected!"];
 }
 
 - (Trip *)tripFromZendriveDriveInfo:(ZendriveDriveInfo *)drive {
