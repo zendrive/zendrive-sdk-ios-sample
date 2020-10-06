@@ -3,7 +3,7 @@ platform :ios, '11.0'
 
 source 'https://github.com/CocoaPods/Specs.git'
 
-SDK_VERSION='6.3.2'
+SDK_VERSION='7.0.0'
 
 target 'ZendriveSDKDemo' do
   use_frameworks!
