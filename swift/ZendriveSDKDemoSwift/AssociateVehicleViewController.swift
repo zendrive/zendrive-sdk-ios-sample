@@ -15,7 +15,7 @@ final class AssociateVehicleViewController: UIViewController,
                                             UITableViewDataSource {
     private var vehicleId: String?
     private var bluetoothId: String?
-    private var connectedDevicesArray: [AVAudioSessionPortDescription] = []
+    private var connectedDevicesArray: [BluetoothDevice] = []
 
     @IBOutlet private weak var confirmButton: UIButton!
     @IBOutlet private weak var tableView: UITableView!
@@ -40,8 +40,8 @@ final class AssociateVehicleViewController: UIViewController,
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "associate")
         let bluetoothId =
-            connectedDevicesArray[indexPath.row].uid.components(separatedBy: "-").first
-        cell.textLabel?.text = connectedDevicesArray[indexPath.row].portName
+            connectedDevicesArray[indexPath.row].identifier
+        cell.textLabel?.text = connectedDevicesArray[indexPath.row].name
         cell.detailTextLabel?.text = bluetoothId
         if self.bluetoothId == bluetoothId {
             cell.accessoryType = .checkmark
@@ -58,14 +58,14 @@ final class AssociateVehicleViewController: UIViewController,
 
         // Retrieving mac address from uid.
         let bluetoothId =
-            connectedDevicesArray[indexPath.row].uid.components(separatedBy: "-").first
+            connectedDevicesArray[indexPath.row].identifier
         if self.bluetoothId == bluetoothId {
             self.vehicleId = nil
             self.bluetoothId = nil
         } else {
             // Removing disallowed characters from vehicle id.
             self.vehicleId =
-                connectedDevicesArray[indexPath.row].portName
+                connectedDevicesArray[indexPath.row].name
                     .replacingOccurrences(of: " ", with: "_")
                     .trimmingCharacters(in: CharacterSet(charactersIn: "? &/\\;#\n")) +
                 String(format: "_%04d", arc4random_uniform(10000))
@@ -95,14 +95,11 @@ final class AssociateVehicleViewController: UIViewController,
         footer?.textLabel?.font = UIFont(name: (footer?.textLabel?.font.familyName)!, size: 20)
     }
 
-    private func getConnectedDevices() -> [AVAudioSessionPortDescription] {
-        return AVAudioSession.sharedInstance().currentRoute.outputs.filter { (port) -> Bool in
-            return (
-                    port.portType == .bluetoothA2DP ||
-                    port.portType == .bluetoothHFP  ||
-                    port.portType == .bluetoothLE   ||
-                    port.portType == .airPlay
-            )
+    private func getConnectedDevices() -> [BluetoothDevice] {
+        if let bluetoothDevice = ZendriveVehicleTagging.getActiveBluetoothDevice() {
+            return [bluetoothDevice]
+        } else {
+            return []
         }
     }
 

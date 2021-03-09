@@ -149,7 +149,7 @@
 			buildConfigurationList = F6C0C3A622D8A52400984814 /* Build configuration list for PBXNativeTarget "ZendriveSDKDemoSwift" */;
 			buildPhases = (
 				11C0B58719153971A831F863 /* [CP] Check Pods Manifest.lock */,
-				D23E2C30270FD6CDBFA25611 /* [CP] Prepare Artifacts */,
+				C8F1F7223A3716C6B4770A97 /* [CP] Prepare Artifacts */,
 				F6C0C37A22D8A51E00984814 /* Sources */,
 				F6C0C37B22D8A51E00984814 /* Frameworks */,
 				F6C0C37C22D8A51E00984814 /* Resources */,
@@ -238,7 +238,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		D23E2C30270FD6CDBFA25611 /* [CP] Prepare Artifacts */ = {
+		C8F1F7223A3716C6B4770A97 /* [CP] Prepare Artifacts */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -441,7 +441,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = G58MEDR6ZT;
+				DEVELOPMENT_TEAM = MGC42GYEBQ;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = ZendriveSDKDemoSwift/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -462,7 +462,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = G58MEDR6ZT;
+				DEVELOPMENT_TEAM = MGC42GYEBQ;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = ZendriveSDKDemoSwift/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
