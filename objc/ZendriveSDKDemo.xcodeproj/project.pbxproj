@@ -292,7 +292,6 @@
 			buildConfigurationList = 56D827E21A63086300703BEF /* Build configuration list for PBXNativeTarget "ZendriveSDKDemo" */;
 			buildPhases = (
 				C6F84CEFE9019DED0617DFBA /* [CP] Check Pods Manifest.lock */,
-				6069149E85E9191D1ED9CBD1 /* [CP] Prepare Artifacts */,
 				56D827BB1A63086200703BEF /* Sources */,
 				56D827BC1A63086200703BEF /* Frameworks */,
 				56D827BD1A63086200703BEF /* Resources */,
@@ -330,7 +329,6 @@
 			buildConfigurationList = AABC218921DCD4CF002B87FB /* Build configuration list for PBXNativeTarget "Testing-ZendriveSDKDemo" */;
 			buildPhases = (
 				B1600CD40D2BBE5EB30B1467 /* [CP] Check Pods Manifest.lock */,
-				672AF3CCC5A0CC6C8A3CFCEB /* [CP] Prepare Artifacts */,
 				AABC217821DCD4CF002B87FB /* Sources */,
 				AABC218221DCD4CF002B87FB /* Frameworks */,
 				AABC218421DCD4CF002B87FB /* Resources */,
@@ -440,7 +438,6 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-ZendriveSDKDemo/Pods-ZendriveSDKDemo-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/cocoapods-artifacts-${CONFIGURATION}.txt",
 				"${BUILT_PRODUCTS_DIR}/AWSCore/AWSCore.framework",
 				"${BUILT_PRODUCTS_DIR}/AWSSQS/AWSSQS.framework",
 				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
@@ -458,42 +455,6 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ZendriveSDKDemo/Pods-ZendriveSDKDemo-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		6069149E85E9191D1ED9CBD1 /* [CP] Prepare Artifacts */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ZendriveSDKDemo/Pods-ZendriveSDKDemo-artifacts.sh",
-				"${PODS_ROOT}/ZendriveSDK/ZendriveSDK.xcframework",
-			);
-			name = "[CP] Prepare Artifacts";
-			outputPaths = (
-				"${BUILT_PRODUCTS_DIR}/cocoapods-artifacts-${CONFIGURATION}.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ZendriveSDKDemo/Pods-ZendriveSDKDemo-artifacts.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		672AF3CCC5A0CC6C8A3CFCEB /* [CP] Prepare Artifacts */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Testing-ZendriveSDKDemo/Pods-Testing-ZendriveSDKDemo-artifacts.sh",
-				"${PODS_ROOT}/ZendriveSDK/ZendriveSDK.xcframework",
-			);
-			name = "[CP] Prepare Artifacts";
-			outputPaths = (
-				"${BUILT_PRODUCTS_DIR}/cocoapods-artifacts-${CONFIGURATION}.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Testing-ZendriveSDKDemo/Pods-Testing-ZendriveSDKDemo-artifacts.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		939F595E3F39C29A9A31EEE3 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -501,7 +462,6 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Testing-ZendriveSDKDemo/Pods-Testing-ZendriveSDKDemo-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/cocoapods-artifacts-${CONFIGURATION}.txt",
 				"${BUILT_PRODUCTS_DIR}/AWSCore/AWSCore.framework",
 				"${BUILT_PRODUCTS_DIR}/AWSSQS/AWSSQS.framework",
 				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
