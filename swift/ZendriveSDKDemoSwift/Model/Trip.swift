@@ -15,7 +15,8 @@ final class Trip {
     var waypoints: [LocationPoint]
     var distance: Double
     var tripstatus: String?
-    var tags: [Tag]
+    var vehicleId: String?
+    var vehicleTaggingMode: String?
 
     private let startDateKey = "startDate"
     private let endDateKey = "endDate"
@@ -23,12 +24,16 @@ final class Trip {
     private let distanceKey = "distance"
     private let waypointsKey = "waypoints"
     private let tripStatusKey = "tripStatus"
-    private let tagsKey = "tags"
+    private let vehicleIdKey = "vehicleId"
+    private let vehicleTaggingModeKey = "vehicleTaggingMode"
+
+
 
     init() {
         averageSpeed = 0.0
         waypoints  = []
-        tags = []
+        vehicleId = ""
+        vehicleTaggingMode = ""
         distance = 0.0
         tripstatus = ""
     }
@@ -60,12 +65,12 @@ final class Trip {
             self.waypoints = waypoints
         }
 
-        if let tagDictionaries = dictionary?[tagsKey] as? [[String: String]] {
-            var tags:[Tag] = []
-            for tagDict in tagDictionaries {
-                tags.append(Tag(dictionary: tagDict))
-            }
-            self.tags = tags
+        if let vehicleId = dictionary?[vehicleIdKey] as? String {
+            self.vehicleId = vehicleId
+        }
+
+        if let vehicleTaggingMode = dictionary?[vehicleTaggingModeKey] as? String {
+            self.vehicleTaggingMode = vehicleTaggingMode
         }
 
         if let tripstatus = dictionary?[tripStatusKey] as? String {
@@ -93,13 +98,15 @@ final class Trip {
             waypointDictionaries.append(waypoint.toDictionary())
         }
 
-        var tagDictionaries: [[String: String]] = []
-        for tag in self.tags {
-            tagDictionaries.append(tag.toDictionary())
+        if let vehicleId = self.vehicleId {
+            dictionary[vehicleIdKey] = vehicleId
+        }
+
+        if let vehicleTaggingMode = self.vehicleTaggingMode {
+            dictionary[vehicleTaggingModeKey] = vehicleTaggingMode
         }
 
         dictionary[waypointsKey] = waypointDictionaries
-        dictionary[tagsKey] = tagDictionaries
         dictionary[distanceKey] = self.distance
         dictionary[averageSpeedKey] = self.averageSpeed
         return dictionary

@@ -11,6 +11,8 @@ import ZendriveSDKSwift
 
 final class TripsViewController: UIViewController, ZendriveDelegate, ZendriveDebugDelegate, UITableViewDelegate, UITableViewDataSource {
     private let zendriveSDKKeyString = "Your SDK Key"
+    private let vehicleTaggingModeBluetooth = "Bluetooth"
+    private let vehicleTaggingModeBeacon = "Beacon"
     @IBOutlet weak var mockAccidentButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var driveStatusLabel: UILabel!
@@ -123,9 +125,12 @@ final class TripsViewController: UIViewController, ZendriveDelegate, ZendriveDeb
         let trip: Trip? = self.tripsArray[indexPath.row]
         if let startDate = trip?.startDate {
             var textLabelText: String = DateFormatter.shortStyleFormatter.string(from: startDate)
-            trip?.tags.forEach({ tag in
-                textLabelText =  textLabelText + ("\n" + tag.key + ": " + tag.value)
-            })
+            if let vehicleId = trip?.vehicleId {
+                textLabelText =  textLabelText + ("\n" + "vehicleId" + ": " + vehicleId)
+            }
+            if let vehicleTaggingMode = trip?.vehicleTaggingMode {
+                textLabelText =  textLabelText + ("\n" + "vehicleTaggingMode" + ": " + vehicleTaggingMode)
+            }
             cell?.textLabel?.text = textLabelText
             cell?.textLabel?.numberOfLines = 0
         }
@@ -326,9 +331,19 @@ final class TripsViewController: UIViewController, ZendriveDelegate, ZendriveDeb
         trip.waypoints = drive.waypoints.map { (location) -> LocationPoint in
             return LocationPoint(latitude: location.latitude, longitude: location.longitude)
         }
-        trip.tags = drive.tags.map { (tag) -> Tag in
-            return Tag(key: tag.key, value: tag.value)
+
+        if let vehicleId = drive.vehicleTaggingDetails?.vehicleId {
+            trip.vehicleId = vehicleId
         }
+
+        if let taggedByBeacon = drive.vehicleTaggingDetails?.isTaggedByBeacon, taggedByBeacon == true {
+            trip.vehicleTaggingMode = vehicleTaggingModeBeacon
+        }
+
+        if let taggedByBluetooth = drive.vehicleTaggingDetails?.isTaggedByBluetoothStereo, taggedByBluetooth == true {
+            trip.vehicleTaggingMode = vehicleTaggingModeBluetooth
+        }
+
         return trip
     }
 }

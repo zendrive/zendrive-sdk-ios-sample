@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0C46D7B24FEEF79195A54EBA /* Pods_Testing_ZendriveSDKDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52EE4C46B787CEF648F86268 /* Pods_Testing_ZendriveSDKDemo.framework */; };
+		29EAFB0A284869E40032A303 /* Empty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29EAFB09284869E40032A303 /* Empty.swift */; };
 		5611DED11A630B93004CA14C /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5611DED01A630B93004CA14C /* ViewController.xib */; };
 		56D827C51A63086200703BEF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 56D827C41A63086200703BEF /* main.m */; };
 		56D827C81A63086200703BEF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 56D827C71A63086200703BEF /* AppDelegate.m */; };
@@ -63,6 +64,8 @@
 /* Begin PBXFileReference section */
 		009A1686F98DABCAEB685F82 /* Pods-Testing-ZendriveSDKDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Testing-ZendriveSDKDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-Testing-ZendriveSDKDemo/Pods-Testing-ZendriveSDKDemo.release.xcconfig"; sourceTree = "<group>"; };
 		09BCDCEF9DE917F7701D46A7 /* Pods-Testing-ZendriveSDKDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Testing-ZendriveSDKDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Testing-ZendriveSDKDemo/Pods-Testing-ZendriveSDKDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		29EAFB08284869E30032A303 /* ZendriveSDKDemo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ZendriveSDKDemo-Bridging-Header.h"; sourceTree = "<group>"; };
+		29EAFB09284869E40032A303 /* Empty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Empty.swift; sourceTree = "<group>"; };
 		52EE4C46B787CEF648F86268 /* Pods_Testing_ZendriveSDKDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Testing_ZendriveSDKDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		54CEEBA8B3DABC5996FC833A /* Pods-ZendriveSDKDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZendriveSDKDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ZendriveSDKDemo/Pods-ZendriveSDKDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		5611DED01A630B93004CA14C /* ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
@@ -280,6 +283,8 @@
 				EC976B9F1AABAEF5009FB78F /* Trip.m */,
 				EC976BA11AABB775009FB78F /* LocationPoint.h */,
 				EC976BA21AABB775009FB78F /* LocationPoint.m */,
+				29EAFB09284869E40032A303 /* Empty.swift */,
+				29EAFB08284869E30032A303 /* ZendriveSDKDemo-Bridging-Header.h */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -355,6 +360,7 @@
 					56D827BE1A63086200703BEF = {
 						CreatedOnToolsVersion = 6.1.1;
 						DevelopmentTeam = MGC42GYEBQ;
+						LastSwiftMigration = 1340;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
@@ -539,6 +545,7 @@
 				EC7F861E1C8070C3000B4FE1 /* UserDefaultsManager.m in Sources */,
 				56D827EB1A63090700703BEF /* ViewController.m in Sources */,
 				B7BB3226228960BE00A6B98C /* UserConsentUtility.m in Sources */,
+				29EAFB0A284869E40032A303 /* Empty.swift in Sources */,
 				56D827C81A63086200703BEF /* AppDelegate.m in Sources */,
 				EC976BA31AABB775009FB78F /* LocationPoint.m in Sources */,
 				56D827C51A63086200703BEF /* main.m in Sources */,
@@ -712,6 +719,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = MGC42GYEBQ;
@@ -723,15 +731,14 @@
 				INFOPLIST_FILE = ZendriveSDKDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(TOOLCHAIN_DIR)/usr/lib/swift/$(PLATFORM_NAME)",
-					"$(TOOLCHAIN_DIR)/usr/lib/swift-5.0/$(PLATFORM_NAME)",
-					"$(SDKROOT)/usr/lib/swift",
-				);
+				LIBRARY_SEARCH_PATHS = "$(SDKROOT)/usr/lib/swift";
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.zendrive.ZendriveSDKDemo1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "ZendriveSDKDemo/Model/ZendriveSDKDemo-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -741,6 +748,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = MGC42GYEBQ;
@@ -752,21 +760,20 @@
 				INFOPLIST_FILE = ZendriveSDKDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(TOOLCHAIN_DIR)/usr/lib/swift/$(PLATFORM_NAME)",
-					"$(TOOLCHAIN_DIR)/usr/lib/swift-5.0/$(PLATFORM_NAME)",
-					"$(SDKROOT)/usr/lib/swift",
-				);
+				LIBRARY_SEARCH_PATHS = "$(SDKROOT)/usr/lib/swift";
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.zendrive.ZendriveSDKDemo1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "ZendriveSDKDemo/Model/ZendriveSDKDemo-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
 		56D827E61A63086300703BEF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -788,6 +795,7 @@
 		56D827E71A63086300703BEF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",

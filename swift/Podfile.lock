@@ -1,7 +1,7 @@
 PODS:
-  - AWSCore (2.23.2)
-  - AWSSQS (2.23.2):
-    - AWSCore (= 2.23.2)
+  - AWSCore (2.23.5)
+  - AWSSQS (2.23.5):
+    - AWSCore (= 2.23.5)
   - CocoaLumberjack/Core (3.5.3)
   - CocoaLumberjack/Swift (3.5.3):
     - CocoaLumberjack/Core
@@ -12,21 +12,21 @@ PODS:
   - SQLite.swift (0.12.2):
     - SQLite.swift/standard (= 0.12.2)
   - SQLite.swift/standard (0.12.2)
-  - ZendriveSDK (8.2.0):
-    - ZendriveSDK/Standard (= 8.2.0)
-  - ZendriveSDK/Standard (8.2.0):
+  - ZendriveSDK (8.3.0):
+    - ZendriveSDK/Standard (= 8.3.0)
+  - ZendriveSDK/Standard (8.3.0):
     - AWSCore (~> 2.23.2)
     - AWSSQS (~> 2.23.2)
     - SQLite.swift (~> 0.12.2)
-  - ZendriveSDKSwift (8.2.0):
+  - ZendriveSDKSwift (8.3.0):
     - ZendriveSDK
 
 DEPENDENCIES:
   - CocoaLumberjack/Swift
   - Crashlytics
   - MBProgressHUD (~> 1.1.0)
-  - ZendriveSDK (from `https://bitbucket.org/zendrive-root/zendrive_cocoapod.git`, tag `8.2.0`)
-  - ZendriveSDKSwift (from `https://bitbucket.org/zendrive-root/zendrive_cocoapod.git`, tag `8.2.0`)
+  - ZendriveSDK (from `https://bitbucket.org/zendrive-root/zendrive_cocoapod.git`, tag `8.3.0`)
+  - ZendriveSDKSwift (from `https://bitbucket.org/zendrive-root/zendrive_cocoapod.git`, tag `8.3.0`)
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
@@ -41,30 +41,30 @@ SPEC REPOS:
 EXTERNAL SOURCES:
   ZendriveSDK:
     :git: https://bitbucket.org/zendrive-root/zendrive_cocoapod.git
-    :tag: 8.2.0
+    :tag: 8.3.0
   ZendriveSDKSwift:
     :git: https://bitbucket.org/zendrive-root/zendrive_cocoapod.git
-    :tag: 8.2.0
+    :tag: 8.3.0
 
 CHECKOUT OPTIONS:
   ZendriveSDK:
     :git: https://bitbucket.org/zendrive-root/zendrive_cocoapod.git
-    :tag: 8.2.0
+    :tag: 8.3.0
   ZendriveSDKSwift:
     :git: https://bitbucket.org/zendrive-root/zendrive_cocoapod.git
-    :tag: 8.2.0
+    :tag: 8.3.0
 
 SPEC CHECKSUMS:
-  AWSCore: 70f79e95ee30f8eefa7122391d76ace516778f22
-  AWSSQS: 9119c52267bf2bbd9100f51f9a976902d537e024
+  AWSCore: 609b7fbd59837525c818f3e8e3d42d3b427cadf6
+  AWSSQS: e60b27935d55eec8e155bc7ec265ea40ea7d353e
   CocoaLumberjack: 2f44e60eb91c176d471fdba43b9e3eae6a721947
   Crashlytics: ccc83294f626469f0f24ef28c8c0e9b840f23821
   Fabric: ea977e3cd9c20425516d3dafd3bf8c941c51223f
   MBProgressHUD: e7baa36a220447d8aeb12769bf0585582f3866d9
   SQLite.swift: d2b4642190917051ce6bd1d49aab565fe794eea3
-  ZendriveSDK: 94d5e3b778cdfd4ca989b6fbddbb2984c3d01c01
-  ZendriveSDKSwift: 1033f568d7834c84de79ca236bc132ab1405e440
+  ZendriveSDK: 7ec7aa893abef8226d921807e949b2b8f5b2a190
+  ZendriveSDKSwift: c35ca8db2d9a8213102760318fe7fd3f0f09fcfd
 
-PODFILE CHECKSUM: d64754c504405986d12355b4d4fa0d0d24256822
+PODFILE CHECKSUM: a8890275cfcd84c0b1a32142757cf44cca09df31
 
 COCOAPODS: 1.11.0
