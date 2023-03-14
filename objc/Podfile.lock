@@ -17,8 +17,8 @@ PODS:
 
 DEPENDENCIES:
   - MBProgressHUD (~> 1.1.0)
-  - ZendriveSDK (from `https://bitbucket.org/zendrive-root/zendrive_cocoapod.git`, tag `9.1.0-dev1`)
-  - ZendriveSDK/Testing (from `https://bitbucket.org/zendrive-root/zendrive_cocoapod.git`, tag `9.1.0-dev1`)
+  - ZendriveSDK (from `https://bitbucket.org/zendrive-root/zendrive_cocoapod.git`, tag `9.1.0`)
+  - ZendriveSDK/Testing (from `https://bitbucket.org/zendrive-root/zendrive_cocoapod.git`, tag `9.1.0`)
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
@@ -30,12 +30,12 @@ SPEC REPOS:
 EXTERNAL SOURCES:
   ZendriveSDK:
     :git: https://bitbucket.org/zendrive-root/zendrive_cocoapod.git
-    :tag: 9.1.0-dev1
+    :tag: 9.1.0
 
 CHECKOUT OPTIONS:
   ZendriveSDK:
     :git: https://bitbucket.org/zendrive-root/zendrive_cocoapod.git
-    :tag: 9.1.0-dev1
+    :tag: 9.1.0
 
 SPEC CHECKSUMS:
   AWSCore: 609b7fbd59837525c818f3e8e3d42d3b427cadf6
@@ -44,6 +44,6 @@ SPEC CHECKSUMS:
   SQLite.swift: d2b4642190917051ce6bd1d49aab565fe794eea3
   ZendriveSDK: c8cca5c2f0324652dcc7eaface3a58d599c85ead
 
-PODFILE CHECKSUM: d4237f8464e94e899b7b69148031d44741ea92d2
+PODFILE CHECKSUM: 48ece5cfd452b57751355ab9e0ab9599b506417f
 
 COCOAPODS: 1.11.2

@@ -25,8 +25,8 @@ DEPENDENCIES:
   - CocoaLumberjack/Swift
   - Crashlytics
   - MBProgressHUD (~> 1.1.0)
-  - ZendriveSDK (from `https://bitbucket.org/zendrive-root/zendrive_cocoapod.git`, tag `9.1.0-dev1`)
-  - ZendriveSDKSwift (from `https://bitbucket.org/zendrive-root/zendrive_cocoapod.git`, tag `9.1.0-dev1`)
+  - ZendriveSDK (from `https://bitbucket.org/zendrive-root/zendrive_cocoapod.git`, tag `9.1.0`)
+  - ZendriveSDKSwift (from `https://bitbucket.org/zendrive-root/zendrive_cocoapod.git`, tag `9.1.0`)
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
@@ -41,18 +41,18 @@ SPEC REPOS:
 EXTERNAL SOURCES:
   ZendriveSDK:
     :git: https://bitbucket.org/zendrive-root/zendrive_cocoapod.git
-    :tag: 9.1.0-dev1
+    :tag: 9.1.0
   ZendriveSDKSwift:
     :git: https://bitbucket.org/zendrive-root/zendrive_cocoapod.git
-    :tag: 9.1.0-dev1
+    :tag: 9.1.0
 
 CHECKOUT OPTIONS:
   ZendriveSDK:
     :git: https://bitbucket.org/zendrive-root/zendrive_cocoapod.git
-    :tag: 9.1.0-dev1
+    :tag: 9.1.0
   ZendriveSDKSwift:
     :git: https://bitbucket.org/zendrive-root/zendrive_cocoapod.git
-    :tag: 9.1.0-dev1
+    :tag: 9.1.0
 
 SPEC CHECKSUMS:
   AWSCore: 609b7fbd59837525c818f3e8e3d42d3b427cadf6
@@ -65,6 +65,6 @@ SPEC CHECKSUMS:
   ZendriveSDK: c8cca5c2f0324652dcc7eaface3a58d599c85ead
   ZendriveSDKSwift: 9cb17ee014918ad9d52b8007548bb0caf9290bed
 
-PODFILE CHECKSUM: b9b8c66a102293bd3fed59957cc8e3015096aeba
+PODFILE CHECKSUM: b12926dc4601086d510a06754558625eaf763f8e
 
 COCOAPODS: 1.11.2
