@@ -8,7 +8,6 @@
 
 import Foundation
 import CocoaLumberjack
-import Crashlytics
 
 final class AppLogger {
     static var logsDirectory: String?
@@ -98,9 +97,6 @@ final class AppLogger {
         #if !DEBUG
         CLSLogv("%@",getVaList([message()]))
         #endif
-
-        let error : Error = NSError(domain: "com.zendrive.sampleAppSwift", code: errorCodeForCurrentCallStack(), userInfo: [NSLocalizedDescriptionKey : message()] )
-        Crashlytics.sharedInstance().recordError(error)
     }
 
     class func errorCodeForCurrentCallStack() -> Int {
