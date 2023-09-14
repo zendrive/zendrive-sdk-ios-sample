@@ -1,8 +1,8 @@
-platform :ios, '11.0'
+platform :ios, '13.0'
 
 source 'https://github.com/CocoaPods/Specs.git'
 
-SDK_VERSION='9.2.1'
+SDK_VERSION='10.0.0'
 
 
 target 'ZendriveSDKDemoSwift' do

@@ -1,28 +1,28 @@
 PODS:
-  - AWSCore (2.23.5)
-  - AWSSQS (2.23.5):
-    - AWSCore (= 2.23.5)
+  - AWSCore (2.33.0)
+  - AWSSQS (2.33.0):
+    - AWSCore (= 2.33.0)
   - CocoaLumberjack/Core (3.5.3)
   - CocoaLumberjack/Swift (3.5.3):
     - CocoaLumberjack/Core
   - MBProgressHUD (1.1.0)
-  - SQLite.swift (0.12.2):
-    - SQLite.swift/standard (= 0.12.2)
-  - SQLite.swift/standard (0.12.2)
-  - ZendriveSDK (9.2.0):
-    - ZendriveSDK/Standard (= 9.2.0)
-  - ZendriveSDK/Standard (9.2.0):
-    - AWSCore (~> 2.23.2)
-    - AWSSQS (~> 2.23.2)
-    - SQLite.swift (~> 0.12.2)
-  - ZendriveSDKSwift (9.2.0):
+  - SQLite.swift (0.13.3):
+    - SQLite.swift/standard (= 0.13.3)
+  - SQLite.swift/standard (0.13.3)
+  - ZendriveSDK (10.0.0):
+    - ZendriveSDK/Standard (= 10.0.0)
+  - ZendriveSDK/Standard (10.0.0):
+    - AWSCore (<= 2.33.0, >= 2.30.4)
+    - AWSSQS (<= 2.33.0, >= 2.30.4)
+    - SQLite.swift (~> 0.13.3)
+  - ZendriveSDKSwift (10.0.0):
     - ZendriveSDK
 
 DEPENDENCIES:
   - CocoaLumberjack/Swift
   - MBProgressHUD (~> 1.1.0)
-  - ZendriveSDK (from `https://bitbucket.org/zendrive-root/zendrive_cocoapod.git`, tag `9.2.1`)
-  - ZendriveSDKSwift (from `https://bitbucket.org/zendrive-root/zendrive_cocoapod.git`, tag `9.2.1`)
+  - ZendriveSDK (from `https://bitbucket.org/zendrive-root/zendrive_cocoapod.git`, tag `10.0.0`)
+  - ZendriveSDKSwift (from `https://bitbucket.org/zendrive-root/zendrive_cocoapod.git`, tag `10.0.0`)
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
@@ -35,28 +35,28 @@ SPEC REPOS:
 EXTERNAL SOURCES:
   ZendriveSDK:
     :git: https://bitbucket.org/zendrive-root/zendrive_cocoapod.git
-    :tag: 9.2.1
+    :tag: 10.0.0
   ZendriveSDKSwift:
     :git: https://bitbucket.org/zendrive-root/zendrive_cocoapod.git
-    :tag: 9.2.1
+    :tag: 10.0.0
 
 CHECKOUT OPTIONS:
   ZendriveSDK:
     :git: https://bitbucket.org/zendrive-root/zendrive_cocoapod.git
-    :tag: 9.2.1
+    :tag: 10.0.0
   ZendriveSDKSwift:
     :git: https://bitbucket.org/zendrive-root/zendrive_cocoapod.git
-    :tag: 9.2.1
+    :tag: 10.0.0
 
 SPEC CHECKSUMS:
-  AWSCore: 609b7fbd59837525c818f3e8e3d42d3b427cadf6
-  AWSSQS: e60b27935d55eec8e155bc7ec265ea40ea7d353e
+  AWSCore: ff962198e35c750cb1d59cd459c51f1990e3ec68
+  AWSSQS: ef01b3aec075c8a75a3c702a53f11642eda80d53
   CocoaLumberjack: 2f44e60eb91c176d471fdba43b9e3eae6a721947
   MBProgressHUD: e7baa36a220447d8aeb12769bf0585582f3866d9
-  SQLite.swift: d2b4642190917051ce6bd1d49aab565fe794eea3
-  ZendriveSDK: 6503ad086fc0aa456e7868e152050716f32aff4b
-  ZendriveSDKSwift: b1ea55d4377b7c471d03e00ff4dec574ff4ff031
+  SQLite.swift: 903bfa3bc9ab06345fdfbb578e34f47cfcf417da
+  ZendriveSDK: 26fe17ce49b1dd903910a0fc12e1f2cd844b3738
+  ZendriveSDKSwift: d01cc08b2d7d32e678f7d35461020c799b47fff5
 
-PODFILE CHECKSUM: ffe87fb606c934b0a142cdd191f004a1ea489c14
+PODFILE CHECKSUM: 84330e4cab53139441d75fd8ba9605ca95584acb
 
 COCOAPODS: 1.11.3
