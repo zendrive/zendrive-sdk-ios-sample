@@ -3,7 +3,7 @@ platform :ios, '13.0'
 
 source 'https://github.com/CocoaPods/Specs.git'
 
-SDK_VERSION='10.0.1'
+SDK_VERSION='10.0.2'
 
 target 'ZendriveSDKDemo' do
   use_frameworks!
@@ -15,4 +15,15 @@ target 'Testing-ZendriveSDKDemo' do
   use_frameworks!
   pod 'ZendriveSDK/Testing', :git => 'https://bitbucket.org/zendrive-root/zendrive_cocoapod.git', :tag => SDK_VERSION
   pod 'MBProgressHUD', '~> 1.1.0'
+end
+
+SDK_VERSION='10.0.2'
+post_install do |installer|
+    installer.generated_projects.each do |project|
+        project.targets.each do |target|
+            target.build_configurations.each do |config|
+                config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '13.0'
+            end
+        end
+    end
 end
