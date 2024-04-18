@@ -1,24 +1,24 @@
 PODS:
-  - AWSCore (2.33.0)
-  - AWSSQS (2.33.0):
-    - AWSCore (= 2.33.0)
+  - AWSCore (2.34.2)
+  - AWSSQS (2.34.2):
+    - AWSCore (= 2.34.2)
   - MBProgressHUD (1.1.0)
-  - SQLite.swift (0.13.3):
-    - SQLite.swift/standard (= 0.13.3)
-  - SQLite.swift/standard (0.13.3)
-  - ZendriveSDK (10.0.2):
-    - ZendriveSDK/Standard (= 10.0.2)
-  - ZendriveSDK/Standard (10.0.2):
-    - AWSCore (<= 2.33.0, >= 2.30.4)
-    - AWSSQS (<= 2.33.0, >= 2.30.4)
-    - SQLite.swift (~> 0.13.3)
-  - ZendriveSDK/Testing (10.0.2):
+  - SQLite.swift (0.15.1):
+    - SQLite.swift/standard (= 0.15.1)
+  - SQLite.swift/standard (0.15.1)
+  - ZendriveSDK (10.0.4):
+    - ZendriveSDK/Standard (= 10.0.4)
+  - ZendriveSDK/Standard (10.0.4):
+    - AWSCore (~> 2.34.2)
+    - AWSSQS (~> 2.34.2)
+    - SQLite.swift (~> 0.15.1)
+  - ZendriveSDK/Testing (10.0.4):
     - ZendriveSDK/Standard
 
 DEPENDENCIES:
   - MBProgressHUD (~> 1.1.0)
-  - ZendriveSDK (from `https://bitbucket.org/zendrive-root/zendrive_cocoapod.git`, tag `10.0.2`)
-  - ZendriveSDK/Testing (from `https://bitbucket.org/zendrive-root/zendrive_cocoapod.git`, tag `10.0.2`)
+  - ZendriveSDK (from `https://bitbucket.org/zendrive-root/zendrive_cocoapod.git`, tag `10.0.4`)
+  - ZendriveSDK/Testing (from `https://bitbucket.org/zendrive-root/zendrive_cocoapod.git`, tag `10.0.4`)
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
@@ -30,20 +30,20 @@ SPEC REPOS:
 EXTERNAL SOURCES:
   ZendriveSDK:
     :git: https://bitbucket.org/zendrive-root/zendrive_cocoapod.git
-    :tag: 10.0.2
+    :tag: 10.0.4
 
 CHECKOUT OPTIONS:
   ZendriveSDK:
     :git: https://bitbucket.org/zendrive-root/zendrive_cocoapod.git
-    :tag: 10.0.2
+    :tag: 10.0.4
 
 SPEC CHECKSUMS:
-  AWSCore: ff962198e35c750cb1d59cd459c51f1990e3ec68
-  AWSSQS: ef01b3aec075c8a75a3c702a53f11642eda80d53
+  AWSCore: 13649d9063a6807ec37bde35c8f2da329d63d4e2
+  AWSSQS: 83192c91ef1dc8682cec17e83d6dcc7380715dd0
   MBProgressHUD: e7baa36a220447d8aeb12769bf0585582f3866d9
-  SQLite.swift: 903bfa3bc9ab06345fdfbb578e34f47cfcf417da
-  ZendriveSDK: d363d68e918e291a716992071fc4e923b5084e99
+  SQLite.swift: 555583e9e756c0cf4e5883a1e46e9be438af3b0d
+  ZendriveSDK: cd542cd97e14481054e9bbd7c7760e1ebe7a88c2
 
-PODFILE CHECKSUM: 14cf7bae47f76e2192778f5ee9953af37a858bab
+PODFILE CHECKSUM: b0d68991de4410ca18f86235d49f30228d2b4460
 
-COCOAPODS: 1.14.3
+COCOAPODS: 1.15.2
